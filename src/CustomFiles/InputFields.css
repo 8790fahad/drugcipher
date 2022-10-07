@@ -1,0 +1,38 @@
+:root {
+  --primaryColor: black;
+  --primaryColor2: rgb(3, 66, 110);
+  --secondaryColor: rgb(54, 54, 54);
+  --secondaryColor2: rgb(34, 34, 34);
+  --secondaryColor3: rgb(128, 209, 1);
+  --whiteColor: white;
+  --subHeadingColor: rgb(180, 180, 180);
+}
+
+.input_fields {
+  padding: 8.5px;
+  border: 1px solid var(--secondaryColor3);
+  background-color: rgb(255, 255, 255);
+  width: 300px;
+}
+.input_fields:focus {
+  /* border: none; */
+  outline: 1px solid var(--secondaryColor3);
+}
+
+.search_input {
+  padding: 8.5px;
+  border: 2px solid var(--primaryColor2);
+  background-color: rgb(255, 255, 255);
+  background-image: url('../image/search.png');
+  background-position: 600px 5px;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  display: block;
+  width: 100%;
+}
+
+.search_input:focus {
+  outline: none;
+  border: 1px solid var(--primaryColor2);
+}

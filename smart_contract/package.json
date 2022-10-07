@@ -1,0 +1,10 @@
+{
+  "name": "fahad",
+  "version": "1.0.0",
+  "description": "dapp",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  }
+}

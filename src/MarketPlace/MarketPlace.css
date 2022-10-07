@@ -1,0 +1,34 @@
+:root {
+  --primaryColor: black;
+  --primaryColor2: rgb(3, 66, 110);
+  --secondaryColor: rgb(54, 54, 54);
+  --secondaryColor2: rgb(34, 34, 34);
+  --secondaryColor3: rgb(128, 209, 1);
+  --whiteColor: white;
+  --subHeadingColor: rgb(180, 180, 180);
+}
+
+.icon_div {
+  cursor: pointer;
+}
+.icon_div:hover {
+  background-color: rgba(3, 65, 110, 0.171);
+  border-radius: 5%;
+  /* padding: 10px; */
+}
+.pharmacy_index{
+    background-color: rgb(241, 241, 241);
+}
+.index_card{
+    background-color: white;
+    border: none;
+    border-radius: 0;
+}
+.drug_image_div{
+    width: 100%;
+    background-color: red;
+    overflow: auto;
+}
+.drug_generic_name{
+    color: var(--secondaryColor3);
+ 
