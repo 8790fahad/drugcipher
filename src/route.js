@@ -9,9 +9,9 @@ export const RouteApp = () => {
     <Routes>
       <Route
         path="/"
-        element={<Navigate replace to="/drugcipher" />}
+        element={<Navigate replace to="/" />}
       />
-      <Route path="/drugcipher" element={<App />} />
+      <Route path="/" element={<App />} />
       <Route path="/inventory" element={<InventoryList />} />
       <Route path="/add-new-drug" element={<NewProduct />} />
     </Routes>

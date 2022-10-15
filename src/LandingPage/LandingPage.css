@@ -785,3 +785,11 @@
   }
 }
 
+a{
+  color: var(--whiteColor);
+  text-decoration: none;
+}
+a:hover{
+  color: var(--whiteColor);
+  cursor: pointer;
+}

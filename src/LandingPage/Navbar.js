@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import Button from '../CustomFiles/Button'
 import drugcipherIcon from '../image/DCIcon5.png'
 import { useNavigate } from 'react-router-dom'
+import { login } from '../utils/helper'
 export default function Navbar() {
     const navigate = useNavigate()
     return (
@@ -20,16 +21,16 @@ export default function Navbar() {
                 <Col xl={4} lg={4} md={4} sm={4} xs={4} className='nav_menuu'>
                     <div className='' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', justifyContent: 'space-around', height: '75px' }} >
                         <div>
-                            <p className='nav_menu' style={{ margin: 0 }}>About us</p>
+                            <p className='nav_menu' style={{ margin: 0 }}><a href='#about-us'>About us</a></p>
                         </div>
                         <div>
-                            <p className='nav_menu' style={{ margin: 0 }}>Team</p>
+                            <p className='nav_menu' style={{ margin: 0 }}><a href='#team'>Team</a></p>
                         </div>
                         <div>
-                            <p className='nav_menu' style={{ margin: 0 }}>Contact</p>
+                            <p className='nav_menu' style={{ margin: 0 }}><a href='#contact'>Contact</a></p>
                         </div>
                         <div>
-                            <p className='nav_menu' style={{ margin: 0 }}>Blog</p>
+                            <p className='nav_menu' style={{ margin: 0 }}><a href='#'>Blog</a></p>
                         </div>
                     </div>
                 </Col>
@@ -38,7 +39,8 @@ export default function Navbar() {
                 <Col xl={2} lg={2} md={6} sm={6} xs={6}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75px' }} >
                         <div>
-                            <Button className={'market_place_btn'} btnText={'Market Place'} onClick={() => navigate('/drug-cipher/market-place')} />
+                            <Button className={'market_place_btn'} btnText={'Connect Wallet'} onClick={login}
+                            />
                         </div>
                     </div>
                 </Col>

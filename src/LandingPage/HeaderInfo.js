@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
+import Clock from 'react-live-clock';
 import { Instagram, Linkedin, Twitter, Facebook, GitHub } from 'react-feather'
-
 export default function HeaderInfo() {
     const date = new Date()
     const currentYear = date.getFullYear()
@@ -24,10 +24,8 @@ export default function HeaderInfo() {
                 </Col>
                 <Col md={8}>
                     <marquee style={{ color: 'white' }}>
-                        {currentTime}{'. '}
-                        {currentDayName}{' '}
-                        {currentMonth}{', '}
-                        {currentYear}
+                        {/* {currentTime}{'. '} */}
+                        <Clock filter={date => date.replace('8', '7a')} format={'HH:mm:ss, dddd, MMMM Mo, YYYY'} ticking={true} />{'. '}
                     </marquee>
                 </Col>
                 <Col md={2}>

@@ -32,7 +32,7 @@ export default function TeamSection() {
     ]
 
     return (
-        <div className='p-5 text-center mt-5 our_team_whole '>
+        <div className='p-5 text-center mt-5 our_team_whole' id='team'>
             <h1 className='heading_two'>Our Team</h1>
             <p className='sub_heading'>Meet our team and explore all of our open positions and areas of expertise.</p>
 

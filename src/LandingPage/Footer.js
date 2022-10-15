@@ -7,7 +7,7 @@ export default function Footer() {
     const year = new Date()
     const currentYear = year.getFullYear()
     return (
-        <div className='footer'>
+        <div className='footer' id='contact'>
             <Row className='m-0 p-4'>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <div>

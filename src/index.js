@@ -10,16 +10,21 @@ import { BrowserRouter } from "react-router-dom";
 import { RouteApp } from "./route";
 import { Notification } from "./utils/Notification";
 import App from "./App";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 window.nearInitPromise = initializeContract()
   .then(() => {
     ReactDOM.render(
       <React.StrictMode>
         <Notification />
+          <Provider store={store}>
         <BrowserRouter>
           {/* <RouteApp /> */}
           <App />
+
         </BrowserRouter>
+          </Provider>
       </React.StrictMode>,
       document.getElementById("root")
     );

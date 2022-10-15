@@ -3,8 +3,9 @@ import { Col, Row } from 'react-bootstrap'
 
 export default function WhyDrugCipher() {
     return (
-        <div className='p-5 about_whole_div' style={{ marginTop: '', margin: 0 }}>
+        <div className='p-5 about_whole_div' style={{ marginTop: '', margin: 0 }} id='about-us'>
             <Row className='m-0'>
+
                 <Col lg={12} md={12} sm={12} xs={12}>
                     <div className='about_div'>
                         <div className='text-center'>

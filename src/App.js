@@ -9,9 +9,7 @@ import NavBar from "./component/marketplace/Nav";
 import LandingPage from "./LandingPage/LandingPage";
 import Pharmacy from "./MarketPlace/Pharmacy";
 import AppNavigation from "./Routes/AppNavigation";
-// import Web3 from "./LandingPage/Web3";
-// import Dc from "./LandingPage/Dc";
-
+import DrugsLocation from "./Manufacturer/DrugsLocation";
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState("0");
@@ -40,6 +38,7 @@ const App = function AppWrapper() {
       {/* <LandingPage /> */}
       {/* <Pharmacy/> */}
       <AppNavigation />
+      {/* <DrugsLocation /> */}
     </div>
   );
 };

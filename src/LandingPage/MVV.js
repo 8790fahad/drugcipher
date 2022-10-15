@@ -14,7 +14,8 @@ export default function MVV() {
             of our fast-paced culture. We are unyielding in our pursuit 
             of top talent whose leadership will enable us to realize the 
             full potential of our business, and we are committed to 
-            attracting and hiring them.`
+            attracting and hiring them.`,
+            alt: 'mission'
         },
         {
             mvvImage: vision,
@@ -25,7 +26,8 @@ export default function MVV() {
             of our fast-paced culture. We are unyielding in our pursuit 
             of top talent whose leadership will enable us to realize the 
             full potential of our business, and we are committed to 
-            attracting and hiring them.`
+            attracting and hiring them.`,
+            alt: 'vision'
         },
         {
             mvvImage: values,
@@ -35,7 +37,8 @@ export default function MVV() {
             pharmaceutical enterprise. to consistently provide products that meet high standards of
             quality and affordability while rising to the position of the leading pharmaceutical
             business in the market. By building a portfolio of affordable medications that are
-            accessible to everyone, we hope to leave our mark on society.`
+            accessible to everyone, we hope to leave our mark on society.`,
+            alt: 'values'
         }
     ]
     return (
@@ -51,7 +54,7 @@ export default function MVV() {
                                         <Col xl={3} lg={3} md={3} sm={12} xs={12} className=''>
                                             <div className='mvv_img'>
                                                 <div>
-                                                    <img className='shadow' src={item.mvvImage} alt='mission' style={{ float: 'right', borderRadius: '50%', width: 100 }} />
+                                                    <img className='shadow' src={item.mvvImage} alt={item.alt} style={{ float: 'right', borderRadius: '50%', width: 100 }} />
                                                 </div>
                                             </div>
                                         </Col>
