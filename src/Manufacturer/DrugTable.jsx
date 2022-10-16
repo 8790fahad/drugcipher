@@ -2,7 +2,7 @@ import React from 'react'
 // import OrderContent from "../orderSection/OrderContent";
 // import { drugData } from "../drugData";
 import { drugData } from './drugData'
-// import Sprite from "../../../../img/sprite.svg";
+import Sprite from "./sprite.svg";
 import { Table } from 'reactstrap'
 import './DrugTable.css'
 const DrugTable = () => {
@@ -14,7 +14,7 @@ const DrugTable = () => {
         listHeader="Product List"
       /> */}
 
-      <div className="table-responsive">
+      <div className="table-responsive mt-3">
         <Table hover className="table">
           <thead className="table__head">
             <tr>
