@@ -39,7 +39,7 @@ export default function Navbar() {
                 <Col xl={2} lg={2} md={6} sm={6} xs={6}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75px' }} >
                         <div>
-                            <Button className={'market_place_btn'} btnText={'Connect Wallet'} onClick={login}
+                            <Button className={'market_place_btn'} btnText={'Register'} onClick={() => navigate('/KYC')}
                             />
                         </div>
                     </div>

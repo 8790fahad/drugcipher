@@ -13,6 +13,8 @@ import add from '../image/add.png'
 import add1 from '../image/add1.png'
 import logout from '../image/logout.png'
 import settings1 from '../image/settings1.png'
+import pills1 from '../image/pills1.png'
+import pills from '../image/pills.png'
 import settings from '../image/settings.png'
 import { useLocation, useNavigate } from 'react-router-dom'
 export default function Sidebar() {
@@ -23,33 +25,33 @@ export default function Sidebar() {
             <div className=''>
                 <img src={logo} className='sidebarlogo' />
                 <div className='sidemenu_div'>
-                    <p className={`sidemenu ${location.pathname === '/overview' && 'active_side_menu'}`}
+                    {/* <p className={`sidemenu ${location.pathname === '/overview' && 'active_side_menu'}`}
                         onClick={() => navigate('/overview')}>
                         {location.pathname === '/overview' ?
                             <img src={overview1} style={{ width: '20px', marginRight: 10 }} />
                             : <img src={overview} style={{ width: '20px', marginRight: 10 }} />}
-                        {' '}Overview</p>
+                        {' '}Overview</p> */}
 
-                    <p className={`sidemenu ${location.pathname === '/KYC' && 'active_side_menu'}`}
+                    {/* <p className={`sidemenu ${location.pathname === '/KYC' && 'active_side_menu'}`}
                         onClick={() => navigate('/KYC')}>
                         {location.pathname === '/KYC' ?
                             <img src={kyc1} style={{ width: '20px', marginRight: 10 }} />
                             : <img src={kyc} style={{ width: '22px', marginRight: 10 }} />}
-                        {' '}KYC</p>
+                        {' '}KYC</p> */}
 
-                    <p className={`sidemenu ${location.pathname === '/register-new-drug' && 'active_side_menu'}`}
+                    {/* <p className={`sidemenu ${location.pathname === '/register-new-drug' && 'active_side_menu'}`}
                         onClick={() => navigate('/register-new-drug')}>
                         {location.pathname === '/register-new-drug' ?
                             <img src={add1} style={{ width: '22px', marginRight: 10 }} />
                             : <img src={add} style={{ width: '20px', marginRight: 10 }} />}
-                        {' '}Register New Drug</p>
+                        {' '}Register New Drug</p> */}
 
                     <p className={`sidemenu ${location.pathname === '/registered-drugs' && 'active_side_menu'}`}
                         onClick={() => navigate('/registered-drugs')}>
                         {location.pathname === '/registered-drugs' ?
-                            <img src={view1} style={{ width: '20px', marginRight: 10 }} />
-                            : <img src={view} style={{ width: '22px', marginRight: 10 }} />}
-                        {' '}View Registered Drugs</p>
+                            <img src={pills1} style={{ width: '22px', marginRight: 10 }} />
+                            : <img src={pills} style={{ width: '22px', marginRight: 10 }} />}
+                        {' '}Registered Drugs</p>
 
 
                     <p className={`sidemenu ${location.pathname === '/settings' && 'active_side_menu'}`}

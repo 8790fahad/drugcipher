@@ -120,3 +120,17 @@
 .expired_card {
   border: 1px solid var(--primaryColor2);
 }
+.KYC_card {
+  border-radius: 0;
+  margin: 30px;
+  /* border:0.5px solid var(--primaryColor2); */
+}
+.drop_down_item:hover{
+  background-color: var(--primaryColor2);
+  color: var(--whiteColor);
+  cursor: pointer;
+}
+.dropdown_menu{
+  border: none !important;
+  border-radius: 0 !important;
+}
