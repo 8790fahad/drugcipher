@@ -40,11 +40,6 @@ export default function ViewRegisteredDrugs() {
                                                     <CSVLink data={drugData} filename={'Drugs Data'} className='csv'>CSV</CSVLink>
                                                 </span>
                                             </div>
-                                            <div className='drop_down_item'>
-                                                <span className='p-3'>
-                                                    EXCEL SHEET
-                                                </span>
-                                            </div>
                                         </div>
                                     </DropdownMenu>
                                 </Dropdown>
