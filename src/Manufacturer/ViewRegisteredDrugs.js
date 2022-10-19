@@ -4,6 +4,12 @@ import DrugTable from './DrugTable'
 import { useNavigate } from 'react-router-dom'
 import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { useState } from 'react'
+import { Table } from 'reactstrap'
+import './DrugTable.css'
+import { drugData } from './drugData'
+
+import action from '../image/action.png'
+import { CSVLink } from 'react-csv'
 export default function ViewRegisteredDrugs() {
     const navigate = useNavigate()
     const [dropdown, setdropdown] = useState(false)
@@ -18,20 +24,25 @@ export default function ViewRegisteredDrugs() {
                         <h3 className='man_card_title'>Registered Drugs</h3>
                     </Col>
                     <Col md={6}>
-                        <div style={{ float: 'right' }}>
+                        <div style={{ float: 'right', display: 'flex' }}>
                             <div style={{ display: 'inline' }}>
                                 <Dropdown toggle={toggle1} isOpen={dropdown}>
                                     <DropdownToggle
                                         data-toggle="dropdown"
                                         tag="span"
                                     >
-                                        <button className='man_button' style={{ marginRight: 5 }} >Export</button>
+                                        <button className='man_button' style={{ marginRight: 5 }} >Export As</button>
                                     </DropdownToggle>
-                                    <DropdownMenu className='dropdown_menu shadow'>
+                                    <DropdownMenu className='dropdown_menu shadow mt-3'>
                                         <div className=''>
                                             <div className='drop_down_item'>
                                                 <span className='p-3'>
-                                                    CVV
+                                                    <CSVLink data={drugData} filename={'Drugs Data'} className='csv'>CSV</CSVLink>
+                                                </span>
+                                            </div>
+                                            <div className='drop_down_item'>
+                                                <span className='p-3'>
+                                                    EXCEL SHEET
                                                 </span>
                                             </div>
                                         </div>
@@ -44,7 +55,42 @@ export default function ViewRegisteredDrugs() {
                         </div>
                     </Col>
                 </Row>
-                <DrugTable />
+                {/* <DrugTable /> */}
+                <div className="mt-3">
+                    <Table hover responsive className="table" size="">
+                        <thead className="">
+                            <tr>
+                                <th>S/N</th>
+                                <th> Drug Name</th>
+                                <th> Drug Generic Name</th>
+                                <th>Creation date</th>
+                                <th>Expiry date</th>
+                                <th>NAFDAC</th>
+                                <th>Dosages</th>
+                                <th>
+                                    <div className="last-column">Action</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {drugData.map((item, index) => (
+                                <tr>
+                                    <td>{index + 1}</td>
+                                    <td>{item.drugName}</td>
+                                    <td>{item.genericName}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.expiryDate}</td>
+                                    <td>{item.NAFDAC}</td>
+                                    <td>{item.dosages}</td>
+                                    <td>
+                                        <img src={action} className='action_img' alt='action' />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </div>
+
             </Card>
         </div>
     )

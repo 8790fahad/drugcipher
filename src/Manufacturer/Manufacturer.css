@@ -138,3 +138,9 @@
   background-color: rgba(3, 65, 110, 0.158);
   cursor: pointer;
 }
+.csv{
+  color: #03416e;
+}
+.csv:hover{
+  color: var(--whiteColor);
+}
