@@ -2,9 +2,10 @@ import React from 'react'
 // import OrderContent from "../orderSection/OrderContent";
 // import { drugData } from "../drugData";
 import { drugData } from './drugData'
-import Sprite from "./sprite.svg";
+import Sprite from './sprite.svg'
 import { Table } from 'reactstrap'
 import './DrugTable.css'
+import action from '../image/action.png'
 const DrugTable = () => {
   return (
     <div>
@@ -15,7 +16,7 @@ const DrugTable = () => {
       /> */}
 
       <div className="mt-3">
-        <Table hover responsive className="table" size=''>
+        <Table hover responsive className="table" size="">
           <thead className="">
             <tr>
               <th>S/N</th>
@@ -26,17 +27,14 @@ const DrugTable = () => {
               <th>NAFDAC</th>
               <th>Dosages</th>
               <th>
-                <div className="last-column">
-                  Action
-                  {/* <th></th> */}
-                </div>
+                <div className="last-column">Action</div>
               </th>
             </tr>
           </thead>
           <tbody>
-            {drugData.map((item,index) => (
+            {drugData.map((item, index) => (
               <tr>
-                <td>{index+1}</td>
+                <td>{index + 1}</td>
                 <td>{item.drugName}</td>
                 <td>{item.genericName}</td>
                 <td>{item.date}</td>
@@ -44,6 +42,7 @@ const DrugTable = () => {
                 <td>{item.NAFDAC}</td>
                 <td>{item.dosages}</td>
                 <td>
+                  <img src={action} className='action_img' alt='action'/>
                 </td>
               </tr>
             ))}

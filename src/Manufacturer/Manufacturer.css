@@ -125,12 +125,16 @@
   margin: 30px;
   /* border:0.5px solid var(--primaryColor2); */
 }
-.drop_down_item:hover{
+.drop_down_item:hover {
   background-color: var(--primaryColor2);
   color: var(--whiteColor);
   cursor: pointer;
 }
-.dropdown_menu{
+.dropdown_menu {
   border: none !important;
   border-radius: 0 !important;
+}
+.action_img:hover {
+  background-color: rgba(3, 65, 110, 0.158);
+  cursor: pointer;
 }

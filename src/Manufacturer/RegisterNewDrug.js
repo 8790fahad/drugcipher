@@ -90,14 +90,9 @@ export default function RegisterNewDrug() {
                             </Col>
                         </Row>
                     </Col>
-                    {/* <Col md={4}>
-                        <div style={{ marginTop: 40 }}>
-                            <QRCode id="qrCodeEl" value={drugDetails} size={185} />,
-                        </div>
-                    </Col> */}
                 </Row>
                 <div className='mt-3'>
-                    <button className='man_button' onClick={()=>navigate('/QRCode')}>Register</button>
+                    <button className='man_button' onClick={() => navigate('/QRCode')}>Register</button>
                 </div>
             </Card>
 
