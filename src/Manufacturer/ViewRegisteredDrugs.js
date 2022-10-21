@@ -87,14 +87,13 @@ export default function ViewRegisteredDrugs() {
                                     <td>{item.NAFDAC}</td>
                                     <td>{item.dosages}</td>
                                     <td>
-                                        <Grid className='grid' onClick={()=>navigate('/overview')}/>
+                                        <Grid className='grid' onClick={() => navigate('/overview')} />
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </Table>
                 </div>
-
             </Card>
         </div>
     )
