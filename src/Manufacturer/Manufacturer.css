@@ -112,6 +112,7 @@
 .barchart_div {
   border: 1px solid rgb(3, 66, 110);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.11), 0 6px 20px 0 rgba(0, 0, 0, 0.123);
+  /* height: 100%; */
 }
 .expired_drug {
   height: 27.5vh;
@@ -140,14 +141,21 @@
   background-color: rgba(3, 65, 110, 0.158);
   cursor: pointer;
 }
-.csv{
+.csv {
   color: #03416e;
 }
-.csv:hover{
+.csv:hover {
   color: var(--whiteColor);
 }
 
-.aa:focus{
+.aa:focus {
   outline: none;
   background-color: red;
+}
+.grid {
+  color: var(--primaryColor2);
+}
+.grid:hover {
+  background-color: #029f412f;
+  cursor: pointer;
 }

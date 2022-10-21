@@ -10,7 +10,7 @@ import { drugData } from './drugData'
 
 import action from '../image/action.png'
 import { CSVLink } from 'react-csv'
-import { Eye, File, FileText } from 'react-feather'
+import { Eye, File, FileText, Grid } from 'react-feather'
 export default function ViewRegisteredDrugs() {
     const navigate = useNavigate()
     const [dropdown, setdropdown] = useState(false)
@@ -87,7 +87,7 @@ export default function ViewRegisteredDrugs() {
                                     <td>{item.NAFDAC}</td>
                                     <td>{item.dosages}</td>
                                     <td>
-                                        <FileText />
+                                        <Grid className='grid' onClick={()=>navigate('/overview')}/>
                                     </td>
                                 </tr>
                             ))}
