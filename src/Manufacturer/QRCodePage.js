@@ -2,9 +2,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
+import drugcipherIcon from '../image/DRUG CIPHER (2).png'
+
 import Button from '../CustomFiles/Button'
-import QRCode from 'react-qr-code';
+// import QRCode from 'react-qr-code';
 import { useRef } from 'react'
+import { QRCode } from 'react-qrcode-logo';
 
 export default function QRCodePage() {
     const [drug, setDrug] = useState({
@@ -47,7 +50,8 @@ export default function QRCodePage() {
                 <Row>
                     <Col md={4}>
                         <div style={{ marginTop: 40 }}>
-                            <QRCode id="qrCodeEl" value={drugDetails} size={185} />,
+                            {/* <QRCode id="qrCodeEl" value={drugDetails} size={185} />, */}
+                            <QRCode value={drugDetails} bgColor={'rgb(3, 66, 110)'} fgColor={'#FFFFFF'} logoImage={drugcipherIcon} logoWidth={50}/>
                         </div>
                     </Col>
                 </Row>

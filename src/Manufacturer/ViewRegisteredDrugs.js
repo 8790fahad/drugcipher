@@ -10,12 +10,20 @@ import { drugData } from './drugData'
 
 import action from '../image/action.png'
 import { CSVLink } from 'react-csv'
+import { Eye, File, FileText } from 'react-feather'
 export default function ViewRegisteredDrugs() {
     const navigate = useNavigate()
     const [dropdown, setdropdown] = useState(false)
     const toggle1 = () => {
         setdropdown(!dropdown)
     }
+    const [actions, setActions] = useState(false)
+    const toggle = () => {
+        setActions(!actions)
+    }
+
+
+
     return (
         <div>
             <Card className='man_card shadow p-3'>
@@ -51,6 +59,7 @@ export default function ViewRegisteredDrugs() {
                     </Col>
                 </Row>
                 {/* <DrugTable /> */}
+
                 <div className="mt-3">
                     <Table hover responsive className="table" size="">
                         <thead className="">
@@ -78,7 +87,7 @@ export default function ViewRegisteredDrugs() {
                                     <td>{item.NAFDAC}</td>
                                     <td>{item.dosages}</td>
                                     <td>
-                                        <img src={action} className='action_img' alt='action' />
+                                        <FileText />
                                     </td>
                                 </tr>
                             ))}

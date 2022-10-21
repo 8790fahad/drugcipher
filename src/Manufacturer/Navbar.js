@@ -7,19 +7,41 @@ import account from '../image/account.png'
 import { useNavigate } from 'react-router-dom'
 import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
+import { login } from '../utils/helper'
+import { Typeahead } from 'react-bootstrap-typeahead'
+import { drugData } from './drugData'
 export default function Navbar() {
     const navigate = useNavigate()
     const [dropdown, setdropdown] = useState(false)
     const toggle1 = () => {
         setdropdown(!dropdown)
     }
+    const [singleSelections, setSingleSelections] = useState([]);
     return (
         <div>
+            {/* {JSON.stringify(drugData)} */}
+            {/* <div>
+                {setTypeaheadData.map((item) => (
+                    <p>
+                        {item.date}
+                    </p>
+                ))}
+            </div> */}
+
             <Row className='m-0'>
                 <Col md={9}>
-                    <div>
-                        <input type='text' placeholder='Search' className='man_search_field shadow' />
-                    </div>
+                    <Typeahead
+                        id="basic-typeahead-single"
+                        labelKey="drugName"
+                        onChange={setSingleSelections}
+                        options={drugData}
+                        placeholder="Search drugs by name"
+                        selected={singleSelections}
+                        inputProps={{ className: 'man_search_field', style: { 'outline': 'none' } }}
+                        onClick={() => navigate('/')}
+                    />
+                    {/* <input type='text' placeholder='Search Drugs' className='man_search_field shadow' /> */}
+
                 </Col>
                 <Col md={3}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', height: '70px' }}>
@@ -52,7 +74,7 @@ export default function Navbar() {
                                             Profile
                                         </span>
                                     </div>
-                                    <div className='drop_down_item'>
+                                    <div className='drop_down_item' onClick={login}>
                                         <span className='p-3'>
                                             Connect NEAR
                                         </span>

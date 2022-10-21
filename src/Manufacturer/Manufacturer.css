@@ -20,7 +20,8 @@
 }
 .sidebarlogo {
   width: 70px;
-  padding: 20px 10px;
+  padding: 20px 5px;
+  border-radius: 10px;
 }
 .sidemenu_div {
   color: var(--whiteColor);
@@ -66,16 +67,17 @@
   color: var(--primaryColor2);
 }
 .man_search_field {
-  width: 7%;
+  width: 13%;
   background-color: white;
   margin: 15px 20px;
   border: none;
   padding: 8px;
   transition: 500ms;
+  border-radius: 0;
 }
 .man_search_field:focus {
   width: 100%;
-  outline: none;
+  outline: none !important;
 }
 
 .man_input_fields {
@@ -143,4 +145,9 @@
 }
 .csv:hover{
   color: var(--whiteColor);
+}
+
+.aa:focus{
+  outline: none;
+  background-color: red;
 }

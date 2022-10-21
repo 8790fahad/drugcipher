@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Button from '../CustomFiles/Button'
-import drugcipherIcon from '../image/DCIcon5.png'
+import drugcipherIcon from '../image/DRUG CIPHER (2).png'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../utils/helper'
 export default function Navbar() {

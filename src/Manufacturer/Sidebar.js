@@ -1,6 +1,6 @@
 import React from 'react'
 import './Manufacturer.css'
-import logo from '../image/DCIcon5.png'
+import logo from '../image/DRUG CIPHER (2).png'
 import overview from '../image/overview.png'
 import overview1 from '../image/overview1.png'
 import kyc from '../image/kyc.png'
@@ -23,7 +23,9 @@ export default function Sidebar() {
     return (
         <div className='man_sidebar m-0'>
             <div className=''>
-                <img src={logo} className='sidebarlogo' />
+                <div className=''>
+                    <img src={logo} style={{ borderRadius: 10, width: 50, margin:10 }} />
+                </div>
                 <div className='sidemenu_div'>
                     {/* <p className={`sidemenu ${location.pathname === '/overview' && 'active_side_menu'}`}
                         onClick={() => navigate('/overview')}>
