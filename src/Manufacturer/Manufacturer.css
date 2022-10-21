@@ -161,12 +161,16 @@
   cursor: pointer;
 }
 ._slogan {
-  background-image: linear-gradient( #03416e, #029f41);
+  background-image: linear-gradient(#03416e, #029f41);
   background: transparent;
   font-weight: 1px;
   font-size: 20px;
 }
-.not_card{
+.not_card {
   border-radius: 0;
   background: linear-gradient(90deg, #03416e10, #029f413a);
+}
+.active_nav_menu {
+  background-color: rgba(3, 65, 110, 0.171);
+  border-radius: 5%;
 }

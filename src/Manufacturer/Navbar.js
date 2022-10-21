@@ -4,7 +4,7 @@ import cart from '../image/cart.png'
 import bell from '../image/bell.png'
 import help from '../image/help.png'
 import account from '../image/account.png'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { login } from '../utils/helper'
@@ -12,6 +12,8 @@ import { Typeahead } from 'react-bootstrap-typeahead'
 import { drugData } from './drugData'
 export default function Navbar() {
     const navigate = useNavigate()
+    const location = useLocation()
+
     const [dropdown, setdropdown] = useState(false)
     const toggle1 = () => {
         setdropdown(!dropdown)
@@ -45,15 +47,12 @@ export default function Navbar() {
                 </Col>
                 <Col md={3}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', height: '70px' }}>
-                        <div className='icon_div p-1' style={{ position: 'relative' }} onClick={() => navigate('/notifications')}>
+                        <div className={`icon_div p-1 ${location.pathname === '/notifications' && 'active_nav_menu'}`} style={{ position: 'relative' }} onClick={() => navigate('/notifications')}>
                             <div className='absolute'>
                                 <span >11</span>
                             </div>
                             <img src={bell} />
                         </div>
-                        {/* <div className='icon_div p-1'>
-                            <img src={bell} />
-                        </div> */}
                         <div className='icon_div p-1'>
                             <img src={help} />
                         </div>

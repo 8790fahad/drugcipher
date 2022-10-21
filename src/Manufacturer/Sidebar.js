@@ -24,7 +24,7 @@ export default function Sidebar() {
         <div className='man_sidebar m-0'>
             <div className=''>
                 <div className=''>
-                    <img src={logo} style={{ borderRadius: 10, width: 50, margin:10 }} />
+                    <img src={logo} style={{ borderRadius: 10, width: 50, margin:'30px 10px' }} />
                 </div>
                 <div className='sidemenu_div'>
                     {/* <p className={`sidemenu ${location.pathname === '/overview' && 'active_side_menu'}`}
