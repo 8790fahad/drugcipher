@@ -8,6 +8,7 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
+import "bootstrap";
 
 export default function Profile() {
   return (
@@ -35,8 +36,8 @@ export default function Profile() {
 
               <Col md={1}></Col>
               <Col md={4} className="mt-3 ">
-                <h2 className="text-center">Company details</h2>
-                <Card className="p-3">
+                <h2>Company details</h2>
+                <Card className="p-3 shadow border-0 rounded-0">
                   <CardBody>
                     <CardTitle>Something here</CardTitle>
                     <Row>
@@ -60,8 +61,8 @@ export default function Profile() {
               </Col>
 
               <Col md={4} className="mt-3 ">
-                <h2 className="text-center"> Contact details</h2>
-                <Card className="p-3">
+                <h2> Contact details</h2>
+                <Card className="p-3 shadow border-0 rounded-0">
                   <CardBody>
                     <CardTitle>Something here</CardTitle>
                     <Row>
@@ -89,8 +90,8 @@ export default function Profile() {
             <Row className="mt-5">
               <Col md={1}></Col>
               <Col md={4} className="mb-4">
-                <h2 className="text-center"> Manufacture's License</h2>
-                <Card className="p-3">
+                <h2> Manufacturer's License</h2>
+                <Card className="p-3 shadow border-0 rounded-0">
                   <CardBody>
                     <CardTitle>Something here</CardTitle>
                     <CardText>
@@ -102,8 +103,8 @@ export default function Profile() {
                 </Card>
               </Col>
               <Col md={4}>
-                <h2 className="text-center"> Drug License</h2>
-                <Card className="p-3">
+                <h2> Drug License</h2>
+                <Card className="p-3 shadow border-0 rounded-0">
                   <CardBody>
                     <CardTitle>Something here</CardTitle>
                     <CardText>
