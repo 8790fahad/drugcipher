@@ -28,10 +28,10 @@ export default function ViewRegisteredDrugs() {
         <div>
             <Card className='man_card shadow p-3'>
                 <Row>
-                    <Col md={6}>
+                    <Col xl={6} lg={6} md={6} sm={6} xs={6}>
                         <h3 className='man_card_title'>Registered Drugs</h3>
                     </Col>
-                    <Col md={6}>
+                    <Col xl={6} lg={6} md={6} sm={6} xs={6}>
                         <div style={{ float: 'right', display: 'flex' }}>
                             <div style={{ display: 'inline' }}>
                                 <Dropdown toggle={toggle1} isOpen={dropdown}>

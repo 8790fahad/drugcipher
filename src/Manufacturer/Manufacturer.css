@@ -17,6 +17,7 @@
 ._outlet {
   /* background-color: var(--outlet); */
   background: linear-gradient(90deg, #03416e10, #029f413a);
+  /* height: 100%; */
 }
 .sidebarlogo {
   width: 70px;
@@ -59,7 +60,7 @@
   margin: 0 30px;
   /* border:0.5px solid var(--primaryColor2); */
   height: 85vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .man_card_title {
   color: var(--primaryColor2);
@@ -173,4 +174,57 @@
 .active_nav_menu {
   background-color: rgba(3, 65, 110, 0.171);
   border-radius: 5%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+@media only screen and (max-width: 768px) {
+  .man_sidebar {
+    display: none;
+  }
+  .webnavbar {
+    display: none;
+  }
+  .mobilenavbar {
+    background-color: var(--primaryColor2);
+  }
+  .menu_ {
+    color: 'white';
+    float: 'right';
+  }
+  .man_card_title {
+    font-size: 15px;
+  }
+  .man_button {
+    font-size: 10px;
+  }
+  ._outlet {
+    height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobilenavbar {
+    display: none;
+  }
+  .man_nav_search_field {
+    display: none;
+  }
 }

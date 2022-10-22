@@ -11,7 +11,7 @@ export default function Notifications() {
                  
                 {drugData.map((item) => (
                     <Row>
-                        <Col md={10}>
+                        <Col xl={10} lg={10} md={10} sm={10} xs={10}>
                             <Card className='not_card p-3 mb-3 shadow'>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div>
@@ -29,11 +29,11 @@ export default function Notifications() {
                                 </div>
                             </Card>
                         </Col>
-                        <Col md={2}>
+                        <Col xl={2} lg={2} md={2} sm={2} xs={2}>
                             <Card className='not_card p-3 mb-3 shadow'>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div>
-                                        <p className='m-0'>0m ago</p>
+                                        <p className='m-0'>0m</p>
                                     </div>
                                     <div>
                                         <Trash className='grid' />
@@ -49,7 +49,7 @@ export default function Notifications() {
 
                 {drugData.map((item) => (
                     <Row>
-                        <Col md={10}>
+                        <Col xl={10} lg={10} md={10} sm={10} xs={10}>
                             <Card className='not_card p-3 mb-3 shadow'>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div>
@@ -67,11 +67,11 @@ export default function Notifications() {
                                 </div>
                             </Card>
                         </Col>
-                        <Col md={2}>
+                        <Col xl={2} lg={2} md={2} sm={2} xs={2}>
                             <Card className='not_card p-3 mb-3 shadow'>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div>
-                                        <p className='m-0'>0m ago</p>
+                                        <p className='m-0'>0m</p>
                                     </div>
                                     <div>
                                         <Trash className='grid' />
