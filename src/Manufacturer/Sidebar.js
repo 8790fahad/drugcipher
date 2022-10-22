@@ -63,7 +63,7 @@ export default function Sidebar() {
                         {' '}Settings</p>
 
                     <div className='sidemenu_bottom m-0 p-0'>
-                        <p className={`sidemenu_bottom_icon ${location.pathname === '/GH' && 'active_side_menu'}`} onClick={() => navigate('/GH')}><img src={get_help} style={{ width: '22px', marginRight: 10 }} alt="" />{' '}Get Help</p>
+                        <p className={`sidemenu_bottom_icon ${location.pathname === '/Gethelp' && 'active_side_menu'}`} onClick={() => navigate('/Gethelp')}><img src={get_help} style={{ width: '22px', marginRight: 10 }} alt="" />{' '}Get Help</p>
                         <p className={`sidemenu_bottom_icon ${location.pathname === '/' && 'active_side_menu'}`} onClick={() => navigate('/')}><img src={logout} style={{ width: '22px', marginRight: 10 }} alt="" />{' '}Logout</p>
                     </div>
                 </div>

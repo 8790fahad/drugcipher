@@ -1,44 +1,66 @@
 import React from 'react'
+import { useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import './DrugTable.css'
 import './Manufacturer.css'
 import Accordion from 'react-bootstrap/Accordion';
-
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function Gethelp() {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    // const [validated, setValidated] = useState(false);
+
+    // const handleSubmit = (event) => {
+    //     const form = event.currentTarget;{
+    //         navigate("/GH")
+    //     }
+    // };
+
+
+
+
     return (
-        <div className='GH'>
-            <Card className='man_card shadow p-3'>GH
+        <>
+            <Card className='man_card shadow p-3'>
                 <Row>
-                    <Col md={6}>
+                    <Col md={12} style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3 className='man_card_title'>Frequently Helped Questions</h3>
+                        <button className='MT' onClick={handleShow} >SEND A MESSAGE</button>
                     </Col>
                     {/* <Col md={6}>
-                        <div style={{ float: 'right', display: 'flex' }}>```````````````````
-                            <div style={{ display: 'inline' }}>
-                                <Dropdown toggle={toggle1} isOpen={dropdown}>
-                                    <DropdownToggle
-                                        data-toggle="dropdown"
-                                        tag="span"
-                                    >
-                                        <button className='man_button' style={{ marginRight: 5 }} >Export As</button>
-                                    </DropdownToggle>
-                                    <DropdownMenu className='dropdown_menu shadow mt-3'>
-                                        <div className=''>
-                                            <div className='drop_down_item'>
-                                                <span className='p-3'>
-                                                    <CSVLink data={drugData} filename={'Drugs Data'} className='csv'>CSV</CSVLink>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </DropdownMenu>
-                                </Dropdown>
-                            </div>
-                            <div style={{ display: 'inline' }}>
-                                <button className='man_button' onClick={() => navigate('/register-new-drug')}>Create New</button>
+        <div style={{ float: 'right', display: 'flex' }}>```````````````````
+            <div style={{ display: 'inline' }}>
+                <Dropdown toggle={toggle1} isOpen={dropdown}>
+                    <DropdownToggle
+                        data-toggle="dropdown"
+                        tag="span"
+                    >
+                        <button className='man_button' style={{ marginRight: 5 }} >Export As</button>
+                    </DropdownToggle>
+                    <DropdownMenu className='dropdown_menu shadow mt-3'>
+                        <div className=''>
+                            <div className='drop_down_item'>
+                                <span className='p-3'>
+                                    <CSVLink data={drugData} filename={'Drugs Data'} className='csv'>CSV</CSVLink>
+                                </span>
                             </div>
                         </div>
-                    </Col> */}
+                    </DropdownMenu>
+                </Dropdown>
+            </div>
+            <div style={{ display: 'inline' }}>
+                <button className='man_button' onClick={() => navigate('/register-new-drug')}>Create New</button>
+            </div>
+        </div>
+    </Col> */}
                 </Row>
                 {/* <DrugTable /> */}
                 <Accordion>
@@ -73,8 +95,41 @@ export default function Gethelp() {
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
-
             </Card>
-        </div>
+        <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Send a message</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {/* <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control
+                            className='none'
+                                type="email"
+                                placeholder="name@example.com"
+                                autoFocus />
+                        </Form.Group>
+                        <Form.Group
+                            className="mb-3"
+                            controlId="exampleForm.ControlTextarea1"
+                        >
+                            <Form.Label>Explain in details</Form.Label>
+                            <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
+                    </Form> */}
+                    <input type='email' placeholder='example@gmail.com' className='man_input_fields'/>
+                    <textarea placeholder='explain in details' style={{height:150}} className='man_input_fields mt-4'></textarea>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className='man_button' onClick={handleClose}>
+                        Close
+                    </button>
+                    <button className='man_button' onClick={handleClose}>
+                        Send
+                    </button>
+                </Modal.Footer>``
+            </Modal></>
+
     )
 }

@@ -12,7 +12,7 @@ function GH() {
     return (
         <>
             <button className='man_button' onClick={handleShow}>
-                GET HELP.
+                SEND A MESSAGE.
             </button>
 
             <Modal show={show} onHide={handleClose}>
@@ -45,7 +45,7 @@ function GH() {
                     <Button variant="primary" onClick={handleClose}>
                         Send
                     </Button>
-                </Modal.Footer>``
+                </Modal.Footer>
             </Modal>
         </>
     );

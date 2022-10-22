@@ -64,10 +64,10 @@ function AppNavigation() {
                     path: "/Gethelp",
                     element: <Gethelp />
                 },
-                {
-                    path: "/GH",
-                    element: <Gh />,
-                },
+                // {
+                //     path: "/GH",
+                //     element: <Gh />,
+                // },
                 // {
                 //     path: "/market-place/cart",
                 //     element: <Cart />,
