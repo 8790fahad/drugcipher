@@ -32,7 +32,7 @@ export default function Navbar() {
                         {/* <div className='icon_div p-1'>
                             <img src={bell} />
                         </div> */}
-                        <div className='icon_div p-1'>
+                        <div className='icon_div p-1' style={{ position: 'relative' }} onClick={() => navigate('/Gethelp')}>
                             <img src={help} />
                         </div>
 
