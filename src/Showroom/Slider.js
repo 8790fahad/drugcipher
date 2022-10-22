@@ -1,6 +1,5 @@
 import SimpleImageSlider from "react-simple-image-slider";
 import panadol from '../image/panadol.png'
-import profile from '../image/profile.jpg'
 import gestid from '../image/gestid.jpg'
 const images = [
     { url: panadol },

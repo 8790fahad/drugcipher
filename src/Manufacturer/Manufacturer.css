@@ -93,6 +93,12 @@
   padding: 8px;
   color: white;
 }
+.GH {
+ border: none;
+  background-image: linear-gradient(90deg, #03416e, #029f41);
+  padding: 8px;
+  color: white; 
+}
 .overview_card {
   border: none;
   border-radius: 0;

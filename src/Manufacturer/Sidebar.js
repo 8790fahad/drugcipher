@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './Manufacturer.css'
 import logo from '../image/DCIcon5.png'
@@ -23,7 +24,7 @@ export default function Sidebar() {
     return (
         <div className='man_sidebar m-0'>
             <div className=''>
-                <img src={logo} className='sidebarlogo' />
+                <img src={logo} className='sidebarlogo' alt="" />
                 <div className='sidemenu_div'>
                     {/* <p className={`sidemenu ${location.pathname === '/overview' && 'active_side_menu'}`}
                         onClick={() => navigate('/overview')}>
@@ -49,21 +50,21 @@ export default function Sidebar() {
                     <p className={`sidemenu ${location.pathname === '/registered-drugs' && 'active_side_menu'}`}
                         onClick={() => navigate('/registered-drugs')}>
                         {location.pathname === '/registered-drugs' ?
-                            <img src={pills1} style={{ width: '22px', marginRight: 10 }} />
-                            : <img src={pills} style={{ width: '22px', marginRight: 10 }} />}
+                            <img src={pills1} style={{ width: '22px', marginRight: 10 }} alt="" />
+                            : <img src={pills} style={{ width: '22px', marginRight: 10 }} alt="" />}
                         {' '}Registered Drugs</p>
 
 
                     <p className={`sidemenu ${location.pathname === '/settings' && 'active_side_menu'}`}
                         onClick={() => navigate('/settings')}>
                         {location.pathname === '/settings' ?
-                            <img src={settings1} style={{ width: '22px', marginRight: 10 }} />
-                            : <img src={settings} style={{ width: '20px', marginRight: 10 }} />}
+                            <img src={settings1} style={{ width: '22px', marginRight: 10 }} alt="" />
+                            : <img src={settings} style={{ width: '20px', marginRight: 10 }} alt="" />}
                         {' '}Settings</p>
 
                     <div className='sidemenu_bottom m-0 p-0'>
-                        <p className={`sidemenu_bottom_icon ${location.pathname === '/help' && 'active_side_menu'}`} onClick={() => navigate('/help')}><img src={get_help} style={{ width: '22px', marginRight: 10 }} />{' '}Get Help</p>
-                        <p className={`sidemenu_bottom_icon ${location.pathname === '/' && 'active_side_menu'}`} onClick={() => navigate('/')}><img src={logout} style={{ width: '22px', marginRight: 10 }} />{' '}Logout</p>
+                        <p className={`sidemenu_bottom_icon ${location.pathname === '/GH' && 'active_side_menu'}`} onClick={() => navigate('/GH')}><img src={get_help} style={{ width: '22px', marginRight: 10 }} alt="" />{' '}Get Help</p>
+                        <p className={`sidemenu_bottom_icon ${location.pathname === '/' && 'active_side_menu'}`} onClick={() => navigate('/')}><img src={logout} style={{ width: '22px', marginRight: 10 }} alt="" />{' '}Logout</p>
                     </div>
                 </div>
             </div>
