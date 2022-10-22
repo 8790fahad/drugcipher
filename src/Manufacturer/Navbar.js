@@ -53,7 +53,7 @@ export default function Navbar() {
                             </div>
                             <img src={bell} />
                         </div>
-                        <div className='icon_div p-1'>
+                        <div className={`icon_div p-1 ${location.pathname === '/GetHelp' && 'active_nav_menu'}`} onClick={() => navigate('/GetHelp')}>
                             <img src={help} />
                         </div>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
                             </DropdownToggle>
                             <DropdownMenu className='dropdown_menu shadow'>
                                 <div className=''>
-                                    <div className='drop_down_item'>
+                                    <div className='drop_down_item' onClick={()=>navigate('/profile')}>
                                         <span className='p-3'>
                                             Profile
                                         </span>
@@ -95,7 +95,7 @@ export default function Navbar() {
                         </div>
                     </Col>
                 </Row>
-                <div>
+                {/* <div>
 
                     <Typeahead
                         id="basic-typeahead-single"
@@ -111,7 +111,7 @@ export default function Navbar() {
                         inputProps={{ className: ' man_search_field man_nav_search_field', style: { 'outline': 'none', 'marginLeft':10 } }}
                     // onInputChange={}
                     />
-                </div>
+                </div> */}
             </div>
 
         </div>

@@ -30,8 +30,8 @@ export default function Gethelp() {
     return (
         <>
             <Card className='man_card shadow p-3'>
-                <Row>
-                    <Col md={12} style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Row className='m-0 p-0'>
+                    <Col md={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <h3 className='man_card_title'>Frequently Helped Questions</h3>
                         <button className='MT' onClick={handleShow} >Send a message</button>
                     </Col>
@@ -96,7 +96,7 @@ export default function Gethelp() {
                     </Accordion.Item>
                 </Accordion>
             </Card>
-        <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Send a message</Modal.Title>
                 </Modal.Header>
@@ -118,8 +118,8 @@ export default function Gethelp() {
                             <Form.Control as="textarea" rows={3} />
                         </Form.Group>
                     </Form> */}
-                    <input type='email' placeholder='example@gmail.com' className='man_input_fields'/>
-                    <textarea placeholder='explain in details' style={{height:150}} className='man_input_fields mt-4'></textarea>
+                    <input type='email' placeholder='example@gmail.com' className='man_input_fields' />
+                    <textarea placeholder='explain in details' style={{ height: 150 }} className='man_input_fields mt-4'></textarea>
                 </Modal.Body>
                 <Modal.Footer>
                     <button className='man_button' onClick={handleClose}>

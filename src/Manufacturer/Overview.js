@@ -31,11 +31,11 @@ export default function Overview() {
                                 </Card>
                             </Col>
                         </Row>
-                        <Card className='overview_card shadow p-2 mb-2 mt-3'>
+                        <Card className='overview_card shadow p-2 mb-2 mt-1'>
                             <p className='m-0'>Expiry Date</p>
                             <h3>October 30th 2021</h3>
                         </Card>
-                        <Card className='overview_card shadow p-2 mt-4'>
+                        <Card className='overview_card shadow p-2 mt-2'>
                             <BarChart />
                         </Card>
                     </Col>
