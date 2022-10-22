@@ -8,53 +8,69 @@
   --subHeadingColor: rgb(180, 180, 180);
   --outlet: rgb(240, 240, 240);
 }
+
 .man_sidebar {
   background-color: var(--primaryColor2);
   /* background-image: linear-gradient(rgb(3, 66, 110), rgb(128, 209, 1)); */
   height: 100vh;
   /* background: linear-gradient(180deg, #03426e, #029f41) */
 }
+
+Form.Control:focus {
+  outline: none;
+}
+
 ._outlet {
   /* background-color: var(--outlet); */
   background: linear-gradient(90deg, #03416e10, #029f413a);
   /* height: 100%; */
 }
+
 .sidebarlogo {
   width: 70px;
   padding: 20px 5px;
   border-radius: 10px;
 }
+
 .sidemenu_div {
   color: var(--whiteColor);
 }
+
 .sidemenu {
   padding: 5px 10px;
 }
+
 .sidemenu:hover {
   background-color: rgba(200, 232, 255, 0.219);
   cursor: pointer;
 }
+
 .active_side_menu {
   background-color: #eaeef0;
   color: var(--primaryColor2);
   /* border-right: 5px solid var(--secondaryColor3); */
 }
+
 .active_side_menu:hover {
   background-color: #eaeef0;
   color: var(--primaryColor2);
 }
+
 .sidemenu_bottom_icon {
   padding: 5px 10px;
 }
+
 .sidemenu_bottom_icon:hover {
   background-color: rgba(200, 232, 255, 0.219);
   cursor: pointer;
 }
+
 .sidemenu_bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
+
 .man_card {
   border-radius: 0;
   margin: 0 30px;
@@ -62,12 +78,15 @@
   height: 85vh;
   overflow-y: auto;
 }
+
 .man_card_title {
   color: var(--primaryColor2);
 }
+
 .account {
   color: var(--primaryColor2);
 }
+
 .man_search_field {
   width: 13%;
   background-color: white;
@@ -77,6 +96,7 @@
   transition: 500ms;
   border-radius: 0;
 }
+
 .man_search_field:focus {
   width: 100%;
   outline: none !important;
@@ -88,64 +108,93 @@
   background-color: rgb(240, 240, 240);
   padding: 8px;
 }
+
 .man_input_fields:focus {
   outline: 1px solid var(--secondaryColor3);
 }
+
 .man_button {
   border: none;
   background-image: linear-gradient(90deg, #03416e, #029f41);
   padding: 8px;
   color: white;
 }
+
+.MT {
+  border: none;
+  background-image: linear-gradient(90deg, #03416e, #029f41);
+  padding: 8px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.GH {
+  border: none;
+  background-image: linear-gradient(90deg, #03416e, #029f41);
+  padding: 8px;
+  color: white;
+}
+
 .overview_card {
   border: none;
   border-radius: 0;
 }
+
 .d_p1 {
   background-color: rgb(3, 66, 110);
   color: white;
   padding: 1px 2px;
 }
+
 .d_p2 {
   background-color: #029f41;
   color: white;
   padding: 1px 2px;
 }
+
 .barchart_div {
   border: 1px solid rgb(3, 66, 110);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.11), 0 6px 20px 0 rgba(0, 0, 0, 0.123);
   /* height: 100%; */
 }
+
 .expired_drug {
   height: 27.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .expired_card {
   border: 1px solid var(--primaryColor2);
 }
+
 .KYC_card {
   border-radius: 0;
   margin: 30px;
   /* border:0.5px solid var(--primaryColor2); */
 }
+
 .drop_down_item:hover {
   background-color: var(--primaryColor2);
   color: var(--whiteColor);
   cursor: pointer;
 }
+
 .dropdown_menu {
   border: none !important;
   border-radius: 0 !important;
 }
+
 .action_img:hover {
   background-color: rgba(3, 65, 110, 0.158);
   cursor: pointer;
 }
+
 .csv {
   color: #03416e;
 }
+
 .csv:hover {
   color: var(--whiteColor);
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import InputField from '../CustomFiles/InputField'
@@ -36,16 +37,16 @@ export default function PharmacyNavMenu() {
                             <div className='absolute'>
                                 <span >{totalItems}</span>
                             </div>
-                            <img src={cart} />
+                            <img src={cart} alt="" />
                         </div>
                         <div className='icon_div p-1'>
-                            <img src={bell} />
+                            <img src={bell} alt="" />
                         </div>
                         <div className='icon_div p-1'>
-                            <img src={help} />
+                            <img src={help} alt="" />
                         </div>
                         <div className='icon_div p-1'>
-                            <span>Account</span>{' '}<img src={account} />
+                            <span>Account</span>{' '}<img src={account} alt="" />
                         </div>
                     </div>
                 </Col>

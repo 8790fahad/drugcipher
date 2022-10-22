@@ -108,7 +108,7 @@ export default function Navbar() {
                         options={drugData}
                         placeholder="Search drugs by name"
                         selected={singleSelections}
-                        inputProps={{ className: ' man_search_field man_nav_search_field', style: { 'outline': 'none', 'marginLeft':30 } }}
+                        inputProps={{ className: ' man_search_field man_nav_search_field', style: { 'outline': 'none', 'marginLeft':10 } }}
                     // onInputChange={}
                     />
                 </div>
