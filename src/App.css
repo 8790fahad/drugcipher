@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+/* PROFILE */
+.profile-card {
+  /* padding: 2rem;
+  margin: 5rem; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
