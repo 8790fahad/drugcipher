@@ -59,13 +59,14 @@ export default function QRCodePage() {
                             <QRCode
                                 id="qr-gen"
                                 value={drugDetails}
-                                level={"H"}
+                                // level={"H"}
                                 includeMargin={true}
                                 logoImage={drugcipherIcon}
-                                logoWidth={100} qrStyle={'dots'}
+                                logoWidth={100} 
+                                qrStyle={'dots'}
                                 size={300}
                                 // removeQrCodeBehindLogo={true}
-                                enableCORS={true}
+                                // enableCORS={true}
                                 logoOpacity={1}
                                 eyeRadius={[
                                     [30, 0, 0, 0],
@@ -87,6 +88,7 @@ export default function QRCodePage() {
                                     }
 
                                 ]}
+                                // ecLevel={'H'} 
                             />
                         </div>
                         {/* <div className='qr_code_div2'>
