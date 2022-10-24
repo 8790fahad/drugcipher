@@ -23,6 +23,11 @@ export default function Navbar() {
     const toggle1 = () => {
         setdropdown(!dropdown)
     }
+
+    const [dropdown2, setdropdown2] = useState(false)
+    const toggle2 = () => {
+        setdropdown2(!dropdown2)
+    }
     const [singleSelections, setSingleSelections] = useState([]);
     return (
         <div>
@@ -68,7 +73,7 @@ export default function Navbar() {
                             </DropdownToggle>
                             <DropdownMenu className='dropdown_menu shadow'>
                                 <div className=''>
-                                    <div className='drop_down_item' onClick={()=>navigate('/profile')}>
+                                    <div className='drop_down_item' onClick={() => navigate('/profile')}>
                                         <span className='p-3'>
                                             Profile
                                         </span>
@@ -91,7 +96,57 @@ export default function Navbar() {
                     </Col>
                     <Col xl={6} lg={6} md={6} sm={6} xs={6}>
                         <div style={{ color: 'white', float: 'right' }} className='pt-3'>
-                            <Menu className='menu_' size='2.5em' />
+                            <Dropdown toggle={toggle2} isOpen={dropdown2}>
+                                <DropdownToggle
+                                    data-toggle="dropdown"
+                                    tag="span"
+                                >
+                                    <Menu className='menu_' size='2.5em' />
+
+                                </DropdownToggle>
+                                <DropdownMenu className='dropdown_menu shadow'>
+                                    <div className=''>
+                                        <div className='drop_down_item' onClick={() => {
+                                            navigate('/profile')
+                                        }}>
+                                            
+                                            <span className='p-3'>
+                                                Profile
+                                            </span>
+                                        </div>
+                                        <div className='drop_down_item' onClick={login}>
+                                            <span className='p-3'>
+                                                Connect NEAR
+                                            </span>
+                                        </div>
+                                        <div className='drop_down_item' onClick={() => navigate('/registered-drugs')}>
+                                            <span className='p-3'>
+                                                Registered Drugs
+                                            </span>
+                                        </div>
+                                        <div className='drop_down_item' onClick={() => navigate('/notifications')}>
+                                            <span className='p-3'>
+                                                Notifications
+                                            </span>
+                                        </div>
+                                        <div className='drop_down_item' onClick={() => navigate('/settings')}>
+                                            <span className='p-3'>
+                                                Settings
+                                            </span>
+                                        </div>
+                                        <div className='drop_down_item' onClick={() => navigate('/GetHelp')}>
+                                            <span className='p-3'>
+                                                Get Help
+                                            </span>
+                                        </div>
+                                        <div className='drop_down_item' onClick={() => navigate('/')}>
+                                            <span className='p-3'>
+                                                Logout
+                                            </span>
+                                        </div>
+                                    </div>
+                                </DropdownMenu>
+                            </Dropdown>
                         </div>
                     </Col>
                 </Row>

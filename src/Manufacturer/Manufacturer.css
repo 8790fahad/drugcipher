@@ -272,6 +272,7 @@ Form.Control:focus {
   z-index: 1;
 }
 
+
 @media only screen and (max-width: 768px) {
   .man_sidebar {
     display: none;

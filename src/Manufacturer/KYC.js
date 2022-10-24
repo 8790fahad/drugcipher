@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
-import logo from '../image/DCIcon5.png'
+import logo from '../image/DRUG CIPHER (2).png'
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom'
 export default function KYC() {
@@ -28,8 +28,8 @@ export default function KYC() {
         <Form className='container' noValidate validated={validated} onSubmit={handleSubmit}>
             <Card className='KYC_card shadow p-3'>
                 <div>
-                    <img src={logo} style={{ width: 70 }} alt="" />
-                    <h4 style={{ display: 'inline', color: 'rgb(3, 66, 110)' }}>Drug Cipher</h4>
+                    <img src={logo} style={{ width: 70, borderRadius:10 }} alt="" className='shadow'/>{' '}
+                    <h4 style={{ display: 'inline', color: 'rgb(3, 66, 110)', marginRight:30 }}>Drug Cipher</h4>
                 </div>
                 <h3 className='man_card_title mt-4'>KYC</h3>
                 <div className='mt-3'>

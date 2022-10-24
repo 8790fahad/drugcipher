@@ -12,7 +12,7 @@ export default function Navbar() {
                 <Col xl={2} lg={2} md={2} sm={2} xs={2}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75px' }} >
                         <div>
-                            <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55 }} />
+                            <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55, borderRadius:10 }} />
                             <h5 className='dc-name'>Drug Cipher</h5>
                         </div>
                     </div>

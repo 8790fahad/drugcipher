@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import drugcipherIcon from '../image/DRUG CIPHER (2).png'
-
+import { v4 as uuid4 } from "uuid";
 import Button from '../CustomFiles/Button'
 // import QRCode from 'react-qr-code';
 import { useRef } from 'react'
@@ -16,6 +16,7 @@ export default function QRCodePage() {
         dosage: ''
     })
     const [drugDetails, setDrugDetails] = useState('')
+
     const handleChange = ({ target: { name, value } }) => {
         setDrug((p) => ({
             ...p, [name]: value
@@ -24,24 +25,26 @@ export default function QRCodePage() {
 
     useEffect(() => {
         setDrugDetails(`
-        Drug Name: ${drug.drugName},
-        Drug GenericName: ${drug.drugGenericName},
-        Dosages: ${drug.dosage}
+        Drug Name: ${drug.drugName = uuid4()},
+        Drug GenericName: ${drug.drugGenericName = uuid4()},
+        Dosages: ${drug.dosage = uuid4()}
         `)
     }, [drug])
 
     const downloadQRCode = () => {
-        const qrCodeURL = document.getElementById('qrCodeEl')
+        // Generate download with use canvas and stream
+        const canvas = document.getElementById("qr-gen");
+        const pngUrl = canvas
             .toDataURL("image/png")
             .replace("image/png", "image/octet-stream");
-        console.log(qrCodeURL)
-        let aEl = document.createElement("a");
-        aEl.href = qrCodeURL;
-        aEl.download = "QR_Code.png";
-        document.body.appendChild(aEl);
-        aEl.click();
-        document.body.removeChild(aEl);
-    }
+        let downloadLink = document.createElement("a");
+        downloadLink.href = pngUrl;
+        downloadLink.download = `${drugDetails}.png`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    };
+
     return (
         <div>
             {/* {JSON.stringify({ drugDetails })} */}
@@ -49,9 +52,11 @@ export default function QRCodePage() {
                 <h3 className='man_card_title'>Drug QR Code</h3>
                 <Row>
                     <Col md={4}>
-                        <div style={{ marginTop: 40 }}>
+                        <div className='qr_code_div' style={{ marginTop: 40 }}>
+                            {/* <input type='text' name='drugName' value={drug.drugName} onChange={handleChange} /> */}
                             {/* <QRCode id="qrCodeEl" value={drugDetails} size={185} />, */}
-                            <QRCode value={drugDetails} bgColor={'rgb(3, 66, 110)'} fgColor={'#FFFFFF'} logoImage={drugcipherIcon} logoWidth={50}/>
+                            <QRCode id="qr-gen" value={drugDetails} level={"H"}
+                                includeMargin={true} logoImage={drugcipherIcon} logoWidth={50} qrStyle={'dots'} size={300} removeQrCodeBehindLogo={true} enableCORS={true}/>
                         </div>
                     </Col>
                 </Row>
