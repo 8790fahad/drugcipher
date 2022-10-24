@@ -272,6 +272,15 @@ Form.Control:focus {
   z-index: 1;
 }
 
+.qr_code_div1 {
+  position: relative;
+}
+.qr_code_div2 {
+  position: absolute;
+  top: 170px;
+  left: 30px;
+  opacity: 0.3;
+}
 
 @media only screen and (max-width: 768px) {
   .man_sidebar {
