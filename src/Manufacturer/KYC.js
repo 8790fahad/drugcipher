@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import logo from '../image/DRUG CIPHER (2).png'
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom'
+import MyDropzone from './MyDropZone';
 export default function KYC() {
     const navigate = useNavigate()
 
@@ -28,16 +29,19 @@ export default function KYC() {
         <Form className='container' noValidate validated={validated} onSubmit={handleSubmit}>
             <Card className='KYC_card shadow p-3'>
                 <div>
-                    <img src={logo} style={{ width: 70, borderRadius:10 }} alt="" className='shadow'/>{' '}
-                    <h4 style={{ display: 'inline', color: 'rgb(3, 66, 110)', marginRight:30 }}>Drug Cipher</h4>
+                    <img src={logo} style={{ width: 70, borderRadius: 10 }} alt="" className='shadow' />{' '}
+                    <h4 style={{ display: 'inline', color: 'rgb(3, 66, 110)', marginRight: 30 }}>Drug Cipher</h4>
                 </div>
                 <h3 className='man_card_title mt-4'>KYC</h3>
                 <div className='mt-3'>
-                    <Row className='mt-3'>
+                    <label>
+                        Premices License by PCN & Superintendent Pharmacist License
+                    </label>
+                    <MyDropzone />
+
+                    {/* <Row className='mt-3'>
                         <Col md={6}>
-                            <label>
-                                Manufacturer License
-                            </label>
+
                             <input name='manufacturer_license'
                                 className='man_input_fields'
                                 type='file' required />
@@ -48,7 +52,7 @@ export default function KYC() {
                         </Col>
                         <Col md={6}>
                             <label>
-                                Pharmacist License
+                                Superintendent Pharmacist License
                             </label>
                             <input name='manufacturer_license'
                                 className='man_input_fields'
@@ -58,7 +62,7 @@ export default function KYC() {
                                 Please  choose a valid license.
                             </Form.Control.Feedback>
                         </Col>
-                    </Row>
+                    </Row> */}
                     <Row className='mt-3'>
                         <Col md={6} controlId="validationCustom03">
                             <label>

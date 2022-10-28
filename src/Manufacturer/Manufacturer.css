@@ -315,3 +315,31 @@ Form.Control:focus {
     display: none;
   }
 }
+
+ul {
+  margin: 0;
+}
+
+span {
+  font-size: 2rem;
+  color: #777;
+}
+
+.dropzone {
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed var(--secondaryColor3);
+  background-color: rgb(240, 240, 240);
+  color: #bdbdbd;
+
+  margin-bottom: 20px;
+}
+
+.accept {
+  border-color: #107c10 !important;
+}
+
+.reject {
+  border-color: #d83b01 !important;
+}
+
