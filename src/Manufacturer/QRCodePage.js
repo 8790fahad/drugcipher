@@ -62,7 +62,7 @@ export default function QRCodePage() {
                                 // level={"H"}
                                 includeMargin={true}
                                 logoImage={drugcipherIcon}
-                                logoWidth={100} 
+                                logoWidth={100}
                                 qrStyle={'dots'}
                                 size={300}
                                 // removeQrCodeBehindLogo={true}
@@ -88,7 +88,7 @@ export default function QRCodePage() {
                                     }
 
                                 ]}
-                                // ecLevel={'H'} 
+                            // ecLevel={'H'} 
                             />
                         </div>
                         {/* <div className='qr_code_div2'>
