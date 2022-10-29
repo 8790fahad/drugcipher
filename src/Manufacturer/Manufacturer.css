@@ -320,13 +320,13 @@ ul {
   margin: 0;
 }
 
-span {
+/* span {
   font-size: 2rem;
   color: #777;
-}
+} */
 
 .dropzone {
-  text-align: center;
+  text-align: center; 
   padding: 20px;
   border: 1px dashed var(--secondaryColor3);
   background-color: rgb(240, 240, 240);

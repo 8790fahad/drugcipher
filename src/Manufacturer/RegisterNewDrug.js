@@ -43,7 +43,7 @@ export default function RegisterNewDrug() {
             // alert("Complete This Page🔜")
         } else {
             console.log(drugData)
-            navigate("/registered-drugs")
+            navigate("/QRCode")
             // alert("sucess📧")
 
         }

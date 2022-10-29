@@ -38,38 +38,13 @@ export default function KYC() {
                         Premices License by PCN & Superintendent Pharmacist License
                     </label>
                     <MyDropzone />
-
-                    {/* <Row className='mt-3'>
-                        <Col md={6}>
-
-                            <input name='manufacturer_license'
-                                className='man_input_fields'
-                                type='file' required />
-
-                            <Form.Control.Feedback type="invalid">
-                                Please  choose a valid license.
-                            </Form.Control.Feedback>
-                        </Col>
-                        <Col md={6}>
-                            <label>
-                                Superintendent Pharmacist License
-                            </label>
-                            <input name='manufacturer_license'
-                                className='man_input_fields'
-                                type='file' required />
-
-                            <Form.Control.Feedback type="invalid">
-                                Please  choose a valid license.
-                            </Form.Control.Feedback>
-                        </Col>
-                    </Row> */}
                     <Row className='mt-3'>
                         <Col md={6} controlId="validationCustom03">
                             <label>
                                 Company Name
                             </label>
-                            <input name='manufacturer_license
-                            ' className='man_input_fields'
+                            <input name='companyName'
+                                className='man_input_fields'
                                 type='text'
                                 placeholder='Company Name'
                                 required />
@@ -81,7 +56,7 @@ export default function KYC() {
                             <label>
                                 Company Address
                             </label>
-                            <input name='manufacturer_license'
+                            <input name='companyAddress'
                                 className='man_input_fields'
                                 type='address'
                                 placeholder='Company Address'
@@ -96,7 +71,7 @@ export default function KYC() {
                             <label>
                                 Email
                             </label>
-                            <input name='manufacturer_license'
+                            <input name='companyEmail'
                                 className='man_input_fields'
                                 type='email'
                                 placeholder='Email'
@@ -109,7 +84,7 @@ export default function KYC() {
                         </Col>
                         <Col md={6}>
                             <label>
-                                Phone
+                                Company Phone
                             </label>
                             <input name='manufacturer_license'
                                 className='man_input_fields'
