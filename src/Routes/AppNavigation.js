@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useRoutes } from "react-router-dom";
-import KYC from "../Manufacturer/KYC";
+import KYC from "../Manufacturer/KYC/KYC";
 import LandingPage from "../LandingPage/LandingPage";
 import Overview from "../Manufacturer/Overview";
 import Cart from "../MarketPlace/Cart";
