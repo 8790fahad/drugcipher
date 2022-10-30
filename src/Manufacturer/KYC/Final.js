@@ -16,7 +16,7 @@ export default function Final() {
                 <div className='mt-3'>
                     <Row className='m-3 text-center'>
                         <p className='thankyou'>Thank you for registering!</p>
-                        <p className='mssg'>A confirmation Link has been sent to your email.</p>
+                        <p className='mssg'>A confirmation link has been sent to your email.</p>
                     </Row>
                 </div>
             </Card>
