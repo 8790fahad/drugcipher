@@ -343,3 +343,14 @@ ul {
   border-color: #d83b01 !important;
 }
 
+.thankyou{
+  color: var(--primaryColor2);
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0;
+}
+.mssg{
+  color: var(--secondaryColor3);
+  font-size: 20px;
+  margin: 0;
+}
