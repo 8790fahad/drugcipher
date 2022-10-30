@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import { Modal } from 'reactstrap'
@@ -180,7 +181,7 @@ export default function PharmacyIndex() {
                                         setSelectItem(item)
                                     }}>
                                         {/* <CardBody> */}
-                                        <img src={item.drugImage} />
+                                        <img src={item.drugImage} alt="" />
                                         {/* </CardBody> */}
                                         <div>
                                             <h5 className='drug_name'>{item.drugName.length > 14 ? `${item.drugName.substring(0, 14)}...` : item.drugName}</h5>
@@ -202,7 +203,7 @@ export default function PharmacyIndex() {
                     <Col md={3}>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '140px' }}>
                             <div>
-                                <img src={selectItem.drugImage} className='cart_image' />
+                                <img src={selectItem.drugImage} className='cart_image' alt="" />
                             </div>
                         </div>
                     </Col>

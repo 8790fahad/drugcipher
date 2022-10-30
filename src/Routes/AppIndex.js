@@ -1,10 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Col, Row } from 'reactstrap'
-import Footer from '../LandingPage/Footer'
-import SectionDivider from '../LandingPage/SectionDivider'
 import Sidebar from '../Manufacturer/Sidebar'
-import PharmacyNavMenu from '../MarketPlace/PharmacyNavMenu'
+
 import '../Manufacturer/Manufacturer.css'
 import Navbar from '../Manufacturer/Navbar'
 export default function AppIndex() {

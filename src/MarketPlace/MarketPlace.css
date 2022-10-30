@@ -84,21 +84,7 @@
   font-size: 14px;
 }
 
-.absolute {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 10px;
-  background-color: var(--secondaryColor3);
-  color: white;
-  border-radius: 10%;
-  padding: 2px 5px;
-  /* width: 20px; */
-  /* height: 20px; */
-  text-align: center;
-  /* padding-top: 7.5px; */
-  z-index: 1;
-}
+
 .cart_image {
   width: 120px;
 }

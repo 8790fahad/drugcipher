@@ -29,8 +29,12 @@ export const options = {
     },
     title: {
       display: true,
-      text: "title ",
+      text: "Drug Statistics ",
     },
+  },
+  title: {
+    display: true,
+    text: "title ",
   },
 };
 
@@ -51,13 +55,13 @@ const data = {
   ],
   datasets: [
     {
-      label: "aa",
+      label: "Valid Scans",
       data: [1, 2, 3, 4, 5, 6, 7, 3, 4, 5, 3, 5],
       backgroundColor: ["rgba(3, 66, 110,1)"],
       borderColor: ["rgb(3, 66, 110)"],
     },
     {
-      label: "bb",
+      label: "Invalid Scans",
       data: [1, 2, 3, 4, 5, 6, 7, 3, 4, 5, 6, 1],
       backgroundColor: ["rgb(191, 226, 205)"],
       borderColor: ["rgb(128, 209, 1)"],
@@ -70,7 +74,7 @@ const data = {
 export default function BarChart() {
   return (
     <>
-      <div style={{ width: "" }}>
+      <div style={{}}>
         <Bar options={options} data={data} />
       </div>
     </>

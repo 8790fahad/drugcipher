@@ -2,127 +2,248 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import Button from "../CustomFiles/Button";
-import QRCode from "react-qr-code";
-import { useRef } from "react";
+import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 export default function RegisterNewDrug() {
-  const navigate = useNavigate();
-  const [drug, setDrug] = useState({
-    drugName: "",
+  const form = {
+    manufacturerName: "",
+    soleAgentName: "",
+    authorizedMarketers: "",
+    drugBrandName: "",
     drugGenericName: "",
-    dosage: "",
-  });
-  const [drugDetails, setDrugDetails] = useState("");
+    drugStrength: "",
+    formulationType: "",
+    unitPackaging: "",
+    NAFDACNumber: "",
+    batch_lotNumer: "",
+    dateOfManufacture: "",
+    dateOfExpiry: "",
+  };
+  const navigate = useNavigate();
+
+  const [validated, setValidated] = useState(false);
+
+  const [drugData, setDrugData] = useState({ form });
+
   const handleChange = ({ target: { name, value } }) => {
-    setDrug((p) => ({
+    setDrugData((p) => ({
       ...p,
       [name]: value,
     }));
   };
 
-  useEffect(() => {
-    setDrugDetails(`
-        Drug Name: ${drug.drugName},
-        Drug GenericName: ${drug.drugGenericName},
-        Dosages: ${drug.dosage}
-        `);
-  }, [drug]);
-
-  const downloadQRCode = () => {
-    const qrCodeURL = document
-      .getElementById("qrCodeEl")
-      .toDataURL("image/png")
-      .replace("image/png", "image/octet-stream");
-    console.log(qrCodeURL);
-    let aEl = document.createElement("a");
-    aEl.href = qrCodeURL;
-    aEl.download = "QR_Code.png";
-    document.body.appendChild(aEl);
-    aEl.click();
-    document.body.removeChild(aEl);
+  const submitForm = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+      // alert("Complete This Page🔜")
+    } else {
+      console.log(drugData);
+      navigate("/QRCode");
+      // alert("sucess📧")
+    }
+    // alert("sucess")
+    setValidated(true);
   };
+
   return (
-    <div>
-      {/* {JSON.stringify({ drugDetails })} */}
+    <Form noValidate validated={validated} onSubmit={submitForm}>
+      {/* {JSON.stringify({ drugData })} */}
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Register New Drug</h3>
         <Row>
           <Col md={12}>
             <Row className="pt-3">
-              <Col md={6} className="">
-                <label>Drug Name</label>
+              <Col md={6} className="" controlId="validationCustom03">
+                <label>Manufacturer's Name</label>
                 <input
-                  name="drugName"
-                  value={drug.drugName}
+                  name="manufacturerName"
+                  value={drugData.manufacturerName}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
+                  required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please enter manufacturer's name.
+                </Form.Control.Feedback>
               </Col>
               <Col md={6}>
-                <label>Drug Generic Name</label>
+                <label>Sole Agent Name</label>
+                <input
+                  name="soleAgentName"
+                  value={drugData.soleAgentName}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="text"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter sole agent name.
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
+            <Row className="pt-3">
+              <Col md={6} className="">
+                <label>Authorized Marketers/Presentatives</label>
+                <input
+                  name="authorizedMarketers"
+                  value={drugData.authorizedMarketers}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="text"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter authorized marketers/representatives name.
+                </Form.Control.Feedback>
+              </Col>
+              <Col md={6}>
+                <label>Drug Brand Name</label>
+                <input
+                  name="drugBrandName"
+                  value={drugData.drugBrandName}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="text"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter drug brand name.
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
+            <Row className="pt-3">
+              <Col md={6}>
+                <label>Drug Generic/Chemical Name</label>
                 <input
                   name="drugGenericName"
-                  value={drug.drugGenericName}
+                  value={drugData.drugGenericName}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
+                  required
                 />
-              </Col>
-            </Row>
-            <Row className="pt-3">
-              <Col md={6} className="">
-                <label>Date Created</label>
-                <input
-                  name="dateCreated"
-                  value={drug.dateCreated}
-                  onChange={handleChange}
-                  className="man_input_fields"
-                  type="text"
-                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter drug generic name.
+                </Form.Control.Feedback>
               </Col>
               <Col md={6}>
-                <label>Dosages</label>
+                <label>Strength of Drug</label>
                 <input
-                  name="dosage"
-                  value={drug.dosage}
+                  name="drugStrength"
+                  value={drugData.drugStrength}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
+                  required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please enter strength of drug.
+                </Form.Control.Feedback>
               </Col>
             </Row>
             <Row className="pt-3">
               <Col md={6}>
-                <label>Expiry Date</label>
+                <label>Formulation Type</label>
                 <input
-                  name="expiryDate"
-                  value={drug.expiryDate}
+                  name="formulationType"
+                  value={drugData.formulationType}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
+                  required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please enter formulation type.
+                </Form.Control.Feedback>
               </Col>
               <Col md={6}>
-                <label>NAFDAC</label>
+                <label>Unit Packaging</label>
                 <input
-                  name="nafdac"
-                  value={drug.nafdac}
+                  name="unitPackaging"
+                  value={drugData.unitPackaging}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
+                  required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please enter unit packaging.
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
+            <Row className="pt-3">
+              <Col md={6}>
+                <label>NAFDAC Number</label>
+                <input
+                  name="NAFDACNumber"
+                  value={drugData.NAFDACNumber}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="text"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter NAFDAC number.
+                </Form.Control.Feedback>
+              </Col>
+              <Col md={6}>
+                <label>Batch/Lot Number</label>
+                <input
+                  name="batch_lotNumer"
+                  value={drugData.batch_lotNumer}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="text"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter Batch/Lot Number.
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
+            <Row className="pt-3">
+              <Col md={6}>
+                <label>Date of Manufacture</label>
+                <input
+                  name="dateOfManufacture"
+                  value={drugData.dateOfManufacture}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="date"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter date of manufacture.
+                </Form.Control.Feedback>
+              </Col>
+              <Col md={6}>
+                <label>Date of Expiry</label>
+                <input
+                  name="dateOfExpiry"
+                  value={drugData.dateOfExpiry}
+                  onChange={handleChange}
+                  className="man_input_fields"
+                  type="date"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter Batch/Lot Number.
+                </Form.Control.Feedback>
               </Col>
             </Row>
           </Col>
         </Row>
+
         <div className="mt-3">
-          <button className="man_button" onClick={() => navigate("/QRCode")}>
+          {/* <button className='man_button' onClick={() => navigate('/QRCode')}>Register</button> */}
+          <button type="submit" className="man_button" onClick={submitForm}>
             Register
           </button>
         </div>
       </Card>
-    </div>
+    </Form>
   );
 }

@@ -10,20 +10,28 @@ import { drugData } from './drugData'
 
 import action from '../image/action.png'
 import { CSVLink } from 'react-csv'
+import { Eye, File, FileText, Grid } from 'react-feather'
 export default function ViewRegisteredDrugs() {
     const navigate = useNavigate()
     const [dropdown, setdropdown] = useState(false)
     const toggle1 = () => {
         setdropdown(!dropdown)
     }
+    const [actions, setActions] = useState(false)
+    const toggle = () => {
+        setActions(!actions)
+    }
+
+
+
     return (
         <div>
             <Card className='man_card shadow p-3'>
                 <Row>
-                    <Col md={6}>
+                    <Col xl={6} lg={6} md={6} sm={6} xs={6}>
                         <h3 className='man_card_title'>Registered Drugs</h3>
                     </Col>
-                    <Col md={6}>
+                    <Col xl={6} lg={6} md={6} sm={6} xs={6}>
                         <div style={{ float: 'right', display: 'flex' }}>
                             <div style={{ display: 'inline' }}>
                                 <Dropdown toggle={toggle1} isOpen={dropdown}>
@@ -51,6 +59,7 @@ export default function ViewRegisteredDrugs() {
                     </Col>
                 </Row>
                 {/* <DrugTable /> */}
+
                 <div className="mt-3">
                     <Table hover responsive className="table" size="">
                         <thead className="">
@@ -78,14 +87,13 @@ export default function ViewRegisteredDrugs() {
                                     <td>{item.NAFDAC}</td>
                                     <td>{item.dosages}</td>
                                     <td>
-                                        <img src={action} className='action_img' alt='action' />
+                                        <Grid className='grid' onClick={() => navigate('/overview')} />
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </Table>
                 </div>
-
             </Card>
         </div>
     )

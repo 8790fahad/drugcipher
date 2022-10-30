@@ -10,6 +10,7 @@ import LandingPage from "./LandingPage/LandingPage";
 import Pharmacy from "./MarketPlace/Pharmacy";
 import AppNavigation from "./Routes/AppNavigation";
 import DrugsLocation from "./Manufacturer/DrugsLocation";
+import Counter from "./Manufacturer/Counter";
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState("0");
@@ -39,6 +40,7 @@ const App = function AppWrapper() {
       {/* <Pharmacy/> */}
       <AppNavigation />
       {/* <DrugsLocation /> */}
+      {/* <Counter/> */}
     </div>
   );
 };

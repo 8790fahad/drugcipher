@@ -1,7 +1,7 @@
 import React from 'react'
 import { Instagram, Linkedin, Twitter, Facebook } from 'react-feather'
 import { Col, Row } from 'reactstrap'
-import drugcipherIcon from '../image/DCIcon5.png'
+import drugcipherIcon from '../image/DRUG CIPHER (2).png'
 
 export default function Footer() {
     const year = new Date()
@@ -11,7 +11,7 @@ export default function Footer() {
             <Row className='m-0 p-4'>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <div>
-                        <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55 }} className='shadow' />
+                        <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55, borderRadius:10 }} className='shadow' />
                         <h5 style={{ margin: 0, display: 'inline', fontWeight: 'bold', marginLeft: 10 }}>Drug Cipher</h5>
                     </div>
                     <p className='footer_desc mt-3'>Sell online, process payments, build financial products, or use business tools designed to grow your business.</p>

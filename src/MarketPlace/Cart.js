@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import { MinusSquare, Plus, PlusSquare, Trash, Trash2 } from 'react-feather'
@@ -21,7 +22,7 @@ export default function Cart() {
                                 <Col md={2}>
                                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '140px' }}>
                                         <div>
-                                            <img src={item.drugImage} className='cart_image' />
+                                            <img src={item.drugImage} className='cart_image' alt="" />
                                         </div>
                                     </div>
                                 </Col>
