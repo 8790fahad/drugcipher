@@ -11,6 +11,7 @@ import ViewRegisteredDrugs from "../Manufacturer/ViewRegisteredDrugs";
 import RegisterNewDrug from "../Manufacturer/RegisterNewDrug";
 import Notifications from "../Manufacturer/Notifications";
 import Account from "../Manufacturer/Accunt";
+import QRCodePage from "../Manufacturer/QRCodePage";
 
 function AppNavigation() {
 
@@ -29,10 +30,7 @@ function AppNavigation() {
                     path: "/overview",
                     element: <Overview />,
                 },
-                {
-                    path: '/KYC',
-                    element: <KYC />
-                },
+
                 {
                     path: '/settings',
                     element: <Settings />
@@ -46,12 +44,16 @@ function AppNavigation() {
                     element: <RegisterNewDrug />
                 },
                 {
-                    path:'/notifications',
-                    element:<Notifications/>
+                    path: '/notifications',
+                    element: <Notifications />
                 },
                 {
-                    path:'/account',
-                    element:<Account/>
+                    path: '/account',
+                    element: <Account />
+                },
+                {
+                    path: '/QRCode',
+                    element: <QRCodePage />
                 },
                 // {
                 //     path: "/market-place",
@@ -66,6 +68,10 @@ function AppNavigation() {
                 //     element: <Showroom />,
                 // }
             ],
+        },
+        {
+            path: '/KYC',
+            element: <KYC />
         },
     ]);
     return element;

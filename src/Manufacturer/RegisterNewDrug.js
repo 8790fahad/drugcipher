@@ -5,8 +5,9 @@ import { Card, Col, Row } from "react-bootstrap";
 import Button from "../CustomFiles/Button";
 import QRCode from "react-qr-code";
 import { useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function RegisterNewDrug() {
+  const navigate = useNavigate();
   const [drug, setDrug] = useState({
     drugName: "",
     drugGenericName: "",
@@ -47,7 +48,7 @@ export default function RegisterNewDrug() {
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Register New Drug</h3>
         <Row>
-          <Col md={8}>
+          <Col md={12}>
             <Row className="pt-3">
               <Col md={6} className="">
                 <label>Drug Name</label>
@@ -92,7 +93,7 @@ export default function RegisterNewDrug() {
                 />
               </Col>
             </Row>
-            <Row>
+            <Row className="pt-3">
               <Col md={6}>
                 <label>Expiry Date</label>
                 <input
@@ -115,14 +116,9 @@ export default function RegisterNewDrug() {
               </Col>
             </Row>
           </Col>
-          <Col md={4}>
-            <div style={{ marginTop: 40 }}>
-              <QRCode id="qrCodeEl" value={drugDetails} size={185} />,
-            </div>
-          </Col>
         </Row>
         <div className="mt-3">
-          <button className="man_button" onClick={downloadQRCode}>
+          <button className="man_button" onClick={() => navigate("/QRCode")}>
             Register
           </button>
         </div>
