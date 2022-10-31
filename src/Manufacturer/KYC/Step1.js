@@ -27,6 +27,7 @@ export default function Step1({ nextStep, handleChange, values }) {
                                 defaultValue={values.companyName}
                                 onChange={handleChange}
                                 required />
+
                         </Col>
                         <Col md={6}>
                             <label>
@@ -81,8 +82,8 @@ export default function Step1({ nextStep, handleChange, values }) {
                                 defaultValue={values.companyCountry}
                                 onChange={handleChange}
                                 required>
-                                <option>Select Country</option>
-                                <option>Nigeria</option>
+                                <option value=''>Select Country</option>
+                                <option value='Nigeria'>Nigeria</option>
                             </select>
                         </Col>
                         <Col md={6}>
