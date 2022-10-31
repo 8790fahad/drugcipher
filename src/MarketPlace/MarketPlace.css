@@ -1,8 +1,8 @@
 :root {
   --primaryColor: black;
-  --primaryColor2: rgb(3, 66, 110);
-  --secondaryColor: rgb(54, 54, 54);
-  --secondaryColor2: rgb(34, 34, 34);
+  --primaryColor2: #03426e;
+  --secondaryColor: #363636;
+  --secondaryColor2: #222222;
   --secondaryColor3: rgb(128, 209, 1);
   --whiteColor: white;
   --subHeadingColor: rgb(180, 180, 180);
