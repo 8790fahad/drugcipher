@@ -12,7 +12,8 @@
     />
     <style type="text/css">
       * {
-        font-family: "Open Sans", sans-serif;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
         font-weight: 300;
       }
     </style>
@@ -40,7 +41,7 @@
               >
                 <div style="padding: 10px 15px">
                   <img
-                    style="width: 50px; border-radius: 50%"
+                    style="width: 50px; border-radius: 10%"
                     src="https://res.cloudinary.com/drxkp1erj/image/upload/v1667145329/DRUG_CIPHER_2_augtu3.png"
                     alt="Logo"
                   />
@@ -54,7 +55,7 @@
                     "
                     ><span
                       style="
-                        font-size: 12px;
+                        font-size: 20px;
                         text-transform: uppercase;
                         font-weight: 600;
                         padding-top: 5px;
@@ -68,20 +69,19 @@
             </tr>
             <tr>
               <td style="padding: 40px 20px 0px 20px">
-                <h2 style="font-weight: 300; text-align: left">
+                <h3 style="font-weight: 300; text-align: left">
                   Hi <%= data.fname %> <%= data.lname %>,<br />
-                </h2>
-                <h1
+                </h3>
+                <h3
                   style="
                     text-align: center;
-                    font-weight: 600;
-                    font-size: 21px;
+                    /* font-size: 21px; */
                     margin: 0;
-                    color: green;
+                    color: rgb(128, 209, 1);
                   "
                 >
                   <%= data.newpass %>
-                </h1>
+                </h3>
                 <p style="margin: 40px 0 30px 0; font-size: 18px">
                   <br />
                   Drug Cipher Team.
@@ -101,13 +101,22 @@
                 <div
                   style="
                     background: #03426e;
-                    height: 30px;
+                    /* height: 30px; */
                     width: 100%;
                     text-align: center;
                     padding-top: 10px;
                   "
                 >
-                  <a href="drugcipher.com" style="color: #ddd">Contact Us</a>
+                  <button
+                    style="
+                      background-color: rgb(255, 255, 255);
+                      padding: 10px;
+                      margin: 5px;
+                      border: none;
+                    "
+                  >
+                    <a href="https://drugcipher.com " target="_blank" style="text-decoration:none; color:#03426e">Contact us</a>
+                  </button>
                 </div>
               </td>
             </tr>
