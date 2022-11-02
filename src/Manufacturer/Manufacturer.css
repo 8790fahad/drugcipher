@@ -354,3 +354,38 @@ ul {
   font-size: 20px;
   margin: 0;
 }
+
+
+
+
+label[for=file-input] {
+  display: inline-block;
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: #fff;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+input[type=file] {
+  cursor: pointer !important;
+  background-color: rgb(240, 240, 240);
+  width: 100% !important;
+
+}
+input[type=file]::-webkit-file-upload-button {
+  background: #03416e;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0em;
+}
+input[type=file]::-ms-browse {
+  background: #029f41;
+  border: 0;
+  padding: 1em 2em;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0.2em;
+}

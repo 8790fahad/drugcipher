@@ -2,8 +2,12 @@ import React from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
 import { Spinner } from "reactstrap";
-// import MyDropzone from './MyDropZone';
-export default function Step1({ nextStep =f=>f, handleChange, values ,loading=false}) {
+export default function Step1({
+  nextStep = (f) => f,
+  handleChange,
+  values,
+  loading = false,
+}) {
   return (
     <Form className="container" onSubmit={nextStep}>
       <Card className="KYC_card shadow p-3">
@@ -119,7 +123,7 @@ export default function Step1({ nextStep =f=>f, handleChange, values ,loading=fa
             style={{ float: "right" }}
             disabled={loading}
           >
-           {loading?<Spinner size="sm"/>:null} Next
+            {loading ? <Spinner size="sm" /> : null} Next
           </button>
         </div>
       </Card>

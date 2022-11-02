@@ -1,26 +1,12 @@
-import React, { useState } from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import React from "react";
+import { Card, Form, Row,Col } from "react-bootstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
-import { useNavigate } from "react-router-dom";
-import Dropzone from "react-dropzone";
-import { Label } from "reactstrap";
-
-// import MyDropzone from './MyDropZone';
-export default function Step2({
-  nextStep,
-  previousStep,
-  handleChange,
-  values,
-}) {
-  const navigate = useNavigate();
-  const [fileNames, setFileNames] = useState([]);
-  const handleDrop = (acceptedFiles) =>{
-    console.log(acceptedFiles);
-    setFileNames(acceptedFiles.map((file) => file.name));
-  }
-   
+export default function Step2({ nextStep, handleChange, values }) {
+  const submitForm = () => {
+    nextStep();
+  };
   return (
-    <form className="container" onSubmit={nextStep}>
+    <Form className="container" onSubmit={submitForm}>
       <Card className="KYC_card shadow p-3">
         <div>
           <img
@@ -40,74 +26,32 @@ export default function Step2({
           </h4>
         </div>
         <h3 className="man_card_title mt-4">KYC - Step 2 of 3</h3>
-
         <div className="mt-3">
-          <Row className="m-3">
-            <label className="p-0">
-              Premises License<b style={{ color: "red" }}>*</b>
-            </label>
-            <Dropzone
-              onDrop={handleDrop}
-              accept="image/*"
-              minSize={1024}
-              maxSize={3072000}
-            >
-              {({
-                getRootProps,
-                getInputProps,
-                isDragActive,
-                isDragAccept,
-                isDragReject,
-              }) => {
-                const additionalClass = isDragAccept
-                  ? "accept"
-                  : isDragReject
-                  ? "reject"
-                  : "";
-
-                return (
-                  <div
-                    {...getRootProps({
-                      className: `dropzone ${additionalClass}`,
-                    })}
-                  >
-                    <input {...getInputProps()} />
-                    <span>{isDragActive ? "📂" : "📁"}</span>
-                    <p>Drag'n'drop files, or click to select files</p>
-                    <div style={{ color: "black" }}>
-                      <strong>Files:</strong>
-                      <div>
-                        {fileNames.map((fileName) => (
-                          <p className="m-0" key={fileName}>
-                            {fileName}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }}
-            </Dropzone>
+          <Row className="mt-3">
+            <Col md={6} controlId="validationCustom03">
+              <label>Premises License by PCN</label>
+              <input
+                className=""
+                type="file"
+                placeholder="Premises License by PCN"
+                name="premisesLicense"
+                defaultValue={values.premisesLicense}
+                onChange={handleChange}
+                required
+              />
+            </Col>
           </Row>
         </div>
         <div className="mt-3">
           <button
             type="submit"
             className="man_button"
-            style={{ float: "Left" }}
-            onClick={previousStep}
-          >
-            Previous
-          </button>
-          <button
-            type="submit"
-            className="man_button"
             style={{ float: "right" }}
           >
-            Register
+            Next
           </button>
         </div>
       </Card>
-    </form>
+    </Form>
   );
 }
