@@ -4,37 +4,41 @@ import "../CustomFiles/InputFields.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { NotificationError, NotificationSuccess } from "../utils/Notification";
+import { _postApi } from "../utils/helper";
 export default function NewsLetter() {
   useEffect(() => {
     AOS.init();
   }, []);
-  let _form =
-  {
-    email: ""
-  }
+  let _form = {
+    email: "",
+  };
   const [sendEmail, setSendEmail] = useState(_form);
+  const [loading, setLoading] = useState(false);
   const handleChange = ({ target: { name, value } }) => {
     setSendEmail((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = () => {
-    console.log(sendEmail)
-
-    fetch(`https://drugcipher.herokuapp.com/newsletter`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+    setLoading(true);
+    _postApi(
+      "/v1/create-news-letter",
+      { email: sendEmail.email },
+      (res) => {
+        if (res.success) {
+          toast(<NotificationSuccess text="Successfully" />);
+          setLoading(false);
+          setSendEmail(_form);
+        }
       },
-      body: JSON.stringify(sendEmail)
-    })
-      .then(raw => raw.json())
-      .then(resp => {
-        console.log(resp)
-      })
-      .catch(e => {
-        console.log(e)
-      })
-  }
+      (err) => {
+        toast(<NotificationError text="Failed, try again" />);
+        setLoading(false);
+        console.log(err);
+      }
+    );
+  };
   return (
     <div className="text-center news_letter_section p-5">
       <h1
@@ -52,7 +56,7 @@ export default function NewsLetter() {
         type="email"
         placeholder="example@mail.com"
         className="input_fields"
-        name='email'
+        name="email"
         value={sendEmail.email}
         onChange={handleChange}
       />
@@ -61,6 +65,7 @@ export default function NewsLetter() {
         style={{ marginLeft: 10 }}
         btnText={"Subscribe"}
         onClick={handleSubmit}
+        loading={loading}
       />
     </div>
   );

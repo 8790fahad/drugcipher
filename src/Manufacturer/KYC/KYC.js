@@ -1,62 +1,98 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { toast } from "react-toastify";
+import { _postApi } from "../../utils/helper";
+import {
+    NotificationError,
+    NotificationSuccess,
+} from "../../utils/Notification";
 import Final from "./Final";
 import Passphrase from "./Passphrase";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 function KYC() {
+    const name = useRef(null);
+    const address = useRef(null);
+    const country = useRef(null);
+    const email = useRef(null);
     const [formData, setFormData] = useState({
         companyName: "",
         companyAddress: "",
         companyCountry: "",
-        CompanyEmail: "",
+        companyEmail: "",
         companyPhone: "",
-        companyWesite: ""
-    })
+        companyWebsite: "",
+    });
+    const [loading, setLoading] = useState(false);
     const handleChange = ({ target: { name, value } }) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
     const [step, setstep] = useState(1);
 
-
-
-    const nextStep = () => {
-        setstep(step + 1);
+    const nextStep = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        _postApi(
+            "/v1/create-company",
+            formData,
+            (res) => {
+                if (res.success) {
+                    setLoading(false);
+                    setstep(step + 1);
+                    toast(<NotificationSuccess text="Next" />);
+                }
+            },
+            (err) => {
+                console.log(err);
+                setLoading(false);
+                toast(<NotificationError text="Failed, try again" />);
+            }
+        );
     };
 
     const previousStep = () => {
         setstep(step - 1);
     };
 
-
-
     switch (step) {
         case 1:
             return (
-                <Step1 nextStep={nextStep} handleChange={handleChange} values={formData} />
+                <Step1
+                    nextStep={nextStep}
+                    handleChange={handleChange}
+                    values={formData}
+                    loading={loading}
+                    name={name}
+                    address={address}
+                    country={country}
+                    email={email}
+                />
             );
         case 2:
             return (
-                <Step2 nextStep={nextStep} handleChange={handleChange} values={formData} />
+                <Step2
+                    nextStep={nextStep}
+                    handleChange={handleChange}
+                    values={formData}
+                />
             );
         case 3:
             return (
-                <Step3 nextStep={nextStep} handleChange={handleChange} values={formData} />
+                <Step3
+                    nextStep={nextStep}
+                    handleChange={handleChange}
+                    values={formData}
+                />
             );
         case 4:
             return (
                 <Passphrase nextStep={nextStep} />
             );
         case 5:
-            return (
-                <Final />
-            );
+            return <Final />;
         default:
-            return (
-                <div className="App">
-                </div>
-            );
+            return <div className="App"></div>;
     }
 }
 
