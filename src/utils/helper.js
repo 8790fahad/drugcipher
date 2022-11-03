@@ -25,7 +25,7 @@ export function logout() {
   process.env.NODE_ENV === "development"
     ? "http://localhost:34567"
     : "https://yge.wvi.mybluehost.me/test/coop-soc-backend";
- const apiURL = serverUrl + "/api";
+export const apiURL = serverUrl + "/api";
 
 const _fetchApi = (
   url,
@@ -56,6 +56,7 @@ const _fetchApi = (
  * @params callback => optional callback function
  */
 const _postApi = (url, data = {}, success = (f) => f, error = (f) => f) => {
+
   fetch(apiURL + url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

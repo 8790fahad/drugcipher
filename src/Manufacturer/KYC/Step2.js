@@ -1,12 +1,15 @@
 import React from "react";
-import { Card, Form, Row,Col } from "react-bootstrap";
+import { Card, Col, Form, Row } from "react-bootstrap";
+import { Spinner } from "reactstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
-export default function Step2({ nextStep, handleChange, values }) {
-  const submitForm = () => {
-    nextStep();
-  };
+export default function Step2({
+  onFileUploadPL = (f) => f,
+  onFileChangePL = (f) => f,
+  selectedFilePL = null,
+  loading = false,
+}) {
   return (
-    <Form className="container" onSubmit={submitForm}>
+    <Form className="container" onSubmit={onFileUploadPL}>
       <Card className="KYC_card shadow p-3">
         <div>
           <img
@@ -34,9 +37,9 @@ export default function Step2({ nextStep, handleChange, values }) {
                 className=""
                 type="file"
                 placeholder="Premises License by PCN"
-                name="premisesLicense"
-                defaultValue={values.premisesLicense}
-                onChange={handleChange}
+                onChange={onFileChangePL}
+                defaultValue={selectedFilePL?.name}
+                accept=".jpg, .png, .jpeg"
                 required
               />
             </Col>
@@ -48,7 +51,7 @@ export default function Step2({ nextStep, handleChange, values }) {
             className="man_button"
             style={{ float: "right" }}
           >
-            Next
+            {loading ? <Spinner size="sm" /> : null} Next
           </button>
         </div>
       </Card>
