@@ -9,7 +9,7 @@ export default function Section1() {
             <div className='container'>
                 <Row className=''>
                     <Col xl={6} lg={6} md={12} sm={12} xs={12}>
-                        <div className='heading_div'>   
+                        <div className='heading_div'>
                             <div className='mobile_heading_div'>
                                 <h1 className='heading'>Track.</h1>
                                 <h1 className='heading'>Own.</h1>

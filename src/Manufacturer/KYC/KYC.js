@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Final from "./Final";
+import Passphrase from "./Passphrase";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -44,6 +45,10 @@ function KYC() {
                 <Step3 nextStep={nextStep} handleChange={handleChange} values={formData} />
             );
         case 4:
+            return (
+                <Passphrase nextStep={nextStep} />
+            );
+        case 5:
             return (
                 <Final />
             );

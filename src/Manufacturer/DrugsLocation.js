@@ -19,6 +19,7 @@ export default function DrugsLocation() {
                     <Feature coordinates={[9.0820, 8.6753]} />
                 </Layer>
             </Map>
+            ceiling reward head must amateur unique vast miracle shed fire ginger dance
         </div>
     )
 }
