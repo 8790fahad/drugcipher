@@ -12,7 +12,6 @@ export default function Final() {
                     <img src={logo} style={{ width: 70, borderRadius: 10 }} alt="" className='shadow' />{' '}
                     <h4 style={{ display: 'inline', color: 'rgb(3, 66, 110)', marginRight: 30 }}>Drug Cipher</h4>
                 </div>
-                <h3 className='man_card_title mt-4'>KYC</h3>
                 <div className='mt-3'>
                     <Row className='m-3 text-center'>
                         <p className='thankyou'>Thank you for registering!</p>

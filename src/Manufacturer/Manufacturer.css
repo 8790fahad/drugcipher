@@ -174,7 +174,14 @@ Form.Control:focus {
   margin: 30px;
   /* border:0.5px solid var(--primaryColor2); */
 }
-
+.pp_card {
+  border-radius: 0;
+  /* background-image: linear-gradient(90deg,#03416e17, #029f4117); */
+  color: var(--primaryColor2);
+}
+.word {
+  background-color: #03416e2a;
+}
 .drop_down_item:hover {
   background-color: var(--primaryColor2);
   color: var(--whiteColor);
@@ -326,7 +333,7 @@ ul {
 } */
 
 .dropzone {
-  text-align: center; 
+  text-align: center;
   padding: 20px;
   border: 1px dashed var(--secondaryColor3);
   background-color: rgb(240, 240, 240);
@@ -343,22 +350,19 @@ ul {
   border-color: #d83b01 !important;
 }
 
-.thankyou{
+.thankyou {
   color: var(--primaryColor2);
   font-weight: bold;
   font-size: 40px;
   margin: 0;
 }
-.mssg{
+.mssg {
   color: var(--secondaryColor3);
   font-size: 20px;
   margin: 0;
 }
 
-
-
-
-label[for=file-input] {
+label[for='file-input'] {
   display: inline-block;
   margin-bottom: 1em;
   font-size: 1em;
@@ -367,13 +371,12 @@ label[for=file-input] {
   font-weight: bold;
 }
 
-input[type=file] {
+input[type='file'] {
   cursor: pointer !important;
   background-color: rgb(240, 240, 240);
   width: 100% !important;
-
 }
-input[type=file]::-webkit-file-upload-button {
+input[type='file']::-webkit-file-upload-button {
   background: #03416e;
   border: 0;
   padding: 8px;
@@ -381,7 +384,7 @@ input[type=file]::-webkit-file-upload-button {
   color: #fff;
   border-radius: 0em;
 }
-input[type=file]::-ms-browse {
+input[type='file']::-ms-browse {
   background: #029f41;
   border: 0;
   padding: 1em 2em;

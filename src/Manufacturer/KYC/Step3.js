@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
 import { Spinner } from "reactstrap";
 import logo from "../../image/DRUG CIPHER (2).png";

@@ -28,7 +28,7 @@ export default function Step1({
             Drug Cipher
           </h4>
         </div>
-        <h3 className="man_card_title mt-4">KYC - Step 1 of 3</h3>
+        <h3 className="man_card_title mt-4">KYC - Step 1 of 4</h3>
         <div className="mt-3">
           <Row className="mt-3">
             <Col md={6} controlId="validationCustom03">

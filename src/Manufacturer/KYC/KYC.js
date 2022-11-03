@@ -2,11 +2,12 @@ import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { apiURL, _postApi, _updateApi } from "../../utils/helper";
 import {
-  NotificationError,
-  NotificationSuccess,
+    NotificationError,
+    NotificationSuccess,
 } from "../../utils/Notification";
 import { v4 as uuid4 } from "uuid";
 import Final from "./Final";
+import Passphrase from "./Passphrase";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -27,7 +28,7 @@ function KYC() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const [step, setstep] = useState(1);
+    const [step, setstep] = useState(1);
 
   const onFileChangePL = (event) => {
     setSelectedFilePL(event.target.files[0]);
