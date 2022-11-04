@@ -16,6 +16,7 @@ import Account from "../Manufacturer/Account";
 import QRCodePage from "../Manufacturer/QRCodePage";
 import Profile from "../component/Profile";
 import Gethelp from "../Manufacturer/Gethelp";
+import KYCApproval from "../Manufacturer/KYC/KYCApproval";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -63,26 +64,18 @@ function AppNavigation() {
           element: <QRCodePage />,
         },
         {
-            path: "/GetHelp",
-            element: <Gethelp />,
-          },
-        // {
-        //     path: "/market-place",
-        //     element: <Pharmacy />,
-        // },
-        // {
-        //     path: "/market-place/cart",
-        //     element: <Cart />,
-        // },
-        // {
-        //     path: "/showroom",
-        //     element: <Showroom />,
-        // }
+          path: "/GetHelp",
+          element: <Gethelp />,
+        },
       ],
     },
     {
       path: "/KYC",
       element: <KYC />,
+    },
+    {
+      path: "/KYCApproval",
+      element: <KYCApproval />,
     },
   ]);
   return element;
