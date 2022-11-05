@@ -1,46 +1,48 @@
-import React, { useEffect, useCallback, useState } from "react";
-import { Container } from "react-bootstrap";
-import { login, accountBalance } from "./utils/helper";
-import coverImg from "./image/drugs.jpeg";
+import React, { useEffect } from "react";
 import "./App.css";
-import Cover from "./utils/Cover";
-import Products from "./component/marketplace/Products";
-import NavBar from "./component/marketplace/Nav";
-import LandingPage from "./LandingPage/LandingPage";
-import Pharmacy from "./MarketPlace/Pharmacy";
 import AppNavigation from "./Routes/AppNavigation";
-import DrugsLocation from "./Manufacturer/DrugsLocation";
-import Counter from "./Manufacturer/Counter";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useCallback } from "react";
+import { _fetchApi } from "./utils/helper";
+import { NotificationError } from "./utils/Notification";
+import { toast } from "react-toastify";
 const App = function AppWrapper() {
-  const account = window.walletConnection.account();
-  const [balance, setBalance] = useState("0");
-  const getBalance = useCallback(async () => {
-    if (account.accountId) {
-      setBalance(await accountBalance());
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const recover = useCallback(() => {
+    const token = localStorage.getItem("@@cipher");
+    const _token = token?.split(" ");
+    if (token) {
+      return (dispatch) => {
+        _fetchApi(
+          `/v1/load-with-token?token=${_token[1]}`,
+          (resp) => {
+            console.log(resp);
+            console.log("resp");
+            if (resp.success) {
+              dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
+              console.log(resp);
+            } else {
+              navigate("/");
+            }
+          },
+          (err) => {
+            toast(<NotificationError text="Failed, try again" />);
+            console.log(err);
+            navigate("/");
+          }
+        );      
+      };
     }
-  }, [account.accountId]);
-
+  }, [navigate]);
   useEffect(() => {
-    getBalance();
-  }, [getBalance]);
+    dispatch(recover());
+  }, [dispatch, recover]);
   //..
   return (
-    <div className='' style={{ margin: 0 }}>
-      {/* {account.accountId ? (
-        <Container fluid="md">
-          <NavBar balance={balance} />
-          <main>
-            <Products />
-          </main>
-        </Container>
-      ) : (
-        <Cover name="Drug Tracker" login={login} coverImg={coverImg} />
-      )} */}
-      {/* <LandingPage /> */}
-      {/* <Pharmacy/> */}
+    <div className="" style={{ margin: 0 }}>
       <AppNavigation />
-      {/* <DrugsLocation /> */}
-      {/* <Counter/> */}
     </div>
   );
 };
