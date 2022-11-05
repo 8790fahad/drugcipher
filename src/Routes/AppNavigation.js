@@ -17,6 +17,7 @@ import QRCodePage from "../Manufacturer/QRCodePage";
 import Profile from "../component/Profile";
 import Gethelp from "../Manufacturer/Gethelp";
 import KYCApproval from "../Manufacturer/KYC/KYCApproval";
+import Passphrase from "../Manufacturer/KYC/Passphrase";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -76,6 +77,10 @@ function AppNavigation() {
     {
       path: "/KYCApproval",
       element: <KYCApproval />,
+    },
+    {
+      path: "/account/passphrass",
+      element: <Passphrase />,
     },
   ]);
   return element;

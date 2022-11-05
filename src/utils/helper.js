@@ -1,5 +1,7 @@
 import { formatNearAmount } from "near-api-js/lib/utils/format";
+import { toast } from "react-toastify";
 import environment from "./config";
+import { NotificationError, NotificationSuccess } from "./Notification";
 const nearEnv = environment("testnet");
 export async function accountBalance() {
   return formatNearAmount(
@@ -21,7 +23,7 @@ export function logout() {
   window.location.reload();
 }
 
- const serverUrl =
+const serverUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:34567"
     : "https://yge.wvi.mybluehost.me/test/coop-soc-backend";
@@ -56,7 +58,6 @@ const _fetchApi = (
  * @params callback => optional callback function
  */
 const _postApi = (url, data = {}, success = (f) => f, error = (f) => f) => {
-
   fetch(apiURL + url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -109,4 +110,62 @@ const _updateApi = (
     .catch((err) => error(err));
 };
 
-export { _updateApi, _deleteApi, _postApi, _fetchApi };
+const recoverAccount = (passPhrase, success = (f) => f) => {
+  return (dispatch) => {
+    dispatch({ type: "LOADING", payload: true });
+    _postApi(
+      "/v1/recover-account-passphrass",
+      { passPhrase },
+      (resp) => {
+        if (resp.success) {
+          localStorage.setItem("@@cipher", resp.token);
+          dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
+          dispatch({ type: "LOADING", payload: false });
+          success();
+        } else {
+          toast(<NotificationError text={resp.message} />);
+          dispatch({ type: "LOADING", payload: false });
+        }
+      },
+      (err) => {
+        toast(<NotificationError text="Failed, try again" />);
+        dispatch({ type: "LOADING", payload: false });
+        console.log(err);
+      }
+    );
+  };
+};
+
+const loadWithToken = (err = (f) => f) => {
+  const token = localStorage.getItem("@@cipher");
+  const _token = token?.split(" ");
+  console.log(_token);
+  if (!token==='undefined') {
+    return (dispatch) => {
+      _fetchApi(
+        `/v1/load-with-token?token=${_token[1]}`,
+        (resp) => {
+          if (resp.success) {
+            dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
+          } else {
+            err();
+          }
+        },
+        (err) => {
+          toast(<NotificationError text="Failed, try again" />);
+          console.log(err);
+          err();
+        }
+      );
+    };
+  }
+};
+
+export {
+  _updateApi,
+  _deleteApi,
+  _postApi,
+  _fetchApi,
+  recoverAccount,
+  loadWithToken,
+};
