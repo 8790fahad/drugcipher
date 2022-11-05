@@ -32,7 +32,7 @@ const App = function AppWrapper() {
             console.log(err);
             navigate("/");
           }
-        );      
+        );
       };
     }
   }, [navigate]);
