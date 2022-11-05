@@ -445,3 +445,16 @@ input[type='file']::-ms-browse {
   color: #fff;
   border-radius: 0.2em;
 }
+
+.company_data{
+  border-radius: 0;
+}
+.company_data_title{
+  color: var(--secondaryColor3);
+  /* color: rgb(255, 97, 97); */
+}
+.company_data_icon{
+  background-color: rgba(129, 209, 1, 0.151);
+  padding: 10px;
+  border: 1px dashed var(--secondaryColor3);
+}
