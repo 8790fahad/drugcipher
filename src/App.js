@@ -14,31 +14,29 @@ const App = function AppWrapper() {
     const token = localStorage.getItem("@@cipher");
     const _token = token?.split(" ");
     if (token) {
-      return (dispatch) => {
-        _fetchApi(
-          `/v1/load-with-token?token=${_token[1]}`,
-          (resp) => {
+      _fetchApi(
+        `/v1/load-with-token?token=${_token[1]}`,
+        (resp) => {
+          console.log(resp);
+          console.log("resp");
+          if (resp.success) {
+            dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
             console.log(resp);
-            console.log("resp");
-            if (resp.success) {
-              dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
-              console.log(resp);
-            } else {
-              navigate("/");
-            }
-          },
-          (err) => {
-            toast(<NotificationError text="Failed, try again" />);
-            console.log(err);
+          } else {
             navigate("/");
           }
-        );
-      };
+        },
+        (err) => {
+          toast(<NotificationError text="Failed, try again" />);
+          console.log(err);
+          navigate("/");
+        }
+      );
     }
-  }, [navigate]);
-  // useEffect(() => {
-  //   dispatch(recover());
-  // }, [dispatch, recover]);
+  }, [dispatch, navigate]);
+  useEffect(() => {
+    recover()
+  }, [dispatch, recover]);
   //..
   return (
     <div className="" style={{ margin: 0 }}>
