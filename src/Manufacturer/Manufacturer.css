@@ -234,7 +234,7 @@ Form.Control:focus {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
 }
 
 /* Track */
@@ -304,6 +304,10 @@ Form.Control:focus {
 .avatar img {
   /* width: 100%;
   height: auto; */
+}
+.register_heading{
+  font-weight: bold;
+  color: var(--primaryColor2);
 }
 
 
