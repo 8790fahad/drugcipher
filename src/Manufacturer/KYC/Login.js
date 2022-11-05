@@ -39,8 +39,9 @@ export default function Login() {
                             <Col md={6}>
                                 <Card className='KYC_card shadow p-4'>
                                     <h5 className="man_card_title mt-4"><AtSign />{' '}Email Recovery</h5>
-                                    <p>When you click the 'Send Email' button, a recovery mail will be sent to your email that is been registered with your account.</p>
-                                    <button className='man_button'>Send Email</button>
+                                    <p style={{marginBottom:55}}>Use the link that was sent to your email from drugcipher.com when creating your account. Click the link for your account recovery.</p>
+                                    {/* <p>When you click the 'Send Email' button, a recovery mail will be sent to your email that is been registered with your account.</p> */}
+                    
 
                                 </Card>
                             </Col>
