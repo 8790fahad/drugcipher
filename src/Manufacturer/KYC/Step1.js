@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
 import { Spinner } from "reactstrap";
+import { ArrowRightCircle } from "react-feather";
 export default function Step1({
   nextStep = (f) => f,
   handleChange,
@@ -123,7 +124,7 @@ export default function Step1({
             style={{ float: "right" }}
             disabled={loading}
           >
-            {loading ? <Spinner size="sm" /> : null} Next
+            {loading ? <Spinner size="sm" /> : null} Next {' '}<ArrowRightCircle/>
           </button>
         </div>
       </Card>

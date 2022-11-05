@@ -5,10 +5,13 @@ import { Card, Col, Form, Row, Table } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Button, CardBody, CardHeader, Spinner } from "reactstrap";
 import { _fetchApi, _updateApi } from "../../utils/helper";
+import logo from "../../image/DRUG CIPHER (2).png";
+
 import {
   NotificationError,
   NotificationSuccess,
 } from "../../utils/Notification";
+import { CheckCircle, XCircle } from "react-feather";
 export default function KYCApproval() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -71,48 +74,70 @@ export default function KYCApproval() {
   return (
     <div className="container">
       <Card className="KYC_card shadow p-3">
-        <CardHeader>KYC List</CardHeader>
+        <div>
+          <img
+            src={logo}
+            style={{ width: 70, borderRadius: 10 }}
+            alt=""
+            className="shadow"
+          />{" "}
+          <h4
+            style={{
+              display: "inline",
+              color: "rgb(3, 66, 110)",
+              marginRight: 30,
+            }}
+          >
+            Drug Cipher
+          </h4>
+          <h3 className="man_card_title mt-4">KYC Approval</h3>
+
+        </div>
         <CardBody>
           {loading ? (
             <center>
               <Spinner />
             </center>
           ) : null}
-          <Table>
-            <thead>
-              <th className="text-center">Company Name</th>
-              <th className="text-center">Company Phone</th>
-              <th className="text-center">Company Email</th>
-              <th className="text-center">Company Country</th>
-              <th className="text-center">View</th>
+          <Table hover responsive className="table" size="">
+            <thead className="">
+              <tr>
+                <th className="">Company Name</th>
+                <th className="">Company Phone</th>
+                <th className="">Company Email</th>
+                <th className="">Company Country</th>
+                <th className="">View</th>
+              </tr>
             </thead>
             <tbody>
               {result.length
                 ? result.map((item, index) => (
-                    <tr key={index}>
-                      <td>{item.company_name}</td>
-                      <td>{item.company_phone}</td>
-                      <td>{item.company_email}</td>
-                      <td>{item.company_country}</td>
-                      <td className="text-center">
-                        <Button
-                          className="ml-2"
-                          onClick={() => {
-                            approve(item);
-                          }}
-                        >
-                          Approve
-                        </Button>
-                        <Button
-                          onClick={() => {
-                            reject(item);
-                          }}
-                        >
-                          Reject
-                        </Button>
-                      </td>
-                    </tr>
-                  ))
+                  <tr key={index}>
+                    <td>{item.company_name}</td>
+                    <td>{item.company_phone}</td>
+                    <td>{item.company_email}</td>
+                    <td>{item.company_country}</td>
+                    <td className="text-center">
+                      <button
+                        className="man_button"
+                        onClick={() => {
+                          approve(item);
+                        }}
+                        style={{ marginRight: 10 }}
+                      >
+                        Approve{' '}<CheckCircle />
+                      </button>
+                      <button
+                        onClick={() => {
+                          reject(item);
+                        }}
+                        className='man_button'
+                      >
+                        Reject{' '}<XCircle />
+                      </button>
+                    </td>
+                  </tr>
+                ))
                 : null}
             </tbody>
           </Table>

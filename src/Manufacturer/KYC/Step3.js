@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
+import { CheckCircle } from "react-feather";
 import { Spinner } from "reactstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
 export default function Step3({
@@ -51,7 +52,7 @@ export default function Step3({
             style={{ float: "right" }}
             disabled={loading}
           >
-            {loading ? <Spinner size='sm'/> : null} Submit
+            {loading ? <Spinner size='sm'/> : null} Submit {' '}<CheckCircle/>
           </button>
         </div>
       </Card>
