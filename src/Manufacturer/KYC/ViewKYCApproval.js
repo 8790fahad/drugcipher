@@ -9,49 +9,49 @@ import {
     NotificationError,
     NotificationSuccess,
   } from "../../utils/Notification";
-  
+
 export default function ViewKYCApproval() {
     const query = useQuery()
     const company_name = query.get("companyName");
     const company_phone = query.get("companyPhone");
     const company_email = query.get("companyEmail");
     const company_country = query.get("companyCountry");
-    const approve = (item) => {
-        _updateApi(
-            "/v1/approved-kyc",
-            item,
-            (reps) => {
-                if (reps.success) {
-                    toast(<NotificationSuccess text="Approved Successfully" />);
-                    setLoading(false);
-                    getPendingKYC();
-                }
-            },
-            (err) => {
-                console.error(err);
-                toast(<NotificationError text="Failed, try again" />);
-                setLoading(false);
-            }
-        );
-    };
-    const reject = (item) => {
-        _updateApi(
-            "/v1/reject-kyc",
-            item,
-            (reps) => {
-                if (reps.success) {
-                    toast(<NotificationSuccess text="Approved Successfully" />);
-                    setLoading(false);
-                    getPendingKYC();
-                }
-            },
-            (err) => {
-                console.error(err);
-                toast(<NotificationError text="Failed, try again" />);
-                setLoading(false);
-            }
-        );
-    };
+    // const approve = (item) => {
+    //     _updateApi(
+    //         "/v1/approved-kyc",
+    //         item,
+    //         (reps) => {
+    //             if (reps.success) {
+    //                 toast(<NotificationSuccess text="Approved Successfully" />);
+    //                 setLoading(false);
+    //                 getPendingKYC();
+    //             }
+    //         },
+    //         (err) => {
+    //             console.error(err);
+    //             toast(<NotificationError text="Failed, try again" />);
+    //             setLoading(false);
+    //         }
+    //     );
+    // };
+    // const reject = (item) => {
+    //     _updateApi(
+    //         "/v1/reject-kyc",
+    //         item,
+    //         (reps) => {
+    //             if (reps.success) {
+    //                 toast(<NotificationSuccess text="Approved Successfully" />);
+    //                 setLoading(false);
+    //                 getPendingKYC();
+    //             }
+    //         },
+    //         (err) => {
+    //             console.error(err);
+    //             toast(<NotificationError text="Failed, try again" />);
+    //             setLoading(false);
+    //         }
+    //     );
+    // };
 
 
     return (
@@ -103,10 +103,10 @@ export default function ViewKYCApproval() {
                             </Col>
                             <div>
                                 <button className='man_button' style={{ marginRight: 10 }} onClick={() => {
-                                    approve(item);
+                                    // approve(item);
                                 }}><CheckCircle />{' '}Approve</button>
                                 <button className='man_button' onClick={() => {
-                                    reject(item);
+                                    // reject(item);
                                 }}><XCircle style={{ color: 'rgb(255, 97, 97)' }} />{' '}Reject</button>
                             </div>
                         </Row>
