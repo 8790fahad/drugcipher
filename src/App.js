@@ -36,9 +36,9 @@ const App = function AppWrapper() {
       };
     }
   }, [navigate]);
-  useEffect(() => {
-    dispatch(recover());
-  }, [dispatch, recover]);
+  // useEffect(() => {
+  //   dispatch(recover());
+  // }, [dispatch, recover]);
   //..
   return (
     <div className="" style={{ margin: 0 }}>

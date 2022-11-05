@@ -18,6 +18,9 @@ import Profile from "../component/Profile";
 import Gethelp from "../Manufacturer/Gethelp";
 import KYCApproval from "../Manufacturer/KYC/KYCApproval";
 import Passphrase from "../Manufacturer/KYC/Passphrase";
+import Register from "../Manufacturer/KYC/Register";
+import Login from "../Manufacturer/KYC/Login";
+import RecPassphrase from "../Manufacturer/KYC/RecPassphrase";
 
 function AppNavigation() {
   let element = useRoutes([
@@ -79,9 +82,21 @@ function AppNavigation() {
       element: <KYCApproval />,
     },
     {
+      path: "/register",
+      element: <Register/>,
+    },
+    {
+      path: "/login",
+      element: <Login/>,
+    },
+    {
       path: "/account/passphrass",
       element: <Passphrase />,
     },
+    {
+      path:'/recorver-passphrase',
+      element:<RecPassphrase/>
+    }
   ]);
   return element;
 }

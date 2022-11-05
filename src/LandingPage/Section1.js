@@ -45,25 +45,25 @@ export default function Section1() {
                             </div>
                             <div className='architecture-data1'>
                                 01
-                                <div class="architecture-content">
+                                <div className="architecture-content">
                                     <p style={{ fontWeight: 'bold', margin: 0 }}>Title here here.</p>
                                     <p>Hello World! my name i syaasdf as fasdfsd fasfasd fasdf asdfasdf fasdfsad fasf fassdf asdfasd fasdf fasdfas fasf asdfasd</p>
                                 </div>
                             </div>
                             <div className='architecture-data2'>02
-                                <div class="architecture-content">
+                                <div className="architecture-content">
                                     <p style={{ fontWeight: 'bold', margin: 0 }}>Title here here.</p>
                                     <p>Hello World! my name i syaasdf as fasdfsd fasfasd fasdf asdfasdf fasdfsad fasf fassdf asdfasd fasdf fasdfas fasf asdfasd</p>
                                 </div>
                             </div>
                             <div className='architecture-data3'>03
-                                <div class="architecture-content">
+                                <div className="architecture-content">
                                     <p style={{ fontWeight: 'bold', margin: 0 }}>Title here here.</p>
                                     <p>Hello World! my name i syaasdf as fasdfsd fasfasd fasdf asdfasdf fasdfsad fasf fassdf asdfasd fasdf fasdfas fasf asdfasd</p>
                                 </div>
                             </div>
                             <div className='architecture-data4'>04
-                                <div class="architecture-content">
+                                <div className="architecture-content">
                                     <p style={{ fontWeight: 'bold', margin: 0 }}>Title here here.</p>
                                     <p>Hello World! my name i syaasdf as fasdfsd fasfasd fasdf asdfasdf fasdfsad fasf fassdf asdfasd fasdf fasdfas fasf asdfasd</p>
                                 </div>
