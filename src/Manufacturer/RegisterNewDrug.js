@@ -63,14 +63,23 @@ export default function RegisterNewDrug() {
               </Col>
               <Col md={6}>
                 <label>Sole Agent Name</label>
-                <input
+                <Typeahead
+                  id="basic-typeahead-single"
+                  labelKey="soleagentname"
+                  options={marketers}
+                  placeholder="Search drugs by name"
+                  selected={singleSelections}
+                  inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
+
+                />
+                {/* <input
                   name="soleAgentName"
                   value={drugData.soleAgentName}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
                   required
-                />
+                /> */}
               </Col>
             </Row>
             <Row className="pt-3">
@@ -78,7 +87,7 @@ export default function RegisterNewDrug() {
                 <label>Authorized Marketers/Presentatives</label>
                 <Typeahead
                   id="basic-typeahead-single"
-                  labelKey="drugName"
+                  labelKey="marketer"
                   options={marketers}
                   placeholder="Search drugs by name"
                   selected={singleSelections}

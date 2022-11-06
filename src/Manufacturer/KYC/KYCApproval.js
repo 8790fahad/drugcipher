@@ -120,6 +120,8 @@ export default function KYCApproval() {
                 <th className="">Company Phone</th>
                 <th className="">Company Email</th>
                 <th className="">Company Country</th>
+                {/* <th className="">Pharmacist License</th>
+                <th className="">superintendent License</th> */}
                 <th className="">View</th>
               </tr>
             </thead>
@@ -131,6 +133,8 @@ export default function KYCApproval() {
                     <td>{item.company_phone}</td>
                     <td>{item.company_email}</td>
                     <td>{item.company_country}</td>
+                    {/* <td>{item.pl_url}</td>
+                    <td>{item.sp_url}</td> */}
                     <td className="">
                       {/* <button
                         className="man_button"
@@ -149,7 +153,7 @@ export default function KYCApproval() {
                       >
                         Reject{' '}<XCircle />
                       </button> */}
-                      <button className='man_button' onClick={() => navigate(`/view-KYC-approval?companyName=${item.company_name}&companyPhone=${item.company_phone}&companyEmail=${item.company_email}&companyCountry=${item.company_country}`)}><Eye size='1em' />{' '}View</button>
+                      <button className='man_button' onClick={() => navigate(`/view-KYC-approval?companyName=${item.company_name}&companyPhone=${item.company_phone}&companyEmail=${item.company_email}&companyCountry=${item.company_country}&pl_url=${item.pl_url}&sp_url=${item.sp_url}`)}><Eye size='1em' />{' '}View</button>
                     </td>
                   </tr>
                 ))
