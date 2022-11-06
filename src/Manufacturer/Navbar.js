@@ -45,10 +45,9 @@ export default function Navbar() {
                         placeholder="Search drugs by name"
                         selected={singleSelections}
                         inputProps={{ className: 'man_search_field', style: { 'outline': 'none' } }}
-                    // onInputChange={}
+
                     />
                     {/* <input type='text' placeholder='Search Drugs' className='man_search_field shadow' /> */}
-
                 </Col>
                 <Col xl={3} lg={3} md={3} sm={3} xs={3}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', height: '70px' }}>
@@ -109,7 +108,7 @@ export default function Navbar() {
                                         <div className='drop_down_item' onClick={() => {
                                             navigate('/profile')
                                         }}>
-                                            
+
                                             <span className='p-3'>
                                                 Profile
                                             </span>
