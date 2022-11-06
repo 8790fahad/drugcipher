@@ -2,20 +2,24 @@
 import React from 'react'
 import './Manufacturer.css'
 import logo from '../image/DRUG CIPHER (2).png'
-import overview from '../image/overview.png'
-import overview1 from '../image/overview1.png'
-import kyc from '../image/kyc.png'
-import kyc1 from '../image/kyc1.png'
-import view1 from '../image/view1.png'
-import view from '../image/view.png'
-import get_help from '../image/get_help.png'
-import get_help1 from '../image/get_help1.png'
-import add from '../image/add.png'
-import add1 from '../image/add1.png'
+// import overview from '../image/overview.png'
+// import overview1 from '../image/overview1.png'
+// import kyc from '../image/kyc.png'
+// import kyc1 from '../image/kyc1.png'
+// import view1 from '../image/view1.png'
+// import view from '../image/view.png'
+// import get_help from '../image/get_help.png'
+// import get_help1 from '../image/get_help1.png'
+// import add from '../image/add.png'
+// import add1 from '../image/add1.png'
 import logout from '../image/logout.png'
 import settings1 from '../image/settings1.png'
 import pills1 from '../image/pills1.png'
 import pills from '../image/pills.png'
+import sole from '../image/sole.png'
+import sole1 from '../image/sole1.png'
+import marketers from '../image/marketers.png'
+import marketers1 from '../image/marketers1.png'
 import settings from '../image/settings.png'
 import { useLocation, useNavigate } from 'react-router-dom'
 export default function Sidebar() {
@@ -56,7 +60,20 @@ export default function Sidebar() {
                             : <img src={pills} style={{ width: '22px', marginRight: 10 }} alt="" />}
                         {' '}Registered Drugs</p>
 
+                        <p className={`sidemenu ${location.pathname === '/marketers' && 'active_side_menu'}`}
+                        onClick={() => navigate('/marketers')}>
+                        {location.pathname === '/marketers' ?
+                            <img src={marketers} style={{ width: '22px', marginRight: 10 }} alt="" />
+                            : <img src={marketers1} style={{ width: '20px', marginRight: 10 }} alt="" />}
+                        {' '}Marketers</p>
 
+                        <p className={`sidemenu ${location.pathname === '/sole-agents' && 'active_side_menu'}`}
+                        onClick={() => navigate('/sole-agents')}>
+                        {location.pathname === '/sole-agents' ?
+                            <img src={sole} style={{ width: '22px', marginRight: 10 }} alt="" />
+                            : <img src={sole1} style={{ width: '20px', marginRight: 10 }} alt="" />}
+                        {' '}Sole Agents</p>
+                    
                     <p className={`sidemenu ${location.pathname === '/settings' && 'active_side_menu'}`}
                         onClick={() => navigate('/settings')}>
                         {location.pathname === '/settings' ?

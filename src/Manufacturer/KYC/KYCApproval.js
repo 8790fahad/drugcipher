@@ -11,8 +11,14 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../utils/Notification";
-import { CheckCircle, XCircle } from "react-feather";
+import { CheckCircle, Eye, XCircle } from "react-feather";
+import useQuery from "../../hooks/useQuery";
+import { useNavigate } from "react-router-dom";
+
 export default function KYCApproval() {
+  const query = useQuery()
+  const navigate = useNavigate()
+
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const getPendingKYC = useCallback(() => {
@@ -117,8 +123,8 @@ export default function KYCApproval() {
                     <td>{item.company_phone}</td>
                     <td>{item.company_email}</td>
                     <td>{item.company_country}</td>
-                    <td className="text-center">
-                      <button
+                    <td className="">
+                      {/* <button
                         className="man_button"
                         onClick={() => {
                           approve(item);
@@ -134,7 +140,8 @@ export default function KYCApproval() {
                         className='man_button'
                       >
                         Reject{' '}<XCircle />
-                      </button>
+                      </button> */}
+                      <button className='man_button' onClick={() => navigate(`/view-KYC-approval?companyName=${item.company_name}&companyPhone=${item.company_phone}&companyEmail=${item.company_email}&companyCountry=${item.company_country}`)}><Eye size='1em' />{' '}View</button>
                     </td>
                   </tr>
                 ))
