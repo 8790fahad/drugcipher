@@ -620,7 +620,7 @@
 .architecture-content {
   display: none;
   font-size: 15px !important;
-  text-align: justify;
+  text-align: left;
   position: absolute;
   border-radius: 10px;
   background-color: #f9f9f9;
