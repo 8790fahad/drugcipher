@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
-import { CheckCircle, Mail, Map, MapPin, Phone, Pocket, XCircle } from 'react-feather';
+import { ArrowLeftCircle, CheckCircle, Mail, Map, MapPin, Phone, Pocket, XCircle } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useQuery from "../../hooks/useQuery";
 import logo from "../../image/DRUG CIPHER (2).png";
@@ -8,9 +9,12 @@ import { _updateApi } from '../../utils/helper';
 import {
     NotificationError,
     NotificationSuccess,
-  } from "../../utils/Notification";
+} from "../../utils/Notification";
 
 export default function ViewKYCApproval() {
+
+    const navigate = useNavigate()
+
     const query = useQuery()
     const company_name = query.get("companyName");
     const company_phone = query.get("companyPhone");
@@ -58,21 +62,30 @@ export default function ViewKYCApproval() {
         <div className="container">
             <Card className="KYC_card shadow p-3">
                 <div>
-                    <img
-                        src={logo}
-                        style={{ width: 70, borderRadius: 10 }}
-                        alt=""
-                        className="shadow"
-                    />{" "}
-                    <h4
-                        style={{
-                            display: "inline",
-                            color: "rgb(3, 66, 110)",
-                            marginRight: 30,
-                        }}
-                    >
-                        Drug Cipher
-                    </h4>
+                <Row>
+                        <Col md={6}>
+                            <img
+                                src={logo}
+                                style={{ width: 70, borderRadius: 10 }}
+                                alt=""
+                                className="shadow"
+                                onClick={() => navigate('/')}
+
+                            />{" "}
+                            <h4
+                                style={{
+                                    display: "inline",
+                                    color: "rgb(3, 66, 110)",
+                                    marginRight: 30,
+                                }}
+                            >
+                                Drug Cipher
+                            </h4>
+                        </Col>
+                        <Col md={6}>
+                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float:'right', cursor:'pointer' }} onClick={()=>navigate(-1)}/>
+                        </Col>
+                    </Row>
                     <h3 className="man_card_title mt-4">KYC Approval</h3>
                     <div className="mt-3">
                         <h5 style={{ color: 'rgb(3, 66, 110)' }}>Company Information</h5>

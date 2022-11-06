@@ -1,28 +1,41 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
+import { ArrowLeftCircle } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
 import logo from "../../image/DRUG CIPHER (2).png";
 
 export default function RecPassphrase() {
+    const navigate = useNavigate()
+
     return (
         <div>
             <div className='container'>
                 <Card className="KYC_card shadow p-3">
                     <div>
-                        <img
-                            src={logo}
-                            style={{ width: 70, borderRadius: 10 }}
-                            alt=""
-                            className="shadow"
-                        />{" "}
-                        <h4
-                            style={{
-                                display: "inline",
-                                color: "rgb(3, 66, 110)",
-                                marginRight: 30,
-                            }}
-                        >
-                            Drug Cipher
-                        </h4>
+                    <Row>
+                        <Col md={6}>
+                            <img
+                                src={logo}
+                                style={{ width: 70, borderRadius: 10 }}
+                                alt=""
+                                className="shadow"
+                                onClick={() => navigate('/')}
+
+                            />{" "}
+                            <h4
+                                style={{
+                                    display: "inline",
+                                    color: "rgb(3, 66, 110)",
+                                    marginRight: 30,
+                                }}
+                            >
+                                Drug Cipher
+                            </h4>
+                        </Col>
+                        <Col md={6}>
+                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float:'right', cursor:'pointer' }} onClick={()=>navigate(-1)}/>
+                        </Col>
+                    </Row>
                     </div>
                     <div>
                         <div className='text-center'>
@@ -37,10 +50,10 @@ export default function RecPassphrase() {
                                 <Col md={4}>
                                     <p className='m-0'><b>Enter the passphrase that was generated for this account.</b></p>
                                     <label>
-                                       Passphrase(15 words)<b style={{ color: "red" }}>*</b>
+                                        Passphrase(15 words)<b style={{ color: "red" }}>*</b>
                                     </label>
                                     <input className='man_input_fields' placeholder='cap shirt spoon...' />
-                                    <button className='man_button mt-3' style={{width:'100%'}}>Recorver</button>
+                                    <button className='man_button mt-3' style={{ width: '100%' }}>Recorver</button>
                                 </Col>
                                 <Col md={4}></Col>
                             </Row>

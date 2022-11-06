@@ -13,6 +13,8 @@ import { Spinner } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 export default function Passphrase({ nextStep }) {
+  // const navigate = useNavigate()
+
   const query = useQuery();
   const passphrase = query.get("pass");
   const id = query.get("id");
@@ -58,6 +60,8 @@ export default function Passphrase({ nextStep }) {
             style={{ width: 70, borderRadius: 10 }}
             alt=""
             className="shadow"
+            onClick={()=>navigate('/')}
+
           />{" "}
           <h4
             style={{

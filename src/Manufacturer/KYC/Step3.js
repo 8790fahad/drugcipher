@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
 import { CheckCircle } from "react-feather";
+import { useNavigate } from "react-router-dom";
 import { Spinner } from "reactstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
 export default function Step3({
@@ -8,6 +9,8 @@ export default function Step3({
   onFileChangeSP = (f) => f,
   loading = false,
 }) {
+  const navigate = useNavigate()
+
   return (
     <Form className="container" onSubmit={onFileUploadSP}>
       <Card className="KYC_card shadow p-3">
@@ -17,6 +20,8 @@ export default function Step3({
             style={{ width: 70, borderRadius: 10 }}
             alt=""
             className="shadow"
+            onClick={()=>navigate('/')}
+
           />{" "}
           <h4
             style={{
