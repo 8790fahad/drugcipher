@@ -25,6 +25,8 @@ import ViewKYCApproval from "../Manufacturer/KYC/ViewKYCApproval";
 import SoleAgent from "../Manufacturer/SoleAgent";
 import Marketers from "../Manufacturer/Marketers";
 import CreateMarketer from "../Manufacturer/CreateMarketer";
+import CreateSoleAgent from "../Manufacturer/CreateSoleAgent";
+
 
 function AppNavigation() {
   let element = useRoutes([
@@ -78,6 +80,10 @@ function AppNavigation() {
         {
           path: "/sole-agents",
           element: <SoleAgent />,
+        },
+        {
+          path: "/create-sole-agent",
+          element: <CreateSoleAgent/>,
         },
         {
           path: "/marketers",
