@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { ArrowLeftCircle, CheckCircle, File, Mail, Map, MapPin, Phone, Pocket, XCircle } from 'react-feather';
+import { ArrowLeftCircle, CheckCircle, DivideSquare, File, Mail, Map, MapPin, Phone, Pocket, XCircle } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import ImageViewer from 'react-simple-image-viewer';
@@ -101,16 +101,21 @@ export default function ViewKYCApproval() {
                             <Col md={6} className='mb-3'>
                                 <Card className='company_data shadow p-4'>
                                     <p className='company_data_title'><span className='company_data_icon'><File /></span>{' '}Premises License by PCN</p>
-                                    {/* <p>{pl_url}</p> */}
+                                    <p>{pl_url}</p>
                                     {/* <img src={pl_url} style={{ width: 100 }} /> */}
-                                    <img
-                                        src={images[0]}
+                                    {/* <img
+                                            src={images[0]}
+                                            onClick={() => openImageViewer(0)}
+                                            width="200"
+                                            key={0}
+                                            alt="Premises License by PCN"
+                                            // style={{opacity:0}}
+                                        /> */}
+                                    <button className='man_button'
                                         onClick={() => openImageViewer(0)}
-                                        width="200"
-                                        key={0}
-                                        style={{ margin: '2px' }}
-                                        alt="Premises License by PCN"
-                                    />
+                                    >
+                                        View License
+                                    </button>
                                     {isViewerOpen && (
                                         <ImageViewer
                                             src={images}
@@ -125,16 +130,20 @@ export default function ViewKYCApproval() {
                             <Col md={6} className='mb-3'>
                                 <Card className='company_data shadow p-4'>
                                     <p className='company_data_title'><span className='company_data_icon'><File /></span>{' '}Superintendent Pharmacist License</p>
-                                    {/* <p>{sp_url}</p> */}
+                                    <p>{sp_url}</p>
                                     {/* <img src={sp_url} style={{ width: 100 }} /> */}
-                                    <img
+                                    {/* <img
                                         src={images[1]}
                                         onClick={() => openImageViewer(1)}
                                         width="200"
                                         key={1}
-                                        style={{ margin: '2px' }}
-                                        alt="Premises License by PCN"
-                                    />
+                                        alt="Superintendent Pharmacist License"
+                                    /> */}
+                                     <button className='man_button'
+                                        onClick={() => openImageViewer(1)}
+                                    >
+                                        View License
+                                    </button>
                                     {isViewerOpen && (
                                         <ImageViewer
                                             src={images}
