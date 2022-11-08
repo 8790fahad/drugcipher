@@ -62,6 +62,9 @@ export default function RecPassphrase() {
                     </div>
                 </Card>
             </div>
+            <div className='text-center text-secondary'>
+                <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+            </div>
         </div>
     )
 }

@@ -16,26 +16,30 @@ export default function Step1({
     <Form className="container" onSubmit={nextStep}>
       <Card className="KYC_card shadow p-3">
         <div>
-        <Row>
+          <Row>
             <Col md={6} sm={6} xs={6}>
-              <img
-                src={logo}
-                style={{ width: 70, borderRadius: 10 }}
-                alt=""
-                className="shadow"
-                onClick={() => navigate('/')}
+              <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
+                data-placement="bottom"
+                title="Goto Home">
+                <img
+                  src={logo}
+                  style={{ width: 70, borderRadius: 10 }}
+                  alt=""
+                  className="shadow"
 
-              />{" "}
-              <h4
-                style={{
-                  display: "inline",
-                  color: "rgb(3, 66, 110)",
-                  marginRight: 30,
-                }}
-                className='dc'
-              >
-                DrugCipher
-              </h4>
+
+                />{" "}
+                <h4
+                  style={{
+                    display: "inline-block",
+                    color: "rgb(3, 66, 110)",
+                    marginRight: 30,
+                  }}
+                  className='dc'
+                >
+                  DrugCipher
+                </h4>
+              </div>
             </Col>
             <Col md={6} sm={6} xs={6}>
               <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
@@ -141,6 +145,9 @@ export default function Step1({
           </button>
         </div>
       </Card>
+      <div className='text-center text-secondary text-secondary'>
+        <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+      </div>
     </Form>
   );
 }

@@ -66,6 +66,9 @@ export default function Login() {
                     </div>
                 </div>
             </Card>
+            <div className='text-center text-secondary'>
+                <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+            </div>
         </div>
     )
 }
