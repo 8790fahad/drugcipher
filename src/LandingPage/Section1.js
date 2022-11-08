@@ -13,7 +13,7 @@ export default function Section1() {
               <div className="mobile_heading_div">
                 <h1 className="heading">Record.</h1>
                 <h1 className="heading">Track.</h1>
-                <h1 className="heading">Validate and Earn.</h1>
+                <h1 className="heading">Validate & Earn.</h1>
                 <p className="sub_heading">
                   Health is wealth. Live longer and healthier when you trust
                   DrugCipher for total wellness.

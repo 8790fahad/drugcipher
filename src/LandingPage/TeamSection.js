@@ -6,12 +6,7 @@ import yasir from "../image/yasir.png";
 import salem from "../image/salem1.JPG";
 import "./FlipCard.css";
 import fahad from "../image/fahad.png";
-import AOS from "aos";
-import "aos/dist/aos.css";
 export default function TeamSection() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   const ourTeam = [
     {
       image: yasir,
@@ -20,7 +15,7 @@ export default function TeamSection() {
             to create softwares that provide solutions to problems.`,
       name: "Yasir Ado Hassan",
       title: "Chief Executive Officer",
-      animation: "fade-right",
+      // animation: "fade-right",
     },
     {
       image: gana,
@@ -33,7 +28,7 @@ export default function TeamSection() {
       content: `Adepoju Priscillia is a creative UI/UX designer helping brands visualize their products, she's a B.tech degree holder in Pure and Applied Chemistry (LAUTECH). She's also a good content writer/creator, brand influencer and product and graphic designer.`,
       name: "Adepoju Priscillia",
       title: "Content Creator/UI/UX Designer",
-      animation: "fade-left",
+      // animation: "fade-left",
     },
   ];
 
@@ -93,7 +88,7 @@ export default function TeamSection() {
         <Row className="our_team_second_row">
           <Col md={2}></Col>
           <Col xl={4} lg={4} md={12} sm={12} xs={12} className="mb-5">
-            <div className="flip whole_flip pb-3" data-aos="fade-right">
+            <div className="flip whole_flip pb-3">
               <div
                 className="front"
                 style={{ backgroundImage: `url(${fahad})` }}
@@ -125,7 +120,7 @@ export default function TeamSection() {
             </div>
           </Col>
           <Col xl={4} lg={4} md={12} sm={12} xs={12} className="mb-5">
-            <div className="flip whole_flip pb-3" data-aos="fade-left">
+            <div className="flip whole_flip pb-3">
               <div
                 className="front"
                 style={{ backgroundImage: `url(${salem})` }}

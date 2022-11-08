@@ -14,8 +14,7 @@ import MobileNavbar from './MobileNavbar'
 import NewsLetter from './NewsLetter'
 export default function LandingPage() {
     return (
-        <>
-            <div>
+            <div className='m-0 p-0'>
                 <HeaderInfo />
                 <Navbar />
                 <MobileNavbar />
@@ -23,7 +22,7 @@ export default function LandingPage() {
                 <IntroSection />
                 <WhyDrugCipher />
                 <SectionDivider />
-                <MVV />
+                <MVV/>
                 <SectionDivider />
                 <TeamSection />
                 <RoadMap />
@@ -31,6 +30,5 @@ export default function LandingPage() {
                 <SectionDivider />
                 <Footer />
             </div>
-        </>
     )
 }

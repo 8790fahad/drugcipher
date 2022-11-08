@@ -3,12 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import mission from "../image/mission2.png";
 import vision from "../image/vission.png";
 import values from "../image/value.png";
-import AOS from "aos";
-import "aos/dist/aos.css";
 export default function MVV() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   const mvv = [
     {
       mvvImage: mission,
@@ -16,7 +11,7 @@ export default function MVV() {
       mvvContent: `Our Mission is to alleviate pharmaceutical products couterfeiting across the globe using
       modern digital technologies.`,
       alt: "mission",
-      animation: "fade-right",
+      // animation: "fade-right",
     },
     {
       mvvImage: vision,
@@ -26,7 +21,7 @@ export default function MVV() {
       for pharmceutical production, distribution and consumption.
       `,
       alt: "vision",
-      animation: "fade-left",
+      // animation: "fade-left",
     },
     {
       mvvImage: values,
@@ -39,7 +34,7 @@ export default function MVV() {
       ● We do not compromise
       ● We choose transparency`,
       alt: "values",
-      animation: "fade-right",
+      // animation: "fade-right",
     },
   ];
   return (
