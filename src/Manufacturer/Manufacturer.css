@@ -427,6 +427,9 @@ ul {
 }
 .emoji{
   width: 20%;
+  border-radius: 50%;
+}
+.emoji_div{
 }
 label[for='file-input'] {
   display: inline-block;
