@@ -41,10 +41,9 @@ export default function Final() {
                             {/* <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} /> */}
                         </Col>
                     </Row>
-                    <div className='text-center p-5'>
+                    <div className='text-center'>
                         <h1 className='thankyou'>Thank you for registering</h1>
                         <img src={emoji} alt='' className='emoji' />
-
                         <p className='mssg'>Your account is under review. when it is approved, a link will be sent to your email that will allow you to generate a passphrase and login to your account.</p>
                     </div>
                 </div>
