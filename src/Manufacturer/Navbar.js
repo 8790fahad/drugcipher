@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
-import cart from '../image/cart.png'
+// import cart from '../image/cart.png'
 import bell from '../image/bell.png'
 import help from '../image/help.png'
 import account from '../image/account.png'
 import { useLocation, useNavigate } from 'react-router-dom'
-import InputField from '../CustomFiles/InputField'
+// import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { login } from '../utils/helper'
 import { Typeahead } from 'react-bootstrap-typeahead'
 import { drugData } from './drugData'
-import useQuery from '../hooks/useQuery'
+// import useQuery from '../hooks/useQuery'
 import logo from '../image/DRUG CIPHER (2).png'
 import { Menu } from 'react-feather'
 
 export default function Navbar() {
-    const query = useQuery()
+    // const query = useQuery()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -28,7 +28,7 @@ export default function Navbar() {
     const toggle2 = () => {
         setdropdown2(!dropdown2)
     }
-    const [singleSelections, setSingleSelections] = useState([]);
+    const [singleSelections] = useState([]);
     return (
         <div>
             <Row className='m-0 webnavbar'>
@@ -55,10 +55,10 @@ export default function Navbar() {
                             <div className='absolute'>
                                 <span >11</span>
                             </div>
-                            <img src={bell} />
+                            <img alt='' src={bell} />
                         </div>
                         <div className={`icon_div p-1 ${location.pathname === '/GetHelp' && 'active_nav_menu'}`} onClick={() => navigate('/GetHelp')}>
-                            <img src={help} />
+                            <img alt='' src={help} />
                         </div>
 
                         <Dropdown toggle={toggle1} isOpen={dropdown}>
@@ -67,7 +67,7 @@ export default function Navbar() {
                                 tag="span"
                             >
                                 <div className='icon_div p-1'>
-                                    <span className='account'>Account</span>{' '}<img src={account} />
+                                    <span className='account'>Account</span>{' '}<img alt='' src={account} />
                                 </div>
                             </DropdownToggle>
                             <DropdownMenu className='dropdown_menu shadow'>
@@ -91,7 +91,7 @@ export default function Navbar() {
             <div>
                 <Row className='m-0 p-0 mobilenavbar mb-3'>
                     <Col xl={6} lg={6} md={6} sm={6} xs={6}>
-                        <img src={logo} style={{ borderRadius: 10, width: 50, margin: '15px 7px' }} />
+                        <img alt='DrugCipher Logo' src={logo} style={{ borderRadius: 10, width: 50, margin: '15px 7px' }} />
                     </Col>
                     <Col xl={6} lg={6} md={6} sm={6} xs={6}>
                         <div style={{ color: 'white', float: 'right' }} className='pt-3'>

@@ -3,26 +3,26 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import drugcipherIcon from '../image/DRUG CIPHER (2).png'
-import qrBackground from '../image/DRUG CIPHER (1).png'
+// import qrBackground from '../image/DRUG CIPHER (1).png'
 import { v4 as uuid4 } from "uuid";
-import Button from '../CustomFiles/Button'
+// import Button from '../CustomFiles/Button'
 // import QRCode from 'react-qr-code';
-import { useRef } from 'react'
+// import { useRef } from 'react'
 import { QRCode } from 'react-qrcode-logo';
 
 export default function QRCodePage() {
-    const [drug, setDrug] = useState({
+    const [drug] = useState({
         drugName: '',
         drugGenericName: '',
         dosage: ''
     })
     const [drugDetails, setDrugDetails] = useState('')
 
-    const handleChange = ({ target: { name, value } }) => {
-        setDrug((p) => ({
-            ...p, [name]: value
-        }))
-    }
+    // const handleChange = ({ target: { name, value } }) => {
+    //     setDrug((p) => ({
+    //         ...p, [name]: value
+    //     }))
+    // }
 
     useEffect(() => {
         setDrugDetails(`

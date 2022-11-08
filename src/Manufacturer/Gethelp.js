@@ -5,8 +5,8 @@ import './DrugTable.css'
 import './Manufacturer.css'
 import Accordion from 'react-bootstrap/Accordion';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
 
 export default function Gethelp() {
 

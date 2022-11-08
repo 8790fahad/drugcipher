@@ -1,9 +1,8 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 export default function CreateMarketer() {
     const form = {
         companyName:'',
@@ -13,7 +12,7 @@ export default function CreateMarketer() {
         marketerAddress:'',
         license:''
     };
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [marketerData, setMarketerData] = useState({ form });
 

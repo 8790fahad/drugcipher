@@ -2,7 +2,7 @@ import React from 'react'
 // import OrderContent from "../orderSection/OrderContent";
 // import { drugData } from "../drugData";
 import { drugData } from './drugData'
-import Sprite from './sprite.svg'
+// import Sprite from './sprite.svg'
 import { Table } from 'reactstrap'
 import './DrugTable.css'
 import action from '../image/action.png'

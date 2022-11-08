@@ -19,22 +19,22 @@ export default function Footer() {
                         <Col md={8}>
                             <div className='icons_div mt-3'>
                                 <div className='icons'>
-                                    <a className='links' href='https://instagram.com/drugcipher' target='_blank'>
+                                    <a className='links' href='https://instagram.com/drugcipher' target='_blank'  rel="noreferrer">
                                         {<Instagram />}
                                     </a>
                                 </div>
                                 <div className='icons'>
-                                    <a className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank'>
+                                    <a className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank'  rel="noreferrer">
                                         <Linkedin />
                                     </a>
                                 </div>
                                 <div className='icons'>
-                                    <a className='links' href='https://twitter.com/drugcipher' target='_blank'>
+                                    <a className='links' href='https://twitter.com/drugcipher' target='_blank'  rel="noreferrer">
                                         <Twitter />
                                     </a>
                                 </div>
                                 <div className='icons'>
-                                    <a className='links' href='https://fb.me/drugcipher' target='_blank'>
+                                    <a className='links' href='https://fb.me/drugcipher' target='_blank'  rel="noreferrer">
                                         <Facebook />
                                     </a>
                                 </div>

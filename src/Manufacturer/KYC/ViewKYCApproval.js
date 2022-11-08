@@ -1,16 +1,16 @@
 import React, { useState, useCallback } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { ArrowLeftCircle, CheckCircle, DivideSquare, File, Mail, Map, MapPin, Phone, Pocket, XCircle } from 'react-feather';
+import { ArrowLeftCircle, CheckCircle,  File, Mail,  MapPin, Phone, Pocket, XCircle } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import ImageViewer from 'react-simple-image-viewer';
 import useQuery from "../../hooks/useQuery";
 import logo from "../../image/DRUG CIPHER (2).png";
-import { _updateApi } from '../../utils/helper';
-import {
-    NotificationError,
-    NotificationSuccess,
-} from "../../utils/Notification";
+// import { _updateApi } from '../../utils/helper';
+// import {
+//     NotificationError,
+//     NotificationSuccess,
+// } from "../../utils/Notification";
 
 export default function ViewKYCApproval() {
 

@@ -5,7 +5,7 @@ import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { useState } from 'react'
 import { Table } from 'reactstrap'
 import './DrugTable.css'
-import { drugData } from './drugData'
+// import { drugData } from './drugData'
 import { CSVLink } from 'react-csv'
 export default function Marketers() {
     const navigate = useNavigate()
@@ -13,10 +13,10 @@ export default function Marketers() {
     const toggle1 = () => {
         setdropdown(!dropdown)
     }
-    const [actions, setActions] = useState(false)
-    const toggle = () => {
-        setActions(!actions)
-    }
+    // const [actions, setActions] = useState(false)
+    // const toggle = () => {
+    //     setActions(!actions)
+    // }
     const marketers = [
         {
             companyName: 'ABC Marketing Co.',

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
-import { ArrowLeftCircle, AtSign, File, FileText, Mail, Send } from 'react-feather';
+import { ArrowLeftCircle, AtSign,  FileText } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../image/DRUG CIPHER (2).png";
 

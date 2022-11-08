@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
-import DrugTable from './DrugTable'
+// import DrugTable from './DrugTable'
 import { useNavigate } from 'react-router-dom'
 import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { useState } from 'react'
@@ -8,18 +8,14 @@ import { Table } from 'reactstrap'
 import './DrugTable.css'
 import { drugData } from './drugData'
 
-import action from '../image/action.png'
+// import action from '../image/action.png'
 import { CSVLink } from 'react-csv'
-import { Eye, File, FileText, Grid } from 'react-feather'
+import { Grid } from 'react-feather'
 export default function ViewRegisteredDrugs() {
     const navigate = useNavigate()
     const [dropdown, setdropdown] = useState(false)
     const toggle1 = () => {
         setdropdown(!dropdown)
-    }
-    const [actions, setActions] = useState(false)
-    const toggle = () => {
-        setActions(!actions)
     }
 
 

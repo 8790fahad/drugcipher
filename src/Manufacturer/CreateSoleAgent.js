@@ -1,9 +1,9 @@
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 export default function CreateSoleAgent() {
     const form = {
         soleAgentFullName: '',
@@ -11,7 +11,7 @@ export default function CreateSoleAgent() {
         soleAgentEmail: '',
         soleAgentAddress: '',
     };
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [soleAgentData, setSoleAgentData] = useState({ form });
 

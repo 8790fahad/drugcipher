@@ -1,14 +1,14 @@
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
-import { marketer } from "./drugData";
+// import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
 
-  const [singleSelections, setSingleSelections] = useState([]);
+  const [singleSelections] = useState([]);
   const marketers = [
     'afdf', 'fasdfa', 'fasdf'
   ]

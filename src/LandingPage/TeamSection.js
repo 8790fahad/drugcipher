@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import gana from "../image/gana.png";
 import prcl from "../image/prcl.JPG";
 import yasir from "../image/yasir.png";
