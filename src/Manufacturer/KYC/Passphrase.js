@@ -55,23 +55,31 @@ export default function Passphrase({ nextStep }) {
     <Form className="container" onSubmit={submitForm}>
       <Card className="KYC_card shadow p-3">
         <div>
-          <img
-            src={logo}
-            style={{ width: 70, borderRadius: 10 }}
-            alt=""
-            className="shadow"
-            onClick={()=>navigate('/')}
+          <Row>
+            <Col md={6} sm={6} xs={6}>
+              <img
+                src={logo}
+                style={{ width: 70, borderRadius: 10 }}
+                alt=""
+                className="shadow"
+                onClick={() => navigate('/')}
 
-          />{" "}
-          <h4
-            style={{
-              display: "inline",
-              color: "rgb(3, 66, 110)",
-              marginRight: 30,
-            }}
-          >
-            DrugCipher
-          </h4>
+              />{" "}
+              <h4
+                style={{
+                  display: "inline",
+                  color: "rgb(3, 66, 110)",
+                  marginRight: 30,
+                }}
+                className='dc'
+              >
+                DrugCipher
+              </h4>
+            </Col>
+            <Col md={6} sm={6} xs={6}>
+              {/* <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} /> */}
+            </Col>
+          </Row>
         </div>
         <div className="mt-3 ">
           <Row className="mt-3">
@@ -90,12 +98,12 @@ export default function Passphrase({ nextStep }) {
                 <Row>
                   {passphrase.split(" ").length
                     ? passphrase.split(" ").map((item, index) => (
-                        <Col md={4}>
-                          <p className="word p-2">
-                            {index + 1}: {item}
-                          </p>
-                        </Col>
-                      ))
+                      <Col md={4}>
+                        <p className="word p-2">
+                          {index + 1}: {item}
+                        </p>
+                      </Col>
+                    ))
                     : null}
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}

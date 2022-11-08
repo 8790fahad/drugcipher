@@ -366,6 +366,16 @@ Form.Control:focus {
   ._outlet {
     height: 100vh;
   }
+  .company_data_icon{
+    display: block;
+  }
+  .company_data_icon{
+    width: fit-content;
+  }
+  .login_text{
+    font-size: 12px;
+  }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -415,7 +425,9 @@ ul {
   font-size: 20px;
   margin: 0;
 }
-
+.emoji{
+  width: 20%;
+}
 label[for='file-input'] {
   display: inline-block;
   margin-bottom: 1em;

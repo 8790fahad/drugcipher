@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./RoadMap.css";
 export default function RoadMap() {
   return (

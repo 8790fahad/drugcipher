@@ -12,7 +12,7 @@ export default function Register() {
             <Card className="KYC_card shadow p-3">
                 <div>
                     <Row>
-                        <Col md={6}>
+                        <Col md={6} sm={6} xs={6}>
                             <img
                                 src={logo}
                                 style={{ width: 70, borderRadius: 10 }}
@@ -27,11 +27,12 @@ export default function Register() {
                                     color: "rgb(3, 66, 110)",
                                     marginRight: 30,
                                 }}
+                                className='dc'
                             >
                                 DrugCipher
                             </h4>
                         </Col>
-                        <Col md={6}>
+                        <Col md={6} sm={6} xs={6}>
                             <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float:'right', cursor:'pointer' }} onClick={()=>navigate(-1)}/>
                         </Col>
                     </Row>
@@ -43,9 +44,9 @@ export default function Register() {
                     </h3>
                     <p className='m-0' style={{ color: '#029f41' }}>DrugCipher introduces a sophisticated solution to tackling the issues surrounding pharmaceutical products.</p>
                     <div style={{}} className='text-center mt-5'>
-                        <button className='man_button' style={{ marginRight: 10 }} onClick={() => navigate('/KYC')}>Create Account</button>
-                        <span style={{ marginRight: 10 }}>Or</span>
-                        <button style={{ border: '1px dashed #029f41', padding: '7px', backgroundColor: 'white', color: 'rgb(3, 66, 110)' }} onClick={() => navigate('/login')}>Import Existing Account</button>
+                        <button className='man_button register_btn' style={{ marginRight: 10 }} onClick={() => navigate('/KYC')}>Create Account</button>
+                        <span style={{ marginRight: 10 }} className='or'>Or</span>
+                        <button className='register_btn' style={{ border: '1px dashed #029f41', padding: '7px', backgroundColor: 'white', color: 'rgb(3, 66, 110)' }} onClick={() => navigate('/login')}>Import Existing Account</button>
                     </div>
                 </div>
             </Card>

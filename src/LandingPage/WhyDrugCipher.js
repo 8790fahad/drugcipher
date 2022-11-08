@@ -1,20 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
 
 export default function WhyDrugCipher() {
-  // useEffect(() => {
-  //   AOS.init();
-  // }, []);
   return (
     <div
       className="p-5 about_whole_div"
       style={{ marginTop: "", margin: 0 }}
       id="about-us"
-      // data-aos="fade-right"
-      // data-aos-easing="linear"
-      // data-aos-duration="1000"
     >
       <Row className="m-0">
         <Col lg={12} md={12} sm={12} xs={12}>

@@ -12,30 +12,31 @@ export default function RecPassphrase() {
             <div className='container'>
                 <Card className="KYC_card shadow p-3">
                     <div>
-                    <Row>
-                        <Col md={6}>
-                            <img
-                                src={logo}
-                                style={{ width: 70, borderRadius: 10 }}
-                                alt=""
-                                className="shadow"
-                                onClick={() => navigate('/')}
+                        <Row>
+                            <Col md={6} sm={6} xs={6}>
+                                <img
+                                    src={logo}
+                                    style={{ width: 70, borderRadius: 10 }}
+                                    alt=""
+                                    className="shadow"
+                                    onClick={() => navigate('/')}
 
-                            />{" "}
-                            <h4
-                                style={{
-                                    display: "inline",
-                                    color: "rgb(3, 66, 110)",
-                                    marginRight: 30,
-                                }}
-                            >
-                                DrugCipher
-                            </h4>
-                        </Col>
-                        <Col md={6}>
-                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float:'right', cursor:'pointer' }} onClick={()=>navigate(-1)}/>
-                        </Col>
-                    </Row>
+                                />{" "}
+                                <h4
+                                    style={{
+                                        display: "inline",
+                                        color: "rgb(3, 66, 110)",
+                                        marginRight: 30,
+                                    }}
+                                    className='dc'
+                                >
+                                    DrugCipher
+                                </h4>
+                            </Col>
+                            <Col md={6} sm={6} xs={6}>
+                                <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
+                            </Col>
+                        </Row>
                     </div>
                     <div>
                         <div className='text-center'>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import gana from "../image/gana.png";
 import prcl from "../image/prcl.JPG";
@@ -36,7 +36,6 @@ export default function TeamSection() {
     <div
       className="p-5 text-center mt-5 our_team_whole"
       id="team"
-      //   data-aos="zoom-in"
     >
       <h1 className="heading_two">Our Team</h1>
       <p className="sub_heading">
@@ -54,7 +53,6 @@ export default function TeamSection() {
               sm={12}
               xs={12}
               className="mb-5"
-              data-aos={item.animation}
             >
               <div className="flip whole_flip pb-3">
                 <div

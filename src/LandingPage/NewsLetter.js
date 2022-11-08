@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "../CustomFiles/Button";
 import "../CustomFiles/InputFields.css";
 import { useState } from "react";

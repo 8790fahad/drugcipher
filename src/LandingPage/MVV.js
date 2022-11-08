@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import mission from "../image/mission2.png";
 import vision from "../image/vission.png";
@@ -59,7 +59,7 @@ export default function MVV() {
                               borderRadius: "50%",
                               width: 100,
                             }}
-                            data-aos={item.animation}
+                            
                           />
                         </div>
                       </div>

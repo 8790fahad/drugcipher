@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
-import { ArrowLeftCircle, AtSign,  FileText } from 'react-feather';
+import { ArrowLeftCircle, AtSign, FileText } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../image/DRUG CIPHER (2).png";
 
@@ -11,8 +11,8 @@ export default function Login() {
         <div className='container'>
             <Card className="KYC_card shadow p-3">
                 <div>
-                <Row>
-                        <Col md={6}>
+                    <Row>
+                        <Col md={6} sm={6} xs={6}>
                             <img
                                 src={logo}
                                 style={{ width: 70, borderRadius: 10 }}
@@ -27,12 +27,13 @@ export default function Login() {
                                     color: "rgb(3, 66, 110)",
                                     marginRight: 30,
                                 }}
+                                className='dc'
                             >
                                 DrugCipher
                             </h4>
                         </Col>
-                        <Col md={6}>
-                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float:'right', cursor:'pointer' }} onClick={()=>navigate(-1)}/>
+                        <Col md={6} sm={6} xs={6}>
+                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
                         </Col>
                     </Row>
                 </div>
@@ -48,7 +49,7 @@ export default function Login() {
                             <Col md={6}>
                                 <Card className='KYC_card shadow p-4'>
                                     <h5 className="man_card_title mt-4"><AtSign />{' '}Email Recovery</h5>
-                                    <p style={{ marginBottom: 55 }}>Use the link that was sent to your email from drugcipher.com when creating your account. Click the link for your account recovery.</p>
+                                    <p className='login_text' style={{ marginBottom: 55 }}>Use the link that was sent to your email from drugcipher.com when creating your account. Click the link for your account recovery.</p>
                                     {/* <p>When you click the 'Send Email' button, a recovery mail will be sent to your email that is been registered with your account.</p> */}
 
 
@@ -57,7 +58,7 @@ export default function Login() {
                             <Col md={6}>
                                 <Card className='KYC_card shadow p-4'>
                                     <h5 className="man_card_title mt-4"><FileText />{' '}Passphrase Recovery</h5>
-                                    <p>When you click the 'Recover Account' button, you will be asked to input your 15 words passphrase that was generated for your account when registering.</p>
+                                    <p className='login_text'>When you click the 'Recover Account' button, you will be asked to input your 15 words passphrase that was generated for your account when registering.</p>
                                     <button className='man_button' onClick={() => navigate('/recorver-passphrase')}>Recover Account</button>
                                 </Card>
                             </Col>

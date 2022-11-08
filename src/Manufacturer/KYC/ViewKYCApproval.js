@@ -46,30 +46,31 @@ export default function ViewKYCApproval() {
         <div className="container">
             <Card className="KYC_card shadow p-3">
                 <div>
-                    <Row>
-                        <Col md={6}>
-                            <img
-                                src={logo}
-                                style={{ width: 70, borderRadius: 10 }}
-                                alt=""
-                                className="shadow"
-                                onClick={() => navigate('/')}
+                <Row>
+            <Col md={6} sm={6} xs={6}>
+              <img
+                src={logo}
+                style={{ width: 70, borderRadius: 10 }}
+                alt=""
+                className="shadow"
+                onClick={() => navigate('/')}
 
-                            />{" "}
-                            <h4
-                                style={{
-                                    display: "inline",
-                                    color: "rgb(3, 66, 110)",
-                                    marginRight: 30,
-                                }}
-                            >
-                                DrugCipher
-                            </h4>
-                        </Col>
-                        <Col md={6}>
-                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
-                        </Col>
-                    </Row>
+              />{" "}
+              <h4
+                style={{
+                  display: "inline",
+                  color: "rgb(3, 66, 110)",
+                  marginRight: 30,
+                }}
+                className='dc'
+              >
+                DrugCipher
+              </h4>
+            </Col>
+            <Col md={6} sm={6} xs={6}>
+              <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
+            </Col>
+          </Row>
                     <h3 className="man_card_title mt-4">KYC Approval</h3>
                     <div className="mt-3">
                         <h5 style={{ color: 'rgb(3, 66, 110)' }}>Company Information</h5>

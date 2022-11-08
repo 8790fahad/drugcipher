@@ -112,7 +112,7 @@ function KYC() {
         if (res.success) {
           setLoading(false);
           setstep(step + 1);
-          toast(<NotificationSuccess text="Next" />);
+          toast(<NotificationSuccess text="Done" />);
         }
       })
       .catch((err) => {
@@ -123,36 +123,36 @@ function KYC() {
   };
 
   switch (step) {
+    // case 1:
+    //   return (
+    //     <Step1
+    //       nextStep={nextStep}
+    //       handleChange={handleChange}
+    //       values={formData}
+    //       loading={loading}
+    //     />
+    //   );
+    // case 2:
+    //   return (
+    //     <>
+    //       <Step2
+    //         onFileChangePL={onFileChangePL}
+    //         selectedFilePL={selectedFilePL}
+    //         onFileUploadPL={onFileUploadPL}
+    //         loading={loading}
+    //       />
+    //     </>
+    //   );
+    // case 3:
+    //   return (
+    //     <Step3
+    //       onFileUploadSP={onFileUploadSP}
+    //       onFileChangeSP={onFileChangeSP}
+    //       loading={loading}
+    //       selectedFileSP={selectedFileSP}
+    //     />
+    //   );
     case 1:
-      return (
-        <Step1
-          nextStep={nextStep}
-          handleChange={handleChange}
-          values={formData}
-          loading={loading}
-        />
-      );
-    case 2:
-      return (
-        <>
-          <Step2
-            onFileChangePL={onFileChangePL}
-            selectedFilePL={selectedFilePL}
-            onFileUploadPL={onFileUploadPL}
-            loading={loading}
-          />
-        </>
-      );
-    case 3:
-      return (
-        <Step3
-          onFileUploadSP={onFileUploadSP}
-          onFileChangeSP={onFileChangeSP}
-          loading={loading}
-          selectedFileSP={selectedFileSP}
-        />
-      );
-    case 4:
       return <Final />;
     default:
       return <div className="App"></div>;

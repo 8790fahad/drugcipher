@@ -16,8 +16,8 @@ export default function Step1({
     <Form className="container" onSubmit={nextStep}>
       <Card className="KYC_card shadow p-3">
         <div>
-          <Row>
-            <Col md={6}>
+        <Row>
+            <Col md={6} sm={6} xs={6}>
               <img
                 src={logo}
                 style={{ width: 70, borderRadius: 10 }}
@@ -32,19 +32,20 @@ export default function Step1({
                   color: "rgb(3, 66, 110)",
                   marginRight: 30,
                 }}
+                className='dc'
               >
                 DrugCipher
               </h4>
             </Col>
-            <Col md={6}>
+            <Col md={6} sm={6} xs={6}>
               <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
             </Col>
           </Row>
         </div>
         <h3 className="man_card_title mt-4">KYC - Step 1 of 3</h3>
         <div className="mt-3">
-          <Row className="mt-3">
-            <Col md={6} controlId="validationCustom03">
+          <Row className="">
+            <Col md={6} className='mb-3' controlId="validationCustom03">
               <label>
                 Company Name<b style={{ color: "red" }}>*</b>
               </label>
@@ -58,7 +59,7 @@ export default function Step1({
                 required
               />
             </Col>
-            <Col md={6}>
+            <Col md={6} className='mb-3'>
               <label>
                 Company Address<b style={{ color: "red" }}>*</b>
               </label>
@@ -73,8 +74,8 @@ export default function Step1({
               />
             </Col>
           </Row>
-          <Row className="mt-3">
-            <Col md={6}>
+          <Row className="">
+            <Col md={6} className='mb-3'>
               <label>
                 Email<b style={{ color: "red" }}>*</b>
               </label>
@@ -88,7 +89,7 @@ export default function Step1({
                 required
               />
             </Col>
-            <Col md={6}>
+            <Col md={6} className='mb-3'>
               <label>Company Phone</label>
               <input
                 className="man_input_fields"
@@ -100,8 +101,8 @@ export default function Step1({
               />
             </Col>
           </Row>
-          <Row className="mt-3">
-            <Col md={6}>
+          <Row className="">
+            <Col md={6} className='mb-3'>
               <label>
                 Country<b style={{ color: "red" }}>*</b>
               </label>
@@ -116,7 +117,7 @@ export default function Step1({
                 <option>Nigeria</option>
               </select>
             </Col>
-            <Col md={6}>
+            <Col md={6} className='mb-3'>
               <label>Website</label>
               <input
                 className="man_input_fields"
