@@ -26,7 +26,7 @@ import SoleAgent from "../Manufacturer/SoleAgent";
 import Marketers from "../Manufacturer/Marketers";
 import CreateMarketer from "../Manufacturer/CreateMarketer";
 import CreateSoleAgent from "../Manufacturer/CreateSoleAgent";
-
+ 
 
 function AppNavigation() {
   let element = useRoutes([

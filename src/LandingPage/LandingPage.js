@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Navbar from './Navbar'
 import './LandingPage.css'
 import Section1 from './Section1'
@@ -12,15 +12,7 @@ import MVV from './MVV'
 import WhyDrugCipher from './WhyDrugCipher'
 import MobileNavbar from './MobileNavbar'
 import NewsLetter from './NewsLetter'
-import { useNavigate } from 'react-router-dom'
 export default function LandingPage() {
-    // const navigate = useNavigate()
-    // let account = window.walletConnection.account();
-    // useEffect(() => {
-    //     if (account) {
-    //         navigate('/KYC')
-    //     }
-    // }, [])
     return (
         <>
             <div>
