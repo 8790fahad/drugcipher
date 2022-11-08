@@ -706,22 +706,19 @@
   .footer_desc {
     display: none;
   }
-  .heading_div {
-    height: 0vh;
-    display: block;
-    /* padding: 10px; */
-    /* align-items: center;
-    justify-content: center; */
-  }
+ 
 
   .section1_whole {
     background-color: var(--primaryColor2);
     /* background: var(--primaryColor2); */
     /* height: 50vh; */
-    height: 50vh;
+    height:max-content; 
     text-align: center;
     /* width: 100%; */
     /* position: relative; */
+  }
+  .market_place_btn{
+    margin-bottom: 20px;
   }
   .heading {
     font-weight: bold;
@@ -752,6 +749,9 @@
   }
   .mobile_heading_div {
     margin-top: 50px;
+  }
+  .heading_div{
+    height: 100%;
   }
   .small_header {
     display: none;
