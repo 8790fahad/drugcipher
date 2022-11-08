@@ -15,10 +15,10 @@ export default function RoadMap() {
         <div className="cd-timeline-block" data-aos="fade-left">
           <div className="cd-timeline-img cd-picture"></div>
           <div className="cd-timeline-content">
-            <h2>Build Drug Cipher Smart Contract</h2>
+            <h2>Build DrugCipher Smart Contract</h2>
             <p>
-              Building Drug Cipher Smart Contract
-              Lauch Drug Cipher Testnet
+              Building DrugCipher Smart Contract
+              Lauch DrugCipher Testnet
               UI/UX Design
               Launch Drugcipher Mainnet
               Drugcipher Airdrop

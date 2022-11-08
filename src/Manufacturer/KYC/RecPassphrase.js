@@ -29,7 +29,7 @@ export default function RecPassphrase() {
                                     marginRight: 30,
                                 }}
                             >
-                                Drug Cipher
+                                DrugCipher
                             </h4>
                         </Col>
                         <Col md={6}>
@@ -42,7 +42,7 @@ export default function RecPassphrase() {
                             <h3 className='register_heading mt-3'>
                                 Recorver Using Passphrase
                             </h3>
-                            <p className='m-0' style={{ color: '#029f41' }}>Drug Cipher introduces a sophisticated solution to tackling the issues surrounding pharmaceutical products.</p>
+                            <p className='m-0' style={{ color: '#029f41' }}>DrugCipher introduces a sophisticated solution to tackling the issues surrounding pharmaceutical products.</p>
                         </div>
                         <div style={{}} className='mt-5'>
                             <Row>

@@ -98,7 +98,7 @@ export default function KYCApproval() {
                   marginRight: 30,
                 }}
               >
-                Drug Cipher
+                DrugCipher
               </h4>
             </Col>
             <Col md={6}>

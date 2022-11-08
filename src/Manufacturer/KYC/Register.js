@@ -28,7 +28,7 @@ export default function Register() {
                                     marginRight: 30,
                                 }}
                             >
-                                Drug Cipher
+                                DrugCipher
                             </h4>
                         </Col>
                         <Col md={6}>
@@ -41,7 +41,7 @@ export default function Register() {
                     <h3 className='register_heading mt-3'>
                         ...trust is good, but encryption is better!
                     </h3>
-                    <p className='m-0' style={{ color: '#029f41' }}>Drug Cipher introduces a sophisticated solution to tackling the issues surrounding pharmaceutical products.</p>
+                    <p className='m-0' style={{ color: '#029f41' }}>DrugCipher introduces a sophisticated solution to tackling the issues surrounding pharmaceutical products.</p>
                     <div style={{}} className='text-center mt-5'>
                         <button className='man_button' style={{ marginRight: 10 }} onClick={() => navigate('/KYC')}>Create Account</button>
                         <span style={{ marginRight: 10 }}>Or</span>

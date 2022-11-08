@@ -16,7 +16,7 @@ export default function Section1() {
                 <h1 className="heading">Validate and Earn.</h1>
                 <p className="sub_heading">
                   Health is wealth. Live longer and healthier when you trust
-                  Drug Cipher for total wellness.
+                  DrugCipher for total wellness.
                 </p>
                 <Button
                   className={"market_place_btn"}

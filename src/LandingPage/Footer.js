@@ -12,7 +12,7 @@ export default function Footer() {
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <div>
                         <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55, borderRadius:10 }} className='shadow' />
-                        <h5 style={{ margin: 0, display: 'inline', fontWeight: 'bold', marginLeft: 10 }}>Drug Cipher</h5>
+                        <h5 style={{ margin: 0, display: 'inline', fontWeight: 'bold', marginLeft: 10 }}>DrugCipher</h5>
                     </div>
                     <p className='footer_desc mt-3'>Sell online, process payments, build financial products, or use business tools designed to grow your business.</p>
                     <Row>
@@ -67,7 +67,7 @@ export default function Footer() {
                 </Col>
             </Row>
             <Row className='m-0 lastfootersection'>
-                <Col md={4}><p>Copyright © {currentYear} Drug Cipher.
+                <Col md={4}><p>Copyright © {currentYear} DrugCipher.
                     All rights reserved.</p></Col>
                 <Col md={1}></Col>
                 <Col md={2} className='text-center'>

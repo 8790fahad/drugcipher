@@ -70,7 +70,7 @@ export default function Passphrase({ nextStep }) {
               marginRight: 30,
             }}
           >
-            Drug Cipher
+            DrugCipher
           </h4>
         </div>
         <div className="mt-3 ">

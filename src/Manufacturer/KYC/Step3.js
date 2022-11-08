@@ -30,7 +30,7 @@ export default function Step3({
               marginRight: 30,
             }}
           >
-            Drug Cipher
+            DrugCipher
           </h4>
         </div>
         <h3 className="man_card_title mt-4">KYC - Step 3 of 3</h3>
