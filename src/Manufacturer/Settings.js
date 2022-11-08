@@ -11,8 +11,8 @@ export default function Settings() {
         <h3 className="man_card_title">Settings</h3>
         <h4 className="mt-4">Update Profile</h4>
 
-        <Row className="mt-3">
-          <Col md={6}>
+        <Row className="">
+          <Col md={6} className='mb-3'>
             <label>Manufacturer License</label>
             <input
               name="manufacturer_license"
@@ -20,7 +20,7 @@ export default function Settings() {
               type="file"
             />
           </Col>
-          <Col md={6}>
+          <Col md={6} className='mb-3'>
             <label>Pharmacist License</label>
             <input
               name="manufacturer_license"
@@ -29,8 +29,8 @@ export default function Settings() {
             />
           </Col>
         </Row>
-        <Row className="mt-3">
-          <Col md={6}>
+        <Row className="">
+          <Col md={6} className='mb-3'>
             <label>Company Name</label>
             <input
               name="manufacturer_license"
@@ -38,7 +38,7 @@ export default function Settings() {
               type="text"
             />
           </Col>
-          <Col md={6}>
+          <Col md={6} className='mb-3'>
             <label>Company Address</label>
             <input
               name="manufacturer_license"
@@ -48,8 +48,8 @@ export default function Settings() {
           </Col>
         </Row>
 
-        <Row className="mt-3">
-          <Col md={6}>
+        <Row className="">
+          <Col md={6} className='mb-3'>
             <label>Email</label>
             <input
               name="manufacturer_license"
@@ -57,7 +57,7 @@ export default function Settings() {
               type="email"
             />
           </Col>
-          <Col md={6}>
+          <Col md={6} className='mb-3'>
             <label>Phone</label>
             <input
               name="manufacturer_license"
@@ -66,7 +66,7 @@ export default function Settings() {
             />
           </Col>
         </Row>
-        <div className="mt-3">
+        <div className="">
           <button className="man_button">Save</button>
         </div>
       </Card>

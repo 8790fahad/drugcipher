@@ -32,8 +32,8 @@ export default function CreateSoleAgent() {
                 <h3 className="man_card_title">Register Sole Agent</h3>
                 <Row>
                     <Col md={12}>
-                        <Row className="pt-3">
-                            <Col md={6} className="" controlId="validationCustom03">
+                        <Row className="">
+                            <Col md={6} className='mb-3' controlId="validationCustom03">
                                 <label>Sole Agent Full Name</label>
                                 <input
                                     name="soleAgentFullName"
@@ -44,7 +44,7 @@ export default function CreateSoleAgent() {
                                     required
                                 />
                             </Col>
-                            <Col md={6}>
+                            <Col md={6} className='mb-3'>
                                 <label>Sole Agent Phone</label>
                                 <input
                                     name="soleAgentPhone"
@@ -56,8 +56,8 @@ export default function CreateSoleAgent() {
                                 />
                             </Col>
                         </Row>
-                        <Row className="pt-3">
-                            <Col md={6} className="">
+                        <Row className="">
+                            <Col md={6} className="mb-3">
                                 <label>Sole Agent Email</label>
                                 <input
                                     name="soleAgentEmail"
@@ -69,7 +69,7 @@ export default function CreateSoleAgent() {
                                 />
 
                             </Col>
-                            <Col md={6}>
+                            <Col md={6} className='mb-3'>
                                 <label>Sole Agent Address</label>
                                 <input
                                     name="soleAgentAddress"
@@ -84,7 +84,7 @@ export default function CreateSoleAgent() {
                     </Col>
                 </Row>
 
-                <div className="mt-3">
+                <div className="">
                     {/* <button className='man_button' onClick={() => navigate('/QRCode')}>Register</button> */}
                     <button type="submit" className="man_button" onClick={submitForm}>
                         Register

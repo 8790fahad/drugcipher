@@ -407,7 +407,8 @@ input[type='file']::-ms-browse {
     float: 'right';
   }
   .man_card_title {
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: bold;
   }
   .man_button {
     font-size: 10px;

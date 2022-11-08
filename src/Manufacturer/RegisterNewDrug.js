@@ -49,8 +49,8 @@ export default function RegisterNewDrug() {
         <h3 className="man_card_title">Register New Drug</h3>
         <Row>
           <Col md={12}>
-            <Row className="pt-3">
-              <Col md={6} className="" controlId="validationCustom03">
+            <Row className="">
+              <Col md={6} className='mb-3' controlId="validationCustom03">
                 <label>Manufacturer's Name</label>
                 <input
                   name="manufacturerName"
@@ -61,13 +61,13 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Sole Agent Name</label>
                 <Typeahead
                   id="basic-typeahead-single"
                   labelKey="soleagentname"
                   options={marketers}
-                  placeholder="Search drugs by name"
+                  // placeholder="Search drugs by name"
                   selected={singleSelections}
                   inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
 
@@ -82,14 +82,14 @@ export default function RegisterNewDrug() {
                 /> */}
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6} className="">
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Authorized Marketers/Presentatives</label>
                 <Typeahead
                   id="basic-typeahead-single"
                   labelKey="marketer"
                   options={marketers}
-                  placeholder="Search drugs by name"
+                  // placeholder="Search drugs by name"
                   selected={singleSelections}
                   inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
 
@@ -103,7 +103,7 @@ export default function RegisterNewDrug() {
                   required
                 /> */}
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Drug Brand Name</label>
                 <input
                   name="drugBrandName"
@@ -115,8 +115,8 @@ export default function RegisterNewDrug() {
                 />
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Drug Generic/Chemical Name</label>
                 <input
                   name="drugGenericName"
@@ -127,7 +127,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Strength of Drug</label>
                 <input
                   name="drugStrength"
@@ -139,8 +139,8 @@ export default function RegisterNewDrug() {
                 />
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Formulation Type</label>
                 <input
                   name="formulationType"
@@ -151,7 +151,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Unit Packaging</label>
                 <input
                   name="unitPackaging"
@@ -163,8 +163,8 @@ export default function RegisterNewDrug() {
                 />
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>NAFDAC Number</label>
                 <input
                   name="NAFDACNumber"
@@ -175,7 +175,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Batch/Lot Number</label>
                 <input
                   name="batch_lotNumer"
@@ -187,8 +187,8 @@ export default function RegisterNewDrug() {
                 />
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Date of Manufacture</label>
                 <input
                   name="dateOfManufacture"
@@ -199,7 +199,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Date of Expiry</label>
                 <input
                   name="dateOfExpiry"

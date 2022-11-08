@@ -34,8 +34,8 @@ export default function CreateMarketer() {
                 <h3 className="man_card_title">Register Marketer</h3>
                 <Row>
                     <Col md={12}>
-                        <Row className="pt-3">
-                            <Col md={6} className="" controlId="validationCustom03">
+                        <Row className="">
+                            <Col md={6} className="mb-3" controlId="validationCustom03">
                                 <label>Company Name</label>
                                 <input
                                     name="companyName"
@@ -58,8 +58,8 @@ export default function CreateMarketer() {
                                 />
                             </Col>
                         </Row>
-                        <Row className="pt-3">
-                            <Col md={6} className="">
+                        <Row className="">
+                            <Col md={6} className="mb-3">
                                 <label>Marketer Phone</label>
                                 <input
                                     name="marketerPhone"
@@ -83,8 +83,8 @@ export default function CreateMarketer() {
                                 />
                             </Col>
                         </Row>
-                        <Row className="pt-3">
-                            <Col md={6} className="">
+                        <Row className="">
+                            <Col md={6} className="mb-3">
                                 <label>Marketer Address</label>
                                 <input
                                     name="marketerAddress"
