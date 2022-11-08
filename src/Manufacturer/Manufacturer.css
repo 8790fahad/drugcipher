@@ -438,6 +438,8 @@ input[type='file']::-ms-browse {
   }
 }
 
+
+
 @media only screen and (min-width: 768px) {
   .mobilenavbar {
     display: none;
