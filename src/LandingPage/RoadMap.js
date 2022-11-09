@@ -47,16 +47,6 @@ export default function RoadMap() {
             <span className="cd-date">11th February, 2022</span>
           </div>
         </div>
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img cd-location"></div>
-          <div className="cd-timeline-content">
-            <h2>Partnership 2022</h2>
-            <p>
-              In this phase, we will have partnerships with various government/ non-governmental organizations regulating pharmaceutical industries across the globe.
-            </p>
-            <span className="cd-date">Jan 18</span>
-          </div>
-        </div>
 
         <div className="cd-timeline-block" >
           <div className="cd-timeline-img cd-location"></div>
@@ -65,6 +55,16 @@ export default function RoadMap() {
             <p>
               So, this phase is to audit our smart contract and make sure its
               stable.
+            </p>
+            <span className="cd-date">Jan 18</span>
+          </div>
+        </div>
+        <div className="cd-timeline-block">
+          <div className="cd-timeline-img cd-location"></div>
+          <div className="cd-timeline-content">
+            <h2>Partnership 2022</h2>
+            <p>
+              In this phase, we will have partnerships with various government/ non-governmental organizations regulating pharmaceutical industries across the globe.
             </p>
             <span className="cd-date">Jan 18</span>
           </div>

@@ -30,19 +30,29 @@ export default function Section1() {
                 <p className="m-0 mt-5 text-white follow-us">Follow us</p>
                 <div className="header-icons-div mt-2">
                   <div className="header-icon">
-                    <GitHub size="1.5em" />
+                    <a className='' href='https://github.com/ysquareimperial/drug-cipher' target='_blank' rel="noreferrer">
+                      <GitHub size="1.5em" />
+                    </a>
                   </div>
                   <div className="header-icon">
-                    <Twitter size="1.5em" />
+                    <a className='' href='https://twitter.com/drugcipher' target='_blank' rel="noreferrer">
+                      <Twitter size="1.5em" />
+                    </a>
                   </div>
                   <div className="header-icon">
-                    <Facebook size="1.5em" />
+                    <a className='' href='https://fb.me/drugcipher' target='_blank' rel="noreferrer">
+                      <Facebook size="1.5em" />
+                    </a>
                   </div>
                   <div className="header-icon">
-                    <Linkedin size="1.5em" />
+                    <a className='' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">
+                      <Linkedin size="1.5em" />
+                    </a>
                   </div>
                   <div className="header-icon">
-                    <Instagram size="1.5em" />
+                    <a className='' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">
+                      <Instagram size="1.5em" />
+                    </a>
                   </div>
                 </div>
               </div>
