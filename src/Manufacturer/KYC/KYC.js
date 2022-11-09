@@ -109,14 +109,14 @@ function KYC() {
     )
       .then((raw) => raw.json())
       .then((res) => {
+        console.log(res)
         if (res.success) {
           setLoading(false);
           setstep(step + 1);
-          toast(<NotificationSuccess text="Next" />);
+          // toast(<NotificationSuccess text="Next" />);
         }
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
         toast(<NotificationError text="Failed, try again" />);
       });

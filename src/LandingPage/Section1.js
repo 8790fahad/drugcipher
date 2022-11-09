@@ -93,7 +93,7 @@ export default function Section1() {
                 04
                 <div className="architecture-content">
                   <p style={{ fontWeight: "bold", margin: 0 }}>
-                    Validate Products.
+                    Validate and Earn.
                   </p>
                   <p>
                     To validate the integrity of the drug, you can download our
