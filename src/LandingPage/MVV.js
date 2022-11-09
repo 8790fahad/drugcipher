@@ -1,52 +1,40 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import mission from "../image/mission2.png";
 import vision from "../image/vission.png";
 import values from "../image/value.png";
-import AOS from "aos";
-import "aos/dist/aos.css";
 export default function MVV() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   const mvv = [
     {
       mvvImage: mission,
       mvvTitle: "Mission",
-      mvvContent: `Drug Cipher is a business with a strong track 
-            record of successes that is passionate about pharmaceutical 
-            innovation, high performance, quick expansion, and the beat 
-            of our fast-paced culture. We are unyielding in our pursuit 
-            of top talent whose leadership will enable us to realize the 
-            full potential of our business, and we are committed to 
-            attracting and hiring them.`,
+      mvvContent: `Our Mission is to alleviate pharmaceutical products couterfeiting across the globe using
+      modern digital technologies.`,
       alt: "mission",
-      animation: "fade-right",
+      // animation: "fade-right",
     },
     {
       mvvImage: vision,
       mvvTitle: "Vision",
-      mvvContent: `Drug Cipher is a business with a strong track 
-            record of successes that is passionate about pharmaceutical 
-            innovation, high performance, quick expansion, and the beat 
-            of our fast-paced culture. We are unyielding in our pursuit 
-            of top talent whose leadership will enable us to realize the 
-            full potential of our business, and we are committed to 
-            attracting and hiring them.`,
+      mvvContent: `Our vision is to become one of the largest global organization for tackling couterfeit
+      pharmaceutical products across the world, providing a safe and conducive ecosystem
+      for pharmceutical production, distribution and consumption.
+      `,
       alt: "vision",
-      animation: "fade-left",
+      // animation: "fade-left",
     },
     {
       mvvImage: values,
       mvvTitle: "Values",
-      mvvContent: `Through innovation, quality, and competence, to become a worldwide healthcare
-            organization and to be known as a domestic and international integrated healthcare and
-            pharmaceutical enterprise. to consistently provide products that meet high standards of
-            quality and affordability while rising to the position of the leading pharmaceutical
-            business in the market. By building a portfolio of affordable medications that are
-            accessible to everyone, we hope to leave our mark on society.`,
+      mvvContent: `Our values define who we are and how we solve the problems we solve, and
+      these are the core ideas we return to when we make decisions: 
+      ● We build trust capital.
+      ● We are innovative
+      ● We celebrate competency
+      ● We do not compromise
+      ● We choose transparency`,
       alt: "values",
-      animation: "fade-right",
+      // animation: "fade-right",
     },
   ];
   return (
@@ -71,7 +59,7 @@ export default function MVV() {
                               borderRadius: "50%",
                               width: 100,
                             }}
-                            data-aos={item.animation}
+                            
                           />
                         </div>
                       </div>

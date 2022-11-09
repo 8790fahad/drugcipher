@@ -7,6 +7,7 @@ import { useCallback } from "react";
 import { _fetchApi } from "./utils/helper";
 import { NotificationError } from "./utils/Notification";
 import { toast } from "react-toastify";
+// import CreateSoleAgent from "./Manufacturer/CreateSoleAgent";
 const App = function AppWrapper() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const App = function AppWrapper() {
   return (
     <div className="" style={{ margin: 0 }}>
       <AppNavigation />
+      {/* <CreateSoleAgent/> */}
     </div>
   );
 };

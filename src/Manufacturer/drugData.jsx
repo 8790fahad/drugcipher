@@ -23,3 +23,17 @@ export const drugData = [
     dosages:'3 times/day'
   }
 ];
+
+export const marketer = [
+  {
+    marketerFullName: "Mike Joe",
+   
+  },
+  {
+    marketerFullName: "Mike Joe",
+   
+  },{
+    marketerFullName: "Mike Joe",
+   
+  }
+];

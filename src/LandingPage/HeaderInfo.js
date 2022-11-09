@@ -3,15 +3,15 @@ import { Col, Row } from 'react-bootstrap'
 import Clock from 'react-live-clock';
 import { Instagram, Linkedin, Twitter, Facebook, GitHub } from 'react-feather'
 export default function HeaderInfo() {
-    const date = new Date()
-    const currentYear = date.getFullYear()
-    const currentMonth = date.getMonth()
+    // const date = new Date()
+    // const currentYear = date.getFullYear()
+    // const currentMonth = date.getMonth()
     // const currentDay = date.getDay()
-    const time = new Date();
-    const currentTime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const d = new Date();
-    const currentDayName = weekday[d.getDay()];
+    // const time = new Date();
+    // const currentTime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+    // const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    // const d = new Date();
+    // const currentDayName = weekday[d.getDay()];
     return (
         <div className='section_divider small_header'>
             <Row className='m-0'>

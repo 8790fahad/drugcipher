@@ -10,7 +10,7 @@ export default function MobileNavbar() {
             <Row className='m-0'>
                 <Col xl={2} lg={2} md={2} sm={2} xs={2}>
                     <img src={drugcipherIcon} className='mt-2' alt='drugcipherlogo' style={{ width: 55 }} />
-                    <h6 className='dc-name'>Drug Cipher</h6>
+                    <h6 className='dc-name'>DrugCipher</h6>
                 </Col>
                 <Col xl={2} lg={2} md={2} sm={2} xs={2}></Col>
                 <Col xl={4} lg={4} md={4} sm={4} xs={4} className='nav_menuu'>

@@ -22,6 +22,11 @@ import Register from "../Manufacturer/KYC/Register";
 import Login from "../Manufacturer/KYC/Login";
 import RecPassphrase from "../Manufacturer/KYC/RecPassphrase";
 import ViewKYCApproval from "../Manufacturer/KYC/ViewKYCApproval";
+import SoleAgent from "../Manufacturer/SoleAgent";
+import Marketers from "../Manufacturer/Marketers";
+import CreateMarketer from "../Manufacturer/CreateMarketer";
+import CreateSoleAgent from "../Manufacturer/CreateSoleAgent";
+ 
 
 function AppNavigation() {
   let element = useRoutes([
@@ -72,6 +77,22 @@ function AppNavigation() {
           path: "/GetHelp",
           element: <Gethelp />,
         },
+        {
+          path: "/sole-agents",
+          element: <SoleAgent />,
+        },
+        {
+          path: "/create-sole-agent",
+          element: <CreateSoleAgent/>,
+        },
+        {
+          path: "/marketers",
+          element: <Marketers />,
+        },
+        {
+          path: "/create-marketer",
+          element: <CreateMarketer />,
+        }
       ],
     },
     {
@@ -98,6 +119,7 @@ function AppNavigation() {
       path: "/account/passphrass",
       element: <Passphrase />,
     },
+    
     {
       path: '/recorver-passphrase',
       element: <RecPassphrase />

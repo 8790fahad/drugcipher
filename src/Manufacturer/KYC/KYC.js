@@ -62,7 +62,7 @@ function KYC() {
     // Create an object of formData
     let _formData = new FormData();
     // // Update the formData object
-    _formData.append("image",selectedFilePL );
+    _formData.append("image", selectedFilePL);
     fetch(
       `${apiURL}/v1/upload-pl-url?companyId=${formData.companyId}&companyEmail=${formData.companyEmail}&companyName=${formData.companyName}`,
       {
@@ -95,7 +95,7 @@ function KYC() {
     // Create an object of formData
     let _formData = new FormData();
     // // Update the formData object
-    _formData.append("image",selectedFileSP );
+    _formData.append("image", selectedFileSP);
     fetch(
       `${apiURL}/v1/upload-sp-url?companyId=${formData.companyId}&companyEmail=${formData.companyEmail}&companyName=${formData.companyName}`,
       {
@@ -113,7 +113,7 @@ function KYC() {
         if (res.success) {
           setLoading(false);
           setstep(step + 1);
-          // toast(<NotificationSuccess text="Next" />);
+          toast(<NotificationSuccess text="Done" />);
         }
       })
       .catch((err) => {

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function IntroSection() {
   return (
-    <div className="p-5 intro_whole_div" style={{ marginTop: "" }}>
+    <div className="p-5 intro_whole_div m-0 p-0" style={{ marginTop: "" }}>
       <div className="container">
         <p className="intro_text">
           {" "}

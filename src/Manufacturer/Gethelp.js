@@ -5,8 +5,8 @@ import './DrugTable.css'
 import './Manufacturer.css'
 import Accordion from 'react-bootstrap/Accordion';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
 
 export default function Gethelp() {
 
@@ -33,7 +33,7 @@ export default function Gethelp() {
                 <Row className='m-0 p-0'>
                     <Col md={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <h3 className='man_card_title'>Frequently Helped Questions</h3>
-                        <button className='MT' onClick={handleShow} >Send a message</button>
+                        <button className='MT' onClick={handleShow} >Message</button>
                     </Col>
                     {/* <Col md={6}>
         <div style={{ float: 'right', display: 'flex' }}>```````````````````

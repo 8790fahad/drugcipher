@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "../CustomFiles/Button";
 import "../CustomFiles/InputFields.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { _postApi } from "../utils/helper";
 import { Form } from "reactstrap";
 export default function NewsLetter() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   let _form = {
     email: "",
   };
@@ -46,9 +41,6 @@ export default function NewsLetter() {
       <div className="text-center news_letter_section p-5">
         <h1
           className="heading_two"
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
         >
           Newsletter
         </h1>

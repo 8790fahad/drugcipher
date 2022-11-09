@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
-import { Trash, Trash2 } from 'react-feather'
+import { Trash } from 'react-feather'
 import { drugData } from './drugData'
 export default function Notifications() {
     return (

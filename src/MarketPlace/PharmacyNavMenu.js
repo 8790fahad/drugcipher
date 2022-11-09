@@ -31,7 +31,7 @@ export default function PharmacyNavMenu() {
             className="dc_name"
             onClick={() => navigate("/drug-cipher/market-place/")}
           >
-            Drug Cipher
+            DrugCipher
           </p>
         </Col>
         <Col md={6} className="">

@@ -1,10 +1,17 @@
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+// import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
+
+  const [singleSelections] = useState([]);
+  const marketers = [
+    'afdf', 'fasdfa', 'fasdf'
+  ]
   const form = {
     manufacturerName: "",
     soleAgentName: "",
@@ -21,8 +28,6 @@ export default function RegisterNewDrug() {
   };
   const navigate = useNavigate();
 
-  const [validated, setValidated] = useState(false);
-
   const [drugData, setDrugData] = useState({ form });
 
   const handleChange = ({ target: { name, value } }) => {
@@ -32,30 +37,20 @@ export default function RegisterNewDrug() {
     }));
   };
 
-  const submitForm = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-      // alert("Complete This Page🔜")
-    } else {
-      console.log(drugData);
-      navigate("/QRCode");
-      // alert("sucess📧")
-    }
-    // alert("sucess")
-    setValidated(true);
+  const submitForm = () => {
+    navigate("/QRCode");
+    console.log(drugData)
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={submitForm}>
+    <Form onSubmit={submitForm}>
       {/* {JSON.stringify({ drugData })} */}
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Register New Drug</h3>
         <Row>
           <Col md={12}>
-            <Row className="pt-3">
-              <Col md={6} className="" controlId="validationCustom03">
+            <Row className="">
+              <Col md={6} className='mb-3' controlId="validationCustom03">
                 <label>Manufacturer's Name</label>
                 <input
                   name="manufacturerName"
@@ -65,41 +60,50 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter manufacturer's name.
-                </Form.Control.Feedback>
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Sole Agent Name</label>
-                <input
+                <Typeahead
+                  id="basic-typeahead-single"
+                  labelKey="soleagentname"
+                  options={marketers}
+                  // placeholder="Search drugs by name"
+                  selected={singleSelections}
+                  inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
+
+                />
+                {/* <input
                   name="soleAgentName"
                   value={drugData.soleAgentName}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
                   required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please enter sole agent name.
-                </Form.Control.Feedback>
+                /> */}
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6} className="">
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Authorized Marketers/Presentatives</label>
-                <input
+                <Typeahead
+                  id="basic-typeahead-single"
+                  labelKey="marketer"
+                  options={marketers}
+                  // placeholder="Search drugs by name"
+                  selected={singleSelections}
+                  inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
+
+                />
+                {/* <input
                   name="authorizedMarketers"
                   value={drugData.authorizedMarketers}
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
                   required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please enter authorized marketers/representatives name.
-                </Form.Control.Feedback>
+                /> */}
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Drug Brand Name</label>
                 <input
                   name="drugBrandName"
@@ -109,13 +113,10 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter drug brand name.
-                </Form.Control.Feedback>
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Drug Generic/Chemical Name</label>
                 <input
                   name="drugGenericName"
@@ -125,11 +126,8 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter drug generic name.
-                </Form.Control.Feedback>
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Strength of Drug</label>
                 <input
                   name="drugStrength"
@@ -139,13 +137,10 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter strength of drug.
-                </Form.Control.Feedback>
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Formulation Type</label>
                 <input
                   name="formulationType"
@@ -155,11 +150,8 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter formulation type.
-                </Form.Control.Feedback>
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Unit Packaging</label>
                 <input
                   name="unitPackaging"
@@ -169,13 +161,10 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter unit packaging.
-                </Form.Control.Feedback>
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>NAFDAC Number</label>
                 <input
                   name="NAFDACNumber"
@@ -185,11 +174,8 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter NAFDAC number.
-                </Form.Control.Feedback>
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Batch/Lot Number</label>
                 <input
                   name="batch_lotNumer"
@@ -199,13 +185,10 @@ export default function RegisterNewDrug() {
                   type="text"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter Batch/Lot Number.
-                </Form.Control.Feedback>
               </Col>
             </Row>
-            <Row className="pt-3">
-              <Col md={6}>
+            <Row className="">
+              <Col md={6} className='mb-3'>
                 <label>Date of Manufacture</label>
                 <input
                   name="dateOfManufacture"
@@ -215,11 +198,8 @@ export default function RegisterNewDrug() {
                   type="date"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter date of manufacture.
-                </Form.Control.Feedback>
               </Col>
-              <Col md={6}>
+              <Col md={6} className='mb-3'>
                 <label>Date of Expiry</label>
                 <input
                   name="dateOfExpiry"
@@ -229,9 +209,6 @@ export default function RegisterNewDrug() {
                   type="date"
                   required
                 />
-                <Form.Control.Feedback type="invalid">
-                  Please enter Batch/Lot Number.
-                </Form.Control.Feedback>
               </Col>
             </Row>
           </Col>

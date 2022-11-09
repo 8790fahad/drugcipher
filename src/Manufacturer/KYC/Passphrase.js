@@ -13,6 +13,8 @@ import { Spinner } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 export default function Passphrase({ nextStep }) {
+  // const navigate = useNavigate()
+
   const query = useQuery();
   const passphrase = query.get("pass");
   const id = query.get("id");
@@ -53,21 +55,35 @@ export default function Passphrase({ nextStep }) {
     <Form className="container" onSubmit={submitForm}>
       <Card className="KYC_card shadow p-3">
         <div>
-          <img
-            src={logo}
-            style={{ width: 70, borderRadius: 10 }}
-            alt=""
-            className="shadow"
-          />{" "}
-          <h4
-            style={{
-              display: "inline",
-              color: "rgb(3, 66, 110)",
-              marginRight: 30,
-            }}
-          >
-            Drug Cipher
-          </h4>
+          <Row>
+            <Col md={6} sm={6} xs={6}>
+              <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
+                data-placement="bottom"
+                title="Goto Home">
+                <img
+                  src={logo}
+                  style={{ width: 70, borderRadius: 10 }}
+                  alt=""
+                  className="shadow"
+
+
+                />{" "}
+                <h4
+                  style={{
+                    display: "inline-block",
+                    color: "rgb(3, 66, 110)",
+                    marginRight: 30,
+                  }}
+                  className='dc'
+                >
+                  DrugCipher
+                </h4>
+              </div>
+            </Col>
+            <Col md={6} sm={6} xs={6}>
+              {/* <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} /> */}
+            </Col>
+          </Row>
         </div>
         <div className="mt-3 ">
           <Row className="mt-3">
@@ -86,12 +102,12 @@ export default function Passphrase({ nextStep }) {
                 <Row>
                   {passphrase.split(" ").length
                     ? passphrase.split(" ").map((item, index) => (
-                        <Col md={4}>
-                          <p className="word p-2">
-                            {index + 1}: {item}
-                          </p>
-                        </Col>
-                      ))
+                      <Col md={4}>
+                        <p className="word p-2">
+                          {index + 1}: {item}
+                        </p>
+                      </Col>
+                    ))
                     : null}
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
@@ -127,6 +143,9 @@ export default function Passphrase({ nextStep }) {
           </button>
         </div>
       </Card>
+      <div className='text-center text-secondary'>
+        <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+      </div>
     </Form>
   );
 }

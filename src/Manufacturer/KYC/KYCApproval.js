@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useCallback } from "react";
-import { Card, Col, Form, Row, Table } from "react-bootstrap";
+import { Card, Col, Row, Table } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { Button, CardBody, CardHeader, Spinner } from "reactstrap";
-import { _fetchApi, _updateApi } from "../../utils/helper";
+import { CardBody, Spinner } from "reactstrap";
+import { _fetchApi } from "../../utils/helper";
 import logo from "../../image/DRUG CIPHER (2).png";
 
 import {
   NotificationError,
-  NotificationSuccess,
+  // NotificationSuccess,
 } from "../../utils/Notification";
-import { CheckCircle, Eye, XCircle } from "react-feather";
-import useQuery from "../../hooks/useQuery";
+import { ArrowLeftCircle, Eye } from "react-feather";
+// import useQuery from "../../hooks/useQuery";
 import { useNavigate } from "react-router-dom";
 
 export default function KYCApproval() {
-  const query = useQuery()
+  // const query = useQuery()
   const navigate = useNavigate()
 
   const [result, setResult] = useState([]);
@@ -38,42 +38,42 @@ export default function KYCApproval() {
       }
     );
   }, []);
-  const approve = (item) => {
-    _updateApi(
-      "/v1/approved-kyc",
-      item,
-      (reps) => {
-        if (reps.success) {
-          toast(<NotificationSuccess text="Approved Successfully" />);
-          setLoading(false);
-          getPendingKYC();
-        }
-      },
-      (err) => {
-        console.error(err);
-        toast(<NotificationError text="Failed, try again" />);
-        setLoading(false);
-      }
-    );
-  };
-  const reject = (item) => {
-    _updateApi(
-      "/v1/reject-kyc",
-      item,
-      (reps) => {
-        if (reps.success) {
-          toast(<NotificationSuccess text="Approved Successfully" />);
-          setLoading(false);
-          getPendingKYC();
-        }
-      },
-      (err) => {
-        console.error(err);
-        toast(<NotificationError text="Failed, try again" />);
-        setLoading(false);
-      }
-    );
-  };
+  // const approve = (item) => {
+  //   _updateApi(
+  //     "/v1/approved-kyc",
+  //     item,
+  //     (reps) => {
+  //       if (reps.success) {
+  //         toast(<NotificationSuccess text="Approved Successfully" />);
+  //         setLoading(false);
+  //         getPendingKYC();
+  //       }
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //       toast(<NotificationError text="Failed, try again" />);
+  //       setLoading(false);
+  //     }
+  //   );
+  // };
+  // const reject = (item) => {
+  //   _updateApi(
+  //     "/v1/reject-kyc",
+  //     item,
+  //     (reps) => {
+  //       if (reps.success) {
+  //         toast(<NotificationSuccess text="Approved Successfully" />);
+  //         setLoading(false);
+  //         getPendingKYC();
+  //       }
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //       toast(<NotificationError text="Failed, try again" />);
+  //       setLoading(false);
+  //     }
+  //   );
+  // };
   useEffect(() => {
     getPendingKYC();
   }, [getPendingKYC]);
@@ -81,24 +81,37 @@ export default function KYCApproval() {
     <div className="container">
       <Card className="KYC_card shadow p-3">
         <div>
-          <img
-            src={logo}
-            style={{ width: 70, borderRadius: 10 }}
-            alt=""
-            className="shadow"
-          />{" "}
-          <h4
-            style={{
-              display: "inline",
-              color: "rgb(3, 66, 110)",
-              marginRight: 30,
-            }}
-          >
-            Drug Cipher
-          </h4>
-          <h3 className="man_card_title mt-4">KYC Approval</h3>
+          <Row>
+            <Col md={6} sm={6} xs={6}>
+              <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
+                data-placement="bottom"
+                title="Goto Home">
+                <img
+                  src={logo}
+                  style={{ width: 70, borderRadius: 10 }}
+                  alt=""
+                  className="shadow"
 
+
+                />{" "}
+                <h4
+                  style={{
+                    display: "inline-block",
+                    color: "rgb(3, 66, 110)",
+                    marginRight: 30,
+                  }}
+                  className='dc'
+                >
+                  DrugCipher
+                </h4>
+              </div>
+            </Col>
+            <Col md={6} sm={6} xs={6}>
+              <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
+            </Col>
+          </Row>
         </div>
+        <h3 className="man_card_title mt-4">KYC Approval</h3>
         <CardBody>
           {loading ? (
             <center>
@@ -112,6 +125,8 @@ export default function KYCApproval() {
                 <th className="">Company Phone</th>
                 <th className="">Company Email</th>
                 <th className="">Company Country</th>
+                {/* <th className="">Pharmacist License</th>
+                <th className="">superintendent License</th> */}
                 <th className="">View</th>
               </tr>
             </thead>
@@ -123,6 +138,8 @@ export default function KYCApproval() {
                     <td>{item.company_phone}</td>
                     <td>{item.company_email}</td>
                     <td>{item.company_country}</td>
+                    {/* <td>{item.pl_url}</td>
+                    <td>{item.sp_url}</td> */}
                     <td className="">
                       {/* <button
                         className="man_button"
@@ -141,7 +158,7 @@ export default function KYCApproval() {
                       >
                         Reject{' '}<XCircle />
                       </button> */}
-                      <button className='man_button' onClick={() => navigate(`/view-KYC-approval?companyName=${item.company_name}&companyPhone=${item.company_phone}&companyEmail=${item.company_email}&companyCountry=${item.company_country}`)}><Eye size='1em' />{' '}View</button>
+                      <button className='man_button' onClick={() => navigate(`/view-KYC-approval?companyName=${item.company_name}&companyPhone=${item.company_phone}&companyEmail=${item.company_email}&companyCountry=${item.company_country}&pl_url=${item.pl_url}&sp_url=${item.sp_url}`)}><Eye size='1em' />{' '}View</button>
                     </td>
                   </tr>
                 ))
@@ -150,6 +167,9 @@ export default function KYCApproval() {
           </Table>
         </CardBody>
       </Card>
+      <div className='text-center text-secondary'>
+        <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+      </div>
     </div>
   );
 }

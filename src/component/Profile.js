@@ -6,7 +6,6 @@ import {
   CardImg,
   Col,
   CardText,
-  CardTitle,
 } from "reactstrap";
 import "bootstrap";
 
@@ -25,7 +24,7 @@ export default function Profile() {
                 style={{ width: "" }}
                 fluid
               />
-              <h5 className="">Drug Cipher</h5>
+              <h5 className="">DrugCipher</h5>
               <CardText className=" card-text" style={{fontSize:11, margin:0}}>drugcipher@gmail.com</CardText>
               <CardText className="card-text" style={{fontSize:11, margin:0}}>+2348012345678</CardText>
             </CardBody>
@@ -42,7 +41,7 @@ export default function Profile() {
                         <CardText>Company Name</CardText>
                       </Col>
                       <Col>
-                        <CardText>Drug Cipher</CardText>
+                        <CardText>DrugCipher</CardText>
                       </Col>
                     </Row>
                     <Row>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import BarChart from './BarChart'
-import DoughnutChart from './DoughnutChart'
+// import DoughnutChart from './DoughnutChart'
 import DrugsLocation from './DrugsLocation'
-import WrappedHeatmap from './WrappedHeatmap'
+// import WrappedHeatmap from './WrappedHeatmap'
 export default function Overview() {
     return (
         <div>

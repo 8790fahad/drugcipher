@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import Button from '../CustomFiles/Button'
 import drugcipherIcon from '../image/DRUG CIPHER (2).png'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../utils/helper'
+// import { login } from '../utils/helper'
 export default function Navbar() {
     const navigate = useNavigate()
     return (
@@ -13,13 +13,13 @@ export default function Navbar() {
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75px' }} >
                         <div>
                             <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55, borderRadius:10 }} />
-                            <h5 className='dc-name'>Drug Cipher</h5>
+                            <h5 className='dc-name'>DrugCipher</h5>
                         </div>
                     </div>
                 </Col>
                 <Col xl={2} lg={2} md={2} sm={2} xs={2}></Col>
                 <Col xl={4} lg={4} md={4} sm={4} xs={4} className='nav_menuu'>
-                    <div className='' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', justifyContent: 'space-around', height: '75px' }} >
+                    <div className='' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap:30, height: '75px' }} >
                         <div>
                             <p className='nav_menu' style={{ margin: 0 }}><a href='#about-us'>About us</a></p>
                         </div>
@@ -30,7 +30,7 @@ export default function Navbar() {
                             <p className='nav_menu' style={{ margin: 0 }}><a href='#contact'>Contact</a></p>
                         </div>
                         <div>
-                            <p className='nav_menu' style={{ margin: 0 }}><a href='#'>Blog</a></p>
+                            <p className='nav_menu' style={{ margin: 0 }}><a href='#blog'>Blog</a></p>
                         </div>
                     </div>
                 </Col>

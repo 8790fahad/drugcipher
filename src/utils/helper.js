@@ -1,7 +1,7 @@
 import { formatNearAmount } from "near-api-js/lib/utils/format";
 import { toast } from "react-toastify";
 import environment from "./config";
-import { NotificationError, NotificationSuccess } from "./Notification";
+import { NotificationError } from "./Notification";
 const nearEnv = environment("testnet");
 export async function accountBalance() {
   return formatNearAmount(
