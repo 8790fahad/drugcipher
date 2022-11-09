@@ -12,7 +12,7 @@ export default function Final() {
         <div className='container'>
             <Card className="KYC_card shadow p-3">
                 <div>
-                    <Row>
+                    <Row>    
                         <Col md={6} sm={6} xs={6}>
                             <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
                                 data-placement="bottom"

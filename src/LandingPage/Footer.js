@@ -11,30 +11,30 @@ export default function Footer() {
             <Row className='m-0 p-4'>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <div>
-                        <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55, borderRadius:10 }} className='shadow' />
-                        <h5 style={{ margin: 0, display: 'inline', fontWeight: 'bold', marginLeft: 10 }}>DrugCipher</h5>
+                        <img src={drugcipherIcon} alt='drugcipherlogo' style={{ width: 55, borderRadius: 10 }} className='shadow' />
+                        <h5 style={{ margin: 0, display: 'inline', fontWeight: '', marginLeft: 10 }}>DrugCipher</h5>
                     </div>
-                    <p className='footer_desc mt-3'>Sell online, process payments, build financial products, or use business tools designed to grow your business.</p>
+                    {/* <p className='footer_desc mt-3'>Sell online, process payments, build financial products, or use business tools designed to grow your business.</p> */}
                     <Row>
                         <Col md={8}>
                             <div className='icons_div mt-3'>
                                 <div className='icons'>
-                                    <a className='links' href='https://instagram.com/drugcipher' target='_blank'  rel="noreferrer">
+                                    <a className='links' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">
                                         {<Instagram />}
                                     </a>
                                 </div>
                                 <div className='icons'>
-                                    <a className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank'  rel="noreferrer">
+                                    <a className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">
                                         <Linkedin />
                                     </a>
                                 </div>
                                 <div className='icons'>
-                                    <a className='links' href='https://twitter.com/drugcipher' target='_blank'  rel="noreferrer">
+                                    <a className='links' href='https://twitter.com/drugcipher' target='_blank' rel="noreferrer">
                                         <Twitter />
                                     </a>
                                 </div>
                                 <div className='icons'>
-                                    <a className='links' href='https://fb.me/drugcipher' target='_blank'  rel="noreferrer">
+                                    <a className='links' href='https://fb.me/drugcipher' target='_blank' rel="noreferrer">
                                         <Facebook />
                                     </a>
                                 </div>
@@ -45,25 +45,36 @@ export default function Footer() {
                     <p className='mt-1 drug_text_footer'>DRUG CIPHER</p>
                 </Col>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
-                    <h5 style={{ fontWeight: 'bold' }}>Products</h5>
-                    <p>Payments</p>
-                    <p>Transfers</p>
-                    <p>Invoicing</p>
-                    <p>Store</p>
+                    <h5 style={{ fontWeight: 'bold' }}>Legal</h5>
+                    <p>Terms and Conditions</p>
+                    <p>Privacy Policy</p>
                 </Col>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
-                    <h5 style={{ fontWeight: 'bold' }}>Developers</h5>
-                    <p>Documentation</p>
-                    <p>API Reference</p>
-                    <p>API Status</p>
-                    <p>Open Source</p>
+                    <h5 style={{ fontWeight: 'bold' }}>Documents</h5>
+                    <p>DrugCipher Whitepaper</p>
+                    <p>DrugCipher Deck</p>
+                    <p>Github</p>
                 </Col>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <h5 style={{ fontWeight: 'bold' }}>Contact Us</h5>
-                    <p>Office: Floor 1, African Alliance Building, No 1 Sani Abacha Way, Kano.</p>
+                    {/* <p>Office: Floor 1, African Alliance Building, No 1 Sani Abacha Way, Kano.</p>
                     <p>+234 123 456 789 </p>
-                    <p>+234 123 456 789 </p>
-                    <p>+234 123 456 789 </p>
+                    <p>+234 123 456 789 </p> */}
+                    <p>
+                        <a style={{ display: 'block' }} className='links' href="mailto:mail@drugcipher.com">Email</a>
+                    </p>
+                    <p>
+                        <a style={{ display: 'block' }} className='links' href='https://fb.me/drugcipher' target='_blank' rel="noreferrer">Facebook</a>
+                    </p>
+                    <p>
+                        <a style={{ display: 'block' }} className='links' href='https://twitter.com/drugcipher' target='_blank' rel="noreferrer">Twitter</a >
+                    </p>
+                    <p>
+                        <a style={{ display: 'block' }} className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">Linkedin</a>
+                    </p>
+                    <p>
+                        <a style={{ display: 'block' }} className='links' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">Instagram</a>
+                    </p>
                 </Col>
             </Row>
             <Row className='m-0 lastfootersection'>
