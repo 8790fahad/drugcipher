@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Button from "../CustomFiles/Button";
-import { Instagram, Linkedin, Twitter, Facebook, GitHub } from "react-feather";
+import { Instagram, Twitter, Facebook, GitHub } from "react-feather";
 import pharmacist from "../image/ddd.png";
 export default function Section1() {
   return (
@@ -44,11 +44,6 @@ export default function Section1() {
                       <Facebook size="1.5em" />
                     </a>
                   </div>
-                  {/* <div className="header-icon">
-                    <a className='' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">
-                      <Linkedin size="1.5em" />
-                    </a>
-                  </div> */}
                   <div className="header-icon">
                     <a className='' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">
                       <Instagram size="1.5em" />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Instagram, Linkedin, Twitter, Facebook } from 'react-feather'
+import { Instagram, Twitter, Facebook } from 'react-feather'
 import { Col, Row } from 'reactstrap'
 import drugcipherIcon from '../image/DRUG CIPHER (2).png'
 
@@ -21,11 +21,6 @@ export default function Footer() {
                                 <div className='icons'>
                                     <a className='links' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">
                                         {<Instagram />}
-                                    </a>
-                                </div>
-                                <div className='icons'>
-                                    <a className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">
-                                        <Linkedin />
                                     </a>
                                 </div>
                                 <div className='icons'>
@@ -69,9 +64,6 @@ export default function Footer() {
                     <p>
                         <a style={{ display: 'block' }} className='links' href='https://twitter.com/drugcipher' target='_blank' rel="noreferrer">Twitter</a >
                     </p>
-                    {/* <p>
-                        <a style={{ display: 'block' }} className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">Linkedin</a>
-                    </p> */}
                     <p>
                         <a style={{ display: 'block' }} className='links' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">Instagram</a>
                     </p>

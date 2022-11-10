@@ -6,8 +6,7 @@ export default function IntroSection() {
       <div className="container">
         <p className="intro_text">
           {" "}
-          We provide potentially life-changing treatments and the protection of
-          life-saving medicine to millions of people.
+          DrugCipher introduces a safer and reliable means of  eradicating  the problems of drug counterfeiting in an ever growing world of the pharmaceutical Industry.
         </p>
       </div>
     </div>

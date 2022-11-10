@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Clock from 'react-live-clock';
-import { Instagram, Linkedin, Twitter, Facebook, GitHub } from 'react-feather'
+import { Instagram, Twitter, Facebook, GitHub } from 'react-feather'
 export default function HeaderInfo() {
     // const date = new Date()
     // const currentYear = date.getFullYear()
@@ -40,11 +40,6 @@ export default function HeaderInfo() {
                                 <Instagram size='1em' />
                             </a>
                         </div>
-                        {/* <div className='header-icon'>
-                            <a className='' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">
-                                <Linkedin size='1em' />
-                            </a>
-                        </div> */}
                         <div className='header-icon'>
                             <a className='' href='https://twitter.com/drugcipher' target='_blank' rel="noreferrer">
                                 <Twitter size='1em' />
