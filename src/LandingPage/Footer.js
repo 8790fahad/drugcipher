@@ -69,9 +69,9 @@ export default function Footer() {
                     <p>
                         <a style={{ display: 'block' }} className='links' href='https://twitter.com/drugcipher' target='_blank' rel="noreferrer">Twitter</a >
                     </p>
-                    <p>
+                    {/* <p>
                         <a style={{ display: 'block' }} className='links' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">Linkedin</a>
-                    </p>
+                    </p> */}
                     <p>
                         <a style={{ display: 'block' }} className='links' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">Instagram</a>
                     </p>

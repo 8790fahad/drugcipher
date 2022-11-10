@@ -51,6 +51,7 @@ export default function Step2({
           <Row className="mt-3">
             <Col md={6} controlId="validationCustom03">
               <label>Premises License by PCN (Pharmacy Council of Nigeria)</label>
+              <br />
               <label>Attach the image of your license</label>
               <input
                 className=""

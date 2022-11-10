@@ -44,11 +44,11 @@ export default function Section1() {
                       <Facebook size="1.5em" />
                     </a>
                   </div>
-                  <div className="header-icon">
+                  {/* <div className="header-icon">
                     <a className='' href='https://www.linkedin.com/in/drug-cipher-358406251/' target='_blank' rel="noreferrer">
                       <Linkedin size="1.5em" />
                     </a>
-                  </div>
+                  </div> */}
                   <div className="header-icon">
                     <a className='' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">
                       <Instagram size="1.5em" />
