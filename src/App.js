@@ -7,7 +7,7 @@ import { useCallback } from "react";
 import { _fetchApi } from "./utils/helper";
 import { NotificationError } from "./utils/Notification";
 import { toast } from "react-toastify";
-import WhatsDrug from "./LandingPage/WhatsDrug";
+// import WhatsDrug from "./LandingPage/WhatsDrug";
 // import CreateSoleAgent from "./Manufacturer/CreateSoleAgent";
 const App = function AppWrapper() {
   const navigate = useNavigate();
