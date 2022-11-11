@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../image/DRUG CIPHER (2).png";
 // import emoji from "../../image/emoji.png";
-// import emoji from "../../image/Bcgr6Xj7i.gif";
+import emoji from "../../image/Bcgr6Xj7i.gif";
 
 
 export default function Final() {
@@ -12,7 +12,7 @@ export default function Final() {
         <div className='container'>
             <Card className="KYC_card shadow p-3">
                 <div>
-                    <Row>
+                    <Row>    
                         <Col md={6} sm={6} xs={6}>
                             <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
                                 data-placement="bottom"
@@ -43,7 +43,7 @@ export default function Final() {
                     </Row>
                     <div className='text-center'>
                         <h1 className='thankyou'>Thank you for registering</h1>
-                        {/* <img src={emoji} alt='' className='emoji' /> */}
+                        <img src={emoji} alt='' className='emoji' />
                         <p className='mssg'>Your account is under review. when it is approved, a link will be sent to your email that will allow you to generate a passphrase and login to your account.</p>
                     </div>
                 </div>

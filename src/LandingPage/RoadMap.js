@@ -19,7 +19,7 @@ export default function RoadMap() {
               Drugcipher Airdrop
               Performance and feature improvement.
             </p>
-            <span className="cd-date">29th September, 2021</span>
+            {/* <span className="cd-date">29th September, 2021</span> */}
           </div>
         </div>
         <div className="cd-timeline-block">
@@ -32,7 +32,7 @@ export default function RoadMap() {
               Artificial Intelligence Model
               Mobile App Development.
             </p>
-            <span className="cd-date">10th December, 2021</span>
+            {/* <span className="cd-date">10th December, 2021</span> */}
           </div>
         </div>
         <div className="cd-timeline-block" >
@@ -44,17 +44,7 @@ export default function RoadMap() {
               to take place by having business cards, flyers, adverts, funnel
               page and sponsored posts.
             </p>
-            <span className="cd-date">11th February, 2022</span>
-          </div>
-        </div>
-        <div className="cd-timeline-block">
-          <div className="cd-timeline-img cd-location"></div>
-          <div className="cd-timeline-content">
-            <h2>Partnership 2022</h2>
-            <p>
-              In this phase, we will have partnerships with various government/ non-governmental organizations regulating pharmaceutical industries across the globe.
-            </p>
-            <span className="cd-date">Jan 18</span>
+            {/* <span className="cd-date">11th February, 2022</span> */}
           </div>
         </div>
 
@@ -66,7 +56,17 @@ export default function RoadMap() {
               So, this phase is to audit our smart contract and make sure its
               stable.
             </p>
-            <span className="cd-date">Jan 18</span>
+            {/* <span className="cd-date">Jan 18</span> */}
+          </div>
+        </div>
+        <div className="cd-timeline-block">
+          <div className="cd-timeline-img cd-location"></div>
+          <div className="cd-timeline-content">
+            <h2>Partnership 2022</h2>
+            <p>
+              In this phase, we will have partnerships with various government/ non-governmental organizations regulating pharmaceutical industries across the globe.
+            </p>
+            {/* <span className="cd-date">Jan 18</span> */}
           </div>
         </div>
         <div className="cd-timeline-block">
@@ -77,7 +77,7 @@ export default function RoadMap() {
               In this phase, we are going to launch the product into the market for pharmaceutical companies to register and upload their drug information. And for the patient to validate the drug and earn.
 
             </p>
-            <span className="cd-date">Jan 18</span>
+            {/* <span className="cd-date">Jan 18</span> */}
           </div>
         </div>
       </section>

@@ -105,7 +105,7 @@ export default function TeamSection() {
                 >
                   <div>
                     <p className="" style={{ fontSize: "18px" }}>
-                      Muhammad Fahad is a certified Near developer with over 5
+                      Muhammad Fahad is a certified Blockchain/NEAR developer with over 5
                       years experience in software development. Muhammad Fahad
                       worked in building tech startups related to Health Care
                       System.

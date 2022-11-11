@@ -50,6 +50,7 @@ export default function Step3({
           <Row className="mt-3">
             <Col md={6} controlId="validationCustom03">
               <label>Superintendent Pharmacist License</label>
+              <br />
               <label>Attach the image of your license</label>
               <input
                 className=""
