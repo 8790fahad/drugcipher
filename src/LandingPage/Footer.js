@@ -1,5 +1,6 @@
 import React from 'react'
 import { Instagram, Twitter, Facebook } from 'react-feather'
+import whitepaper from '../DrugCipher.pdf'
 import { Col, Row } from 'reactstrap'
 import drugcipherIcon from '../image/DRUG CIPHER (2).png'
 
@@ -46,10 +47,19 @@ export default function Footer() {
                 </Col>
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <h5 style={{ fontWeight: 'bold' }}>Documents</h5>
-                    <p>DrugCipher Whitepaper</p>
+                    <p>
+                        <a href={whitepaper} target="_blank" className='' style={{ color: 'rgb(3, 66, 110)' }}>
+                            DrugCipher Whitepaper
+                        </a>
+                    </p>
                     <p>DrugCipher Deck</p>
-                    <p>Github</p>
+                    <p>
+                        <a href='https://github.com/ysquareimperial/drug-cipher' target="_blank" className='' style={{ color: 'rgb(3, 66, 110)' }}>
+                            Github
+                        </a>
+                    </p>
                 </Col>
+
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <h5 style={{ fontWeight: 'bold' }}>Contact Us</h5>
                     {/* <p>Office: Floor 1, African Alliance Building, No 1 Sani Abacha Way, Kano.</p>
