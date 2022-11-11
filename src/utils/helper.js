@@ -26,7 +26,7 @@ export function logout() {
 const serverUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:34567"
-    : "https://yge.wvi.mybluehost.me/test/coop-soc-backend";
+    : "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
 export const apiURL = serverUrl + "/api";
 
 const _fetchApi = (
@@ -140,7 +140,7 @@ const loadWithToken = (err = (f) => f) => {
   const token = localStorage.getItem("@@cipher");
   const _token = token?.split(" ");
   console.log(_token);
-  if (!token==='undefined') {
+  if (!token === "undefined") {
     return (dispatch) => {
       _fetchApi(
         `/v1/load-with-token?token=${_token[1]}`,
