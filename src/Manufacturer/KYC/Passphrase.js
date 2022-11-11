@@ -100,7 +100,7 @@ export default function Passphrase({ nextStep }) {
               </p>
               <Card className="pp_card p-2 shadow">
                 <Row>
-                  {passphrase.split(" ").length
+                  {passphrase && passphrase.split(" ").length
                     ? passphrase.split(" ").map((item, index) => (
                       <Col md={4}>
                         <p className="word p-2">
