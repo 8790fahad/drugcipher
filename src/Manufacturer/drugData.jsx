@@ -5,7 +5,8 @@ export const drugData = [
     drugName: "Panadol",
     genericName: "Panadol AA",
     NAFDAC:'ABC-1234',
-    dosages:'3 times/day'
+    dosages:'3 times/day',
+    toggle:false
   },
   {
     date: "October 30th 2020",
@@ -13,14 +14,16 @@ export const drugData = [
     drugName: "Panadol",
     genericName: "Panadol AA",
     NAFDAC:'ABC-1234',
-    dosages:'3 times/day'
+    dosages:'3 times/day',
+    toggle:false
   },{
     date: "October 30th 2020",
     expiryDate: "October 30th 2021",
     drugName: "Panadol",
     genericName: "Panadol AA",
     NAFDAC:'ABC-1234',
-    dosages:'3 times/day'
+    dosages:'3 times/day',
+    toggle:false
   }
 ];
 

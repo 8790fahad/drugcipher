@@ -1,6 +1,6 @@
 import { connect, Contract, keyStores, WalletConnection } from "near-api-js";
 import environment from "./config";
-const nearEnv = environment("testnet");
+const nearEnv = environment("mainnet");
 export async function initializeContract() {
   const near = await connect(
     Object.assign(
@@ -14,8 +14,8 @@ export async function initializeContract() {
     window.walletConnection.account(),
     nearEnv.contractName,
     {
-      viewMethods: ["getDrugList", "getDrug", "viewDrugHistory", "drugHistory"],
-      changeMethods: ["setDrug", "updateDrugPrice", "buyDrug"],
+      viewMethods: ["get_drugs", "view_drug"],
+      changeMethods: ["set_drug", "recall_drug"],
     }
   );
 }

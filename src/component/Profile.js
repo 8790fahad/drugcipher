@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Card,
   Row,
@@ -8,8 +8,21 @@ import {
   CardText,
 } from "reactstrap";
 import "bootstrap";
+import { accountBalance } from "../utils/helper";
+import { Spinner } from "react-bootstrap";
 
 export default function Profile() {
+  const account = window.walletConnection.account();
+  const [balance, setBalance] = useState("0");
+  const getBalance = useCallback(async () => {
+    if (account.accountId) {
+      setBalance(await accountBalance());
+    }
+  });
+
+  useEffect(() => {
+    getBalance();
+  }, [getBalance]);
   return (
     <div>
       <Card className="man_card shadow p-3">
@@ -25,6 +38,13 @@ export default function Profile() {
                 fluid
               />
               <h5 className="">DrugCipher</h5>
+              <CardText className=" card-text" style={{fontSize:11, margin:0}}>Wallet Balance  {balance ? (
+              <>
+                <b>{balance} <span className="ms-1">NEAR</span></b>
+              </>
+            ) : (
+              <Spinner animation="border" size="sm" className="opacity-25" />
+            )}</CardText>
               <CardText className=" card-text" style={{fontSize:11, margin:0}}>drugcipher@gmail.com</CardText>
               <CardText className="card-text" style={{fontSize:11, margin:0}}>+2348012345678</CardText>
             </CardBody>
