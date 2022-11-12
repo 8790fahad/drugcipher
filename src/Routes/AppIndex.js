@@ -8,9 +8,6 @@ import Navbar from '../Manufacturer/Navbar'
 export default function AppIndex() {
     return (
         <div>
-            {/* <Row className='m-0'>
-                <PharmacyNavMenu />
-            </Row> */}
             <Row className='m-0'>
                 <Col md={2} className='p-0 m-0'>
                     <Sidebar />
@@ -20,8 +17,6 @@ export default function AppIndex() {
                     <Outlet/>
                 </Col>
             </Row>
-            {/* <SectionDivider/>
-            <Footer /> */}
         </div>
     )
 }

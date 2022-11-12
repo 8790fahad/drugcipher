@@ -27,12 +27,12 @@ export default function MVV() {
       mvvImage: values,
       mvvTitle: "Values",
       mvvContent: `Our values define who we are and how we solve the problems we solve, and
-      these are the core ideas we return to when we make decisions: `,
-      m1: "● We build trust capital.",
-      m2: "● We are innovative",
-      m3: "● We celebrate competency",
-      m4: "● We do not compromise",
-      m5: "● We choose transparency`",
+      these are the core ideas we return to when we make decisions: 
+● We build trust capital.
+● We are innovative
+● We celebrate competency
+● We do not compromise
+● We choose transparency`,
       alt: "values",
       // animation: "fade-right",
     },
@@ -67,11 +67,6 @@ export default function MVV() {
                     <Col xl={9} lg={9} md={9} sm={12} xs={12}>
                       <h3 className="mvv_h">{item.mvvTitle}</h3>
                       <p className="mvv_p">{item.mvvContent}</p>
-                      <p className="mvv_p">{item.m1}</p>
-                      <p className="mvv_p">{item.m2}</p>
-                      <p className="mvv_p">{item.m3}</p>
-                      <p className="mvv_p">{item.m4}</p>
-                      <p className="mvv_p">{item.m5}</p>
                     </Col>
                   </Row>
                 </Col>
