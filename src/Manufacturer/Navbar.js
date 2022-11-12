@@ -30,7 +30,7 @@ export default function Navbar() {
   };
   const [singleSelections] = useState([]);
   const account = window.walletConnection.account();
-  const [balance, setBalance] = useState("0");
+  const [balance, setBalance] = useState(null);
   const getBalance = useCallback(async () => {
     if (account.accountId) {
       setBalance(await accountBalance());
@@ -114,18 +114,15 @@ export default function Navbar() {
                   </div>
                   <div
                     className="drop_down_item"
-                    onClick={() => {
-                      balance ? logout() : login();
-                    }}
                   >
                     {balance ? (
-                      <span className="p-3">
+                      <span className="p-3" onClick={logout}>
                         {" "}
                         <i className="bi bi-box-arrow-right me-2 fs-4" />
                         Disconnect
                       </span>
                     ) : (
-                      <span className="p-3">
+                      <span className="p-3" onClick={login}>
                         <i className="bi bi-chevron-bar-contract me-2 fs-4" />{" "}
                         Connect
                       </span>

@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { ArrowLeftCircle } from "react-feather";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "reactstrap";
 import logo from "../../image/DRUG CIPHER (2).png";
+import { recoverAccount } from "../../utils/helper";
 
 export default function RecPassphrase() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.account.loading);
+  const [passPhrass, setPassPhrase] = useState("");
+  const onChange = ({ target: { value } }) => {
+    setPassPhrase(value);
+  };
 
+  const submitForm = () => {
+    dispatch(
+      recoverAccount(passPhrass, () => {
+        navigate("/registered-drugs");
+      })
+    );
+  };
   return (
     <div>
       <div className="container">
@@ -71,9 +87,16 @@ export default function RecPassphrase() {
                   <input
                     className="man_input_fields"
                     placeholder="cap shirt spoon..."
+                    onChange={onChange}
+                    value={passPhrass}
                   />
-                  <button className="man_button mt-3" style={{ width: "100%" }}>
-                    Recorver
+                  <button
+                    className="man_button mt-3"
+                    style={{ width: "100%" }}
+                    onClick={submitForm}
+                    disabled={loading}
+                  >
+                    {loading ? <Spinner size="sm" /> : null}Recorver
                   </button>
                 </Col>
                 <Col md={4}></Col>
