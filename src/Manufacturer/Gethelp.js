@@ -10,7 +10,7 @@ import { v4 as uuid4 } from "uuid";
 import { Form, Spinner } from "reactstrap";
 import { toast } from "react-toastify";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
-import { Send } from "react-feather";
+import { Send, X } from "react-feather";
 
 export default function Gethelp() {
     let _form ={ email: "", message: "", id: uuid4() }
@@ -194,7 +194,7 @@ export default function Gethelp() {
           </Modal.Body>
           <Modal.Footer>
             <button className="man_button" onClick={handleClose}>
-              Close
+              <X/>{' '}Close
             </button>
             <button type="submit" disabled={loading} className="man_button">
               {loading ? <Spinner size="sm" /> : <Send />} Send
