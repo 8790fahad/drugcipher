@@ -13,7 +13,7 @@ import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { Send, X } from "react-feather";
 
 export default function Gethelp() {
-    let _form ={ email: "", message: "", id: uuid4() }
+  let _form = { email: "", message: "", id: uuid4() }
   const [form, setForm] = useState(_form);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -96,58 +96,42 @@ export default function Gethelp() {
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-              How do I check if my payment is being comfirmed?
+              How do I know if my account is approved?
             </Accordion.Header>
             <Accordion.Body className="GH">
-              Click on Transactions on the menu to get all your transactions and
-              their statuses. You can also filter the list with date range
+              Once your account is approved by <b>drugcipher</b>, a link that contains your account passphrase will be sent to the email you registered with.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1">
             <Accordion.Header>
-              My State Dues are not showing on the app, what should I do?
+              I cant see where to connect my NEAR  wallet?
             </Accordion.Header>
             <Accordion.Body className="GH">
-              First check your profile and confirm that you have selected your
-              State of Practice and the appropriate Practice and Interest
-              Groups. If by then you still cannot find your State Dues, then the
-              neccessary payment information has not been provided by your State
-              Chairman, we are still collecting this information from individual
-              Chairman, so you may want to check back later.
+              After you log in, look to the top right corner of <b>DrugCipher</b>, you will see "Account" menu, click on it, it will drop down some menus. You will find connect to NEAR menu there.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
             <Accordion.Header>
-              How do I get the receipt for my payment?
+              How do I see the full details of my registered drug?
             </Accordion.Header>
             <Accordion.Body className="GH">
-              An automated email of your transaction receipt would be sent to
-              your registered email, you can also download a copy of the receipt
-              anytime from the app, simply go to the History option on the menu
-              and select the particular transaction, then click on Download
-              Receipt button provided.
+             In the "Registered Drugs" table, there is an icon under "Actions" column. Click the icon, and it will open where you can see drug data.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="3">
             <Accordion.Header>
-              How do I retrieve my Username or Password?
+              How do I get the DrugCipher mobile app?
             </Accordion.Header>
             <Accordion.Body className="GH">
-              As long as you still remember your email, you can simply use the
-              Forgot Password link on the login page, an automated email would
-              be sent to your registered email address with your username and
-              also an instruction on how you can reset your password.
+              You can get DrugCipher mobile app on AppStore or Playstore.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="4">
             <Accordion.Header>
-              What are the options of payment?
+              Can I export my drug data?
             </Accordion.Header>
             <Accordion.Body className="GH">
-              You can either pay with your Debit/Credit card, Bank Transfer or
-              even USSD Code or any of the other options available in the app.
-              Simply click the Change Payment Method at the bottom of the page
-              to get other payment options.
+              Yes, you can. If you navigate to "Registered Drugs", you will see "Export As" button. Click on it, it will allow you to download your drug data.
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
@@ -194,7 +178,7 @@ export default function Gethelp() {
           </Modal.Body>
           <Modal.Footer>
             <button className="man_button" onClick={handleClose}>
-              <X/>{' '}Close
+              <X />{' '}Close
             </button>
             <button type="submit" disabled={loading} className="man_button">
               {loading ? <Spinner size="sm" /> : <Send />} Send
