@@ -125,7 +125,7 @@ export default function Passphrase({ nextStep }) {
                       className="man_button"
                       style={{ cursor: "pointer" }}
                     >
-                      {loading ? <Spinner /> : <RefreshCcw />} Regenerate
+                      {loading ? <Spinner size='sm'/> : <RefreshCcw />} Regenerate
                     </span>
                   </div>
                 </Row>

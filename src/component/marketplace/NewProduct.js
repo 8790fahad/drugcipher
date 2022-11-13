@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { setDrug } from "../../utils/marketplace";
+import { setDrug } from "../../utils/contract";
 import {
   NotificationError,
   NotificationSuccess,
@@ -30,7 +30,6 @@ function NewProduct() {
     balance: 0,
     image: "",
     reorder_level: "",
-    
   });
   const [loading, setLoading] = useState(false);
   const handleChange = ({ target: { name, value } }) => {
@@ -45,13 +44,12 @@ function NewProduct() {
     form.price;
 
   const addProduct = async (data) => {
-    
     try {
       setLoading(true);
-      await setDrug(data).then((resp) => {
-        console.log(resp);
-        // navigate(-1);
-      });
+      // await setDrug(data).then((resp) => {
+      //   console.log(resp);
+      //   // navigate(-1);
+      // });
       toast(<NotificationSuccess text="Drug added successfully." />);
       navigate(-1);
     } catch (error) {
@@ -252,7 +250,7 @@ function NewProduct() {
               variant="dark"
               disabled={!isFormFilled()}
               onClick={() => {
-                addProduct(form);
+                // addProduct(form);
               }}
             >
               {loading ? (

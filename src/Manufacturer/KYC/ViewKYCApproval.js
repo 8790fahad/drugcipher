@@ -194,15 +194,6 @@ export default function ViewKYCApproval() {
                     Premises License by PCN
                   </p>
                   <p>{pl_url}</p>
-                  {/* <img src={pl_url} style={{ width: 100 }} /> */}
-                  {/* <img
-                                            src={images[0]}
-                                            onClick={() => openImageViewer(0)}
-                                            width="200"
-                                            key={0}
-                                            alt="Premises License by PCN"
-                                            // style={{opacity:0}}
-                                        /> */}
                   <button
                     className="man_button"
                     onClick={() => openImageViewer(0)}
@@ -229,14 +220,6 @@ export default function ViewKYCApproval() {
                     Superintendent Pharmacist License
                   </p>
                   <p>{sp_url}</p>
-                  {/* <img src={sp_url} style={{ width: 100 }} /> */}
-                  {/* <img
-                                        src={images[1]}
-                                        onClick={() => openImageViewer(1)}
-                                        width="200"
-                                        key={1}
-                                        alt="Superintendent Pharmacist License"
-                                    /> */}
                   <button
                     className="man_button"
                     onClick={() => openImageViewer(1)}

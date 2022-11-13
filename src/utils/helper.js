@@ -22,10 +22,11 @@ export function logout() {
   window.walletConnection.signOut();
   window.location.reload();
 }
+export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near"; 
 
 const serverUrl =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:34567"
+    ? "http://localhost:34561"
     : "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
 export const apiURL = serverUrl + "/api";
 
@@ -117,6 +118,7 @@ const recoverAccount = (passPhrase, success = (f) => f) => {
       "/v1/recover-account-passphrass",
       { passPhrase },
       (resp) => {
+        console.log(resp)
         if (resp.success) {
           localStorage.setItem("@@cipher", resp.token);
           dispatch({ type: "RECOVER_ACCOUNT", payload: resp });

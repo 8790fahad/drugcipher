@@ -1,3 +1,7 @@
+import {
+  formatNearAmount,
+  parseNearAmount,
+} from "near-api-js/lib/utils/format";
 import React from "react";
 // import { useEffect } from "react";
 import { useState } from "react";
@@ -5,13 +9,19 @@ import { Card, Col, Row } from "react-bootstrap";
 import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { setDrugInfo } from "../utils/contract";
+import { WALLET_ID } from "../utils/helper";
+import { v4 as uuid4 } from "uuid";
+import { NotificationError, NotificationSuccess } from "../utils/Notification";
+import { useSelector } from "react-redux";
 // import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
-
+  const {info} = useSelector((state)=>state.account.account)
   const [singleSelections] = useState([]);
-  const marketers = [
-    'afdf', 'fasdfa', 'fasdf'
-  ]
+  const [loading, setLoading] = useState(false);
+  const marketers = ["afdf", "fasdfa", "fasdf"];
+
   const form = {
     manufacturerName: "",
     soleAgentName: "",
@@ -39,18 +49,55 @@ export default function RegisterNewDrug() {
 
   const submitForm = () => {
     navigate("/QRCode");
-    console.log(drugData)
+    console.log(drugData);
+  };
+
+  const addDrugInfo = async (e) => {
+    e.preventDefault()
+    let id =uuid4()
+    try {
+      setLoading(true);
+      await setDrugInfo({
+        beneficiary_id: WALLET_ID,
+        token: formatNearAmount("0.1"),
+        payload: {
+          id: id,
+          manufcturer_name: drugData.manufacturerName,
+          sole_agent: drugData.soleAgentName,
+          drug_brand_name: drugData.drugBrandName,
+          generic_name: drugData.drugGenericName,
+          drug_strength: drugData.drugStrength,
+          formulation_type: drugData.formulationType,
+          unit_packaging: drugData.unitPackaging,
+          nafdac_number: drugData.NAFDACNumber,
+          lot_number: drugData.batch_lotNumer,
+          date_manufacture: drugData.dateOfManufacture,
+          expiry_date: drugData.dateOfExpiry,
+          company_id: info?.id,
+          status: false,
+          remark: "",
+          authorize_marketers: drugData.authorizedMarketers,
+        },
+      }).then((resp) => {
+        console.log(resp);
+        toast(<NotificationSuccess text="Drug info added successfully." />);
+      });
+    } catch (error) {
+      console.log({ error });
+      toast(<NotificationError text="Failed to create a product." />);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Form onSubmit={submitForm}>
-      {/* {JSON.stringify({ drugData })} */}
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Register New Drug</h3>
         <Row>
           <Col md={12}>
             <Row className="">
-              <Col md={6} className='mb-3' controlId="validationCustom03">
+              <Col md={6} className="mb-3" controlId="validationCustom03">
                 <label>Manufacturer's Name</label>
                 <input
                   name="manufacturerName"
@@ -61,7 +108,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Sole Agent Name</label>
                 <Typeahead
                   id="basic-typeahead-single"
@@ -69,8 +116,10 @@ export default function RegisterNewDrug() {
                   options={marketers}
                   // placeholder="Search drugs by name"
                   selected={singleSelections}
-                  inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
-
+                  inputProps={{
+                    className: "man_input_fields",
+                    style: { outline: "none" },
+                  }}
                 />
                 {/* <input
                   name="soleAgentName"
@@ -83,7 +132,7 @@ export default function RegisterNewDrug() {
               </Col>
             </Row>
             <Row className="">
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Authorized Marketers/Presentatives</label>
                 <Typeahead
                   id="basic-typeahead-single"
@@ -91,8 +140,10 @@ export default function RegisterNewDrug() {
                   options={marketers}
                   // placeholder="Search drugs by name"
                   selected={singleSelections}
-                  inputProps={{ className: 'man_input_fields', style: { 'outline': 'none' } }}
-
+                  inputProps={{
+                    className: "man_input_fields",
+                    style: { outline: "none" },
+                  }}
                 />
                 {/* <input
                   name="authorizedMarketers"
@@ -103,7 +154,7 @@ export default function RegisterNewDrug() {
                   required
                 /> */}
               </Col>
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Drug Brand Name</label>
                 <input
                   name="drugBrandName"
@@ -116,7 +167,7 @@ export default function RegisterNewDrug() {
               </Col>
             </Row>
             <Row className="">
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Drug Generic/Chemical Name</label>
                 <input
                   name="drugGenericName"
@@ -127,7 +178,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Strength of Drug</label>
                 <input
                   name="drugStrength"
@@ -140,7 +191,7 @@ export default function RegisterNewDrug() {
               </Col>
             </Row>
             <Row className="">
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Formulation Type</label>
                 <input
                   name="formulationType"
@@ -151,7 +202,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Unit Packaging</label>
                 <input
                   name="unitPackaging"
@@ -164,8 +215,8 @@ export default function RegisterNewDrug() {
               </Col>
             </Row>
             <Row className="">
-              <Col md={6} className='mb-3'>
-                <label>NAFDAC Number</label>
+              <Col md={6} className="mb-3">
+                <label>Drug Authorization Number</label>
                 <input
                   name="NAFDACNumber"
                   value={drugData.NAFDACNumber}
@@ -175,7 +226,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Batch/Lot Number</label>
                 <input
                   name="batch_lotNumer"
@@ -188,7 +239,7 @@ export default function RegisterNewDrug() {
               </Col>
             </Row>
             <Row className="">
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Date of Manufacture</label>
                 <input
                   name="dateOfManufacture"
@@ -199,7 +250,7 @@ export default function RegisterNewDrug() {
                   required
                 />
               </Col>
-              <Col md={6} className='mb-3'>
+              <Col md={6} className="mb-3">
                 <label>Date of Expiry</label>
                 <input
                   name="dateOfExpiry"
@@ -216,7 +267,7 @@ export default function RegisterNewDrug() {
 
         <div className="mt-3">
           {/* <button className='man_button' onClick={() => navigate('/QRCode')}>Register</button> */}
-          <button type="submit" className="man_button" onClick={submitForm}>
+          <button type="submit" className="man_button"  disabled={loading}>
             Register
           </button>
         </div>

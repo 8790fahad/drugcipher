@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import AddProduct from "./AddProduct";
 import Product from "./Product";
 import { Row } from "react-bootstrap";
-import { buyDrug, createProduct, getDrugs } from "../../utils/marketplace";
+import { buyDrug, createProduct, getDrugs } from "../../utils/contract";
 import Loader from "../../utils/loader";
 import {
   NotificationError,

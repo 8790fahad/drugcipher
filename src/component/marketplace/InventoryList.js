@@ -15,7 +15,7 @@ import {
   getDrugs,
   updateDrugPrice,
   viewDrugHistory,
-} from "../../utils/marketplace";
+} from "../../utils/contract";
 import useQuery from "../../hooks/useQuery";
 import Loader from "../../utils/loader";
 import DrugAlert from "./DrugAlert";
@@ -33,7 +33,7 @@ function InventoryList() {
     try {
       setLoading(true);
       let drugs = await getDrugs();
-      console.log(drugs)
+      console.log(drugs);
       const arr = [];
       const reoder = [];
       const expired = [];
@@ -45,7 +45,7 @@ function InventoryList() {
         }
       });
       drugs.forEach((item) => {
-        if (moment().add("1","month").diff(item.expiry_date) > 0) {
+        if (moment().add("1", "month").diff(item.expiry_date) > 0) {
           expired.push(item);
         }
       });
@@ -61,7 +61,7 @@ function InventoryList() {
   const updateSellingPrice = async (item_code, new_price) => {
     try {
       setUpdateLoading(true);
-      await updateDrugPrice(item_code, new_price);
+      // await updateDrugPrice(item_code, new_price);
       getDrugsList();
     } catch {
       setUpdateLoading(false);
@@ -139,7 +139,7 @@ function InventoryList() {
                 Add New Drug
               </Button>
             ) : null}
-            {loading && drug_code ===null? <Loader /> : ""}
+            {loading && drug_code === null ? <Loader /> : ""}
             {!drug_code ? (
               <Table striped bordered className="mt-2">
                 <thead>
@@ -277,9 +277,9 @@ function InventoryList() {
 
 const DrugHistoryTable = ({ drug_code }) => {
   const today = moment().format("YYYY-MM-DD");
-  const _today = moment(today).add("1","months").format("YYYY-MM-DD");
+  const _today = moment(today).add("1", "months").format("YYYY-MM-DD");
   const _from = moment(today).subtract("6", "months").format("YYYY-MM-DD");
-  const [range, setRange] = useState({ from:_from , to:_today  });
+  const [range, setRange] = useState({ from: _from, to: _today });
   const [drugs, setDrugs] = useState([]);
   const [loading, setLoading] = useState(false);
   const handleRangeChange = ({ target: { name, value } }) => {
@@ -288,11 +288,15 @@ const DrugHistoryTable = ({ drug_code }) => {
   const _viewDrugHistory = useCallback(async () => {
     try {
       setLoading(true);
-      const arr = await viewDrugHistory();
-      console.log(arr)
+      const arr = []
+      // await viewDrugHistory();
+      console.log(arr);
       const _arr = [];
       arr.forEach((item) => {
-        if (moment(item.receive_date).isBetween(range.from, range.to) && item.drug_code===drug_code) {
+        if (
+          moment(item.receive_date).isBetween(range.from, range.to) &&
+          item.drug_code === drug_code
+        ) {
           _arr.push(item);
         }
       });
