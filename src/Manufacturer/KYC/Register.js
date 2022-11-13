@@ -9,7 +9,7 @@ export default function Register() {
 
     return (
         <div className='container'>
-            <Card className="KYC_card shadow p-3" style={{ height: '85vh' }}>
+            <Card className="KYC_card shadow p-3">
                 <div>
                     <Row>
                         <Col md={6} sm={6} xs={6}>
