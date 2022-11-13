@@ -1,12 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useRoutes } from "react-router-dom";
 import KYC from "../Manufacturer/KYC/KYC";
-import LandingPage from "../LandingPage/LandingPage";
 import Overview from "../Manufacturer/Overview";
-import Cart from "../MarketPlace/Cart";
-import Pharmacy from "../MarketPlace/Pharmacy";
 // eslint-disable-next-line no-unused-vars
-import Showroom from "../Showroom/Showroom";
 import AppIndex from "./AppIndex";
 import Settings from "../Manufacturer/Settings";
 import ViewRegisteredDrugs from "../Manufacturer/ViewRegisteredDrugs";
@@ -33,13 +29,13 @@ function AppNavigation() {
   let element = useRoutes([
     {
       path: "/",
-      element: <LandingPage />,
+      element: <Register />,
       children: [{ index: true }],
     },
     {
       element: <AppIndex />,
       children: [
-        { index: true, element: <LandingPage /> },
+        { index: true, element: <Register /> },
 
         {
           path: "/overview",
