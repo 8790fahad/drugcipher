@@ -2,11 +2,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Card, Row, CardBody, CardImg, Col, CardText } from "reactstrap";
 import "bootstrap";
 import { accountBalance } from "../utils/helper";
-import { Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
 import { File,Mail,Phone,Copy } from "react-feather";
-import { formatNearAmount } from "near-api-js/lib/utils/format";
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();

@@ -2,7 +2,7 @@ import {
   formatNearAmount,
   parseNearAmount,
 } from "near-api-js/lib/utils/format";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 // import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
@@ -11,16 +11,14 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { setDrugInfo } from "../utils/contract";
-import { WALLET_ID } from "../utils/helper";
+import { getMarketer, WALLET_ID } from "../utils/helper";
 import { v4 as uuid4 } from "uuid";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { useSelector } from "react-redux";
 // import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
-  const {info} = useSelector((state)=>state.account.account)
-  const [singleSelections] = useState([]);
+  const { info } = useSelector((state) => state.account.account);
   const [loading, setLoading] = useState(false);
-  const marketers = ["afdf", "fasdfa", "fasdf"];
 
   const form = {
     manufacturerName: "",
@@ -38,7 +36,7 @@ export default function RegisterNewDrug() {
   };
   const navigate = useNavigate();
 
-  const [drugData, setDrugData] = useState({ form });
+  const [drugData, setDrugData] = useState( form );
 
   const handleChange = ({ target: { name, value } }) => {
     setDrugData((p) => ({
@@ -53,8 +51,8 @@ export default function RegisterNewDrug() {
   };
 
   const addDrugInfo = async (e) => {
-    e.preventDefault()
-    let id =uuid4()
+    e.preventDefault();
+    let id = uuid4();
     try {
       setLoading(true);
       await setDrugInfo({
@@ -89,11 +87,45 @@ export default function RegisterNewDrug() {
       setLoading(false);
     }
   };
-
+  const [soleAgents, setSoleAgents] = useState([]);
+  const [marketers, setMarketers] = useState([]);
+  const getMarketers = useCallback(() => {
+    getMarketer(
+      `/v1/get-marketer?type=Marketer&companyId=${info.id}`,
+      (res) => {
+        if (res.success) {
+          setMarketers(res.result);
+        }
+      },
+      (err) => {
+        console.error(err);
+        toast(<NotificationError text="Failed, try again" />);
+      }
+    );
+  }, [info.id]);
+  const getSoleAgent = useCallback(() => {
+    getMarketer(
+      `/v1/get-marketer?type=Agent&companyId=${info.id}`,
+      (res) => {
+        if (res.success) {
+          setSoleAgents(res.result);
+        }
+      },
+      (err) => {
+        console.error(err);
+        toast(<NotificationError text="Failed, try again" />);
+      }
+    );
+  }, [info.id]);
+  useEffect(() => {
+    getMarketers();
+    getSoleAgent();
+  }, [getMarketers, getSoleAgent]);
   return (
     <Form onSubmit={submitForm}>
       <Card className="man_card shadow p-3">
-        <h3 className="man_card_title">Register New Drug</h3>
+        <h3 className="man_card_title">Register Drug Info</h3>
+        {JSON.stringify(drugData)}
         <Row>
           <Col md={12}>
             <Row className="">
@@ -112,23 +144,23 @@ export default function RegisterNewDrug() {
                 <label>Sole Agent Name</label>
                 <Typeahead
                   id="basic-typeahead-single"
-                  labelKey="soleagentname"
-                  options={marketers}
-                  // placeholder="Search drugs by name"
-                  selected={singleSelections}
+                  options={soleAgents}
+                  labelKey={(item) => item.name}
                   inputProps={{
                     className: "man_input_fields",
                     style: { outline: "none" },
                   }}
+                  onChange={(val) => {
+                    if (val.length) {
+                      let selected = val[0];
+                      console.log(selected);
+                      setDrugData((p) => ({
+                        ...p,
+                        soleAgentName: selected.id,
+                      }));
+                    }
+                  }}
                 />
-                {/* <input
-                  name="soleAgentName"
-                  value={drugData.soleAgentName}
-                  onChange={handleChange}
-                  className="man_input_fields"
-                  type="text"
-                  required
-                /> */}
               </Col>
             </Row>
             <Row className="">
@@ -136,23 +168,23 @@ export default function RegisterNewDrug() {
                 <label>Authorized Marketers/Presentatives</label>
                 <Typeahead
                   id="basic-typeahead-single"
-                  labelKey="marketer"
+                  labelKey={(item) => item.name}
                   options={marketers}
-                  // placeholder="Search drugs by name"
-                  selected={singleSelections}
                   inputProps={{
                     className: "man_input_fields",
                     style: { outline: "none" },
                   }}
+                  onChange={(val) => {
+                    if (val.length) {
+                      let selected = val[0];
+                      console.log(selected);
+                      setDrugData((p) => ({
+                        ...p,
+                        authorizedMarketers: selected.id,
+                      }));
+                    }
+                  }}
                 />
-                {/* <input
-                  name="authorizedMarketers"
-                  value={drugData.authorizedMarketers}
-                  onChange={handleChange}
-                  className="man_input_fields"
-                  type="text"
-                  required
-                /> */}
               </Col>
               <Col md={6} className="mb-3">
                 <label>Drug Brand Name</label>
@@ -267,7 +299,7 @@ export default function RegisterNewDrug() {
 
         <div className="mt-3">
           {/* <button className='man_button' onClick={() => navigate('/QRCode')}>Register</button> */}
-          <button type="submit" className="man_button"  disabled={loading}>
+          <button type="submit" className="man_button" disabled={loading}>
             Register
           </button>
         </div>

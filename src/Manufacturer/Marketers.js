@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
@@ -6,9 +6,13 @@ import { useState } from "react";
 import { Table } from "reactstrap";
 import "./DrugTable.css";
 // import { drugData } from './drugData'
+import { Spinner } from "react-bootstrap";
 import { CSVLink } from "react-csv";
 import { useCallback } from "react";
 import { getMarketer } from "../utils/helper";
+import { NotificationError } from "../utils/Notification";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 export default function Marketers() {
   const { info } = useSelector((state) => state.account.account);
   const navigate = useNavigate();
@@ -25,6 +29,7 @@ export default function Marketers() {
       (res) => {
         if (res.success) {
           setMarketers(res.result);
+          setLoading(false);
         }
       },
       (err) => {
@@ -33,8 +38,10 @@ export default function Marketers() {
         setLoading(false);
       }
     );
-  });
-
+  }, [info.id]);
+  useEffect(() => {
+    getMarketers();
+  }, [getMarketers]);
   return (
     <div>
       <Card className="man_card shadow p-3">
@@ -82,30 +89,32 @@ export default function Marketers() {
         {/* <DrugTable /> */}
 
         <div className="mt-3">
+          <center>
+            {loading ? (
+              <Spinner animation="border" size="lg" className="opacity-25" />
+            ) : null}
+          </center>
           <Table hover responsive className="table" size="">
             <thead className="">
               <tr>
                 <th>S/N</th>
-                <th>Company Name</th>
-                <th>Marketer Full Name</th>
-                <th>Marketer Phone</th>
-                <th>Marketer Email</th>
-                <th>Marketer Address</th>
-                <th>License</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
               </tr>
             </thead>
             <tbody>
-              {marketers.map((item, index) => (
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{item.companyName}</td>
-                  <td>{item.marketerFullName}</td>
-                  <td>{item.marketerPhone}</td>
-                  <td>{item.marketerEmail}</td>
-                  <td>{item.marketerAddress}</td>
-                  <td>{item.license}</td>
-                </tr>
-              ))}
+              {marketers &&
+                marketers.map((item, index) => (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.phone_number}</td>
+                    <td>{item.address}</td>
+                  </tr>
+                ))}
             </tbody>
           </Table>
         </div>

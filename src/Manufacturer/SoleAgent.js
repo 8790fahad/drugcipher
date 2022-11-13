@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import React, { useCallback, useEffect } from "react";
+import { Card, Col, Row, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import { useState } from "react";
@@ -7,28 +7,46 @@ import { Table } from "reactstrap";
 import "./DrugTable.css";
 // import { drugData } from './drugData'
 import { CSVLink } from "react-csv";
+import { useSelector } from "react-redux";
+import { getMarketer } from "../utils/helper";
+import { NotificationError } from "../utils/Notification";
+import { toast } from "react-toastify";
 export default function SoleAgent() {
+  const { info } = useSelector((state) => state.account.account);
   const navigate = useNavigate();
   const [dropdown, setdropdown] = useState(false);
   const toggle1 = () => {
     setdropdown(!dropdown);
   };
 
-  const soleAgents = [
-    {
-      soleAgentFullName: "Mike Joe",
-      soleAgentPhone: "+234 343 2323 32",
-      soleAgentEmail: "abc@gmail.com",
-      soleAgentAddress: "Kano Nigeria",
-    },
-  ];
-
+  const [loading, setLoading] = useState(false);
+  const [soleAgents, setSoleAgents] = useState([]);
+  const getMarketers = useCallback(() => {
+    setLoading(true);
+    getMarketer(
+      `/v1/get-marketer?type=Agent&companyId=${info.id}`,
+      (res) => {
+        if (res.success) {
+          setSoleAgents(res.result);
+          setLoading(false);
+        }
+      },
+      (err) => {
+        console.error(err);
+        toast(<NotificationError text="Failed, try again" />);
+        setLoading(false);
+      }
+    );
+  }, [info.id]);
+  useEffect(() => {
+    getMarketers();
+  }, [getMarketers]);
   return (
     <div>
       <Card className="man_card shadow p-3">
         <Row>
           <Col xl={6} lg={6} md={6} sm={6} xs={6}>
-            <h3 className="man_card_title">Sole Agens</h3>
+            <h3 className="man_card_title">Sole Agents</h3>
           </Col>
           <Col xl={6} lg={6} md={6} sm={6} xs={6}>
             <div style={{ float: "right", display: "flex" }}>
@@ -70,26 +88,32 @@ export default function SoleAgent() {
         {/* <DrugTable /> */}
 
         <div className="mt-3">
+          <center>
+            {loading ? (
+              <Spinner animation="border" size="lg" className="opacity-25" />
+            ) : null}
+          </center>
           <Table hover responsive className="table" size="">
             <thead className="">
               <tr>
                 <th>S/N</th>
-                <th>Sole Agent Full Name</th>
-                <th>Sole Agent Phone</th>
-                <th>Sole Agent Email</th>
-                <th>Sole Agent Address</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
               </tr>
             </thead>
             <tbody>
-              {soleAgents.map((item, index) => (
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{item.soleAgentFullName}</td>
-                  <td>{item.soleAgentPhone}</td>
-                  <td>{item.soleAgentEmail}</td>
-                  <td>{item.soleAgentAddress}</td>
-                </tr>
-              ))}
+              {soleAgents &&
+                soleAgents.map((item, index) => (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.phone_number}</td>
+                    <td>{item.address}</td>
+                  </tr>
+                ))}
             </tbody>
           </Table>
         </div>
