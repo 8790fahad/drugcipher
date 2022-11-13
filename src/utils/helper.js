@@ -162,6 +162,10 @@ const loadWithToken = (err = (f) => f) => {
     };
   }
 };
+const clearToken =(goMenu=(f)=>f)=>{
+  localStorage.removeItem("@@cipher")
+  goMenu()
+}
 
 export const getMarketer = (url, success = (f) => f, error = (f) => f) => {
   _fetchApi(
@@ -184,4 +188,5 @@ export {
   _fetchApi,
   recoverAccount,
   loadWithToken,
+  clearToken
 };

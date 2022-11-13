@@ -1,7 +1,4 @@
-import {
-  formatNearAmount,
-  parseNearAmount,
-} from "near-api-js/lib/utils/format";
+import { formatNearAmount } from "near-api-js/lib/utils/format";
 import React, { useCallback, useEffect } from "react";
 // import { useEffect } from "react";
 import { useState } from "react";
@@ -12,14 +9,16 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { setDrugInfo } from "../utils/contract";
 import { getMarketer, WALLET_ID } from "../utils/helper";
+
 import { v4 as uuid4 } from "uuid";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { useSelector } from "react-redux";
+import { Spinner } from "reactstrap";
 // import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
   const { info } = useSelector((state) => state.account.account);
   const [loading, setLoading] = useState(false);
-
+  const account = window.walletConnection.account();
   const form = {
     manufacturerName: "",
     soleAgentName: "",
@@ -36,7 +35,7 @@ export default function RegisterNewDrug() {
   };
   const navigate = useNavigate();
 
-  const [drugData, setDrugData] = useState( form );
+  const [drugData, setDrugData] = useState(form);
 
   const handleChange = ({ target: { name, value } }) => {
     setDrugData((p) => ({
@@ -45,19 +44,14 @@ export default function RegisterNewDrug() {
     }));
   };
 
-  const submitForm = () => {
-    navigate("/QRCode");
-    console.log(drugData);
-  };
-
   const addDrugInfo = async (e) => {
     e.preventDefault();
+    setLoading(true);
     let id = uuid4();
     try {
-      setLoading(true);
       await setDrugInfo({
-        beneficiary_id: WALLET_ID,
-        token: formatNearAmount("0.1"),
+        beneficiary_id: "8790fahad.near",
+        token: "0.1",
         payload: {
           id: id,
           manufcturer_name: drugData.manufacturerName,
@@ -79,10 +73,13 @@ export default function RegisterNewDrug() {
       }).then((resp) => {
         console.log(resp);
         toast(<NotificationSuccess text="Drug info added successfully." />);
+        navigate(`/QRCode?id=${id}`);
       });
     } catch (error) {
-      console.log({ error });
-      toast(<NotificationError text="Failed to create a product." />);
+      console.log(error)
+      toast(
+        <NotificationError text="Failed to add drug info, please try again." />
+      );
     } finally {
       setLoading(false);
     }
@@ -122,10 +119,9 @@ export default function RegisterNewDrug() {
     getSoleAgent();
   }, [getMarketers, getSoleAgent]);
   return (
-    <Form onSubmit={submitForm}>
+    <Form onSubmit={addDrugInfo}>
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Register Drug Info</h3>
-        {JSON.stringify(drugData)}
         <Row>
           <Col md={12}>
             <Row className="">
@@ -153,7 +149,6 @@ export default function RegisterNewDrug() {
                   onChange={(val) => {
                     if (val.length) {
                       let selected = val[0];
-                      console.log(selected);
                       setDrugData((p) => ({
                         ...p,
                         soleAgentName: selected.id,
@@ -177,7 +172,6 @@ export default function RegisterNewDrug() {
                   onChange={(val) => {
                     if (val.length) {
                       let selected = val[0];
-                      console.log(selected);
                       setDrugData((p) => ({
                         ...p,
                         authorizedMarketers: selected.id,
@@ -300,7 +294,7 @@ export default function RegisterNewDrug() {
         <div className="mt-3">
           {/* <button className='man_button' onClick={() => navigate('/QRCode')}>Register</button> */}
           <button type="submit" className="man_button" disabled={loading}>
-            Register
+            {loading ? <Spinner size="sm" /> : null}Register
           </button>
         </div>
       </Card>

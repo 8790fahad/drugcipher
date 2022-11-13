@@ -7,7 +7,7 @@ import image_account from "../image/account.png";
 import { useLocation, useNavigate } from "react-router-dom";
 // import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
-import { accountBalance, login, logout } from "../utils/helper";
+import { accountBalance, clearToken, login, logout } from "../utils/helper";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { drugData } from "./drugData";
 // import useQuery from '../hooks/useQuery'
@@ -18,7 +18,6 @@ export default function Navbar() {
   // const query = useQuery()
   const navigate = useNavigate();
   const location = useLocation();
-
   const [dropdown, setdropdown] = useState(false);
   const toggle1 = () => {
     setdropdown(!dropdown);
@@ -30,16 +29,7 @@ export default function Navbar() {
   };
   const [singleSelections] = useState([]);
   const account = window.walletConnection.account();
-  const [balance, setBalance] = useState(null);
-  const getBalance = useCallback(async () => {
-    if (account.accountId) {
-      setBalance(await accountBalance());
-    }
-  }, [account.accountId]);
 
-  useEffect(() => {
-    getBalance();
-  }, [getBalance]);
   return (
     <div>
       <Row className="m-0 webnavbar">
@@ -112,10 +102,8 @@ export default function Navbar() {
                       Profile
                     </span>
                   </div>
-                  <div
-                    className="drop_down_item"
-                  >
-                    {balance ? (
+                  <div className="drop_down_item">
+                    {account.accountId ? (
                       <span className="p-3" onClick={logout}>
                         {" "}
                         <i className="bi bi-box-arrow-right me-2 fs-4" />
@@ -188,7 +176,7 @@ export default function Navbar() {
                     </div>
                     <div
                       className="drop_down_item"
-                      onClick={() => navigate("/")}
+                      onClick={() => clearToken(() => navigate("/"))}
                     >
                       <span className="p-3">Logout</span>
                     </div>
@@ -198,23 +186,6 @@ export default function Navbar() {
             </div>
           </Col>
         </Row>
-        {/* <div>
-
-                    <Typeahead
-                        id="basic-typeahead-single"
-                        labelKey="drugName"
-                        onChange={(a) => {
-                            if (a.length) {
-                                navigate(`/registered-drugs?searchTerm=${a[0].drugName}`)
-                            }
-                        }}
-                        options={drugData}
-                        placeholder="Search drugs by name"
-                        selected={singleSelections}
-                        inputProps={{ className: ' man_search_field man_nav_search_field', style: { 'outline': 'none', 'marginLeft':10 } }}
-                    // onInputChange={}
-                    />
-                </div> */}
       </div>
     </div>
   );
