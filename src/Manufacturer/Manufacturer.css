@@ -392,6 +392,22 @@ input[type='file']::-ms-browse {
   border: 1px dashed var(--secondaryColor3);
 }
 
+.four_head {
+  font-weight: bold;
+  font-size: 1200%;
+  color: #03416e;
+}
+
+.four_p{
+  margin: 0;
+  color: #029f41;
+  font-weight: bold;
+  font-size: 30px;
+}
+.four_m{
+  color: #03416e;
+}
+
 @media only screen and (max-width: 768px) {
   .man_sidebar {
     display: none;
@@ -437,8 +453,6 @@ input[type='file']::-ms-browse {
     font-weight: normal;
   }
 }
-
-
 
 @media only screen and (min-width: 768px) {
   .mobilenavbar {

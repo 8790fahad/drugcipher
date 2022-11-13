@@ -3,13 +3,13 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { ArrowLeftCircle } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../image/DRUG CIPHER (2).png";
-
+import '../../Manufacturer/LandingPage.css';
 export default function Register() {
     const navigate = useNavigate()
 
     return (
         <div className='container'>
-            <Card className="KYC_card shadow p-3">
+            <Card className="KYC_card shadow p-3" style={{ height: '85vh' }}>
                 <div>
                     <Row>
                         <Col md={6} sm={6} xs={6}>
@@ -33,7 +33,7 @@ export default function Register() {
                             </h4>
                         </Col>
                         <Col md={6} sm={6} xs={6}>
-                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float:'right', cursor:'pointer' }} onClick={()=>navigate(-1)}/>
+                            <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
                         </Col>
                     </Row>
 
