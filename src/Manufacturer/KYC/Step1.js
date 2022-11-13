@@ -4,13 +4,14 @@ import logo from "../../image/DRUG CIPHER (2).png";
 import { Spinner } from "reactstrap";
 import { ArrowLeftCircle, ArrowRightCircle } from "react-feather";
 import { useNavigate } from "react-router-dom";
+import { contries } from "../../utils/countries";
 export default function Step1({
   nextStep = (f) => f,
   handleChange,
   values,
   loading = false,
 }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Form className="container" onSubmit={nextStep}>
@@ -18,16 +19,18 @@ export default function Step1({
         <div>
           <Row>
             <Col md={6} sm={6} xs={6}>
-              <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
+              <div
+                onClick={() => navigate("/")}
+                style={{ width: "fit-content", cursor: "pointer" }}
+                data-toggle="tooltip"
                 data-placement="bottom"
-                title="Goto Home">
+                title="Goto Home"
+              >
                 <img
                   src={logo}
                   style={{ width: 70, borderRadius: 10 }}
                   alt=""
                   className="shadow"
-
-
                 />{" "}
                 <h4
                   style={{
@@ -35,21 +38,30 @@ export default function Step1({
                     color: "rgb(3, 66, 110)",
                     marginRight: 30,
                   }}
-                  className='dc'
+                  className="dc"
                 >
                   DrugCipher
                 </h4>
               </div>
             </Col>
             <Col md={6} sm={6} xs={6}>
-              <ArrowLeftCircle className='shadow p-3' size='4em' style={{ color: 'rgb(3, 66, 110)', float: 'right', cursor: 'pointer' }} onClick={() => navigate(-1)} />
+              <ArrowLeftCircle
+                className="shadow p-3"
+                size="4em"
+                style={{
+                  color: "rgb(3, 66, 110)",
+                  float: "right",
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate(-1)}
+              />
             </Col>
           </Row>
         </div>
         <h3 className="man_card_title mt-4">KYC - Step 1 of 3</h3>
         <div className="mt-3">
           <Row className="">
-            <Col md={6} className='mb-3' controlId="validationCustom03">
+            <Col md={6} className="mb-3" controlId="validationCustom03">
               <label>
                 Company Name<b style={{ color: "red" }}>*</b>
               </label>
@@ -63,7 +75,7 @@ export default function Step1({
                 required
               />
             </Col>
-            <Col md={6} className='mb-3'>
+            <Col md={6} className="mb-3">
               <label>
                 Company Address<b style={{ color: "red" }}>*</b>
               </label>
@@ -79,7 +91,7 @@ export default function Step1({
             </Col>
           </Row>
           <Row className="">
-            <Col md={6} className='mb-3'>
+            <Col md={6} className="mb-3">
               <label>
                 Email<b style={{ color: "red" }}>*</b>
               </label>
@@ -93,7 +105,7 @@ export default function Step1({
                 required
               />
             </Col>
-            <Col md={6} className='mb-3'>
+            <Col md={6} className="mb-3">
               <label>Company Phone</label>
               <input
                 className="man_input_fields"
@@ -106,7 +118,7 @@ export default function Step1({
             </Col>
           </Row>
           <Row className="">
-            <Col md={6} className='mb-3'>
+            <Col md={6} className="mb-3">
               <label>
                 Country<b style={{ color: "red" }}>*</b>
               </label>
@@ -118,10 +130,13 @@ export default function Step1({
                 required
               >
                 <option>Select Country</option>
-                <option>Nigeria</option>
+                {contries &&
+                  contries.map((item) => (
+                    <option value={item.name}>{item.name}</option>
+                  ))}
               </select>
             </Col>
-            <Col md={6} className='mb-3'>
+            <Col md={6} className="mb-3">
               <label>Website</label>
               <input
                 className="man_input_fields"
@@ -141,12 +156,15 @@ export default function Step1({
             style={{ float: "right" }}
             disabled={loading}
           >
-            {loading ? <Spinner size="sm" /> : null} Next {' '}<ArrowRightCircle />
+            {loading ? <Spinner size="sm" /> : null} Next <ArrowRightCircle />
           </button>
         </div>
       </Card>
-      <div className='text-center text-secondary text-secondary'>
-        <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+      <div className="text-center text-secondary text-secondary">
+        <p>
+          Copyright © {new Date().getFullYear()} DrugCipher. All rights
+          reserved.
+        </p>
       </div>
     </Form>
   );

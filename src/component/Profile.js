@@ -6,13 +6,15 @@ import { Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
 import { File,Mail,Phone,Copy } from "react-feather";
+import { formatNearAmount } from "near-api-js/lib/utils/format";
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState(null);
   const getBalance = useCallback(async () => {
     if (account.accountId) {
-      setBalance(await accountBalance());
+      let bal = await accountBalance()
+      setBalance(bal);
     }
   },[account.accountId]);
 
