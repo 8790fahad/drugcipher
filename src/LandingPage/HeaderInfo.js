@@ -20,7 +20,7 @@ export default function HeaderInfo() {
                     <div className='paper-div'>
                         <div className='paper-div-item'>
                             <p>
-                                <a href={whitepaper} target="_blank" className='text-secondary'>
+                                <a href={whitepaper} rel='noreferrer' target="_blank" className='text-secondary'>
                                     Whitepaper
                                 </a>
                             </p>

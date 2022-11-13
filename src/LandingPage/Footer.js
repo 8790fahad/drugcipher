@@ -20,7 +20,7 @@ export default function Footer() {
                         <Col md={8}>
                             <div className='icons_div mt-3'>
                                 <div className='icons'>
-                                    <a className='links' href='https://instagram.com/drugcipher' target='_blank' rel="noreferrer">
+                                    <a className='links' href='https://instagram.com/drugcipher'  target='_blank' rel="noreferrer">
                                         {<Instagram />}
                                     </a>
                                 </div>
@@ -48,13 +48,13 @@ export default function Footer() {
                 <Col xl={3} lg={3} md={12} sm={12} xs={12}>
                     <h5 style={{ fontWeight: 'bold' }}>Documents</h5>
                     <p>
-                        <a href={whitepaper} target="_blank" className='' style={{ color: 'rgb(3, 66, 110)' }}>
+                        <a href={whitepaper} target="_blank" rel='noreferrer' className='' style={{ color: 'rgb(3, 66, 110)' }}>
                             DrugCipher Whitepaper
                         </a>
                     </p>
                     <p>DrugCipher Deck</p>
                     <p>
-                        <a href='https://github.com/ysquareimperial/drug-cipher' target="_blank" className='' style={{ color: 'rgb(3, 66, 110)' }}>
+                        <a href='https://github.com/ysquareimperial/drug-cipher' rel='noreferrer' target="_blank" className='' style={{ color: 'rgb(3, 66, 110)' }}>
                             Github
                         </a>
                     </p>
