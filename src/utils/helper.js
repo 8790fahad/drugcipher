@@ -22,7 +22,7 @@ export function logout() {
   window.walletConnection.signOut();
   window.location.reload();
 }
-export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near"; 
+export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near";
 
 const serverUrl =
   process.env.NODE_ENV === "development"
@@ -118,7 +118,7 @@ const recoverAccount = (passPhrase, success = (f) => f) => {
       "/v1/recover-account-passphrass",
       { passPhrase },
       (resp) => {
-        console.log(resp)
+        console.log(resp);
         if (resp.success) {
           localStorage.setItem("@@cipher", resp.token);
           dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
@@ -161,6 +161,20 @@ const loadWithToken = (err = (f) => f) => {
       );
     };
   }
+};
+
+export const getMarketer = (url, success = (f) => f, error = (f) => f) => {
+  _fetchApi(
+    url,
+    (res) => {
+      // if (res.success) {
+        success(res);
+      // }
+    },
+    (err) => {
+      error(err);
+    }
+  );
 };
 
 export {

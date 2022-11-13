@@ -80,7 +80,7 @@ function AppNavigation() {
         },
         {
           path: "/create-sole-agent",
-          element: <CreateSoleAgent/>,
+          element: <CreateMarketer/>,
         },
         {
           path: "/marketers",
