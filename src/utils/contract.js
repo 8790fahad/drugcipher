@@ -2,15 +2,15 @@ import { parseNearAmount } from "near-api-js/lib/utils/format";
 const GAS = 100000000000000;
 
 // insert drug information
-export async function  setDrugInfo({ beneficiary_id = "", token = "", payload = {} }) {
+export function setDrugInfo({ beneficiary_id = "", token = "", payload = {} }) {
   return window.contract.set_drug(
     {
       payload,
-      token: parseNearAmount(token),
+      token: parseNearAmount(token + ""),
       beneficiary_id,
     },
     GAS,
-    parseNearAmount(token)
+    parseNearAmount(token + "")
   );
 }
 
