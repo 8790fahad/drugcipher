@@ -27,7 +27,8 @@ export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near";
 const serverUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:34561"
-    : "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
+    :
+     "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
 export const apiURL = serverUrl + "/api";
 
 const _fetchApi = (
