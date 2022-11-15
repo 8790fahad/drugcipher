@@ -4,17 +4,17 @@ import "bootstrap";
 import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
-import { File,Mail,Phone,Copy } from "react-feather";
+import { File, Mail, Phone, Copy } from "react-feather";
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState(null);
   const getBalance = useCallback(async () => {
     if (account.accountId) {
-      let bal = await accountBalance()
+      let bal = await accountBalance();
       setBalance(bal);
     }
-  },[account.accountId]);
+  }, [account.accountId]);
 
   useEffect(() => {
     getBalance();
@@ -53,16 +53,33 @@ export default function Profile() {
                 className=" card-text"
                 style={{ fontSize: 11, margin: 0 }}
               >
-               
                 {balance ? (
-                  <> Wallet Balance{" "}
-                    <b>
-                      {balance} <span className="ms-1">NEAR</span>
-                    </b>
+                  <>
+                    {" "}
+                    <span>
+                      Wallet Balance{" "}
+                      <b>
+                        {balance} <span className="ms-1">NEAR</span>
+                      </b>
+                    </span>
                   </>
-                ) : (
-                  null
-                )}
+                ) : null}
+              </CardText>
+              <CardText
+                className=" card-text"
+                style={{ fontSize: 11, margin: 0 }}
+              >
+                {account.accountId ? (
+                  <>
+                    {" "}
+                    <span>
+                      Wallet ID{": "}
+                      <b>
+                        {account.accountId}
+                      </b>
+                    </span>
+                  </>
+                ) : null}
               </CardText>
               <CardText
                 className=" card-text"
@@ -70,12 +87,7 @@ export default function Profile() {
               >
                 {info.company_email}
               </CardText>
-              <CardText
-                className="card-text"
-                style={{ fontSize: 11, margin: 0 }}
-              >
-                {info.company_phone}
-              </CardText>
+
             </CardBody>
           </Col>
           <Col md={10}>
@@ -83,74 +95,74 @@ export default function Profile() {
               <Col md={6} className="mt-3">
                 <h4>Company details</h4>
                 <Col md={12} className="mb-3">
-                        <Card className="company_data shadow p-3">
-                          <p className="company_data_title">
-                            <span className="company_data_icon">
-                              <Mail />
-                            </span>{" "}
-                            Company Name
-                          </p>
-                          <p>{info.company_name}</p>
-                        </Card>
-                      </Col>
-                      <Col md={12} className="mb-3">
-                        <Card className="company_data shadow p-3 ">
-                          <p className="company_data_title">
-                            <span className="company_data_icon">
-                              <Phone />
-                            </span>{" "}
-                            Company Address
-                          </p>
-                          <p>{info.company_address}</p>
-                        </Card>
-                      </Col>
-                      <Col md={12} className="mb-1">
-                        <Card className="company_data shadow p-2 ">
-                          <p className="company_data_title d-flex justify-content-between">
-                            <span className="company_data_icon">
-                              {info.id}
-                            </span>
-                            <span className="mt-2 man_button"  
-                      style={{ cursor: "pointer" }}
-                      onClick={copy}><Copy/></span>
-                          </p>
-                        </Card>
-                      </Col>
+                  <Card className="company_data shadow p-3">
+                    <p className="company_data_title">
+                      <span className="company_data_icon">
+                        <Mail />
+                      </span>{" "}
+                      Company Name
+                    </p>
+                    <p>{info.company_name}</p>
+                  </Card>
+                </Col>
+                <Col md={12} className="mb-3">
+                  <Card className="company_data shadow p-3 ">
+                    <p className="company_data_title">
+                      <span className="company_data_icon">
+                        <Phone />
+                      </span>{" "}
+                      Company Address
+                    </p>
+                    <p>{info.company_address}</p>
+                  </Card>
+                </Col>
+                <Col md={12} className="mb-1">
+                  <Card className="company_data shadow p-2 ">
+                    <p className="company_data_title d-flex justify-content-between">
+                      <span className="company_data_icon">{info.id}</span>
+                      <span
+                        className="mt-2 man_button"
+                        style={{ cursor: "pointer" }}
+                        onClick={copy}
+                      >
+                        <Copy />
+                      </span>
+                    </p>
+                  </Card>
+                </Col>
               </Col>
               <Col md={6} className="mt-3 ">
                 <h4> Contact details</h4>
                 <Col md={12} className="mb-3">
-                        <Card className="company_data shadow p-3">
-                          <p className="company_data_title">
-                            <span className="company_data_icon">
-                              <Mail />
-                            </span>{" "}
-                            Company Email
-                          </p>
-                          <p>{info.company_email}</p>
-                        </Card>
-                      </Col>
-                      <Col md={12} className="mb-3">
-                        <Card className="company_data shadow p-3 ">
-                          <p className="company_data_title">
-                            <span className="company_data_icon">
-                              <Phone />
-                            </span>{" "}
-                            Phone Number 
-                          </p>
-                          <p>{info.company_phone}</p>
-                        </Card>
-                      </Col>
-                      <Col md={12} className="mb-2">
-                        <Card className="company_data shadow p-2 ">
-                          <p className="company_data_title d-flex">
-                            <span className="company_data_icon">
-                              Status 
-                            </span>
-                            <span className="mt-2 m-1">{info.status}</span>
-                          </p>
-                        </Card>
-                      </Col>
+                  <Card className="company_data shadow p-3">
+                    <p className="company_data_title">
+                      <span className="company_data_icon">
+                        <Mail />
+                      </span>{" "}
+                      Company Email
+                    </p>
+                    <p>{info.company_email}</p>
+                  </Card>
+                </Col>
+                <Col md={12} className="mb-3">
+                  <Card className="company_data shadow p-3 ">
+                    <p className="company_data_title">
+                      <span className="company_data_icon">
+                        <Phone />
+                      </span>{" "}
+                      Phone Number
+                    </p>
+                    <p>{info.company_phone}</p>
+                  </Card>
+                </Col>
+                <Col md={12} className="mb-2">
+                  <Card className="company_data shadow p-2 ">
+                    <p className="company_data_title d-flex">
+                      <span className="company_data_icon">Status</span>
+                      <span className="mt-2 m-1">{info.status}</span>
+                    </p>
+                  </Card>
+                </Col>
               </Col>
             </Row>
 

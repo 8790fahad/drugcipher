@@ -1,4 +1,7 @@
-import { formatNearAmount } from "near-api-js/lib/utils/format";
+import {
+  formatNearAmount,
+  parseNearAmount,
+} from "near-api-js/lib/utils/format";
 import React, { useCallback, useEffect } from "react";
 // import { useEffect } from "react";
 import { useState } from "react";
@@ -8,17 +11,20 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { setDrugInfo } from "../utils/contract";
-import { getMarketer, WALLET_ID } from "../utils/helper";
+import { getMarketer } from "../utils/helper";
 
 import { v4 as uuid4 } from "uuid";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { useSelector } from "react-redux";
 import { Spinner } from "reactstrap";
+import useQuery from "../hooks/useQuery";
 // import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
+  const query = useQuery();
+  const transactionHashes = query.get("transactionHashes");
+  const id = query.get("id");
   const { info } = useSelector((state) => state.account.account);
   const [loading, setLoading] = useState(false);
-  const account = window.walletConnection.account();
   const form = {
     manufacturerName: "",
     soleAgentName: "",
@@ -44,45 +50,43 @@ export default function RegisterNewDrug() {
     }));
   };
 
-  const addDrugInfo = async (e) => {
+  const addDrugInfo = (e) => {
     e.preventDefault();
     setLoading(true);
     let id = uuid4();
-    try {
-      await setDrugInfo({
-        beneficiary_id: "8790fahad.near",
-        token: "0.1",
-        payload: {
-          id: id,
-          manufcturer_name: drugData.manufacturerName,
-          sole_agent: drugData.soleAgentName,
-          drug_brand_name: drugData.drugBrandName,
-          generic_name: drugData.drugGenericName,
-          drug_strength: drugData.drugStrength,
-          formulation_type: drugData.formulationType,
-          unit_packaging: drugData.unitPackaging,
-          nafdac_number: drugData.NAFDACNumber,
-          lot_number: drugData.batch_lotNumer,
-          date_manufacture: drugData.dateOfManufacture,
-          expiry_date: drugData.dateOfExpiry,
-          company_id: info?.id,
-          status: false,
-          remark: "",
-          authorize_marketers: drugData.authorizedMarketers,
-        },
-      }).then((resp) => {
+    let data = {
+      id: id,
+      manufcturer_name: drugData.manufacturerName,
+      sole_agent: drugData.soleAgentName,
+      drug_brand_name: drugData.drugBrandName,
+      generic_name: drugData.drugGenericName,
+      drug_strength: drugData.drugStrength,
+      formulation_type: drugData.formulationType,
+      unit_packaging: drugData.unitPackaging,
+      nafdac_number: drugData.NAFDACNumber,
+      lot_number: drugData.batch_lotNumer,
+      date_manufacture: drugData.dateOfManufacture,
+      expiry_date: drugData.dateOfExpiry,
+      company_id: info.id,
+      status: 0,
+      remark: "",
+      authorize_marketers: drugData.authorizedMarketers,
+    };
+    navigate(`/register-new-drug?id=${id}`);
+    setDrugInfo({
+      beneficiary_id: "8790fahad.testnet",
+      token: "0.1",
+      data,
+    })
+      .then((resp) => {
         console.log(resp);
         toast(<NotificationSuccess text="Drug info added successfully." />);
         navigate(`/QRCode?id=${id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        // toast(<NotificationError text="Failed to create a new drug info." />);
       });
-    } catch (error) {
-      console.log(error)
-      toast(
-        <NotificationError text="Failed to add drug info, please try again." />
-      );
-    } finally {
-      setLoading(false);
-    }
   };
   const [soleAgents, setSoleAgents] = useState([]);
   const [marketers, setMarketers] = useState([]);
@@ -114,10 +118,14 @@ export default function RegisterNewDrug() {
       }
     );
   }, [info.id]);
+
   useEffect(() => {
     getMarketers();
     getSoleAgent();
-  }, [getMarketers, getSoleAgent]);
+    if (transactionHashes) {
+      navigate(`/QRCode?id=${id}`);
+    }
+  }, [getMarketers, getSoleAgent, id, navigate, transactionHashes]);
   return (
     <Form onSubmit={addDrugInfo}>
       <Card className="man_card shadow p-3">
