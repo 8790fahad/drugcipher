@@ -7,15 +7,16 @@ import { useCallback } from "react";
 import { _fetchApi } from "./utils/helper";
 import { NotificationError } from "./utils/Notification";
 import { toast } from "react-toastify";
-// import WhatsDrug from "./LandingPage/WhatsDrug";
-// import CreateSoleAgent from "./Manufacturer/CreateSoleAgent";
+const { useLocation } = require("react-router");
 const App = function AppWrapper() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   const recover = useCallback(() => {
     const token = localStorage.getItem("@@cipher");
     const _token = token?.split(" ");
-    if (token) {
+    console.log(token);
+    if (token !== null) {
       _fetchApi(
         `/v1/load-with-token?token=${_token[1]}`,
         (resp) => {
@@ -34,17 +35,22 @@ const App = function AppWrapper() {
           navigate("/");
         }
       );
+    } else {
+      if (token === null) {
+        if (location.pathname === "/account/passphrass"||location.pathname === "/KYCApproval") {
+        } else {
+          navigate("/");  
+        }
+      }
     }
-  }, [dispatch, navigate]);
+  }, []);
   useEffect(() => {
-    recover()
+    recover();
   }, [dispatch, recover]);
   //..
   return (
     <div className="" style={{ margin: 0 }}>
       <AppNavigation />
-      {/* <WhatsDrug /> */}
-      {/* <CreateSoleAgent/> */}
     </div>
   );
 };

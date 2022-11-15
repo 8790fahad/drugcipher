@@ -21,9 +21,7 @@ window.nearInitPromise = initializeContract()
         <Notification />
           <Provider store={store}>
         <BrowserRouter>
-          {/* <RouteApp /> */}
           <App />
-
         </BrowserRouter>
           </Provider>
       </React.StrictMode>,
