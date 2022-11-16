@@ -37,9 +37,9 @@ const App = function AppWrapper() {
       );
     } else {
       if (token === null) {
-        if (location.pathname === "/account/passphrass"||location.pathname === "/KYCApproval") {
+        if (location.pathname === "/account/passphrass" || location.pathname === "/KYCApproval") {
         } else {
-          navigate("/");  
+          navigate("/");
         }
       }
     }
@@ -51,6 +51,7 @@ const App = function AppWrapper() {
   return (
     <div className="" style={{ margin: 0 }}>
       <AppNavigation />
+     
     </div>
   );
 };
