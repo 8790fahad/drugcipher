@@ -60,7 +60,7 @@ export default function Passphrase({ nextStep }) {
     <Form className="container" onSubmit={submitForm}>
       <Card className="KYC_card shadow p-3">
         <div>
-          <Row>
+          <Row> 
             <Col md={6} sm={6} xs={6}>
               <div
                 onClick={() => navigate("/")}

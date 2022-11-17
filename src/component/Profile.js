@@ -175,7 +175,7 @@ export default function Profile() {
                     </span>{" "}
                     Premises License by PCN
                   </p>
-                  {/* <p>{info.pl_url}</p> */}
+                  <p>{info.pl_url}</p>
                   <button
                     className="man_button"
                     onClick={() => openImageViewer(0)}
@@ -201,7 +201,7 @@ export default function Profile() {
                     </span>{" "}
                     Superintendent Pharmacist License
                   </p>
-                  {/* <p>{info.sp_url}</p> */}
+                  <p>{info.sp_url}</p>
                   <button
                     className="man_button"
                     // onClick={() => openImageViewer(1)}

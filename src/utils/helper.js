@@ -24,7 +24,7 @@ export function logout() {
 }
 export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near";
 
-const serverUrl ="http://192.168.43.244:34561"
+const serverUrl ="http://192.168.0.175:34561"
 
   // process.env.NODE_ENV === "development"
   //   ? 
