@@ -22,6 +22,7 @@ export default function Passphrase({ nextStep }) {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [copying,setCopying] = useState(false);
   const submitForm = (e) => {
     e.preventDefault();
     dispatch(
@@ -49,7 +50,11 @@ export default function Passphrase({ nextStep }) {
     );
   };
   const copy = () => {
-    navigator.clipboard.writeText(passphrase.join(" "));
+    navigator.clipboard.writeText(passphrase);
+    setCopying(true)
+    setTimeout(() => {
+      setCopying(false)
+    }, 2000);
   };
   return (
     <Form className="container" onSubmit={submitForm}>
@@ -116,9 +121,10 @@ export default function Passphrase({ nextStep }) {
                       className="man_button"
                       style={{ cursor: "pointer" }}
                       onClick={copy}
+                      disabled={copying}
                     >
                       {/* < ToastContainer /> */}
-                      <Copy /> Copy
+                      <Copy /> {copying?"Copied":"Copy"}
                     </span>
                     <span
                       onClick={regenerate}

@@ -24,11 +24,11 @@ export function logout() {
 }
 export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near";
 
-const serverUrl =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:34561"
-    :
-     "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
+const serverUrl ="http://192.168.43.244:34561"
+
+  // process.env.NODE_ENV === "development"
+  //   ? 
+  //   : "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
 export const apiURL = serverUrl + "/api";
 
 const _fetchApi = (
@@ -163,17 +163,17 @@ const loadWithToken = (err = (f) => f) => {
     };
   }
 };
-const clearToken =(goMenu=(f)=>f)=>{
-  localStorage.removeItem("@@cipher")
-  goMenu()
-}
+const clearToken = (goMenu = (f) => f) => {
+  localStorage.removeItem("@@cipher");
+  goMenu();
+};
 
 export const getMarketer = (url, success = (f) => f, error = (f) => f) => {
   _fetchApi(
     url,
     (res) => {
       // if (res.success) {
-        success(res);
+      success(res);
       // }
     },
     (err) => {
@@ -189,5 +189,5 @@ export {
   _fetchApi,
   recoverAccount,
   loadWithToken,
-  clearToken
+  clearToken,
 };
