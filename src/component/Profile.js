@@ -5,6 +5,8 @@ import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
 import { File, Mail, Phone, Copy } from "react-feather";
+import imagee from '../image/add.png'
+import imagee1 from '../image/account.png'
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
@@ -31,6 +33,8 @@ export default function Profile() {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
+  const images = [info.pl_url, info.sp_url];
+
   const copy = () => {
     navigator.clipboard.writeText(info.id);
   };
@@ -184,7 +188,7 @@ export default function Profile() {
                   </button>
                   {isViewerOpen && (
                     <ImageViewer
-                      src={info.pl_url}
+                      src={images}
                       currentIndex={currentImage}
                       disableScroll={false}
                       closeOnClickOutside={true}
@@ -204,13 +208,13 @@ export default function Profile() {
                   <p>{info.sp_url}</p>
                   <button
                     className="man_button"
-                    // onClick={() => openImageViewer(1)}
+                    onClick={() => openImageViewer(1)}
                   >
                     View License
                   </button>
                   {isViewerOpen && (
                     <ImageViewer
-                      src={info.sp_url}
+                      src={images}
                       currentIndex={currentImage}
                       disableScroll={false}
                       closeOnClickOutside={true}

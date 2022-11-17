@@ -208,7 +208,7 @@ export default function ViewKYCApproval() {
                       closeOnClickOutside={true}
                       onClose={closeImageViewer}
                     />
-                  )}
+                  )} 
                 </Card>
               </Col>
               <Col md={6} className="mb-3">
