@@ -13,14 +13,15 @@ import logo from "../image/DRUG CIPHER (2).png";
 // import add from '../image/add.png'
 // import add1 from '../image/add1.png'
 import logout from "../image/logout.png";
-import settings1 from "../image/settings1.png";
+import profilee from "../image/Profile.png";
 import pills1 from "../image/pills1.png";
 import pills from "../image/pills.png";
 import sole from "../image/sole.png";
 import sole1 from "../image/sole1.png";
 import marketers from "../image/marketers.png";
 import marketers1 from "../image/marketers1.png";
-import settings from "../image/settings.png";
+import image_account from "../image/account.png";
+
 import { useLocation, useNavigate } from "react-router-dom";
 export default function Sidebar() {
   const navigate = useNavigate();
@@ -125,24 +126,24 @@ export default function Sidebar() {
 
           <p
             className={`sidemenu ${
-              location.pathname === "/settings" && "active_side_menu"
+              location.pathname === "/profile" && "active_side_menu"
             }`}
-            onClick={() => navigate("/settings")}
+            onClick={() => navigate("/profile")}
           >
-            {location.pathname === "/settings" ? (
+            {location.pathname === "/profile" ? (
               <img
-                src={settings1}
+                src={image_account}
                 style={{ width: "22px", marginRight: 10 }}
                 alt=""
               />
             ) : (
               <img
-                src={settings}
+                src={profilee}
                 style={{ width: "20px", marginRight: 10 }}
                 alt=""
               />
             )}{" "}
-            Settings
+            Profile
           </p>
 
           <div className="sidemenu_bottom m-0 p-0">

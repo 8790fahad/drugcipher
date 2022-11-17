@@ -51,7 +51,7 @@ export default function Profile() {
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Profile</h3>
         <Row className="m-0">
-          <Col md={2} className="text-center">
+          <Col md={3} className="text-center">
             <CardBody className="">
               <CardImg
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
@@ -95,14 +95,14 @@ export default function Profile() {
               </CardText>
               <CardText
                 className=" card-text"
-                style={{ fontSize: 11, margin: 0 }}
+                style={{ fontSize: 15, margin: 0 }}
               >
                 {info.company_email}
               </CardText>
 
             </CardBody>
           </Col>
-          <Col md={10}>
+          <Col md={9}>
             <Row>
               <Col md={6} className="mt-3">
                 <h4>Company details</h4>
@@ -139,8 +139,8 @@ export default function Profile() {
                       </Col>
                       <Col md={6}>
                         <span
-                          className="mt-2 man_button"
-                          style={{ cursor: "pointer" }}
+                          className="man_button"
+                          style={{ cursor: "pointer", float:'right', margin:0 }}
                           onClick={copy}
                         >
                           <Copy /> {copying ? "Copied" : "Copy"}

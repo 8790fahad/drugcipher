@@ -41,11 +41,6 @@ function AppNavigation() {
           path: "/overview",
           element: <Overview />,
         },
-
-        {
-          path: "/settings",
-          element: <Settings />,
-        },
         {
           path: "/registered-drugs",
           element: <ViewRegisteredDrugs />,
