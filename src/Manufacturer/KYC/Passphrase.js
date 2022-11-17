@@ -22,7 +22,7 @@ export default function Passphrase({ nextStep }) {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [copying,setCopying] = useState(false);
+  const [copying, setCopying] = useState(false);
   const submitForm = (e) => {
     e.preventDefault();
     dispatch(
@@ -50,10 +50,10 @@ export default function Passphrase({ nextStep }) {
     );
   };
   const copy = () => {
-    navigator.clipboard.writeText(passphrase);
-    setCopying(true)
+    navigator.clipboard.writeText(passphrase ? passphrase : "");
+    setCopying(true);
     setTimeout(() => {
-      setCopying(false)
+      setCopying(false);
     }, 2000);
   };
   return (
@@ -62,16 +62,18 @@ export default function Passphrase({ nextStep }) {
         <div>
           <Row>
             <Col md={6} sm={6} xs={6}>
-              <div onClick={() => navigate('/')} style={{ width: 'fit-content', cursor: 'pointer' }} data-toggle="tooltip"
+              <div
+                onClick={() => navigate("/")}
+                style={{ width: "fit-content", cursor: "pointer" }}
+                data-toggle="tooltip"
                 data-placement="bottom"
-                title="Goto Home">
+                title="Goto Home"
+              >
                 <img
                   src={logo}
                   style={{ width: 70, borderRadius: 10 }}
                   alt=""
                   className="shadow"
-
-
                 />{" "}
                 <h4
                   style={{
@@ -79,7 +81,7 @@ export default function Passphrase({ nextStep }) {
                     color: "rgb(3, 66, 110)",
                     marginRight: 30,
                   }}
-                  className='dc'
+                  className="dc"
                 >
                   DrugCipher
                 </h4>
@@ -107,12 +109,12 @@ export default function Passphrase({ nextStep }) {
                 <Row>
                   {passphrase && passphrase.split(" ").length
                     ? passphrase.split(" ").map((item, index) => (
-                      <Col md={4}>
-                        <p className="word p-2">
-                          {index + 1}: {item}
-                        </p>
-                      </Col>
-                    ))
+                        <Col md={4}>
+                          <p className="word p-2">
+                            {index + 1}: {item}
+                          </p>
+                        </Col>
+                      ))
                     : null}
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
@@ -121,17 +123,18 @@ export default function Passphrase({ nextStep }) {
                       className="man_button"
                       style={{ cursor: "pointer" }}
                       onClick={copy}
-                      disabled={copying}
+                      // disabled={copying}
                     >
                       {/* < ToastContainer /> */}
-                      <Copy /> {copying?"Copied":"Copy"}
+                      <Copy /> {copying ? "Copied" : "Copy"}
                     </span>
                     <span
                       onClick={regenerate}
                       className="man_button"
                       style={{ cursor: "pointer" }}
                     >
-                      {loading ? <Spinner size='sm'/> : <RefreshCcw />} Regenerate
+                      {loading ? <Spinner size="sm" /> : <RefreshCcw />}{" "}
+                      Regenerate
                     </span>
                   </div>
                 </Row>
@@ -149,8 +152,11 @@ export default function Passphrase({ nextStep }) {
           </button>
         </div>
       </Card>
-      <div className='text-center text-secondary'>
-        <p>Copyright © {new Date().getFullYear()} DrugCipher. All rights reserved.</p>
+      <div className="text-center text-secondary">
+        <p>
+          Copyright © {new Date().getFullYear()} DrugCipher. All rights
+          reserved.
+        </p>
       </div>
     </Form>
   );
