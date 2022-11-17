@@ -4,7 +4,7 @@ import "bootstrap";
 import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
-import { File, Mail, Phone, Copy } from "react-feather";
+import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard } from "react-feather";
 import imagee from '../image/add.png'
 import imagee1 from '../image/account.png'
 export default function Profile() {
@@ -24,6 +24,8 @@ export default function Profile() {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [copying, setCopying] = useState(false);
+
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
     setIsViewerOpen(true);
@@ -35,8 +37,14 @@ export default function Profile() {
   };
   const images = [info.pl_url, info.sp_url];
 
+
+
   const copy = () => {
     navigator.clipboard.writeText(info.id);
+    setCopying(true);
+    setTimeout(() => {
+      setCopying(false);
+    }, 2000);
   };
   return (
     <div>
@@ -102,7 +110,7 @@ export default function Profile() {
                   <Card className="company_data shadow p-3">
                     <p className="company_data_title">
                       <span className="company_data_icon">
-                        <Mail />
+                        <FileText />
                       </span>{" "}
                       Company Name
                     </p>
@@ -113,7 +121,7 @@ export default function Profile() {
                   <Card className="company_data shadow p-3 ">
                     <p className="company_data_title">
                       <span className="company_data_icon">
-                        <Phone />
+                        <MapPin />
                       </span>{" "}
                       Company Address
                     </p>
@@ -121,17 +129,25 @@ export default function Profile() {
                   </Card>
                 </Col>
                 <Col md={12} className="mb-1">
-                  <Card className="company_data shadow p-2 ">
-                    <p className="company_data_title d-flex justify-content-between">
-                      <span className="company_data_icon">{info.id}</span>
-                      <span
-                        className="mt-2 man_button"
-                        style={{ cursor: "pointer" }}
-                        onClick={copy}
-                      >
-                        <Copy />
-                      </span>
-                    </p>
+                  <Card className="company_data shadow p-3 ">
+                    <Row>
+                      <Col md={6}>
+                        <p className="company_data_title">
+                          <span className="company_data_icon"><CreditCard /></span>
+                          {' '}Company ID
+                        </p>
+                      </Col>
+                      <Col md={6}>
+                        <span
+                          className="mt-2 man_button"
+                          style={{ cursor: "pointer" }}
+                          onClick={copy}
+                        >
+                          <Copy /> {copying ? "Copied" : "Copy"}
+                        </span>
+                      </Col>
+                    </Row>
+                    <p>{info.id}</p>
                   </Card>
                 </Col>
               </Col>
@@ -160,17 +176,17 @@ export default function Profile() {
                   </Card>
                 </Col>
                 <Col md={12} className="mb-2">
-                  <Card className="company_data shadow p-2 ">
-                    <p className="company_data_title d-flex">
+                  <Card className="company_data shadow p-3 ">
+                    <p className="company_data_title">
                       <span className="company_data_icon">Status</span>
-                      <span className="mt-2 m-1">{info.status}</span>
                     </p>
+                      <p>{info.status}</p>
                   </Card>
                 </Col>
               </Col>
             </Row>
 
-            <Row className="mt-5">
+            <Row className="mt-3">
               <Col md={6} className="mb-3">
                 <Card className="company_data shadow p-4">
                   <p className="company_data_title">
@@ -179,7 +195,7 @@ export default function Profile() {
                     </span>{" "}
                     Premises License by PCN
                   </p>
-                  <p>{info.pl_url}</p>
+                  {/* <p>{info.pl_url}</p> */}
                   <button
                     className="man_button"
                     onClick={() => openImageViewer(0)}
@@ -205,7 +221,7 @@ export default function Profile() {
                     </span>{" "}
                     Superintendent Pharmacist License
                   </p>
-                  <p>{info.sp_url}</p>
+                  {/* <p>{info.sp_url}</p> */}
                   <button
                     className="man_button"
                     onClick={() => openImageViewer(1)}
