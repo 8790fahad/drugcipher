@@ -189,6 +189,7 @@ export default function ViewRegisteredDrugs() {
                 ))}
             </tbody>
           </Table>
+              {drugData.length === 0 ? <p className="text-center mt-5 text-secondary">You have not registered any drug yet, click the "Create New" button to create one.</p> : null}
         </div>
       </Card>
       <Modal show={modal} onHide={handleClose}>

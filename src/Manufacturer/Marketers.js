@@ -117,6 +117,7 @@ export default function Marketers() {
                 ))}
             </tbody>
           </Table>
+          {marketers.length === 0 ? <p className="text-center mt-5 text-secondary">You have not registered any marketer yet, click the "Create New" button to create one.</p> : null}
         </div>
       </Card>
     </div>

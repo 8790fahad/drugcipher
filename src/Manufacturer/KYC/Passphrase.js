@@ -99,10 +99,10 @@ export default function Passphrase({ nextStep }) {
               <p style={{ textAlign: "justify" }}>
                 Copy the following words 'Passphrase' and{" "}
                 <b>
-                  save them in a very secure place. Anyone who have acess to
+                  save them in a very secure place. Anyone who have access to
                   this words will have access to your account.
                 </b>{" "}
-                You will be asked to use the 'Passphrase' when login to your
+                You will be asked to use the 'Passphrase' when login in to your
                 account!
               </p>
               <Card className="pp_card p-2 shadow">
