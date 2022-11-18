@@ -30,6 +30,8 @@ export default function Navbar() {
   const [singleSelections] = useState([]);
   const account = window.walletConnection.account();
 
+  const [drugData, setDrugData] = useState([]);
+
   return (
     <div>
       <Row className="m-0 webnavbar">
