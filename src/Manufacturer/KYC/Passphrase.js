@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
-import { Copy, RefreshCcw } from "react-feather";
+import { Check, Copy, RefreshCcw } from "react-feather";
 import logo from "../../image/DRUG CIPHER (2).png";
 import useQuery from "../../hooks/useQuery";
 import { recoverAccount, _fetchApi } from "../../utils/helper";
@@ -60,7 +60,7 @@ export default function Passphrase({ nextStep }) {
     <Form className="container" onSubmit={submitForm}>
       <Card className="KYC_card shadow p-3">
         <div>
-          <Row> 
+          <Row>
             <Col md={6} sm={6} xs={6}>
               <div
                 onClick={() => navigate("/")}
@@ -94,8 +94,8 @@ export default function Passphrase({ nextStep }) {
         </div>
         <div className="mt-3 ">
           <Row className="mt-3">
+              <p className="thankyou" style={{textAlign:'justify'}}>Passphrase</p>
             <Col md={6} cl controlId="validationCustom03">
-              <p className="thankyou">Passphrase</p>
               <p style={{ textAlign: "justify" }}>
                 Copy the following words 'Passphrase' and{" "}
                 <b>
@@ -109,12 +109,12 @@ export default function Passphrase({ nextStep }) {
                 <Row>
                   {passphrase && passphrase.split(" ").length
                     ? passphrase.split(" ").map((item, index) => (
-                        <Col md={4}>
-                          <p className="word p-2">
-                            {index + 1}: {item}
-                          </p>
-                        </Col>
-                      ))
+                      <Col md={4}>
+                        <p className="word p-2">
+                          {index + 1}: {item}
+                        </p>
+                      </Col>
+                    ))
                     : null}
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
@@ -123,10 +123,10 @@ export default function Passphrase({ nextStep }) {
                       className="man_button"
                       style={{ cursor: "pointer" }}
                       onClick={copy}
-                      // disabled={copying}
+                    // disabled={copying}
                     >
                       {/* < ToastContainer /> */}
-                      <Copy /> {copying ? "Copied" : "Copy"}
+                      {copying ? <Check /> : <Copy />}
                     </span>
                     <span
                       onClick={regenerate}

@@ -4,7 +4,7 @@ import "bootstrap";
 import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
-import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard } from "react-feather";
+import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard, Check } from "react-feather";
 import imagee from '../image/add.png'
 import imagee1 from '../image/account.png'
 export default function Profile() {
@@ -140,10 +140,11 @@ export default function Profile() {
                       <Col md={6}>
                         <span
                           className="man_button"
-                          style={{ cursor: "pointer", float:'right', margin:0 }}
+                          style={{ cursor: "pointer", float: 'right', margin: 0 }}
                           onClick={copy}
                         >
-                          <Copy /> {copying ? "Copied" : "Copy"}
+                          {/* <Copy /> {copying ? "Copied" : "Copy"} */}
+                          {copying ? <Check /> : <Copy />}
                         </span>
                       </Col>
                     </Row>
@@ -180,7 +181,7 @@ export default function Profile() {
                     <p className="company_data_title">
                       <span className="company_data_icon">Status</span>
                     </p>
-                      <p>{info.status}</p>
+                    <p>{info.status}</p>
                   </Card>
                 </Col>
               </Col>

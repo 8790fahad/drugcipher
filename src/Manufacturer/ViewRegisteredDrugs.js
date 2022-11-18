@@ -112,7 +112,7 @@ export default function ViewRegisteredDrugs() {
                           <CSVLink
                             data={drugData}
                             filename={"Drugs Data"}
-                            className="csv"
+                            className="text-dark"
                           >
                             CSV
                           </CSVLink>
