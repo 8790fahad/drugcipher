@@ -5,8 +5,6 @@ import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
 import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard, Check } from "react-feather";
-import imagee from '../image/add.png'
-import imagee1 from '../image/account.png'
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
