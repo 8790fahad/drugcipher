@@ -4,9 +4,17 @@ import "bootstrap";
 import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
-import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard } from "react-feather";
-import imagee from '../image/add.png'
-import imagee1 from '../image/account.png'
+import {
+  File,
+  Mail,
+  Phone,
+  Copy,
+  MapPin,
+  FileText,
+  CreditCard,
+} from "react-feather";
+import imagee from "../image/add.png";
+import imagee1 from "../image/account.png";
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
@@ -36,8 +44,6 @@ export default function Profile() {
     setIsViewerOpen(false);
   };
   const images = [info.pl_url, info.sp_url];
-
-
 
   const copy = () => {
     navigator.clipboard.writeText(info.id);
@@ -69,7 +75,7 @@ export default function Profile() {
                   <>
                     {" "}
                     <span>
-                      Wallet Balance{" "}
+                      Wallet Balance{": "}
                       <b>
                         {balance} <span className="ms-1">NEAR</span>
                       </b>
@@ -86,9 +92,7 @@ export default function Profile() {
                     {" "}
                     <span>
                       Wallet ID{": "}
-                      <b>
-                        {account.accountId}
-                      </b>
+                      <b>{account.accountId}</b>
                     </span>
                   </>
                 ) : null}
@@ -99,7 +103,6 @@ export default function Profile() {
               >
                 {info.company_email}
               </CardText>
-
             </CardBody>
           </Col>
           <Col md={9}>
@@ -133,14 +136,20 @@ export default function Profile() {
                     <Row>
                       <Col md={6}>
                         <p className="company_data_title">
-                          <span className="company_data_icon"><CreditCard /></span>
-                          {' '}Company ID
+                          <span className="company_data_icon">
+                            <CreditCard />
+                          </span>{" "}
+                          Company ID
                         </p>
                       </Col>
                       <Col md={6}>
                         <span
                           className="man_button"
-                          style={{ cursor: "pointer", float:'right', margin:0 }}
+                          style={{
+                            cursor: "pointer",
+                            float: "right",
+                            margin: 0,
+                          }}
                           onClick={copy}
                         >
                           <Copy /> {copying ? "Copied" : "Copy"}
@@ -180,7 +189,7 @@ export default function Profile() {
                     <p className="company_data_title">
                       <span className="company_data_icon">Status</span>
                     </p>
-                      <p>{info.status}</p>
+                    <p>{info.status}</p>
                   </Card>
                 </Col>
               </Col>
