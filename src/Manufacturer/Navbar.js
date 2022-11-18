@@ -9,31 +9,60 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import { accountBalance, clearToken, login, logout } from "../utils/helper";
 import { Typeahead } from "react-bootstrap-typeahead";
-import { drugData } from "./drugData";
+// import { drugData } from "./drugData";
 // import useQuery from '../hooks/useQuery'
 import logo from "../image/DRUG CIPHER (2).png";
 import { Menu } from "react-feather";
+import { getDrugs } from "../utils/contract";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  // const query = useQuery()
+  
   const navigate = useNavigate();
   const location = useLocation();
   const [dropdown, setdropdown] = useState(false);
   const toggle1 = () => {
     setdropdown(!dropdown);
   };
-
+  
   const [dropdown2, setdropdown2] = useState(false);
   const toggle2 = () => {
     setdropdown2(!dropdown2);
   };
   const [singleSelections] = useState([]);
   const account = window.walletConnection.account();
+  
 
+  const { info } = useSelector((state) => state.account.account);
+  
   const [drugData, setDrugData] = useState([]);
+  const getDrugInfoList = useCallback(async () => {
+    try {
+      let list = await getDrugs(info.id);
+      let arr = [];
+      list &&
+        list
+          .filter((state) => state.company_id === info.id)
+          .forEach((item) => {
+            arr.push({ ...item, toggle: false });
+          });
+      setDrugData(arr);
+    } catch (error) {
+      console.log({ error });
+     
+    }
+  }, [info.id]);
+  useEffect(() => {
+    getDrugInfoList();
+  }, [getDrugInfoList]);
+
+  // const onChange = ({ target: { value } }) => {
+  //   setRemark(value);
+  // };
 
   return (
     <div>
+      {JSON.stringify(drugData)}
       <Row className="m-0 webnavbar">
         <Col xl={9} lg={9} md={9} sm={9} xs={9}>
           <Typeahead
@@ -65,9 +94,8 @@ export default function Navbar() {
             }}
           >
             <div
-              className={`icon_div p-1 ${
-                location.pathname === "/notifications" && "active_nav_menu"
-              }`}
+              className={`icon_div p-1 ${location.pathname === "/notifications" && "active_nav_menu"
+                }`}
               style={{ position: "relative" }}
               onClick={() => navigate("/notifications")}
             >
@@ -77,9 +105,8 @@ export default function Navbar() {
               <img alt="" src={bell} />
             </div>
             <div
-              className={`icon_div p-1 ${
-                location.pathname === "/GetHelp" && "active_nav_menu"
-              }`}
+              className={`icon_div p-1 ${location.pathname === "/GetHelp" && "active_nav_menu"
+                }`}
               onClick={() => navigate("/GetHelp")}
             >
               <img alt="" src={help} />

@@ -92,6 +92,7 @@ export default function ViewRegisteredDrugs() {
   return (
     <div>
       <Card className="man_card shadow p-3">
+        {/* {JSON.stringify(drugData)} */}
         <Row>
           <Col xl={6} lg={6} md={6} sm={6} xs={6}>
             <h3 className="man_card_title">Registered Drugs</h3>
