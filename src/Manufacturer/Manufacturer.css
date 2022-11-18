@@ -338,7 +338,7 @@ Form.Control:focus {
   font-weight: bold;
   font-size: 40px;
   margin: 0;
-  padding: 30px;
+  /* padding: 30px; */
 }
 .mssg {
   color: var(--secondaryColor3);

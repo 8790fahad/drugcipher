@@ -4,17 +4,9 @@ import "bootstrap";
 import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
-import {
-  File,
-  Mail,
-  Phone,
-  Copy,
-  MapPin,
-  FileText,
-  CreditCard,
-} from "react-feather";
-import imagee from "../image/add.png";
-import imagee1 from "../image/account.png";
+import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard, Check } from "react-feather";
+import imagee from '../image/add.png'
+import imagee1 from '../image/account.png'
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
@@ -145,14 +137,11 @@ export default function Profile() {
                       <Col md={6}>
                         <span
                           className="man_button"
-                          style={{
-                            cursor: "pointer",
-                            float: "right",
-                            margin: 0,
-                          }}
+                          style={{ cursor: "pointer", float: 'right', margin: 0 }}
                           onClick={copy}
                         >
-                          <Copy /> {copying ? "Copied" : "Copy"}
+                          {/* <Copy /> {copying ? "Copied" : "Copy"} */}
+                          {copying ? <Check /> : <Copy />}
                         </span>
                       </Col>
                     </Row>
