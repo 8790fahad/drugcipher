@@ -20,6 +20,7 @@ import { Spinner } from "reactstrap";
 import useQuery from "../hooks/useQuery";
 // import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
+  const account = window.walletConnection.account();
   const query = useQuery();
   const transactionHashes = query.get("transactionHashes");
   const id = query.get("id");
@@ -50,43 +51,54 @@ export default function RegisterNewDrug() {
     }));
   };
 
-  const addDrugInfo = (e) => {
+  const addDrugInfo = async (e) => {
     e.preventDefault();
     setLoading(true);
     let id = uuid4();
-    let data = {
-      id: id,
-      manufcturer_name: drugData.manufacturerName,
-      sole_agent: drugData.soleAgentName,
-      drug_brand_name: drugData.drugBrandName,
-      generic_name: drugData.drugGenericName,
-      drug_strength: drugData.drugStrength,
-      formulation_type: drugData.formulationType,
-      unit_packaging: drugData.unitPackaging,
-      nafdac_number: drugData.NAFDACNumber,
-      lot_number: drugData.batch_lotNumer,
-      date_manufacture: drugData.dateOfManufacture,
-      expiry_date: drugData.dateOfExpiry,
-      company_id: info.id,
-      status: 0,
-      remark: "",
-      authorize_marketers: drugData.authorizedMarketers,
-    };
-    navigate(`/register-new-drug?id=${id}`);
-    setDrugInfo({
-      beneficiary_id: "8790fahad.testnet",
-      token: "0.1",
-      data,
-    })
-      .then((resp) => {
-        console.log(resp);
-        toast(<NotificationSuccess text="Drug info added successfully." />);
-        navigate(`/QRCode?id=${id}`);
-      })
-      .catch((err) => {
-        console.log(err);
-        // toast(<NotificationError text="Failed to create a new drug info." />);
-      });
+    if (account.accountId) {
+      navigate(`/register-new-drug?id=${id}`);
+      let data = {
+        id: id,
+        manufcturer_name: drugData.manufacturerName,
+        sole_agent: drugData.soleAgentName,
+        drug_brand_name: drugData.drugBrandName,
+        generic_name: drugData.drugGenericName,
+        drug_strength: drugData.drugStrength,
+        formulation_type: drugData.formulationType,
+        unit_packaging: drugData.unitPackaging,
+        nafdac_number: drugData.NAFDACNumber,
+        lot_number: drugData.batch_lotNumer,
+        date_manufacture: drugData.dateOfManufacture,
+        expiry_date: drugData.dateOfExpiry,
+        company_id: info.id,
+        status: 0,
+        remark: "",
+        authorize_marketers: drugData.authorizedMarketers,
+      };
+
+      try {
+        setDrugInfo({
+          beneficiary_id: "8790fahad.testnet",
+          token: "0.1",
+          data,
+        }).then((resp) => {
+          console.log(resp);
+          toast(
+            <NotificationSuccess text="Drug infomation successfully added" />
+          );
+        });
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        toast(<NotificationError text="Failed to add drug information." />);
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      toast(<NotificationError text="Connect your near wallect" />);
+      setLoading(false);
+    }
   };
   const [soleAgents, setSoleAgents] = useState([]);
   const [marketers, setMarketers] = useState([]);
@@ -122,10 +134,12 @@ export default function RegisterNewDrug() {
   useEffect(() => {
     getMarketers();
     getSoleAgent();
+  }, [getMarketers, getSoleAgent]);
+  useEffect(() => {
     if (transactionHashes) {
       navigate(`/QRCode?id=${id}`);
     }
-  }, [getMarketers, getSoleAgent, id, navigate, transactionHashes]);
+  }, [id, navigate, transactionHashes]);
   return (
     <Form onSubmit={addDrugInfo}>
       <Card className="man_card shadow p-3">

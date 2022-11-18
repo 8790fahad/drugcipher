@@ -24,12 +24,13 @@ const App = function AppWrapper() {
           console.log("resp");
           if (resp.success && Object.keys(resp.info)) {
             dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
-            navigate("/registered-drugs");
+            // navigate("/registered-drugs");
             console.log(resp);
           } else {
             if (
               location.pathname === "/account/passphrass" ||
-              location.pathname === "/KYCApproval"
+              location.pathname === "/KYCApproval" 
+              
             ) {
             } else {
               navigate("/");
@@ -39,7 +40,7 @@ const App = function AppWrapper() {
         (err) => {
           if (
             location.pathname === "/account/passphrass" ||
-            location.pathname === "/KYCApproval"
+            location.pathname === "/KYCApproval" 
           ) {
           } else {
             toast(<NotificationError text="Failed, try again" />);
