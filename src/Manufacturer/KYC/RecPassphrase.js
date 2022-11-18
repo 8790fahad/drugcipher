@@ -65,7 +65,7 @@ export default function RecPassphrase() {
           <div>
             <div className="text-center">
               <h3 className="register_heading mt-3">
-                Recorver Using Passphrase
+                Recover Using Passphrase
               </h3>
               <p className="m-0" style={{ color: "#029f41" }}>
                 DrugCipher introduces a sophisticated solution to tackling the
@@ -96,7 +96,7 @@ export default function RecPassphrase() {
                     onClick={submitForm}
                     disabled={loading}
                   >
-                    {loading ? <Spinner size="sm" /> : null}Recorver
+                    {loading ? <Spinner size="sm" /> : null}Recover
                   </button>
                 </Col>
                 <Col md={4}></Col>

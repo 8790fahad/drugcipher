@@ -4,7 +4,9 @@ import "bootstrap";
 import { accountBalance } from "../utils/helper";
 import { useSelector } from "react-redux";
 import ImageViewer from "react-simple-image-viewer";
-import { File, Mail, Phone, Copy } from "react-feather";
+import { File, Mail, Phone, Copy, MapPin, FileText, CreditCard } from "react-feather";
+import imagee from '../image/add.png'
+import imagee1 from '../image/account.png'
 export default function Profile() {
   const { info } = useSelector((state) => state.account.account);
   const account = window.walletConnection.account();
@@ -22,6 +24,8 @@ export default function Profile() {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [copying, setCopying] = useState(false);
+
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
     setIsViewerOpen(true);
@@ -31,15 +35,23 @@ export default function Profile() {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
+  const images = [info.pl_url, info.sp_url];
+
+
+
   const copy = () => {
     navigator.clipboard.writeText(info.id);
+    setCopying(true);
+    setTimeout(() => {
+      setCopying(false);
+    }, 2000);
   };
   return (
     <div>
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Profile</h3>
         <Row className="m-0">
-          <Col md={2} className="text-center">
+          <Col md={3} className="text-center">
             <CardBody className="">
               <CardImg
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
@@ -83,14 +95,14 @@ export default function Profile() {
               </CardText>
               <CardText
                 className=" card-text"
-                style={{ fontSize: 11, margin: 0 }}
+                style={{ fontSize: 15, margin: 0 }}
               >
                 {info.company_email}
               </CardText>
 
             </CardBody>
           </Col>
-          <Col md={10}>
+          <Col md={9}>
             <Row>
               <Col md={6} className="mt-3">
                 <h4>Company details</h4>
@@ -98,7 +110,7 @@ export default function Profile() {
                   <Card className="company_data shadow p-3">
                     <p className="company_data_title">
                       <span className="company_data_icon">
-                        <Mail />
+                        <FileText />
                       </span>{" "}
                       Company Name
                     </p>
@@ -109,7 +121,7 @@ export default function Profile() {
                   <Card className="company_data shadow p-3 ">
                     <p className="company_data_title">
                       <span className="company_data_icon">
-                        <Phone />
+                        <MapPin />
                       </span>{" "}
                       Company Address
                     </p>
@@ -117,17 +129,25 @@ export default function Profile() {
                   </Card>
                 </Col>
                 <Col md={12} className="mb-1">
-                  <Card className="company_data shadow p-2 ">
-                    <p className="company_data_title d-flex justify-content-between">
-                      <span className="company_data_icon">{info.id}</span>
-                      <span
-                        className="mt-2 man_button"
-                        style={{ cursor: "pointer" }}
-                        onClick={copy}
-                      >
-                        <Copy />
-                      </span>
-                    </p>
+                  <Card className="company_data shadow p-3 ">
+                    <Row>
+                      <Col md={6}>
+                        <p className="company_data_title">
+                          <span className="company_data_icon"><CreditCard /></span>
+                          {' '}Company ID
+                        </p>
+                      </Col>
+                      <Col md={6}>
+                        <span
+                          className="man_button"
+                          style={{ cursor: "pointer", float:'right', margin:0 }}
+                          onClick={copy}
+                        >
+                          <Copy /> {copying ? "Copied" : "Copy"}
+                        </span>
+                      </Col>
+                    </Row>
+                    <p>{info.id}</p>
                   </Card>
                 </Col>
               </Col>
@@ -156,17 +176,17 @@ export default function Profile() {
                   </Card>
                 </Col>
                 <Col md={12} className="mb-2">
-                  <Card className="company_data shadow p-2 ">
-                    <p className="company_data_title d-flex">
+                  <Card className="company_data shadow p-3 ">
+                    <p className="company_data_title">
                       <span className="company_data_icon">Status</span>
-                      <span className="mt-2 m-1">{info.status}</span>
                     </p>
+                      <p>{info.status}</p>
                   </Card>
                 </Col>
               </Col>
             </Row>
 
-            <Row className="mt-5">
+            <Row className="mt-3">
               <Col md={6} className="mb-3">
                 <Card className="company_data shadow p-4">
                   <p className="company_data_title">
@@ -184,7 +204,7 @@ export default function Profile() {
                   </button>
                   {isViewerOpen && (
                     <ImageViewer
-                      src={info.pl_url}
+                      src={images}
                       currentIndex={currentImage}
                       disableScroll={false}
                       closeOnClickOutside={true}
@@ -204,13 +224,13 @@ export default function Profile() {
                   {/* <p>{info.sp_url}</p> */}
                   <button
                     className="man_button"
-                    // onClick={() => openImageViewer(1)}
+                    onClick={() => openImageViewer(1)}
                   >
                     View License
                   </button>
                   {isViewerOpen && (
                     <ImageViewer
-                      src={info.sp_url}
+                      src={images}
                       currentIndex={currentImage}
                       disableScroll={false}
                       closeOnClickOutside={true}

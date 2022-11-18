@@ -44,7 +44,7 @@ export default function Final() {
                     <div className='text-center'>
                         <h1 className='thankyou'>Thank you for registering</h1>
                         <img src={emoji} alt='' className='emoji' />
-                        <p className='mssg'>Your account is under review. when it is approved, a link will be sent to your email that will allow you to generate a passphrase and login to your account.</p>
+                        <p className='mssg'>Your account is under review. when it is approved, a link will be sent to your email with credentials to login. Kindly check your spam if you don't see the mail.</p>
                     </div>
                 </div>
             </Card>

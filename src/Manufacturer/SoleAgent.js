@@ -116,6 +116,8 @@ export default function SoleAgent() {
                 ))}
             </tbody>
           </Table>
+          {soleAgents.length === 0 ? <p className="text-center mt-5 text-secondary">You have not registered any sole agent yet, click the "Create New" button to create one.</p> : null}
+
         </div>
       </Card>
     </div>

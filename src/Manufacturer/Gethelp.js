@@ -60,7 +60,7 @@ export default function Gethelp() {
             md={12}
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <h3 className="man_card_title">Frequently Helped Questions</h3>
+            <h3 className="man_card_title">Frequently Asked Questions</h3>
             <button className="MT" onClick={handleShow}>
               Message
             </button>
