@@ -23,6 +23,7 @@ import marketers1 from "../image/marketers1.png";
 import image_account from "../image/account.png";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { clearToken } from "../utils/helper";
 export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -152,7 +153,9 @@ export default function Sidebar() {
               className={`sidemenu_bottom_icon ${
                 location.pathname === "/" && "active_side_menu"
               }`}
-              onClick={() => navigate("/")}
+              onClick={() => {
+                clearToken(() => navigate("/"));
+              }}
             >
               <img
                 src={logout}

@@ -22,22 +22,39 @@ const App = function AppWrapper() {
         (resp) => {
           console.log(resp);
           console.log("resp");
-          if (resp.success) {
+          if (resp.success && Object.keys(resp.info)) {
             dispatch({ type: "RECOVER_ACCOUNT", payload: resp });
+            navigate("/registered-drugs");
             console.log(resp);
           } else {
-            navigate("/");
+            if (
+              location.pathname === "/account/passphrass" ||
+              location.pathname === "/KYCApproval"
+            ) {
+            } else {
+              navigate("/");
+            }
           }
         },
         (err) => {
-          toast(<NotificationError text="Failed, try again" />);
-          console.log(err);
-          navigate("/");
+          if (
+            location.pathname === "/account/passphrass" ||
+            location.pathname === "/KYCApproval"
+          ) {
+          } else {
+            toast(<NotificationError text="Failed, try again" />);
+            console.log(err);
+          }
+
+          // navigate("/");
         }
       );
     } else {
       if (token === null) {
-        if (location.pathname === "/account/passphrass" || location.pathname === "/KYCApproval") {
+        if (
+          location.pathname === "/account/passphrass" ||
+          location.pathname === "/KYCApproval"
+        ) {
         } else {
           navigate("/");
         }
@@ -51,7 +68,6 @@ const App = function AppWrapper() {
   return (
     <div className="" style={{ margin: 0 }}>
       <AppNavigation />
-     
     </div>
   );
 };

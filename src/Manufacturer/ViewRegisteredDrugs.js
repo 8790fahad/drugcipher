@@ -50,12 +50,15 @@ export default function ViewRegisteredDrugs() {
       let list = await getDrugs(info.id);
       let arr = [];
       list &&
-        list.forEach((item) => {
-          arr.push({ ...item, toggle: false });
-        });
+        list
+          .filter((state) => state.company_id === info.id)
+          .forEach((item) => {
+            arr.push({ ...item, toggle: false });
+          });
       setDrugData(arr);
     } catch (error) {
       console.log({ error });
+      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -189,7 +192,12 @@ export default function ViewRegisteredDrugs() {
                 ))}
             </tbody>
           </Table>
-              {drugData.length === 0 ? <p className="text-center mt-5 text-secondary">You have not registered any drug yet, click the "Create New" button to create one.</p> : null}
+          {drugData.length === 0 ? (
+            <p className="text-center mt-5 text-secondary">
+              You have not registered any drug yet, click the "Create New"
+              button to create one.
+            </p>
+          ) : null}
         </div>
       </Card>
       <Modal show={modal} onHide={handleClose}>
