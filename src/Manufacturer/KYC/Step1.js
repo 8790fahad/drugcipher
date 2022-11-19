@@ -106,7 +106,7 @@ export default function Step1({
               />
             </Col>
             <Col md={6} className="mb-3">
-              <label>Company Phone</label>
+              <label>Company Phone<b style={{ color: "red" }}>*</b></label>
               <input
                 className="man_input_fields"
                 type="text"
@@ -114,6 +114,7 @@ export default function Step1({
                 name="companyPhone"
                 defaultValue={values.companyPhone}
                 onChange={handleChange}
+                required
               />
             </Col>
           </Row>

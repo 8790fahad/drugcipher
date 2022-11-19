@@ -50,9 +50,9 @@ export default function Step2({
         <div className="mt-3">
           <Row className="mt-3">
             <Col md={6} controlId="validationCustom03">
-              <label>Premises License by PCN</label>
+              <label>Premises License by PCN<b style={{ color: "red" }}>*</b></label>
               <br />
-              <label>Attach the image of your license</label>
+              <label style={{ color: "red", fontWeight:'bold' }}>Attach the image of your license</label>
               <input
                 className=""
                 type="file"

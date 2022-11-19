@@ -49,9 +49,9 @@ export default function Step3({
         <div className="mt-3">
           <Row className="mt-3">
             <Col md={6} controlId="validationCustom03">
-              <label>Superintendent Pharmacist License</label>
+              <label>Superintendent Pharmacist License<b style={{ color: "red" }}>*</b></label>
               <br />
-              <label>Attach the image of your license</label>
+              <label style={{ color: "red", fontWeight:'bold' }}>Attach the image of your license</label>
               <input
                 className=""
                 type="file"

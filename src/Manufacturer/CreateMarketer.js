@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import { ArrowLeftCircle } from "react-feather";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -63,7 +64,23 @@ export default function CreateMarketer() {
   return (
     <Form onSubmit={onSubmit}>
       <Card className="man_card shadow p-3">
-        <h3 className="man_card_title">Register {type}</h3>
+        <Row>
+          <Col md={6} sm={6} xs={6}>
+            <h3 className="man_card_title">Register {type}</h3>
+          </Col>
+          <Col md={6} sm={6} xs={6}>
+            <ArrowLeftCircle
+              className="shadow p-3"
+              size="4em"
+              style={{
+                color: "rgb(3, 66, 110)",
+                float: "right",
+                cursor: "pointer",
+              }}
+              onClick={() => navigate(-1)}
+            />
+          </Col>
+        </Row>
         <Row>
           <Col md={12}>
             <Row className="">
@@ -128,7 +145,7 @@ export default function CreateMarketer() {
             </Row>
             <Row className="">
               <Col md={6} className="mb-3">
-                <label>First Line Address</label>
+                <label>First Line Address<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="firstLine"
                   value={marketerData.firstLine}
@@ -146,7 +163,6 @@ export default function CreateMarketer() {
                   onChange={handleChange}
                   className="man_input_fields"
                   type="text"
-                  required
                 />
               </Col>
             </Row>
