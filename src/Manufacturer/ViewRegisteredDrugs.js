@@ -15,7 +15,6 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { toast } from "react-toastify";
-import copy from "copy-to-clipboard";
 
 export default function ViewRegisteredDrugs() {
   const navigate = useNavigate();
