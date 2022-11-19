@@ -18,6 +18,7 @@ import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { useSelector } from "react-redux";
 import { Spinner } from "reactstrap";
 import useQuery from "../hooks/useQuery";
+import { ArrowLeftCircle } from "react-feather";
 // import { marketer } from "./drugData";
 export default function RegisterNewDrug() {
   const account = window.walletConnection.account();
@@ -143,7 +144,23 @@ export default function RegisterNewDrug() {
   return (
     <Form onSubmit={addDrugInfo}>
       <Card className="man_card shadow p-3">
-        <h3 className="man_card_title">Register Drug Info</h3>
+        <Row>
+          <Col md={6} sm={6} xs={6}>
+            <h3 className="man_card_title">Register Drug Info</h3>
+          </Col>
+          <Col md={6} sm={6} xs={6}>
+            <ArrowLeftCircle
+              className="shadow p-3"
+              size="4em"
+              style={{
+                color: "rgb(3, 66, 110)",
+                float: "right",
+                cursor: "pointer",
+              }}
+              onClick={() => navigate(-1)}
+            />
+          </Col>
+        </Row>
         <Row>
           <Col md={12}>
             <Row className="">
