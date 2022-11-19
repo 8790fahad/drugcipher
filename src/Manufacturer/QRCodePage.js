@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card, Col, Row } from "react-bootstrap";
-import drugcipherIcon from "../image/DRUG CIPHER (2).png";
+import drugcipherIcon from "../image/QRCodeLogo.png";
 import { QRCode } from "react-qrcode-logo";
 import useQuery from "../hooks/useQuery";
 
@@ -33,7 +33,8 @@ export default function QRCodePage() {
                 value={id}
                 includeMargin={true}
                 logoImage={drugcipherIcon}
-                logoWidth={100}
+                removeQrCodeBehindLogo={true}
+                logoWidth={50}
                 // qrStyle={"dots"}
                 size={300}
                 logoOpacity={1}

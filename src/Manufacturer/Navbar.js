@@ -36,7 +36,7 @@ export default function Navbar() {
     <div>
       <Row className="m-0 webnavbar">
         <Col xl={9} lg={9} md={9} sm={9} xs={9}>
-          <Typeahead
+          {/* <Typeahead
             id="basic-typeahead-single"
             labelKey="drugName"
             onChange={(a) => {
@@ -51,7 +51,7 @@ export default function Navbar() {
               className: "man_search_field",
               style: { outline: "none" },
             }}
-          />
+          /> */}
           {/* <input type='text' placeholder='Search Drugs' className='man_search_field shadow' /> */}
         </Col>
         <Col xl={3} lg={3} md={3} sm={3} xs={3}>

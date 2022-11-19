@@ -94,7 +94,7 @@ Form.Control:focus {
 .man_search_field {
   width: 13%;
   background-color: white;
-  margin: 15px 20px;
+  margin: 15px 0;
   border: none;
   padding: 8px;
   transition: 500ms;
