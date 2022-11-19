@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 
 export default function Settings() {
-  const { info } = useSelector((state) => state.account.account);
+  // const { info } = useSelector((state) => state.account.account);
   const [settingsData, setSettingsData] = useState(
     {
       companyName: '',

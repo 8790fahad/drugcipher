@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap";
 // import cart from '../image/cart.png'
 import bell from "../image/bell.png";
 import help from "../image/help.png";
@@ -7,9 +7,9 @@ import image_account from "../image/account.png";
 import { useLocation, useNavigate } from "react-router-dom";
 // import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
-import { accountBalance, clearToken, login, logout } from "../utils/helper";
-import { Typeahead } from "react-bootstrap-typeahead";
-import { drugData } from "./drugData";
+import { clearToken, login, logout } from "../utils/helper";
+// import { Typeahead } from "react-bootstrap-typeahead";
+// import { drugData } from "./drugData";
 // import useQuery from '../hooks/useQuery'
 import logo from "../image/DRUG CIPHER (2).png";
 import { Menu } from "react-feather";
@@ -27,10 +27,10 @@ export default function Navbar() {
   const toggle2 = () => {
     setdropdown2(!dropdown2);
   };
-  const [singleSelections] = useState([]);
+  // const [singleSelections] = useState([]);
   const account = window.walletConnection.account();
 
-  const [drugData, setDrugData] = useState([]);
+  // const [drugData, setDrugData] = useState([]);
 
   return (
     <div>
