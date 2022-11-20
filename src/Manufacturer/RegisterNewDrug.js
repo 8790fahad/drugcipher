@@ -311,7 +311,7 @@ export default function RegisterNewDrug() {
                   value={drugData.dateOfManufacture}
                   onChange={handleChange}
                   className="man_input_fields"
-                  type="date"
+                  type="date"     
                   required
                 />
               </Col>
