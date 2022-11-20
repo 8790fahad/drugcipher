@@ -56,13 +56,13 @@ const data = {
   datasets: [
     {
       label: "Valid Scans",
-      data: [1, 2, 3, 4, 5, 6, 7, 3, 4, 5, 3, 5],
+      data: [1],
       backgroundColor: ["rgba(3, 66, 110,1)"],
       borderColor: ["rgb(3, 66, 110)"],
     },
     {
       label: "Invalid Scans",
-      data: [1, 2, 3, 4, 5, 6, 7, 3, 4, 5, 6, 1],
+      data: [],
       backgroundColor: ["rgb(191, 226, 205)"],
       borderColor: ["rgb(128, 209, 1)"],
     },
