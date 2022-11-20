@@ -152,7 +152,7 @@ export default function ViewRegisteredDrugs() {
             <tbody>
               {drugData &&
                 drugData.map((item, index) => (
-                  <tr className={`${item.status ? "bg-danger" : ""}`}>
+                  <tr className={`${item.status ? "bg-danger text-white" : ""}`}>
                     <td>{index + 1}</td>
                     <td>{item.drug_brand_name}</td>
                     <td>{item.generic_name}</td>

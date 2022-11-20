@@ -1,6 +1,10 @@
 import React from 'react'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { MapPin } from 'react-feather';
+import account from '../image/account.png'
+import { ZoomControl } from 'react-mapbox-gl/lib';
+// import { Marker } from 'react-mapbox-gl/lib';
 export default function DrugsLocation() {
     const Map = ReactMapboxGl({
         accessToken:
@@ -14,10 +18,17 @@ export default function DrugsLocation() {
                     height: '64vh',
                     width: '100%'
                 }}
+                center={[12.011171324972095, 8.542933227726762]}
+                zoom={[4]}
             >
-                <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+                {/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
                     <Feature coordinates={[9.0820, 8.6753]} />
-                </Layer>
+                </Layer> */}
+                <Marker coordinates={[8.542933227726762, 12.011171324972095]}>
+                        <MapPin />
+                        {/* <img src={account}/> */}
+                </Marker>
+                <ZoomControl />
             </Map>
         </div>
     )
