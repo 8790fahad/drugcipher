@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactMapboxGl, { Layer, Marker } from 'react-mapbox-gl';
+import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MapPin } from 'react-feather';
-import account from '../image/account.png'
 import { ZoomControl } from 'react-mapbox-gl/lib';
 // import { Marker } from 'react-mapbox-gl/lib';
 export default function DrugsLocation() {
@@ -26,7 +25,6 @@ export default function DrugsLocation() {
                 </Layer> */}
                 <Marker coordinates={[8.542933227726762, 12.011171324972095]}>
                         <MapPin />
-                        {/* <img src={account}/> */}
                 </Marker>
                 <ZoomControl />
             </Map>
