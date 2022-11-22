@@ -4,12 +4,15 @@ import { useCallback } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { ArrowLeftCircle } from "react-feather";
 import useQuery from "../hooks/useQuery";
 import { formatNumber, _fetchApi } from "../utils/helper";
 import BarChart from "./BarChart";
 import DrugsLocation from "./DrugsLocation";
+import { useNavigate } from "react-router-dom";
 // import moment from "moment";
 export default function Overview() {
+  const navigate = useNavigate();
   const { info } = useSelector((state) => state.account.account);
   const query = useQuery();
   const id = query.get("id");
@@ -21,7 +24,7 @@ export default function Overview() {
     locationScan: 0,
     anonScan: 0,
     location: [],
-    star:[]
+    star: [],
   });
 
   const drugHistoryReportValid = useCallback(() => {
@@ -122,7 +125,23 @@ export default function Overview() {
   return (
     <div>
       <Card className="man_card shadow p-3">
-        <h3 className="man_card_title">{drug_name}</h3>
+        <Row>
+          <Col md={6} sm={6} xs={6}>
+            <h3 className="man_card_title">{drug_name}</h3>
+          </Col>
+          <Col md={6} sm={6} xs={6}>
+            <ArrowLeftCircle
+              className="shadow p-1"
+              size="2em"
+              style={{
+                color: "rgb(3, 66, 110)",
+                float: "right",
+                cursor: "pointer",
+              }}
+              onClick={() => navigate(-1)}
+            />
+          </Col>
+        </Row>
         <Row style={{ color: "rgb(3, 66, 110)" }}>
           <Col md={6}>
             <Row>
@@ -181,7 +200,7 @@ export default function Overview() {
               </div>
             </Card>
             <Card className="overview_card shadow p-2 mt-2">
-              <BarChart star={drugHistory.star}/>
+              <BarChart star={drugHistory.star} />
             </Card>
           </Col>
           <Col md={6}>
