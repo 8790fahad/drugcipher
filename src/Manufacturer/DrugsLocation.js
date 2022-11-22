@@ -14,7 +14,7 @@ export default function DrugsLocation() {
       <Map
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
-          height: "64vh",
+          height: "67.5vh",
           width: "100%",
         }}
         center={[12.011171324972095, 8.542933227726762]}
