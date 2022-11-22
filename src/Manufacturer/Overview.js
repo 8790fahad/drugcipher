@@ -1,8 +1,8 @@
-import React from 'react'
-import { Card, Col, Row } from 'react-bootstrap'
-import BarChart from './BarChart'
+import React from "react";
+import { Card, Col, Row } from "react-bootstrap";
+import BarChart from "./BarChart";
 // import DoughnutChart from './DoughnutChart'
-import DrugsLocation from './DrugsLocation'
+import DrugsLocation from "./DrugsLocation";
 // import WrappedHeatmap from './WrappedHeatmap'
 export default function Overview() {
     return (
@@ -40,7 +40,7 @@ export default function Overview() {
                             </Col>
                             <Col md={4}>
                                 <Card className='overview_card shadow p-2 mb-2'>
-                                    <p className='m-0'>Anonymous Locations</p>
+                                    <p className='m-0'>Anon. Locations</p>
                                     <h3>0</h3>
                                 </Card>
                             </Col>
@@ -52,8 +52,10 @@ export default function Overview() {
                             </Col>
                         </Row>
                         <Card className='overview_card shadow p-2 mb-2 mt-1'>
-                            <p className='m-0'>Expiry Date</p>
-                            <h3>January 1, 2024</h3>
+                            <div style={{ display: 'flex', justifyContent:'space-between' }}>
+                                <p className='m-0'>Expiry Date</p>
+                                <h3>January 1, 2024</h3>
+                            </div>
                         </Card>
                         <Card className='overview_card shadow p-2 mt-2'>
                             <BarChart />
@@ -67,7 +69,49 @@ export default function Overview() {
                     </Col>
                 </Row>
 
+
+                {/* return (
+    <div>
+      <Card className="man_card shadow p-3">
+        <h3 className="man_card_title">Bonababe</h3>
+        <Row style={{ color: "rgb(3, 66, 110)" }}>
+          <Col md={6}>
+            <Row>
+              <Col md={4}>
+                <Card className="overview_card shadow p-2 mb-2">
+                  <p className="m-0">Number of Scans</p>
+                  <h3>1</h3>
+                </Card>
+              </Col>
+              <Col md={4}>
+                <Card className="overview_card shadow p-2 mb-2">
+                  <p className="m-0">Invalid Scans</p>
+                  <h3>0</h3>
+                </Card>
+              </Col>
+              <Col md={4}>
+                <Card className="overview_card shadow p-2 mb-3">
+                  <p className="m-0">Countries</p>
+                  <h3>1</h3>
+                </Card>
+              </Col>
+            </Row>
+            <Card className="overview_card shadow p-2 mb-2 mt-1">
+              <p className="m-0">Expiry Date</p>
+              <h3>January 1, 2024</h3>
             </Card>
-        </div >
-    )
+            <Card className="overview_card shadow p-2 mt-2">
+              <BarChart />
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card className="overview_card shadow p-2 mb-2">
+              <p>Drug Locations</p>
+              <DrugsLocation />
+            </Card>
+          </Col>
+        </Row>*/}
+            </Card>
+        </div>
+    );
 }
