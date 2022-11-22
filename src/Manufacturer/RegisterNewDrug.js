@@ -165,7 +165,7 @@ export default function RegisterNewDrug() {
           <Col md={12}>
             <Row className="">
               <Col md={6} className="mb-3" controlId="validationCustom03">
-                <label>Manufacturer's Name</label>
+                <label>Manufacturer's Name<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="manufacturerName"
                   value={drugData.manufacturerName}
@@ -176,7 +176,7 @@ export default function RegisterNewDrug() {
                 />
               </Col>
               <Col md={6} className="mb-3">
-                <label>Sole Agent Name</label>
+                <label>Sole Agent Name<b style={{ color: "red" }}>*</b></label>
                 <Typeahead
                   id="basic-typeahead-single"
                   options={soleAgents}
@@ -199,7 +199,7 @@ export default function RegisterNewDrug() {
             </Row>
             <Row className="">
               <Col md={6} className="mb-3">
-                <label>Authorized Marketers/Presentatives</label>
+                <label>Authorized Marketers/Presentatives<b style={{ color: "red" }}>*</b></label>
                 <Typeahead
                   id="basic-typeahead-single"
                   labelKey={(item) => item.name}
@@ -220,7 +220,7 @@ export default function RegisterNewDrug() {
                 />
               </Col>
               <Col md={6} className="mb-3">
-                <label>Drug Brand Name</label>
+                <label>Drug Brand Name<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="drugBrandName"
                   value={drugData.drugBrandName}
@@ -233,7 +233,7 @@ export default function RegisterNewDrug() {
             </Row>
             <Row className="">
               <Col md={6} className="mb-3">
-                <label>Drug Generic/Chemical Name</label>
+                <label>Drug Generic/Chemical Name<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="drugGenericName"
                   value={drugData.drugGenericName}
@@ -244,7 +244,7 @@ export default function RegisterNewDrug() {
                 />
               </Col>
               <Col md={6} className="mb-3">
-                <label>Strength of Drug</label>
+                <label>Strength of Drug<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="drugStrength"
                   value={drugData.drugStrength}
@@ -257,7 +257,7 @@ export default function RegisterNewDrug() {
             </Row>
             <Row className="">
               <Col md={6} className="mb-3">
-                <label>Formulation Type</label>
+                <label>Formulation Type<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="formulationType"
                   value={drugData.formulationType}
@@ -268,7 +268,7 @@ export default function RegisterNewDrug() {
                 />
               </Col>
               <Col md={6} className="mb-3">
-                <label>Unit Packaging</label>
+                <label>Unit Packaging<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="unitPackaging"
                   value={drugData.unitPackaging}
@@ -281,7 +281,7 @@ export default function RegisterNewDrug() {
             </Row>
             <Row className="">
               <Col md={6} className="mb-3">
-                <label>Drug Authorization Number</label>
+                <label>Drug Authorization Number<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="NAFDACNumber"
                   value={drugData.NAFDACNumber}
@@ -292,7 +292,7 @@ export default function RegisterNewDrug() {
                 />
               </Col>
               <Col md={6} className="mb-3">
-                <label>Batch/Lot Number</label>
+                <label>Batch/Lot Number<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="batch_lotNumer"
                   value={drugData.batch_lotNumer}
@@ -305,18 +305,18 @@ export default function RegisterNewDrug() {
             </Row>
             <Row className="">
               <Col md={6} className="mb-3">
-                <label>Date of Manufacture</label>
+                <label>Date of Manufacture<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="dateOfManufacture"
                   value={drugData.dateOfManufacture}
                   onChange={handleChange}
                   className="man_input_fields"
-                  type="date"
+                  type="date"     
                   required
                 />
               </Col>
               <Col md={6} className="mb-3">
-                <label>Date of Expiry</label>
+                <label>Date of Expiry<b style={{ color: "red" }}>*</b></label>
                 <input
                   name="dateOfExpiry"
                   value={drugData.dateOfExpiry}
