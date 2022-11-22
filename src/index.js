@@ -8,7 +8,6 @@ import "bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
-import { RouteApp } from "./route";
 import { Notification } from "./utils/Notification";
 import App from "./App";
 import { Provider } from "react-redux";
