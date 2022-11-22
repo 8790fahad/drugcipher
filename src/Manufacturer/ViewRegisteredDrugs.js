@@ -45,6 +45,8 @@ export default function ViewRegisteredDrugs() {
       });
     setDrugData(arr);
   };
+
+
   const getDrugInfoList = useCallback(async () => {
     try {
       setLoading(true);
@@ -92,6 +94,7 @@ export default function ViewRegisteredDrugs() {
   };
   return (
     <div>
+
       <Card className="man_card shadow p-3">
         <Row>
           <Col xl={6} lg={6} md={6} sm={6} xs={6}>
@@ -136,7 +139,7 @@ export default function ViewRegisteredDrugs() {
         </Row>
         <div className="mt-3">
           <center>{loading ? <Spinner size="lg" /> : null}</center>
-          <Table hover responsive className="table" size="">
+          <Table hover className="table" size="">
             <thead className="">
               <tr>
                 <th>S/N</th>
@@ -151,9 +154,7 @@ export default function ViewRegisteredDrugs() {
             <tbody>
               {drugData &&
                 drugData.map((item, index) => (
-                  <tr
-                    className={`${item.status ? "bg-danger text-white" : ""}`}
-                  >
+                  <tr className={`${item.status ? "bg-danger text-white" : ""}`}>
                     <td>{index + 1}</td>
                     <td>{item.drug_brand_name}</td>
                     <td>{item.generic_name}</td>
@@ -164,11 +165,12 @@ export default function ViewRegisteredDrugs() {
                       <Dropdown
                         toggle={() => toggle2(index)}
                         isOpen={item.toggle}
+                        
                       >
                         <DropdownToggle data-toggle="dropdown" tag="span">
                           <Grid className="grid" />
                         </DropdownToggle>
-                        <DropdownMenu className="dropdown_menu shadow">
+                        <DropdownMenu className="dropdown_menu shadow" style={{zIndex:1}}>
                           <div className="">
                             <div
                               className="drop_down_item"
@@ -182,9 +184,7 @@ export default function ViewRegisteredDrugs() {
                             <div
                               className="drop_down_item"
                               onClick={() => {
-                                navigate(
-                                  `/overview?id=${item.id}&drug_name=${item.drug_brand_name} ${item.generic_name}&expiry_date=${item.expiry_date}`
-                                );
+                                navigate(`/overview?id=${item.id}`);
                               }}
                             >
                               <span className="p-3">Overview</span>

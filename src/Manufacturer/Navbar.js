@@ -18,6 +18,7 @@ export default function Navbar() {
   // const query = useQuery()
   const navigate = useNavigate();
   const location = useLocation();
+  
   const [dropdown, setdropdown] = useState(false);
   const toggle1 = () => {
     setdropdown(!dropdown);
