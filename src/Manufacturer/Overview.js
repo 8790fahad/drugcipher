@@ -1,14 +1,16 @@
-import React from "react";
+import moment from "moment";
+import React, { useEffect } from "react";
 import { useCallback } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import useQuery from "../hooks/useQuery";
 import { formatNumber, _fetchApi } from "../utils/helper";
 import BarChart from "./BarChart";
 import DrugsLocation from "./DrugsLocation";
 // import moment from "moment";
 export default function Overview() {
-
+  const { info } = useSelector((state) => state.account.account);
   const query = useQuery();
   const id = query.get("id");
   const drug_name = query.get("drug_name");
@@ -16,23 +18,107 @@ export default function Overview() {
   const [drugHistory, setDrugHistory] = useState({
     validScan: 0,
     invalidScan: 0,
-    totalScan: 0,
     locationScan: 0,
     anonScan: 0,
-    totalLocation: 0,
+    location: [],
+    star:[]
   });
 
-//   const drugHistoryReport = useCallback(() => {
-//     _fetchApi(
-//       `/v1/drug-history-report?id=${id}`,
-//       (res) => {
-//         if(res.success){
-//             setDrugHistory((p)=>({...p,validScan:res.number}))
-//         }
-//       },
-//       (err) => {}
-//     );
-//   }, []);
+  const drugHistoryReportValid = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=valid`,
+      (res) => {
+        if (res.success) {
+          setDrugHistory((p) => ({ ...p, validScan: res.result.number }));
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id, info.id]);
+  const drugHistoryReportInValid = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=invalid`,
+      (res) => {
+        if (res.success) {
+          setDrugHistory((p) => ({ ...p, invalidScan: res.result.number }));
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id, info.id]);
+  const drugHistoryReportCon = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=country`,
+      (res) => {
+        if (res.success) {
+          setDrugHistory((p) => ({ ...p, locationScan: res.result.number }));
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id, info.id]);
+  const drugHistoryReportAnon = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=anon`,
+      (res) => {
+        if (res.success) {
+          setDrugHistory((p) => ({ ...p, anonScan: res.result.number }));
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id, info.id]);
+  const drugHistoryReportLocation = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=location`,
+      (res) => {
+        if (res.success) {
+          setDrugHistory((p) => ({ ...p, location: [res.result] }));
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id, info.id]);
+
+  const drugHistoryReportAll = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=all`,
+      (res) => {
+        if (res.success) {
+          setDrugHistory((p) => ({ ...p, star: [res.result] }));
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id, info.id]);
+  useEffect(() => {
+    drugHistoryReportCon();
+    drugHistoryReportAnon();
+    drugHistoryReportInValid();
+    drugHistoryReportValid();
+    drugHistoryReportLocation();
+    drugHistoryReportAll();
+  }, [
+    drugHistoryReportAnon,
+    drugHistoryReportCon,
+    drugHistoryReportInValid,
+    drugHistoryReportValid,
+    drugHistoryReportLocation,
+    drugHistoryReportAll,
+    info.company_id,
+  ]);
   return (
     <div>
       <Card className="man_card shadow p-3">
@@ -40,6 +126,16 @@ export default function Overview() {
         <Row style={{ color: "rgb(3, 66, 110)" }}>
           <Col md={6}>
             <Row>
+              <Col md={4}>
+                <Card className="overview_card shadow p-2 mb-3">
+                  <p className="m-0">Total Scans</p>
+                  <h3>
+                    {formatNumber(
+                      drugHistory.invalidScan + drugHistory.validScan
+                    )}
+                  </h3>
+                </Card>
+              </Col>
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-2">
                   <p className="m-0">Valid Scans</p>
@@ -52,14 +148,18 @@ export default function Overview() {
                   <h3>{formatNumber(drugHistory.invalidScan)}</h3>
                 </Card>
               </Col>
-              <Col md={4}>
-                <Card className="overview_card shadow p-2 mb-3">
-                  <p className="m-0">Total Scans</p>
-                  <h3>{formatNumber(drugHistory.totalScan)}</h3>
-                </Card>
-              </Col>
             </Row>
             <Row>
+              <Col md={4}>
+                <Card className="overview_card shadow p-2 mb-3">
+                  <p className="m-0">Total Locations</p>
+                  <h3>
+                    {formatNumber(
+                      drugHistory.locationScan + drugHistory.anonScan
+                    )}
+                  </h3>
+                </Card>
+              </Col>
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-2">
                   <p className="m-0">Countries</p>
@@ -72,28 +172,22 @@ export default function Overview() {
                   <h3>{formatNumber(drugHistory.anonScan)}</h3>
                 </Card>
               </Col>
-              <Col md={4}>
-                <Card className="overview_card shadow p-2 mb-3">
-                  <p className="m-0">Total Locations</p>
-                  <h3>{formatNumber(drugHistory.totalScan)}</h3>
-                </Card>
-              </Col>
             </Row>
             <Card className="overview_card shadow p-2 mb-2 mt-1">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h3>
-                  {/* Expiry Date: {moment(expiry_date).format("MMMM Do, YYYY")} */}
+                  Expiry Date: {moment(expiry_date).format("MMMM Do, YYYY")}
                 </h3>
               </div>
             </Card>
             <Card className="overview_card shadow p-2 mt-2">
-              <BarChart />
+              <BarChart star={drugHistory.star}/>
             </Card>
           </Col>
           <Col md={6}>
             <Card className="overview_card shadow p-2 mb-2">
               <p>Drug Locations</p>
-              <DrugsLocation />
+              <DrugsLocation location={drugHistory.location} />
             </Card>
           </Col>
         </Row>

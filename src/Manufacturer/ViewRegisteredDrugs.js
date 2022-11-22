@@ -38,7 +38,7 @@ export default function ViewRegisteredDrugs() {
       drugData.forEach((item, ind) => {
         if (index === ind) {
           console.log(index, ind);
-          arr.push({ ...item, toggle: true });
+          arr.push({ ...item, toggle: !item.toggle });
         } else {
           arr.push({ ...item, toggle: false });
         }

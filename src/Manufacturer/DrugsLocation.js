@@ -4,7 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { MapPin } from "react-feather";
 import { ZoomControl } from "react-mapbox-gl/lib";
 // import { Marker } from 'react-mapbox-gl/lib';
-export default function DrugsLocation() {
+export default function DrugsLocation({ location = [] }) {
   const Map = ReactMapboxGl({
     accessToken:
       "pk.eyJ1IjoieXNxdWFyZWltcGVyaWFsIiwiYSI6ImNsOThtemc0ZDA5cXgzcXF0ZTRtMTAzb3UifQ.q1j7HpXo902tSPv5LSAN1g",
@@ -20,12 +20,13 @@ export default function DrugsLocation() {
         center={[12.011171324972095, 8.542933227726762]}
         zoom={[1]}
       >
-        {/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                    <Feature coordinates={[9.0820, 8.6753]} />
-                </Layer> */}
-        <Marker coordinates={[8.542933227726762, 12.011171324972095]}>
-          <MapPin />
-        </Marker>
+        {location.length &&
+         location.map((state) => (
+            <Marker coordinates={[state?.latitude, state?.longitude]}>
+              <MapPin />
+            </Marker>
+          ))}
+
         <ZoomControl />
       </Map>
     </div>
