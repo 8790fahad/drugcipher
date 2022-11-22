@@ -60,7 +60,7 @@ export default function RegisterNewDrug() {
       navigate(`/register-new-drug?id=${id}`);
       let data = {
         id: id,
-        manufcturer_name: drugData.manufacturerName,
+        manufacturer_name: drugData.manufacturerName,
         sole_agent: drugData.soleAgentName,
         drug_brand_name: drugData.drugBrandName,
         generic_name: drugData.drugGenericName,

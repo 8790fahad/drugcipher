@@ -51,6 +51,17 @@ const _fetchApi = (
     });
 };
 
+export function formatNumber(x) {
+  let num = Math.round(parseInt(x), 0);
+  if (num) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  } else {
+    return "0";
+  }
+}
+
 /**
  * _postApi()
  * An helper function that posts data to the database

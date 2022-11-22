@@ -3,11 +3,12 @@ import { useCallback } from "react";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import useQuery from "../hooks/useQuery";
-import { _fetchApi } from "../utils/helper";
+import { formatNumber, _fetchApi } from "../utils/helper";
 import BarChart from "./BarChart";
 import DrugsLocation from "./DrugsLocation";
-import moment from "moment";
+// import moment from "moment";
 export default function Overview() {
+
   const query = useQuery();
   const id = query.get("id");
   const drug_name = query.get("drug_name");
@@ -21,13 +22,17 @@ export default function Overview() {
     totalLocation: 0,
   });
 
-  const drugHistoryReport = useCallback(() => {
-    _fetchApi(
-      "/v1/drug-history-report",
-      (res) => {},
-      (err) => {}
-    );
-  }, []);
+//   const drugHistoryReport = useCallback(() => {
+//     _fetchApi(
+//       `/v1/drug-history-report?id=${id}`,
+//       (res) => {
+//         if(res.success){
+//             setDrugHistory((p)=>({...p,validScan:res.number}))
+//         }
+//       },
+//       (err) => {}
+//     );
+//   }, []);
   return (
     <div>
       <Card className="man_card shadow p-3">
@@ -38,19 +43,19 @@ export default function Overview() {
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-2">
                   <p className="m-0">Valid Scans</p>
-                  <h3>1</h3>
+                  <h3>{formatNumber(drugHistory.validScan)}</h3>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-2">
                   <p className="m-0">Invalid Scans</p>
-                  <h3>0</h3>
+                  <h3>{formatNumber(drugHistory.invalidScan)}</h3>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-3">
                   <p className="m-0">Total Scans</p>
-                  <h3>1</h3>
+                  <h3>{formatNumber(drugHistory.totalScan)}</h3>
                 </Card>
               </Col>
             </Row>
@@ -58,26 +63,26 @@ export default function Overview() {
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-2">
                   <p className="m-0">Countries</p>
-                  <h3>1</h3>
+                  <h3>{formatNumber(drugHistory.locationScan)}</h3>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-2">
                   <p className="m-0">Anon. Locations</p>
-                  <h3>0</h3>
+                  <h3>{formatNumber(drugHistory.anonScan)}</h3>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card className="overview_card shadow p-2 mb-3">
                   <p className="m-0">Total Locations</p>
-                  <h3>1</h3>
+                  <h3>{formatNumber(drugHistory.totalScan)}</h3>
                 </Card>
               </Col>
             </Row>
             <Card className="overview_card shadow p-2 mb-2 mt-1">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h3>
-                  Expiry Date: {moment(expiry_date).format("MMMM Do, YYYY")}
+                  {/* Expiry Date: {moment(expiry_date).format("MMMM Do, YYYY")} */}
                 </h3>
               </div>
             </Card>
