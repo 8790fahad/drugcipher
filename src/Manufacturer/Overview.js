@@ -14,7 +14,7 @@ export default function Overview() {
                         <Row>
                             <Col md={4}>
                                 <Card className='overview_card shadow p-2 mb-2'>
-                                    <p className='m-0'>Number of Scans</p>
+                                    <p className='m-0'>Valid Scans</p>
                                     <h3>1</h3>
                                 </Card>
                             </Col>
@@ -26,7 +26,27 @@ export default function Overview() {
                             </Col>
                             <Col md={4}>
                                 <Card className='overview_card shadow p-2 mb-3'>
+                                    <p className='m-0'>Total Scans</p>
+                                    <h3>1</h3>
+                                </Card>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={4}>
+                                <Card className='overview_card shadow p-2 mb-2'>
                                     <p className='m-0'>Countries</p>
+                                    <h3>1</h3>
+                                </Card>
+                            </Col>
+                            <Col md={4}>
+                                <Card className='overview_card shadow p-2 mb-2'>
+                                    <p className='m-0'>Anonymous Locations</p>
+                                    <h3>0</h3>
+                                </Card>
+                            </Col>
+                            <Col md={4}>
+                                <Card className='overview_card shadow p-2 mb-3'>
+                                    <p className='m-0'>Total Locations</p>
                                     <h3>1</h3>
                                 </Card>
                             </Col>
