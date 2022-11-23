@@ -59,7 +59,7 @@ export default function Profile() {
               <h5 className="">{info.company_name}</h5>
               <CardText
                 className=" card-text"
-                style={{ fontSize: 11, margin: 0 }}
+                style={{ fontSize: 14, margin: 0 }}
               >
                 {balance ? (
                   <>
@@ -75,7 +75,7 @@ export default function Profile() {
               </CardText>
               <CardText
                 className=" card-text"
-                style={{ fontSize: 11, margin: 0 }}
+                style={{ fontSize: 14, margin: 0 }}
               >
                 {account.accountId ? (
                   <>
