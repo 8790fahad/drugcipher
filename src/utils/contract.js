@@ -43,6 +43,6 @@ export async function viewDrug(id, owner, token) {
 // view drug and get token
 export async function deleteDrugInfo(id) {
   await window.contract.delete_drug_info({
-    id,
+    id: id,
   });
 }

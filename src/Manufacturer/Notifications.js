@@ -3,12 +3,16 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { Trash } from "react-feather";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { Alert, Spinner } from "reactstrap";
-import { getDrugs } from "../utils/contract";
+import { deleteDrugInfo, getDrugs } from "../utils/contract";
 import { _fetchApi } from "../utils/helper";
+import { NotificationError, NotificationSuccess } from "../utils/Notification";
 export default function Notifications() {
   const { info } = useSelector((state) => state.account.account);
+  const [loadingDelete, setLoadingDelete] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingScanDel, setLoadingScanDel] = useState(false);
   const [drugData, setDrugData] = useState([]);
   const [drugData1, setDrugData1] = useState([]);
   const [drugHistory, setDrugHistory] = useState([]);
@@ -30,6 +34,38 @@ export default function Notifications() {
       }
     );
   }, [info.id]);
+  const drugHistoryReportNotifyUpdate = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?company_id=${info.id}&query_type=notify_update`,
+      (res) => {
+        if (res.success) {
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [info.id]);
+  const drugHistoryReportDelete = useCallback(() => {
+    setLoadingScanDel(true);
+    _fetchApi(
+      `/v1/drug-history-report?company_id=${info.id}&query_type=notify_delete`,
+      (res) => {
+        toast(
+          <NotificationSuccess text="Scan drug history deleted successfully" />
+        );
+        setLoadingScanDel(false);
+        drugHistoryReportNotifyUpdate();
+        drugHistoryReportNotify();
+      },
+      (err) => {
+        toast(
+          <NotificationError text="Failed to delete scan  drug history info." />
+        );
+        setLoadingScanDel(false);
+      }
+    );
+  }, [drugHistoryReportNotify, drugHistoryReportNotifyUpdate, info.id]);
   const getDrugInfoList = useCallback(async () => {
     try {
       setLoading(true);
@@ -41,9 +77,10 @@ export default function Notifications() {
           .filter((state) => state.company_id === info.id)
           .forEach((item) => {
             let d = moment(item.expiry_date).diff(today, "days");
-            if (d <= 60 || !d >= 0) {
+            console.log(d);
+            if (d <= 60 || !d > 0) {
               arr.push(item);
-            } else if (d < 0) {
+            } else if (d < 1) {
               arr1.push(item);
             }
           });
@@ -56,16 +93,36 @@ export default function Notifications() {
       setLoading(false);
     }
   }, [info.id, today]);
+
+  const deleteDrugInfoApi = async (id) => {
+    console.log(id);
+    setLoadingDelete(true);
+    try {
+      await deleteDrugInfo(id).then((resp) => getDrugInfoList());
+      toast(<NotificationSuccess text="Drug info deleted successfully" />);
+      setLoadingDelete(false);
+    } catch (error) {
+      toast(<NotificationError text="Failed to delete drug info." />);
+    } finally {
+      setLoadingDelete(false);
+    }
+  };
+
   useEffect(() => {
     getDrugInfoList();
     drugHistoryReportNotify();
   }, [drugHistoryReportNotify, getDrugInfoList]);
+  useEffect(() => {
+    setTimeout(() => {
+      drugHistoryReportNotifyUpdate();
+    }, 200);
+  }, [drugHistoryReportNotifyUpdate]);
   return (
     <div>
       <Card className="man_card shadow p-3">
         <h3 className="man_card_title">Notifications</h3>
         <center>{loadingScan ? <Spinner size="sm" /> : null}</center>
-        <h5 className="man_card_title">New Scan</h5>
+        <h5 className="man_card_title">New Scans</h5>
         {drugHistory.length ? (
           drugHistory.map((item) => (
             <Row>
@@ -97,8 +154,15 @@ export default function Notifications() {
                         {!item.valid ? "Valid Scan" : "Invalid Scan"}
                       </p>
                     </div>
-                    <div>
-                      <Trash className="grid" />
+                    <div
+                      onClick={drugHistoryReportDelete}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {loadingScanDel ? (
+                        <Spinner size="sm" />
+                      ) : (
+                        <Trash className="grid" />
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -140,10 +204,19 @@ export default function Notifications() {
                     }}
                   >
                     <div>
-                      {/* <p className="m-0">{item.formulation_type}</p>       */}
+                      <p className="m-0">{item.formulation_type}</p>
                     </div>
-                    <div>
-                      <Trash className="grid" />
+                    <div
+                      onClick={() => {
+                        deleteDrugInfoApi(item.id);
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {loadingScanDel ? (
+                        <Spinner size="sm" />
+                      ) : (
+                        <Trash className="grid" />
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -156,11 +229,9 @@ export default function Notifications() {
           </Alert>
         )}
         <hr></hr>
-
         <h5 className="man_card_title">Expired Drugs</h5>
-
-        {drugData.length ? (
-          drugData.map((item) => (
+        {drugData1.length ? (
+          drugData1.map((item) => (
             <Row>
               <Col xl={10} lg={10} md={10} sm={10} xs={10}>
                 <Card className="not_card p-3 mb-3 shadow">
@@ -182,7 +253,12 @@ export default function Notifications() {
                     <div>
                       <p className="m-0">{item.formulation_type}</p>
                     </div>
-                    <div>
+                    <div
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        deleteDrugInfoApi(item.id);
+                      }}
+                    >
                       <Trash className="grid" />
                     </div>
                   </div>

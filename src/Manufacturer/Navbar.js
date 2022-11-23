@@ -36,18 +36,8 @@ export default function Navbar() {
   }, [info.id]);
 
   const drugHistoryReportNotifyUpdate = useCallback(() => {
-    _fetchApi(
-      `/v1/drug-history-report?company_id=${info.id}&query_type=notify_update`,
-      (res) => {
-        if (res.success) {
-          drugHistoryReportNotifyCount();
-        }
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, [drugHistoryReportNotifyCount, info.id]);
+    navigate("/notifications");
+  }, [navigate]);
 
   const [dropdown, setdropdown] = useState(false);
   const toggle1 = () => {
@@ -61,8 +51,7 @@ export default function Navbar() {
   const account = window.walletConnection.account();
   useEffect(() => {
     drugHistoryReportNotifyCount();
-    drugHistoryReportNotifyUpdate();
-  }, [drugHistoryReportNotifyCount, drugHistoryReportNotifyUpdate]);
+  }, [drugHistoryReportNotifyCount]);
   return (
     <div>
       <Row className="m-0 webnavbar">
@@ -100,7 +89,7 @@ export default function Navbar() {
                 location.pathname === "/notifications" && "active_nav_menu"
               }`}
               style={{ position: "relative" }}
-              onClick={() => navigate("/notifications")}
+              onClick={drugHistoryReportNotifyUpdate}
             >
               {count ? (
                 <div className="absolute">
