@@ -95,7 +95,6 @@ export default function Notifications() {
   }, [info.id, today]);
 
   const deleteDrugInfoApi = async (id) => {
-    console.log(id);
     setLoadingDelete(true);
     try {
       await deleteDrugInfo(id).then((resp) => getDrugInfoList());
