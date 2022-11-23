@@ -23,6 +23,7 @@ import Marketers from "../Manufacturer/Marketers";
 import CreateMarketer from "../Manufacturer/CreateMarketer";
 import CreateSoleAgent from "../Manufacturer/CreateSoleAgent";
 import Page404 from "../Manufacturer/Page404";
+import ClaimToken from "../Claim/ClaimToken";
  
 
 function AppNavigation() {
@@ -115,6 +116,10 @@ function AppNavigation() {
     {
       path: '/recorver-passphrase',
       element: <RecPassphrase />
+    },
+    {
+      path: '/claim-token',
+      element: <ClaimToken />
     },
     {
       path: '*',
