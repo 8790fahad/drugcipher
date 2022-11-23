@@ -46,17 +46,16 @@ export default function Notifications() {
       }
     );
   }, [info.id]);
-  const drugHistoryReportDelete = useCallback(() => {
+  const drugHistoryReportDelete = useCallback((id) => {
     setLoadingScanDel(true);
     _fetchApi(
-      `/v1/drug-history-report?company_id=${info.id}&query_type=notify_delete`,
+      `/v1/drug-history-report?id=${id}&query_type=notify_delete`,
       (res) => {
         toast(
           <NotificationSuccess text="Scan drug history deleted successfully" />
         );
         setLoadingScanDel(false);
-        drugHistoryReportNotifyUpdate();
-        drugHistoryReportNotify();
+        window.location.reload();
       },
       (err) => {
         toast(
@@ -65,7 +64,7 @@ export default function Notifications() {
         setLoadingScanDel(false);
       }
     );
-  }, [drugHistoryReportNotify, drugHistoryReportNotifyUpdate, info.id]);
+  }, []);
   const getDrugInfoList = useCallback(async () => {
     try {
       setLoading(true);
@@ -133,7 +132,7 @@ export default function Notifications() {
                       justifyContent: "space-between",
                     }}
                   >
-                    <div>{item.drug_brand_name}</div>
+                    <div>{item.drug_name}</div>
                     <div>{item.generic_name}</div>
                     <div>{item.country ? item.country : "Anon"}</div>
                     <div>{moment(item.date).format("YYYY-MM-DD")}</div>
@@ -154,7 +153,7 @@ export default function Notifications() {
                       </p>
                     </div>
                     <div
-                      onClick={drugHistoryReportDelete}
+                      onClick={() => drugHistoryReportDelete(item.id)}
                       style={{ cursor: "pointer" }}
                     >
                       {loadingScanDel ? (

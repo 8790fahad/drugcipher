@@ -1,23 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-// import cart from '../image/cart.png'
 import bell from "../image/bell.png";
 import help from "../image/help.png";
 import image_account from "../image/account.png";
 import { useLocation, useNavigate } from "react-router-dom";
-// import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import { clearToken, login, logout, _fetchApi } from "../utils/helper";
-// import { Typeahead } from "react-bootstrap-typeahead";
-// import { drugData } from "./drugData";
-// import useQuery from '../hooks/useQuery'
 import logo from "../image/DRUG CIPHER (2).png";
 import { Menu } from "react-feather";
 import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { info } = useSelector((state) => state.account.account);
-  // const query = useQuery()
   const navigate = useNavigate();
   const location = useLocation();
   const [count, setCount] = useState(0);
@@ -37,6 +31,7 @@ export default function Navbar() {
 
   const drugHistoryReportNotifyUpdate = useCallback(() => {
     navigate("/notifications");
+    setCount(0);
   }, [navigate]);
 
   const [dropdown, setdropdown] = useState(false);
