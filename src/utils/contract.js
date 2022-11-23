@@ -26,9 +26,9 @@ export async function recallDrug({ drug_id, remark }) {
   });
 }
 // get drugs
-export async function getDrugs(company_id) {
+export async function getDrugs() {
   let drug = await window.contract.get_drugs_info();
-  return drug
+  return drug;
 }
 
 // view drug and get token
@@ -37,5 +37,12 @@ export async function viewDrug(id, owner, token) {
     id,
     owner,
     token: parseNearAmount(token),
+  });
+}
+
+// view drug and get token
+export async function deleteDrugInfo(id) {
+  await window.contract.delete_drug_info({
+    id,
   });
 }

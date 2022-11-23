@@ -10,7 +10,6 @@ import { formatNumber, _fetchApi } from "../utils/helper";
 import BarChart from "./BarChart";
 import DrugsLocation from "./DrugsLocation";
 import { useNavigate } from "react-router-dom";
-// import moment from "moment";
 export default function Overview() {
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.account.account);
@@ -31,7 +30,7 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=valid`,
       (res) => {
-        if (res.success) {
+        if (res.success && res.result !== null) {
           setDrugHistory((p) => ({ ...p, validScan: res.result.number }));
         }
       },
@@ -44,7 +43,7 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=invalid`,
       (res) => {
-        if (res.success) {
+        if (res.success && res.result !== null) {
           setDrugHistory((p) => ({ ...p, invalidScan: res.result.number }));
         }
       },
@@ -57,7 +56,7 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=country`,
       (res) => {
-        if (res.success) {
+        if (res.success && res.result !== null) {
           setDrugHistory((p) => ({ ...p, locationScan: res.result.number }));
         }
       },
@@ -70,7 +69,7 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=anon`,
       (res) => {
-        if (res.success) {
+        if (res.success && res.result !== null) {
           setDrugHistory((p) => ({ ...p, anonScan: res.result.number }));
         }
       },
@@ -83,7 +82,7 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=location`,
       (res) => {
-        if (res.success) {
+        if (res.success && res.result !== null) {
           setDrugHistory((p) => ({ ...p, location: [res.result] }));
         }
       },
@@ -97,7 +96,7 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=all`,
       (res) => {
-        if (res.success) {
+        if (res.success && res.result !== null) {
           setDrugHistory((p) => ({ ...p, star: [res.result] }));
         }
       },

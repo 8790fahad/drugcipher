@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 // import cart from '../image/cart.png'
 import bell from "../image/bell.png";
@@ -7,18 +7,48 @@ import image_account from "../image/account.png";
 import { useLocation, useNavigate } from "react-router-dom";
 // import InputField from '../CustomFiles/InputField'
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
-import { clearToken, login, logout } from "../utils/helper";
+import { clearToken, login, logout, _fetchApi } from "../utils/helper";
 // import { Typeahead } from "react-bootstrap-typeahead";
 // import { drugData } from "./drugData";
 // import useQuery from '../hooks/useQuery'
 import logo from "../image/DRUG CIPHER (2).png";
 import { Menu } from "react-feather";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
+  const { info } = useSelector((state) => state.account.account);
   // const query = useQuery()
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const [count, setCount] = useState(0);
+  const drugHistoryReportNotifyCount = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?company_id=${info.id}&query_type=notify_count`,
+      (res) => {
+        if (res.success && res.result !== null) {
+          setCount(res.result.number);
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [info.id]);
+
+  const drugHistoryReportNotifyUpdate = useCallback(() => {
+    _fetchApi(
+      `/v1/drug-history-report?company_id=${info.id}&query_type=notify_update`,
+      (res) => {
+        if (res.success) {
+          drugHistoryReportNotifyCount();
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [drugHistoryReportNotifyCount, info.id]);
+
   const [dropdown, setdropdown] = useState(false);
   const toggle1 = () => {
     setdropdown(!dropdown);
@@ -28,11 +58,11 @@ export default function Navbar() {
   const toggle2 = () => {
     setdropdown2(!dropdown2);
   };
-  // const [singleSelections] = useState([]);
   const account = window.walletConnection.account();
-
-  // const [drugData, setDrugData] = useState([]);
-
+  useEffect(() => {
+    drugHistoryReportNotifyCount();
+    drugHistoryReportNotifyUpdate();
+  }, [drugHistoryReportNotifyCount, drugHistoryReportNotifyUpdate]);
   return (
     <div>
       <Row className="m-0 webnavbar">
@@ -72,9 +102,11 @@ export default function Navbar() {
               style={{ position: "relative" }}
               onClick={() => navigate("/notifications")}
             >
-              <div className="absolute">
-                <span>11</span>
-              </div>
+              {count ? (
+                <div className="absolute">
+                  <span>{count}</span>
+                </div>
+              ) : null}
               <img alt="" src={bell} />
             </div>
             <div
