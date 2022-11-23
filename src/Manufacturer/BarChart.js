@@ -75,7 +75,7 @@ export default function BarChart({ star = [] }) {
   return (
     <>
       <div style={{}}>
-        <Bar options={options} data={data} />
+        <Bar options={options} data={data} star={star}/>
       </div>
     </>
   );

@@ -199,7 +199,7 @@ export default function Overview() {
               </div>
             </Card>
             <Card className="overview_card shadow p-2 mt-2">
-              {/* {JSON.stringify(drugHistory.star)} */}
+              {JSON.stringify(drugHistory)}
               <BarChart star={drugHistory.star} />
             </Card>
           </Col>
