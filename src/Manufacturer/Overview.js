@@ -199,12 +199,14 @@ export default function Overview() {
               </div>
             </Card>
             <Card className="overview_card shadow p-2 mt-2">
+              {/* {JSON.stringify(drugHistory.star)} */}
               <BarChart star={drugHistory.star} />
             </Card>
           </Col>
           <Col md={6}>
             <Card className="overview_card shadow p-2 mb-2">
               <p>Drug Locations</p>
+              {/* {JSON.stringify(drugHistory.location)} */}
               <DrugsLocation location={drugHistory.location} />
             </Card>
           </Col>

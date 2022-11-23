@@ -20,9 +20,11 @@ export default function DrugsLocation({ location = [] }) {
         center={[12.011171324972095, 8.542933227726762]}
         zoom={[1]}
       >
+        {JSON.stringify(location)}
         {location.length &&
          location.map((state) => (
-            <Marker coordinates={[state?.latitude, state?.longitude]}>
+            <Marker coordinates={[12.011171324972095, 8.5429332277267]}>
+             {/* <Marker coordinates={[state?.latitude, state?.longitude]}>  */}
               <MapPin />
             </Marker>
           ))}

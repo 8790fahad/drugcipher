@@ -37,7 +37,11 @@ export default function ClaimToken() {
             </div>
           </Col>
           <Col md={6} sm={6} xs={6}>
-            <button className='man_button' style={{ float: 'right', cursor: 'pointer' }} onClick={() => goTo('/')}>Go To The App</button>
+            <a href='https://drugcipher.com' target='_blank'>
+              <button className='man_button' style={{ float: 'right', cursor: 'pointer' }}>
+                Go To The App
+              </button>
+            </a>
           </Col>
         </Row>
         {account.accountId
@@ -45,8 +49,7 @@ export default function ClaimToken() {
           <div className='text-center' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
             <div>
               <div className='text-center'>
-                <img src={wallet} alt='wallet' className='wall
-                git commitet' />
+                <img src={wallet} alt='wallet' className='wallet' />
               </div>
               <div>
                 <h1 className='connect'>Congratulations!</h1>
