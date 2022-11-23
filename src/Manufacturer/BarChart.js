@@ -56,7 +56,7 @@ const data = {
   datasets: [
     {
       label: "Valid Scans",
-      data: [80],
+      data: [10],
       backgroundColor: ["rgba(3, 66, 110,1)"],
       borderColor: ["rgb(3, 66, 110)"],
     },
