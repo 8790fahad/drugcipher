@@ -83,12 +83,34 @@ Form.Control:focus {
   overflow-y: auto;
 }
 
+.claim_button{
+  transition: 900ms;
+  border: var(--primaryColor2) 1px solid;
+  padding: 10px 70px;
+  background-color: var(--primaryColor2);
+  color: var(--whiteColor);
+  display: inline-block;
+
+}
+.connect{
+  font-weight: bold;
+  display: inline-block;
+  color: var(--primaryColor2);
+}
+
 .man_card_title {
   color: var(--primaryColor2);
 }
 
 .account {
   color: var(--primaryColor2);
+}
+
+.wallet{
+  width: 100px;
+}
+.connectwallet{
+  width: 120px;
 }
 
 .man_search_field {
