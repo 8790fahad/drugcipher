@@ -1,7 +1,7 @@
-import {
-  formatNearAmount,
-  parseNearAmount,
-} from "near-api-js/lib/utils/format";
+// import {
+//   formatNearAmount,
+//   parseNearAmount,
+// } from "near-api-js/lib/utils/format";
 import React, { useCallback, useEffect } from "react";
 // import { useEffect } from "react";
 import { useState } from "react";
