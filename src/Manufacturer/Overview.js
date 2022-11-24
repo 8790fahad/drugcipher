@@ -30,8 +30,8 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=valid`,
       (res) => {
-        if (res.success && res.result !== null) {
-          setDrugHistory((p) => ({ ...p, validScan: res.result.number }));
+        if (res.success ) {
+          setDrugHistory((p) => ({ ...p, validScan: res.result[0].number }));
         }
       },
       (err) => {
@@ -43,8 +43,8 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=invalid`,
       (res) => {
-        if (res.success && res.result !== null) {
-          setDrugHistory((p) => ({ ...p, invalidScan: res.result.number }));
+        if (res.success ) {
+          setDrugHistory((p) => ({ ...p, invalidScan: res.result[0].number }));
         }
       },
       (err) => {
@@ -56,8 +56,8 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=country`,
       (res) => {
-        if (res.success && res.result !== null) {
-          setDrugHistory((p) => ({ ...p, locationScan: res.result.number }));
+        if (res.success ) {
+          setDrugHistory((p) => ({ ...p, locationScan: res.result[0].number }));
         }
       },
       (err) => {
@@ -69,8 +69,8 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=anon`,
       (res) => {
-        if (res.success && res.result !== null) {
-          setDrugHistory((p) => ({ ...p, anonScan: res.result.number }));
+        if (res.success ) {
+          setDrugHistory((p) => ({ ...p, anonScan: res.result[0].number }));
         }
       },
       (err) => {
@@ -82,8 +82,8 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=location`,
       (res) => {
-        if (res.success && res.result !== null) {
-          setDrugHistory((p) => ({ ...p, location: [res.result] }));
+        if (res.success ) {
+          setDrugHistory((p) => ({ ...p, location: res.result }));
         }
       },
       (err) => {
@@ -96,8 +96,8 @@ export default function Overview() {
     _fetchApi(
       `/v1/drug-history-report?id=${id}&company_id=${info.id}&query_type=all`,
       (res) => {
-        if (res.success && res.result !== null) {
-          setDrugHistory((p) => ({ ...p, star: [res.result] }));
+        if (res.success ) {
+          setDrugHistory((p) => ({ ...p, star: res.result }));
         }
       },
       (err) => {
@@ -199,7 +199,6 @@ export default function Overview() {
               </div>
             </Card>
             <Card className="overview_card shadow p-2 mt-2">
-              {JSON.stringify(drugHistory.star)}
               <BarChart star={drugHistory.star} />
             </Card>
           </Col>
