@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { generateOptionToStringFor } from "react-typeahead/lib/accessor";
 import logo from "../image/DRUG CIPHER (2).png";
 import wallet from "../image/wallet.png";
+import checkedwallet from "../image/checkedwallet.png";
 import connectwallet from "../image/connectwallet.png";
 import useQuery from "../hooks/useQuery";
 import { _fetchApi } from "../utils/helper";
@@ -121,7 +122,7 @@ export default function ClaimToken() {
               </div>
               <p>
                 Congratulations! You have successfully received token from
-                DrugCipher.
+                DrugCipher. Click the below button to continue.
               </p>
               <button className="shadow claim_button" onClick={() => goTo("")}>
                 Claim Token
@@ -156,6 +157,29 @@ export default function ClaimToken() {
             </div>
           </div>
         )}
+        <div
+            className="text-center"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "70vh",
+            }}
+          >
+            <div>
+              <div className="text-center">
+                <img
+                  src={checkedwallet}
+                  alt="wallet"
+                  className="wallet connectwallet"
+                />
+              </div>
+              <div>
+                <h1 className="connect">Claimed</h1>
+              </div>
+              <p>You have already claimed your NEAR token.</p>
+            </div>
+          </div>
       </Card>
       <div className="text-center text-secondary">
         <p>
