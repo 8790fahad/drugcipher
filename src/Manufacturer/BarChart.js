@@ -56,7 +56,7 @@ const data = {
   datasets: [
     {
       label: "Valid Scans",
-      data: [80],
+      data: [10],
       backgroundColor: ["rgba(3, 66, 110,1)"],
       borderColor: ["rgb(3, 66, 110)"],
     },
@@ -75,7 +75,7 @@ export default function BarChart({ star = [] }) {
   return (
     <>
       <div style={{}}>
-        <Bar options={options} data={data} />
+        <Bar options={options} data={data} star={star}/>
       </div>
     </>
   );

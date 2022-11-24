@@ -21,12 +21,12 @@ export default function DrugsLocation({ location = [] }) {
         zoom={[1]}
       >
         {location.length && location[0] === null
-          ? location.map((state) => (
-              <Marker coordinates={[state?.latitude, state?.longitude]}>
-                <MapPin />
-              </Marker>
-            ))
-          : null}
+          ?
+          null : location.map((state) => (
+            <Marker coordinates={[state?.latitude, state?.longitude]}>
+              <MapPin />
+            </Marker>
+          ))}
 
         <ZoomControl />
       </Map>
