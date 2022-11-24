@@ -10,40 +10,49 @@ import { login, _fetchApi } from "../utils/helper";
 import { NotificationError } from "../utils/Notification";
 import { toast } from "react-toastify";
 import { claimToken } from "../utils/contract";
+import { Spinner } from "reactstrap";
 
 export default function ClaimToken() {
   const query = useQuery();
   const id = query.get("id");
   const [loading, setLoading] = useState(false);
+  const [_claim, setClaim] = useState(false);
   const goTo = useNavigate();
   const account = window.walletConnection.account();
+  const _fun = async () => {
+    try {
+      await claimToken("0.01", account.accountId).then(() => {
+        _fetchApi(
+          `/v1/claim-api-verify?id=${id}&query_type=update`,
+          (res) => {
+            if (res.success) {
+              setClaim(true);
+            }
+          },
+          (err) => {
+            console.log(err);
+            setLoading(false);
+          }
+        );
+      });
+    } catch (error) {
+      toast(<NotificationError text="Claimed Already" />);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const claim = async () => {
+  const claim = () => {
     setLoading(true);
     _fetchApi(
       `/v1/claim-api-verify?id=${id}&query_type=verify`,
       (res) => {
+        console.log("res")
+        console.log(res)
+        console.log(res)
         if (res.success && res.result.length) {
-          try {
-            claimToken("0.01", account.accountId).then(() => {
-              _fetchApi(
-                `/v1/claim-api-verify?id=${id}&query_type=update`,
-                (res) => {
-                  if (res.success && res.result.length) {
-                  }
-                },
-                (err) => {
-                  console.log(err);
-                  setLoading(false);
-                }
-              );
-            });
-          } catch (error) {
-            toast(<NotificationError text="Claimed Already" />);
-            setLoading(false);
-          } finally {
-            setLoading(false);
-          }
+          _fun();
         }
       },
       (err) => {
@@ -103,25 +112,51 @@ export default function ClaimToken() {
               height: "70vh",
             }}
           >
-            <div>
-              <div className="text-center">
-                <img src={wallet} alt="wallet" className="wallet" />
-              </div>
+            {!_claim ? (
               <div>
-                <h1 className="connect">Congratulations!</h1>
+                <div className="text-center">
+                  <img src={wallet} alt="wallet" className="wallet" />
+                </div>
+                <div>
+                  <h1 className="connect">Congratulations!</h1>
+                </div>
+                <p>
+                  Congratulations! You have successfully received token from
+                  DrugCipher. Click the below button to continue.
+                </p>
+                <button
+                  className="shadow claim_button"
+                  onClick={claim}
+                  disabled={loading}
+                >
+                  {!loading ? "Claim Token" : <Spinner size="sm" />}
+                </button>
               </div>
-              <p>
-                Congratulations! You have successfully received token from
-                DrugCipher. Click the below button to continue.
-              </p>
-              <button
-                className="shadow claim_button"
-                onClick={claim}
-                disabled={loading}
+            ) : (
+              <div
+                className="text-center"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "70vh",
+                }}
               >
-                {!loading ? "Claim Token" : "Claiming"}
-              </button>
-            </div>
+                <div>
+                  <div className="text-center">
+                    <img
+                      src={checkedwallet}
+                      alt="wallet"
+                      className="wallet connectwallet"
+                    />
+                  </div>
+                  <div>
+                    <h1 className="connect">Claimed</h1>
+                  </div>
+                  <p>You have already claimed your NEAR token.</p>
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div
@@ -151,29 +186,6 @@ export default function ClaimToken() {
             </div>
           </div>
         )}
-        <div
-            className="text-center"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "70vh",
-            }}
-          >
-            <div>
-              <div className="text-center">
-                <img
-                  src={checkedwallet}
-                  alt="wallet"
-                  className="wallet connectwallet"
-                />
-              </div>
-              <div>
-                <h1 className="connect">Claimed</h1>
-              </div>
-              <p>You have already claimed your NEAR token.</p>
-            </div>
-          </div>
       </Card>
       <div className="text-center text-secondary">
         <p>
