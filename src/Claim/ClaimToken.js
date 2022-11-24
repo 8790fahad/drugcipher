@@ -6,7 +6,7 @@ import wallet from "../image/wallet.png";
 import connectwallet from "../image/connectwallet.png";
 import useQuery from "../hooks/useQuery";
 import { login, _fetchApi } from "../utils/helper";
-import { NotificationError, NotificationSuccess } from "../utils/Notification";
+import { NotificationError } from "../utils/Notification";
 import { toast } from "react-toastify";
 import { claimToken } from "../utils/contract";
 
@@ -17,47 +17,40 @@ export default function ClaimToken() {
   const goTo = useNavigate();
   const account = window.walletConnection.account();
 
-  const claimStatusUpdate = useCallback(() => {
-    _fetchApi(
-      `/v1/claim-api-verify?id=${id}&query_type=update`,
-      (res) => {
-        if (res.success) {
-          toast(<NotificationSuccess text="Claimed successfully" />);
-          setLoading(false);
-        }
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, [id]);
-  const claim = useCallback(async () => {
-    setLoading(true);
-    try {
-      await claimToken("0.01", account.accountId);
-      claimStatusUpdate();
-    } catch (error) {
-      toast(<NotificationError text="Claimed Already" />);
-      setLoading(false);
-    } finally {
-      setLoading(false);
-    }
-  }, [account.accountId, claimStatusUpdate]);
-
-  const claimStatusVerify = useCallback(() => {
+  const claim = async () => {
     setLoading(true);
     _fetchApi(
       `/v1/claim-api-verify?id=${id}&query_type=verify`,
       (res) => {
         if (res.success && res.result.length) {
-          claim();
+          try {
+            claimToken("0.01", account.accountId).then(() => {
+              _fetchApi(
+                `/v1/claim-api-verify?id=${id}&query_type=update`,
+                (res) => {
+                  if (res.success && res.result.length) {
+                  }
+                },
+                (err) => {
+                  console.log(err);
+                  setLoading(false);
+                }
+              );
+            });
+          } catch (error) {
+            toast(<NotificationError text="Claimed Already" />);
+            setLoading(false);
+          } finally {
+            setLoading(false);
+          }
         }
       },
       (err) => {
         console.log(err);
+        setLoading(false);
       }
     );
-  }, [claim, id]);
+  };
 
   return (
     <div className="container">
@@ -122,10 +115,10 @@ export default function ClaimToken() {
               </p>
               <button
                 className="shadow claim_button"
-                onClick={claimStatusVerify}
+                onClick={claim}
                 disabled={loading}
               >
-                {loading ? "Claim Token" : "Claiming"}
+                {!loading ? "Claim Token" : "Claiming"}
               </button>
             </div>
           </div>
