@@ -49,7 +49,7 @@ export async function deleteDrugInfo(id) {
 
 export async function claimToken(amount, to) {
   await window.contract.claim_token({
-    amount: amount,
+    amount: parseNearAmount(amount + ""),
     to: to,
   });
 }

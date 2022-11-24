@@ -1,13 +1,12 @@
 import React, { useCallback, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { generateOptionToStringFor } from "react-typeahead/lib/accessor";
 import logo from "../image/DRUG CIPHER (2).png";
 import wallet from "../image/wallet.png";
 import checkedwallet from "../image/checkedwallet.png";
 import connectwallet from "../image/connectwallet.png";
 import useQuery from "../hooks/useQuery";
-import { _fetchApi } from "../utils/helper";
+import { login, _fetchApi } from "../utils/helper";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 import { toast } from "react-toastify";
 import { claimToken } from "../utils/contract";
@@ -19,11 +18,13 @@ export default function ClaimToken() {
   const goTo = useNavigate();
   const account = window.walletConnection.account();
 
-  const claimStatusVerify = useCallback(() => {
+  const claimStatusUpdate = useCallback(() => {
     _fetchApi(
-      `/v1/claim-api-verify?id=${id}&query_type=verify`,
+      `/v1/claim-api-verify?id=${id}&query_type=update`,
       (res) => {
         if (res.success) {
+          toast(<NotificationSuccess text="Claimed successfully" />);
+          setLoading(false);
         }
       },
       (err) => {
@@ -31,37 +32,33 @@ export default function ClaimToken() {
       }
     );
   }, [id]);
-  const claim = async (id, price) => {
+  const claim = useCallback(async () => {
+    setLoading(true);
     try {
-      await claimToken({
-        id,
-        price,
-      });
-      toast(<NotificationSuccess text="Product bought successfully" />);
+      await claimToken("0.01", account.accountId);
+      claimStatusUpdate();
     } catch (error) {
-      toast(<NotificationError text="Failed to purchase product." />);
+      toast(<NotificationError text="Claimed Already" />);
+      setLoading(false);
     } finally {
       setLoading(false);
     }
-  };
+  }, [account.accountId, claimStatusUpdate]);
 
-  const claimStatusUpdate = useCallback(
-    (sucess = (f) => f, error = (f) => f) => {
-      _fetchApi(
-        `/v1/claim-api-verify?id=${id}&query_type=update`,
-        (res) => {
-          if (res.success) {
-            sucess();
-          }
-        },
-        (err) => {
-          error();
-          console.log(err);
+  const claimStatusVerify = useCallback(() => {
+    setLoading(true);
+    _fetchApi(
+      `/v1/claim-api-verify?id=${id}&query_type=verify`,
+      (res) => {
+        if (res.success && res.result.length) {
+          claim();
         }
-      );
-    },
-    [id]
-  );
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [claim, id]);
 
   return (
     <div className="container">
@@ -124,8 +121,12 @@ export default function ClaimToken() {
                 Congratulations! You have successfully received token from
                 DrugCipher. Click the below button to continue.
               </p>
-              <button className="shadow claim_button" onClick={() => goTo("")}>
-                Claim Token
+              <button
+                className="shadow claim_button"
+                onClick={claimStatusVerify}
+                disabled={loading}
+              >
+                {loading ? "Claim Token" : "Claiming"}
               </button>
             </div>
           </div>
@@ -151,7 +152,7 @@ export default function ClaimToken() {
                 <h1 className="connect">Connect Wallet</h1>
               </div>
               <p>Connect your wallet to claim your NEAR token.</p>
-              <button className="shadow claim_button" onClick={() => goTo("")}>
+              <button className="shadow claim_button" onClick={login}>
                 Connect Wallet
               </button>
             </div>
