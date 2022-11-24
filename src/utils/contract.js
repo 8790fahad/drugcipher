@@ -46,3 +46,10 @@ export async function deleteDrugInfo(id) {
     id: id,
   });
 }
+
+export async function claimToken(amount, to) {
+  await window.contract.claim_token({
+    amount: amount,
+    to: to,
+  });
+}
