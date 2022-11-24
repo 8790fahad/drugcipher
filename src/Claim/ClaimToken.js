@@ -32,14 +32,16 @@ export default function ClaimToken() {
           (err) => {
             console.log(err);
             setLoading(false);
+            toast(<NotificationError text="Error Occured" />);
           }
         );
       });
     } catch (error) {
-      toast(<NotificationError text="Claimed Already" />);
       setLoading(false);
+      toast(<NotificationError text="Error Occured" />);
     } finally {
       setLoading(false);
+      toast(<NotificationError text="Error Occured" />);
     }
   };
 
@@ -48,11 +50,10 @@ export default function ClaimToken() {
     _fetchApi(
       `/v1/claim-api-verify?id=${id}&query_type=verify`,
       (res) => {
-        console.log("res")
-        console.log(res)
-        console.log(res)
         if (res.success && res.result.length) {
           _fun();
+        } else {
+          toast(<NotificationError text="Claimed Already" />);
         }
       },
       (err) => {
