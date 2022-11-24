@@ -1,14 +1,66 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { generateOptionToStringFor } from "react-typeahead/lib/accessor";
 import logo from "../image/DRUG CIPHER (2).png";
 import wallet from "../image/wallet.png";
 import connectwallet from "../image/connectwallet.png";
+import useQuery from "../hooks/useQuery";
+import { _fetchApi } from "../utils/helper";
+import { NotificationError, NotificationSuccess } from "../utils/Notification";
+import { toast } from "react-toastify";
+import { claimToken } from "../utils/contract";
 
 export default function ClaimToken() {
+  const query = useQuery();
+  const id = query.get("id");
+  const [loading, setLoading] = useState(false);
   const goTo = useNavigate();
   const account = window.walletConnection.account();
+
+  const claimStatusVerify = useCallback(() => {
+    _fetchApi(
+      `/v1/claim-api-verify?id=${id}&query_type=verify`,
+      (res) => {
+        if (res.success) {
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [id]);
+  const claim = async (id, price) => {
+    try {
+      await claimToken({
+        id,
+        price,
+      });
+      toast(<NotificationSuccess text="Product bought successfully" />);
+    } catch (error) {
+      toast(<NotificationError text="Failed to purchase product." />);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const claimStatusUpdate = useCallback(
+    (sucess = (f) => f, error = (f) => f) => {
+      _fetchApi(
+        `/v1/claim-api-verify?id=${id}&query_type=update`,
+        (res) => {
+          if (res.success) {
+            sucess();
+          }
+        },
+        (err) => {
+          error();
+          console.log(err);
+        }
+      );
+    },
+    [id]
+  );
 
   return (
     <div className="container">
@@ -62,7 +114,7 @@ export default function ClaimToken() {
           >
             <div>
               <div className="text-center">
-                <img src={wallet} alt="wallet" className="" />
+                <img src={wallet} alt="wallet" className="wallet" />
               </div>
               <div>
                 <h1 className="connect">Congratulations!</h1>

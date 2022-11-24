@@ -19,6 +19,7 @@ export async function initializeContract() {
         "set_drug_info",
         "recall_drug_fun",
         "delete_drug_info",
+        "claim_token"
       ],
     }
   );
