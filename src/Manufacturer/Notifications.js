@@ -10,7 +10,7 @@ import { _fetchApi } from "../utils/helper";
 import { NotificationError, NotificationSuccess } from "../utils/Notification";
 export default function Notifications() {
   const { info } = useSelector((state) => state.account.account);
-  const [loadingDelete, setLoadingDelete] = useState(false);
+  const [setLoadingDelete] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loadingScanDel, setLoadingScanDel] = useState(false);
   const [drugData, setDrugData] = useState([]);
