@@ -28,13 +28,4 @@ users to have total control over products they consume.</p>
 <li>Save your passphrase and click "go to the app" button.</li>
 </ol>
 
-<h2>How to use DrugCipher Mobile App</h2>
-<p>https://github.com/8790fahad/drug-cipher-mobile</p>
-<p>DrugCipher Mobile app allow users to scan drug and claim token as a reward.</p>
-<ol>
-<li>Go to playstore and search for DrugCipher</li>
-<li>Download and install it.</li>
-<li>Click the scan button.</li>
-<li>Grab your drug and scan the QR Code placed on it.</li>
-<li>If it's successfully scanned, click on the "claim" button to claim your token</li>
-</ol>
+
