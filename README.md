@@ -1,22 +1,12 @@
 <h1>DrugCiper</h1>
-<p>DrugCipher introduces a safer and more reliable means of eradicating the
-problems of drug counterfeiting in the ever-growing world of the pharmaceutical
-Industry; although prior solutions to validating pharmaceutical products where
-the focus is placed on validating the content of pharmaceutical products alone;
-DrugCipher extends this solution to enhance mainstream adoption, enabling
-users to have total control over products they consume.</p>
-
-<h2>What it does</h2>
-<p>DrugCipher enables drug manufacturers to record their drug data on the blockchain using NEAR protocol, these drug data are then encrypted on Secured QR codes that are going to be placed on drug containers, packets, and blister packs for scan purposes. Manufacturers can also recall their products rendering them unusable. The DrugCipher mobile app enables patients to scan the QR code and check the authenticity of drugs while earning tokens to promote consumer protection. For each scanned drug, manufacturers are able to track the scan location on their web interface.</p>
+<p>DrugCipher is a blockchain base anti-counterfeit system for storing drug information on the blockchain.</p>
 
 <h2>Architecture</h2>
 <h4>DrugCipher Web App Architecture</h4>
 <img src="https://res.cloudinary.com/dx5ilizca/image/upload/v1669375287/DrugCipher-Web_App_flexoq.png" alt="DrugCipher Web App Arch.">
 
-<h4>DrugCipher Mobile App Architecture</h4>
-<img src="https://res.cloudinary.com/dx5ilizca/image/upload/v1669375286/DrugCipher-Mobile_App_x7qx2j.png">
-
 <h2>How to use DrugCipher as a manufacturer</h2>
+<P>https://drugcipher.com</p>
 <p>DrugCipher provides an interface for manufacturers to store drug information, sole agents, marketers. Manufacturers can also track and recall their drugs.</p>
 <ol>
 <li>First of all, as a manufacturer; visit https://drugcipher.com</li>
