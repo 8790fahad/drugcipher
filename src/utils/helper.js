@@ -27,7 +27,7 @@ export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near";
 const serverUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:61013"
-    : "https://galaxybis.ebudgetkano.ng/xyz";
+    : "https://galaxybis.ebudgetkano.ng/xxxyyyzzz";
 export const apiURL = serverUrl + "/api";
 
 const _fetchApi = (
