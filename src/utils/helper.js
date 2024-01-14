@@ -25,11 +25,9 @@ export function logout() {
 export const WALLET_ID = process.env.WALLET_ID || "drugcipher.near";
 
 const serverUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://192.168.43.244:34561"
-  //   :
-    //  "https://yge.wvi.mybluehost.me/test/drug-cipher-server";
-     "https://galaxybis.ebudgetkano.ng/xyz"
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:61013"
+    : "https://galaxybis.ebudgetkano.ng/xyz";
 export const apiURL = serverUrl + "/api";
 
 const _fetchApi = (
